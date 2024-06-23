@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets"
+import { tv } from "tailwind-variants"
+
+import data from "~/data/site.json"
+
+export interface Props {
+  img?: ImageMetadata
+  src?: string
+  alt?: string
+  full?: boolean
+  layout?: "cover" | "contain" | "fill"
+  width?: number
+  height?: number
+  widths?: number[]
+  sizes?: string
+  loading?: "eager" | "lazy" | null | undefined
+  class?: string
+}
+
+const {
+  img,
+  src,
+  alt = "",
+  full = true,
+  layout = "cover",
+  width = 0,
+  height = 0,
+  widths = [320, 500, 800, 1080, 1600, 2000 /*img.width*/],
+  sizes = `(max-width: 480px) 320px, (max-width: 768px) 500px, (max-width: 992px) 800px, (max-width: 1280px) 1080px, (max-width: 1600px) 1600px, 2000px`,
+  loading = "lazy",
+  class: className,
+  ...attributes
+} = Astro.props
+
+const image = tv({
+  base: "aspect-square rounded-2xl shadow-md",
+  variants: {
+    full: {
+      true: "size-full",
+    },
+    layout: {
+      cover: "object-cover",
+      contain: "object-contain",
+      fill: "object-fill",
+    },
+    defaultVariants: {
+      full: true,
+      layout: "cover",
+    },
+  },
+})
+
+let imageMetadata: ImageMetadata | undefined
+let imageSrc: string | ImageMetadata | Promise<{ default: ImageMetadata }>
+
+// direct transfer
+if (img) imageSrc = img
+// given image path
+else if (src) {
+  const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif,webp,avif}")
+  const imageImport = images[src]?.()
+  if (imageImport) {
+    imageMetadata = (await imageImport).default
+    imageSrc = imageMetadata
+  } else imageSrc = data.site.placeholderImage
+  // placeholder image
+} else imageSrc = data.site.placeholderImage
+---
+
+<Image
+  src={imageSrc as ImageMetadata}
+  alt={alt}
+  width={width ? width : !img && !imageMetadata ? 600 : undefined}
+  height={height ? height : !img && !imageMetadata ? 600 : undefined}
+  widths={width ? undefined : widths}
+  sizes={width ? undefined : sizes}
+  class:list={[image({ full: full, layout: layout }), className]}
+  loading={loading}
+  {...attributes}
+/>

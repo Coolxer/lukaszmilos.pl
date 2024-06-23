@@ -1,0 +1,26 @@
+{
+  "company": {
+    "name": "",
+    "address": "",
+    "email": ["test@gmail.com", "test@gmail.com"],
+    "phone": ["123 456 789", "123 456 789"]
+  },
+  "site": {
+    "domain": "https://domena.pl",
+    "meta": {
+      "home-title": "Oficjalna strona Łukasza Miłoś",
+      "home-description": "Opis strony głównej",
+      "meta-title-template": "%s - Nazwa brandu",
+      "og-image": {
+        "src": "/og-default.jpg",
+        "alt": "Moja strona"
+      }
+    },
+    "integrations": {
+      "google-search-console": "",
+      "google-analytics": ""
+    },
+    "blogItemsPerPage": 3,
+    "placeholderImage": "/placeholder.webp"
+  }
+}

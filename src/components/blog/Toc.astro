@@ -1,0 +1,17 @@
+---
+import { buildToc } from "@utils/utils"
+import TocHeading from "@components/blog/TocHeading.astro"
+
+const { headings } = Astro.props
+
+const toc = buildToc(headings)
+---
+
+<div>
+  <span>Spis treści</span>
+  <nav>
+    <ul class="py-3">
+      {toc.map((heading) => <TocHeading heading={heading} />)}
+    </ul>
+  </nav>
+</div>

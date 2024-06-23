@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components"
+
+export interface Props {
+  items: string[]
+  interactive?: boolean
+  class?: string
+}
+
+const { items, interactive = false, class: className, ...attributes } = Astro.props
+---
+
+<ul class:list={["flex flex-col gap-3", className]} {...attributes}>
+  {
+    items.map((item) => (
+      <li
+        class:list={["flex flex-row items-center gap-2", interactive && "duration-500 ease-in-out hover:translate-x-3"]}
+      >
+        <Icon name="chevron-right" width={48} height={48} />
+        {item}
+      </li>
+    ))
+  }
+</ul>

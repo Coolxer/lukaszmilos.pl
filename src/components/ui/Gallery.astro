@@ -1,0 +1,106 @@
+---
+import type { ImageMetadata } from "astro"
+
+import "photoswipe/photoswipe.css"
+
+import MyImage from "@components/ui/MyImage.astro"
+
+type image = {
+  data: ImageMetadata
+  alt: string
+}
+
+export interface Props {
+  id: string
+  images: image[]
+  carousel?: boolean
+  zoom?: boolean
+  height?: string
+  class?: string
+}
+
+const { id, images, carousel = false, zoom = false, height = "h-80", class: className, ...attributes } = Astro.props
+---
+
+<astro-gallery data-id={id}>
+  <div
+    id={id}
+    class:list={[
+      "pswp-gallery",
+      !carousel
+        ? "grid grid-cols-1 place-content-stretch place-items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3"
+        : "relative h-56 overflow-hidden md:h-96",
+      className,
+    ]}
+    {...attributes}
+  >
+    {
+      images?.map((image) => (
+        <a
+          href={image.data.src}
+          data-pswp-width={image.data.width}
+          data-pswp-height={image.data.height}
+          target="_blank"
+          class:list={["rounded-box shadow", zoom && "overflow-hidden", carousel && "hidden duration-700 ease-in-out"]}
+          data-carousel-item={carousel ? true : undefined}
+        >
+          <MyImage
+            img={image.data}
+            alt={image.alt}
+            widths={[320, 500, 800]}
+            sizes={`(max-width: 480px) 320px, (max-width: 768px) 500px, 800px`}
+            class:list={["object-cover", height, zoom && "transition-transform duration-500 hover:scale-110"]}
+          />
+        </a>
+      ))
+    }
+  </div>
+</astro-gallery>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox"
+
+  class AstroGallery extends HTMLElement {
+    constructor() {
+      super()
+    }
+
+    connectedCallback() {
+      const galleryId = this.dataset.id
+
+      const lightbox = new PhotoSwipeLightbox({
+        bgOpacity: 1,
+        showHideAnimationType: "fade",
+
+        // initialZoomLevel: "fill",
+        // secondaryZoomLevel: 1,
+        // maxZoomLevel: 2,
+
+        //imageClickAction: "close",
+        //tapAction: "close",
+        // doubleTapAction: false,
+
+        loop: true,
+        spacing: 0.1,
+
+        closeTitle: "Zamknij okno",
+        zoomTitle: "Przybliż zdjęcie",
+        arrowPrevTitle: "Poprzednie zdjęcie",
+        arrowNextTitle: "Następne zdjęcie",
+
+        indexIndicatorSep: " z ",
+        errorMsg: "Zdjęcie nie może być załadowane",
+
+        gallery: "#" + galleryId,
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+
+        // can also add captions
+      })
+
+      lightbox.init()
+    }
+  }
+
+  customElements.define("astro-gallery", AstroGallery)
+</script>

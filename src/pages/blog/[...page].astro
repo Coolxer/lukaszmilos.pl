@@ -1,0 +1,63 @@
+---
+import type { Page, PaginateFunction } from "astro"
+import { type CollectionEntry, getCollection } from "astro:content"
+
+import { slugify } from "@utils/utils"
+import data from "~/data/site.json"
+
+import BlogLayout from "@layouts/BlogLayout.astro"
+
+import { type Meta } from "@components/core/MySEO.astro"
+
+/* no pagination*/
+// const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+//   .filter((post) => !post.data.draft)
+//   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+const meta: Meta = {
+  title: "Blog Łukasza",
+  description: "Opis do bloga",
+}
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+  const categories = [...new Set(posts.map((post) => post.data.categories).flat())]
+
+  const paginatedPosts = paginate(posts, { pageSize: data.site.blogItemsPerPage })
+
+  return paginatedPosts.map((page) => ({
+    params: page.params,
+    props: {
+      ...page.props,
+      categories,
+    },
+  }))
+}
+
+interface Props {
+  page: Page
+  categories: string[]
+}
+
+const { page, categories } = Astro.props
+---
+
+<BlogLayout page={page} meta={meta}>
+  <ul class="flex flex-wrap justify-center text-center text-sm font-medium text-gray-500 dark:text-gray-400">
+    {
+      categories?.map((category) => (
+        <li class="me-2">
+          <a
+            href={`/blog/kategoria/${slugify(category)}/`}
+            class="inline-block rounded-lg px-4 py-3 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
+          >
+            {category}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BlogLayout>

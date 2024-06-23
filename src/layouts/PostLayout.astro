@@ -1,0 +1,81 @@
+---
+import type { MarkdownHeading } from "astro"
+import type { CollectionEntry } from "astro:content"
+
+import { readingTime } from "@utils/utils"
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Layout from "@layouts/Layout.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Toc from "~/components/blog/Toc.astro"
+import PostNavigation from "~/components/blog/PostNavigation.astro"
+import MyBreadCrumbs from "~/components/widgets/MyBreadCrumbs.astro"
+import PostCard from "~/components/blog/PostCard.astro"
+
+export interface Props {
+  post: CollectionEntry<"blog">
+  headings: MarkdownHeading[]
+  meta: Meta
+  schema?: Schema
+  relatedPosts: CollectionEntry<"blog">[]
+  prevPost: CollectionEntry<"blog"> | null
+  nextPost: CollectionEntry<"blog"> | null
+}
+
+const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } = Astro.props
+---
+
+<Layout meta={meta} schema={schema}>
+  <header class="align-center flex flex-col items-center gap-5 bg-slate-200 py-10">
+    <!-- Breadcrumbs -->
+    <MyBreadCrumbs />
+    <h1>{post.data.title}</h1>
+    <p class="text-lg">{post.data.subheading}</p>
+
+    <!-- Reading time -->
+    <!-- <div class="flex flex-col text-center">
+      {readingTime(post.body)}
+    </div> -->
+  </header>
+
+  <Section noVerticalPadding>
+    <div class="flex items-center justify-center">
+      <MyImage src={post.data.image.src} alt={post.data.image.alt} class="w-1/2" />
+    </div>
+  </Section>
+
+  <Section>
+    <!--Leading -->
+    <p class="text-lg">{post.data.leading}</p>
+
+    <!-- Table of Contents -->
+    <Toc headings={headings} />
+
+    <!-- Content -->
+    <article class="prose lg:prose-xl">
+      <slot />
+    </article>
+  </Section>
+
+  <!-- Post categories -->
+  <Section>
+    <div class="flex flex-row gap-3">
+      {post.data.categories.map((category) => <div class="rounded-badge bg-slate-300 p-2 shadow">{category}</div>)}
+    </div>
+  </Section>
+
+  <!-- Related posts -->
+  <Section>
+    <p>Powiązane posty</p>
+    <Row>
+      {relatedPosts.length > 0 && relatedPosts.map((post) => <PostCard post={post} />)}
+    </Row>
+  </Section>
+
+  <!-- Post navigation -->
+  <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+</Layout>

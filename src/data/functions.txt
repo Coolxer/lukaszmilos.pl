@@ -1,0 +1,39 @@
+# Funkcje strony
+
+- sitemap, robots
+- tagi meta
+- date strukturyzowane
+- tag kanoniczny
+- przekierowania (astro.config.mjs)
+
+
+- Główne style: 
+    - src/assets/styles/global.css
+    - ~/tailwind.config.mjs
+
+- favicons
+- icons
+
+- ciasteczka, baner, consent mode V2 (zewnętrzny kod)
+
+- google search console
+- google analytics
+- pixel facebook
+- hotjar
+
+- dodatkowa belka w menu (góra / dół)
+
+- galeria z lightboxem (photoswipe)
+- slider (karuzela)
+- FAQ
+- animacje
+
+- formularz kontaktowy
+- live chat
+- kalkulator
+- kalendarz rezerwacji
+- google maps
+- opinie google
+
+- polityka prywatności
+- regulamin

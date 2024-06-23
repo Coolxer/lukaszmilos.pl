@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from "astro/types"
+import { tv } from "tailwind-variants"
+
+export interface Props extends HTMLAttributes<"a"> {
+  variant?: "primary" | "secondary" | "link"
+  size?: "sm" | "md" | "lg"
+  link: string
+  class?: string
+}
+
+const { variant = "primary", size = "md", link, class: className, ...attributes } = Astro.props
+
+const button = tv({
+  base: "align-center inline-flex flex-row items-center justify-center gap-2 duration-300 ease-in-out",
+  variants: {
+    variant: {
+      primary:
+        "rounded border border-accent bg-accent text-white shadow-md hover:scale-105 hover:border-accent-300 hover:bg-accent-300",
+      secondary: "rounded border border-black bg-transparent text-black shadow-md hover:scale-105",
+      link: "hover:text-accent",
+    },
+    size: {
+      sm: "px-3 text-sm",
+      md: "text-md px-5 py-2",
+      lg: "px-5 py-3 text-lg",
+    },
+  },
+  compoundVariants: [
+    {
+      variant: "link",
+      size: ["sm", "md", "lg"],
+      class: "pl-0",
+    },
+  ],
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+})
+---
+
+<a href={link} class:list={[button({ variant: variant, size: size }), className]} {...attributes}><slot /></a>

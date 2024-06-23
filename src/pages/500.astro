@@ -1,0 +1,15 @@
+---
+import Section from "@components/core/Section.astro"
+import Layout from "@layouts/Layout.astro"
+
+import { type Meta } from "@components/core/MySEO.astro"
+
+const meta: Meta = {
+  title: "500. Błąd wewnątrzny serwera",
+  description: "Wystąpił błąd wewnętrzny serwera",
+}
+---
+
+<Layout meta={meta}>
+  <Section><h1>500. Wewnętrzny błąd serwera</h1> </Section>
+</Layout>

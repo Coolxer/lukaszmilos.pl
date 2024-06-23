@@ -1,0 +1,26 @@
+---
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Layout from "@layouts/Layout.astro"
+import MyBreadCrumbs from "~/components/widgets/MyBreadCrumbs.astro"
+
+export interface Props {
+  pageTitle: string
+  pageDescription?: string
+  meta: Meta
+  schema?: Schema
+  breadcrumbs?: boolean
+}
+
+const { pageTitle, pageDescription = null, meta, schema, breadcrumbs = false } = Astro.props
+---
+
+<Layout meta={meta} schema={schema}>
+  <header class="align-center flex flex-col items-center gap-5 bg-slate-200 py-5">
+    {breadcrumbs && <MyBreadCrumbs />}
+    <h1>{pageTitle}</h1>
+    {pageDescription && <p>{pageDescription}</p>}
+  </header>
+
+  <slot />
+</Layout>

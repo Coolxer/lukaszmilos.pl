@@ -1,0 +1,97 @@
+---
+import type { Page } from "astro"
+import { Icon } from "astro-icon/components"
+import data from "~/data/site.json"
+
+export interface Props {
+  page: Page
+}
+
+const { page } = Astro.props
+
+const generatePageNumbers = () => {
+  const maxPagesToShow = 5
+  let pages = []
+
+  const lastPage = Math.ceil(page.total / data.site.blogItemsPerPage)
+
+  if (lastPage <= maxPagesToShow) {
+    // If we have 5 or fewer pages, show all pages
+    for (let i = 1; i <= lastPage; i++) {
+      pages.push(i)
+    }
+  } else {
+    // If we have more than 5 pages
+    pages = [1, 2, 3, "...", lastPage]
+  }
+
+  return pages
+}
+
+const pageNumbers = generatePageNumbers()
+---
+
+<nav aria-label="Page navigation" class="py-5">
+  <ul class="flex h-10 items-center -space-x-px text-base">
+    <li>
+      {
+        page.url.prev ? (
+          <a
+            href={page.url.prev}
+            class="ms-0 flex h-10 items-center justify-center rounded-s-lg border border-e-0 border-slate-300 bg-white px-4 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
+            <span class="sr-only">Poprzednie</span>
+            <Icon name="chevron-left" width={24} height={24} />
+          </a>
+        ) : (
+          <div class="ms-0 flex h-10 items-center justify-center rounded-s-lg border border-e-0 border-slate-300 bg-white px-4 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <Icon name="chevron-left" width={24} height={24} />
+          </div>
+        )
+      }
+    </li>
+
+    {
+      pageNumbers.map((num) =>
+        num === "..." ? (
+          <li class="flex h-10 items-center justify-center border border-slate-300 bg-white px-4 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            ...
+          </li>
+        ) : (
+          <li>
+            <a
+              href={num !== 1 ? `/blog/${num}/` : "/blog/"}
+              class:list={[
+                "flex h-10 items-center justify-center border px-4 leading-tight ",
+                num === page.currentPage
+                  ? "border-blue-300 bg-blue-50 text-blue-600 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                  : "border-slate-300 bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+              ]}
+              aria-current={num === page.currentPage ? "page" : undefined}
+            >
+              {num}
+            </a>
+          </li>
+        )
+      )
+    }
+
+    <li>
+      {
+        page.url.next ? (
+          <a
+            href={page.url.next}
+            class="flex h-10 items-center justify-center rounded-e-lg border border-slate-300 bg-white px-4 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
+            <span class="sr-only">Następne</span>
+            <Icon name="chevron-right" width={24} height={24} />
+          </a>
+        ) : (
+          <div class="flex h-10 items-center justify-center rounded-e-lg border border-slate-300 bg-white px-4 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <Icon name="chevron-right" width={24} height={24} />
+          </div>
+        )
+      }
+    </li>
+  </ul>
+</nav>

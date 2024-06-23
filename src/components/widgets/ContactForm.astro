@@ -1,0 +1,197 @@
+---
+const emailData = {
+  key: "9bcaf1c6-2e0e-468a-a3df-caa7f49bc55c",
+  subject: "Nowa wiadomość ze strony www",
+  from: "Nowa wiadomość ze strony www",
+}
+
+const statuses = {
+  sending: "Wysyłanie...",
+  success: "Wiadomość została wysłana",
+  error: "Błąd: ",
+}
+
+const errors = {
+  emailRequired: "E-mail jest wymagany",
+  emailInvalid: "Podany e-mail jest nieprawidłowy",
+  messageRequired: "Wiadomość jest wymagana",
+  somethingWentWrong: "Coś poszło nie tak",
+}
+---
+
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  id="form"
+  class="needs-validation flex flex-col gap-7"
+  data-astro-reload
+  novalidate
+>
+  <input type="hidden" name="access_key" value={emailData.key} />
+
+  <!-- Spam prevention -->
+  <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+
+  <!-- Subject -->
+  <input type="hidden" name="subject" value={emailData.subject} />
+
+  <!-- From name -->
+  <input type="hidden" name="from_name" value={emailData.from} />
+
+  <!-- E-mail -->
+  <div class="flex flex-col gap-2">
+    <label for="email" class="">
+      E-mail <span class="text-danger">*</span>
+    </label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      required
+      placeholder="Twój adres e-mail"
+      class="rounded-badge border p-2.5 text-sm focus:border-accent"
+    />
+    <div class="empty-feedback">{errors.emailRequired}</div>
+    <div class="invalid-feedback">{errors.emailInvalid}</div>
+  </div>
+
+  <!-- Message -->
+  <div class="flex flex-col gap-2">
+    <label for="message" class="">
+      Wiadomość <span class="text-danger">*</span>
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="8"
+      cols="50"
+      required
+      placeholder="Twoja wiadomość"
+      class="rounded-badge border border-slate-500 p-2.5 text-sm text-black focus:border-accent"></textarea>
+    <div class="empty-feedback invalid-feedback">{errors.messageRequired}</div>
+  </div>
+
+  <!-- Terms -->
+  <div class="flex flex-col gap-2">
+    <label for="terms" class="text-sm">
+      <input
+        id="terms"
+        name="terms"
+        type="checkbox"
+        required
+        class="focus:ring-3 mr-2 h-4 w-4 border-slate-500 focus:border-accent"
+      />
+      Zgadzam się z{" "}
+      <a href="#" class="text-accent hover:underline">
+        polityką prywatności <span class="text-danger">*</span>
+      </a>
+    </label>
+  </div>
+
+  <!-- Submit -->
+  <button
+    type="submit"
+    class="text-mdr self-start rounded border border-accent bg-accent px-10 py-2 text-white shadow-md duration-300 ease-in-out hover:scale-105 hover:border-accent-300 hover:bg-accent-300"
+  >
+    Wyślij wiadomość
+  </button>
+
+  <div id="result" class="p-2 text-center"></div>
+</form>
+
+<style>
+  .invalid-feedback,
+  .empty-feedback,
+  .error {
+    display: none;
+    @apply rounded-badge bg-danger-100 p-2 text-sm text-danger shadow-sm;
+  }
+
+  .success {
+    @apply rounded-badge bg-success-100 p-2 text-sm text-success shadow-sm;
+  }
+
+  .sending {
+    @apply rounded-badge bg-accent-100 p-2 text-sm text-accent shadow-sm;
+  }
+
+  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+    display: block;
+  }
+
+  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .is-invalid,
+  .was-validated :invalid {
+    @apply border-danger;
+  }
+
+  .is-invalid,
+  .was-validated :focus {
+    @apply border-accent;
+  }
+</style>
+
+<script is:inline define:vars={{ statuses, errors }}>
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      const form = document.getElementById("form")
+      const result = document.getElementById("result")
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault()
+        form.classList.add("was-validated")
+
+        if (!form.checkValidity()) {
+          form.querySelectorAll(":invalid")[0].focus()
+          return
+        }
+        const formData = new FormData(form)
+        let object = Object.fromEntries(formData)
+
+        object["wiadomość"] = object["message"]
+        delete object["message"]
+        delete object["terms"]
+
+        const json = JSON.stringify(object)
+
+        result.innerHTML = statuses.sending
+        result.classList.add("sending")
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json()
+            result.classList.remove("sending")
+            if (response.status == 200) {
+              result.classList.add("success")
+              result.innerHTML = statuses.success
+            } else {
+              result.classList.add("error")
+              result.innerHTML = statuses.error + json.message
+            }
+          })
+          .catch((error) => {
+            result.innerHTML = errors.somethingWentWrong
+          })
+          .then(function () {
+            form.reset()
+            form.classList.remove("was-validated")
+            setTimeout(() => {
+              result.style.display = "none"
+            }, 5000)
+          })
+      })
+    },
+    { once: true }
+  )
+</script>

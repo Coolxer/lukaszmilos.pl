@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FONTS */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* BASE STYLES */
+@layer base {
+  html {
+    @apply text-[16px] leading-none;
+  }
+
+  body {
+    @apply font-poppins;
+    @apply bg-slate-100 antialiased;
+  }
+
+  h1 {
+    @apply text-h1;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  h4 {
+    @apply text-h4;
+  }
+
+  h5 {
+    @apply text-h5;
+  }
+
+  h6 {
+    @apply text-h6;
+  }
+
+  p,
+  div {
+    @apply text-base;
+  }
+
+  a {
+    @apply text-accent;
+  }
+}
+
+/* PHOTOSWIPE GALLERY */
+.pswp__bg {
+  /*background: red !important;*/
+}
+
+/* ANIMATIONS */
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fadein linear forwards;
+    animation-timeline: view();
+    animation-range: entry;
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translatey(100px);
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translatey(0px);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components"
+
+const socials = [
+  {
+    title: "Facebook",
+    href: "https://facebook.com/user",
+    svg: "facebook",
+  },
+  {
+    title: "Instagram",
+    href: "https://www.instagram.com/user",
+    svg: "instagram",
+  },
+  {
+    title: "Youtube",
+    href: "https://www.yotuube.com/@user",
+    svg: "youtube",
+  },
+  {
+    title: "Linkedin",
+    href: "https://www.linkedin.com/in/user/",
+    svg: "linkedin",
+  },
+  {
+    title: "X",
+    href: "https://www.x.com/user",
+    svg: "x",
+  },
+]
+---
+
+<div class="flex space-x-5 sm:justify-center">
+  {
+    socials.map((social) => (
+      <a href={social.href} class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+        <Icon name={"socials/" + social.svg} width={24} height={24} />
+        <span class="sr-only">{social.title}</span>
+      </a>
+    ))
+  }
+</div>

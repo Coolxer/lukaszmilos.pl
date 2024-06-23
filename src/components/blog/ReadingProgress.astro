@@ -1,0 +1,18 @@
+<div class="progress-bar sticky left-0 top-20 h-3 w-full bg-accent"></div>
+
+<style>
+  @keyframes grow-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .progress-bar {
+    transform-origin: 0 50%;
+    animation: grow-progress auto linear;
+    animation-timeline: scroll();
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+import data from "~/data/site.json"
+
+import Layout from "@layouts/Layout.astro"
+import { type Meta } from "@components/core/MySEO.astro"
+
+const meta: Meta = {
+  title: data.site.meta["home-title"],
+  description: data.site.meta["home-description"],
+  noTemplate: false,
+}
+---
+
+<Layout meta={meta} meta={meta} />

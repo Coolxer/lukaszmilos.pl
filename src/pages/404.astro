@@ -1,0 +1,15 @@
+---
+import Section from "@components/core/Section.astro"
+import Layout from "@layouts/Layout.astro"
+
+import { type Meta } from "@components/core/MySEO.astro"
+
+const meta: Meta = {
+  title: "404. Nie ma takiej strony",
+  description: "Wystąpił błąd. Podany adres nie istnieje.",
+}
+---
+
+<Layout meta={meta}>
+  <Section><h1>404. Nie ma takiej strony</h1> </Section>
+</Layout>

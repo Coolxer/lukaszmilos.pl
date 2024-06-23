@@ -1,0 +1,38 @@
+---
+import type { Page } from "astro"
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import PageLayout from "@layouts/PageLayout.astro"
+
+import Section from "~/components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import PostCard from "@components/blog/PostCard.astro"
+import PagePagination from "~/components/blog/PagePagination.astro"
+
+export interface Props {
+  page: Page
+  meta: Meta
+  schema?: Schema
+}
+
+const { page, meta, schema } = Astro.props
+---
+
+<PageLayout pageTitle="Blog" meta={meta} schema={schema} breadcrumbs={true}>
+  <slot />
+
+  <Section>
+    <Row>
+      <!--no pagination -->
+      <!-- {posts.map((post) => <PostCard post={post} />)} -->
+      {page.data.map((post) => <PostCard post={post} />)}
+
+      <!-- Split by categories? (like webflow blog) -->
+    </Row>
+  </Section>
+
+  <div class="flex items-center justify-center">
+    <PagePagination page={page} />
+  </div>
+</PageLayout>

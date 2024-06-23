@@ -1,0 +1,174 @@
+---
+import { SEO } from "astro-seo"
+
+import data from "~/data/site.json"
+
+export interface Props {
+  meta: {
+    title: string
+    noTemplate?: boolean
+    titleTemplate?: string
+    description: string
+    canonical?: string
+
+    noindex?: boolean
+    nofollow?: boolean
+
+    charset?: string
+
+    image?: {
+      src?: string
+      alt?: string
+    }
+
+    languageAlternates?: Array<{ href: string; hrefLang: string }>
+
+    og?: boolean
+    tw?: boolean
+    article?: boolean
+
+    openGraph?: {
+      basic?: {
+        title?: string
+        type?: string
+        image?: string
+        url?: string
+      }
+      optional?: {
+        audio?: string
+        description?: string
+        determiner?: string
+        locale?: string
+        localeAlternate?: string[]
+        siteName?: string
+        video?: string
+      }
+      image?: {
+        url?: string
+        secureUrl?: string
+        type?: string
+        width?: number
+        height?: number
+        alt?: string
+      }
+      article?: {
+        publishedTime?: string
+        modifiedTime?: string
+        expirationTime?: string
+        authors?: string[]
+        section?: string
+        tags?: string[]
+      }
+    }
+    twitter?: {
+      card?: "summary" | "summary_large_image" | "app" | "player"
+      site?: string
+      creator?: string
+      title?: string
+      image?: string
+      imageAlt?: string
+      description?: string
+    }
+
+    restMeta?: {}
+  }
+
+  schema?: object
+}
+
+export type Meta = Props["meta"]
+export type Schema = Props["schema"]
+
+const {
+  meta: {
+    title,
+    noTemplate,
+    titleTemplate,
+    description,
+    canonical,
+    noindex,
+    nofollow,
+    charset,
+    image,
+    languageAlternates,
+    og = true,
+    tw = true,
+    article = false,
+    openGraph = {},
+    twitter = {},
+    restMeta = {},
+  },
+  schema,
+} = Astro.props
+---
+
+<!-- Metadata -->
+<SEO
+  titleTemplate={noTemplate ? "%s" : titleTemplate ? titleTemplate : data.site.meta["meta-title-template"]}
+  title={title}
+  description={description}
+  canonical={canonical || Astro.url.href}
+  noindex={noindex || false}
+  nofollow={nofollow || false}
+  charset={charset || "UTF-8"}
+  languageAlternates={languageAlternates || undefined}
+  openGraph={og
+    ? {
+        basic: {
+          title: openGraph.basic?.title || (title ? title : data.site.meta["home-title"]),
+          type: openGraph.basic?.type || "website",
+          image: openGraph.basic?.image || (image?.src ? image.src : data.site.meta["og-image"].src),
+          url: openGraph.basic?.url || Astro.url.href,
+        },
+        optional: {
+          audio: openGraph.optional?.audio || undefined,
+          description:
+            openGraph.optional?.description || (description ? description : data.site.meta["home-description"]),
+          determiner: openGraph.optional?.determiner || "",
+          locale: openGraph.optional?.locale || "pl_PL",
+          localeAlternate: openGraph.optional?.localeAlternate || undefined,
+          siteName: openGraph.optional?.siteName || data.site.meta["home-title"],
+          video: openGraph.optional?.video || undefined,
+        },
+        image: {
+          url: openGraph.image?.url || Astro.url.href,
+          secureUrl: openGraph.image?.secureUrl || Astro.url.href,
+          type: openGraph.image?.type || "image/jpeg",
+          width: openGraph.image?.width || 1200,
+          height: openGraph.image?.height || 600,
+          alt: openGraph.image?.alt || (image?.alt ? image.alt : data.site.meta["og-image"].alt),
+        },
+        article: article
+          ? {
+              publishedTime: openGraph.article?.publishedTime || undefined,
+              modifiedTime: openGraph.article?.modifiedTime || undefined,
+              expirationTime: openGraph.article?.expirationTime || undefined,
+              authors: openGraph.article?.authors || [data.company.name],
+              section: openGraph.article?.section || "post",
+              tags: openGraph.article?.tags || undefined,
+            }
+          : undefined,
+      }
+    : undefined}
+  twitter={tw
+    ? {
+        card: twitter.card || "summary",
+        site: twitter.site || data.site.domain,
+        creator: twitter.creator || data.company.name,
+        title: twitter.title || (title ? title : data.site.meta["home-title"]),
+        image: twitter.image || (image?.src ? image.src : data.site.meta["og-image"].src),
+        imageAlt: twitter.imageAlt || (image?.alt ? image.alt : data.site.meta["og-image"].alt),
+        description: twitter.description || (description ? description : data.site.meta["home-description"]),
+      }
+    : undefined}
+  {...restMeta}
+/>
+
+<meta name="generator" content={Astro.generator} />
+
+<!-- JSON LD (structured data) -->
+{
+  schema && Object.keys(schema).length > 0 && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )
+}

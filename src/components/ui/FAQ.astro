@@ -1,0 +1,63 @@
+---
+export type FaqItem = {
+  question: string
+  answer: string[]
+}
+
+export interface Props {
+  id: string
+  data: FaqItem[]
+  class?: string
+}
+
+const { id, data, class: className } = Astro.props
+---
+
+<div data-accordion="collapse" data-active-classes="bg-accent-200 text-accent dark:text-white">
+  {
+    data?.map((item: FaqItem, index: number) => {
+      const isLast = index === data.length - 1
+      return (
+        <>
+          <div>
+            <button
+              type="button"
+              class:list={[
+                "flex w-full items-center justify-between gap-3 border border-gray-200 bg-accent-100 p-5 text-gray-500 hover:bg-blue-100",
+                !isLast && "border-b-0",
+              ]}
+              data-accordion-target={`#${id}-item-${index}`}
+              aria-expanded="false"
+              aria-controls={`${id}-item-${index}`}
+            >
+              <span>{item.question}</span>
+              <svg
+                data-accordion-icon
+                class="h-3 w-3 shrink-0 rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </button>
+          </div>
+          <div id={`${id}-item-${index}`} class="hidden">
+            <div class="p-5 dark:border-gray-700 dark:bg-gray-900">
+              {item.answer.map((paragraph) => (
+                <p class="mb-2 text-gray-500 dark:text-gray-400">{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </>
+      )
+    })
+  }
+</div>

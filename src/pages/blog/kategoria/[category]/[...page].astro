@@ -1,0 +1,45 @@
+---
+import type { Page, PaginateFunction } from "astro"
+import { getCollection } from "astro:content"
+
+import { slugify } from "@utils/utils"
+import data from "~/data/site.json"
+
+import BlogLayout from "@layouts/BlogLayout.astro"
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+const meta: Meta = {
+  title: "Blog Łukasza - kategoria",
+  description: "Opis do bloga kategorii",
+}
+
+const schema: Schema = {}
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const posts = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+  const categories = [...new Set(posts.map((post) => post.data.categories).flat())]
+
+  return categories.flatMap((category) => {
+    const filteredPosts = posts.filter((post) => post.data.categories.includes(category))
+    return paginate(filteredPosts, {
+      params: { category: slugify(category) },
+      pageSize: data.site.blogItemsPerPage,
+    })
+  })
+}
+
+interface Props {
+  page: Page
+}
+
+const { category } = Astro.params
+const { page } = Astro.props
+---
+
+<BlogLayout page={page} meta={meta} schema={schema}>
+  <p>Posty kategorii {category}</p>
+</BlogLayout>
