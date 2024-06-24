@@ -1,5 +1,4 @@
 ---
-import { getImage } from "astro:assets"
 import { Icon } from "astro-icon/components"
 
 import { type Meta, type Schema } from "@components/core/MySEO.astro"
@@ -48,20 +47,15 @@ const loremLeading =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin arcu sit amet blandit efficitur. In convallis bibendum dui quis facilisis. Nunc et dui quam."
 const loremDescription =
   "Cras a fringilla nisi, non laoreet magna. Vestibulum justo dolor, tempus quis mauris ac, bibendum tincidunt dui. Pellentesque nec odio quis eros tristique dictum. Phasellus vestibulum, lectus vitae cursus aliquam, metus nulla auctor risus, vitae condimentum nibh est ut lectus. Sed ultrices malesuada pulvinar. Vestibulum vehicula dui sed euismod lobortis. Praesent lectus diam, tempus id dapibus ac, mattis ut nibh. Nulla ipsum sem, blandit in augue non, congue molestie massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc tempor tortor id enim pharetra dictum. Aenean vel diam eu tortor porta sagittis. Donec id ex blandit, finibus orci eleifend, sollicitudin lacus. Integer at diam sollicitudin, finibus nibh vitae, cursus lacus."
-
-const backgroundImage = await getImage({
-  src: glassImage,
-  alt: "Background Image",
-})
 ---
 
-<PageLayout pageTitle={pageTitle} pageDescription={pageDescription} meta={meta} schema={schema}>
+<PageLayout pageTitle={pageTitle} pageDescription={pageDescription} meta={meta} schema={schema}>    
   <!-- Optimized background image -->
-  <div
-    class="min-h-screen w-full bg-cover bg-center object-cover"
-    style={`background-image: url(${backgroundImage.src});`}
-  >
+  <div class="relative min-h-screen w-full">
+    <MyImage img={glassImage} class="absolute size-full l-0 t-0 -z-10"/>
+    <p class="relative text-white z-10">Tutaj moja tresc</p>
   </div>
+
   <!-- Text -->
   <Section>
     <div class="flex flex-col items-start gap-y-7">

@@ -22,7 +22,7 @@ export default defineConfig({
   compressHTML: true,
   scopedStyleStrategy: "class",
   build: {
-    format: "file",
+    format: "directory",
     assets: "_astro",
     inlineStylesheets: "auto",
     assetsPrefix: "",
@@ -47,15 +47,15 @@ export default defineConfig({
     }),
     robotsTxt(),
     (await import("@playform/compress")).default({
-      CSS: true,
+      CSS: false, //true
       HTML: {
         "html-minifier-terser": {
           removeAttributeQuotes: false,
         },
       },
-      Image: true,
-      JavaScript: true,
-      SVG: true,
+      Image: false, // true
+      JavaScript: false, // true
+      SVG: false, // true
       Logger: 1,
       Path: ["./dist"],
     }),
