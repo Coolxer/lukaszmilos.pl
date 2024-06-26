@@ -14,6 +14,7 @@ import Footer from "@components/core/Footer.astro"
 
 import ScrollToTop from "@components/widgets/ScrollToTop.astro"
 import MySEO, { type Meta, type Schema } from "@components/core/MySEO.astro"
+import StylebookLink from "@components/widgets/StylebookLink.astro"
 
 export interface Props {
   meta: Meta
@@ -67,6 +68,8 @@ const SITE = data.site
   <body>
     <div class="flex min-h-screen flex-col justify-between">
       <Header />
+
+      <StylebookLink />
 
       <main class="main-wrapper mt-[72px]">
         <slot />

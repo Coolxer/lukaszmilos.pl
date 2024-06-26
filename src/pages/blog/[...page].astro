@@ -26,7 +26,7 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
 
   const categories = [...new Set(posts.map((post) => post.data.categories).flat())]
 
-  const paginatedPosts = paginate(posts, { pageSize: data.site.blogItemsPerPage })
+  const paginatedPosts = paginate(posts, { pageSize: data.site.blog.itemsPerPage })
 
   return paginatedPosts.map((page) => ({
     params: page.params,

@@ -23,9 +23,6 @@ export default {
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }
     },
-    // colors: {
-    //   'blue': '#1fb6ff',
-    // },
     fontFamily: { poppins: ["Poppins", "sans-serif"] },
     extend: {
       colors: {
@@ -66,7 +63,6 @@ export default {
         "section-large": "7rem",
         "section-medium": "6rem",
         "section-small": "5rem",
-        gap: "2rem",
         "card-v": "2rem",
         "card-h": "1rem",
       },

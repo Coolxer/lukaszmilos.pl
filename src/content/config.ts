@@ -90,6 +90,7 @@ const blogCollection = defineCollection({
     // tags: z.array(z.string()).optional(),
     relatedPosts: z.array(reference('blog')).max(3).optional(),
     date: z.coerce.date(),
+    author: z.string().optional(),
     draft: z.boolean().optional(),
   }),
 });

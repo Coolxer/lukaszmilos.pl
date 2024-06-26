@@ -20,7 +20,10 @@
       "google-search-console": "",
       "google-analytics": ""
     },
-    "blogItemsPerPage": 3,
+    "blog": {
+      "author": "Łukasz Miłoś",
+      "itemsPerPage": 3
+    },
     "placeholderImage": "/placeholder.webp"
   }
 }

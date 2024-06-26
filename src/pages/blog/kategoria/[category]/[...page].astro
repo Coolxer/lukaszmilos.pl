@@ -27,7 +27,7 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
     const filteredPosts = posts.filter((post) => post.data.categories.includes(category))
     return paginate(filteredPosts, {
       params: { category: slugify(category) },
-      pageSize: data.site.blogItemsPerPage,
+      pageSize: data.site.blog.itemsPerPage,
     })
   })
 }

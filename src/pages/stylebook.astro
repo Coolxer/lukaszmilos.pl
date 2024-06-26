@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components"
 
-import { type Meta, type Schema } from "@components/core/MySEO.astro"
+import { type Meta } from "@components/core/MySEO.astro"
 
 import laptopImage from "@assets/images/laptop.png"
 import glassImage from "@assets/images/glass.jpg"
@@ -25,18 +25,9 @@ import FAQ from "@components/ui/FAQ.astro"
 
 const meta: Meta = {
   title: "Stylebook",
-  description: "Strona od ustawień stylu",
-}
-
-const schema: Schema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Lukasso",
-  legalName: "Lukasso sp.z.o.o.",
-  email: "lucasso@gmail.com",
-  url: "lucasso.com",
-  logo: "",
-  sameAs: [],
+  description: "Strona ustawień stylu",
+  noindex: true,
+  nofollow: true,
 }
 
 const pageTitle = meta.title
@@ -49,11 +40,11 @@ const loremDescription =
   "Cras a fringilla nisi, non laoreet magna. Vestibulum justo dolor, tempus quis mauris ac, bibendum tincidunt dui. Pellentesque nec odio quis eros tristique dictum. Phasellus vestibulum, lectus vitae cursus aliquam, metus nulla auctor risus, vitae condimentum nibh est ut lectus. Sed ultrices malesuada pulvinar. Vestibulum vehicula dui sed euismod lobortis. Praesent lectus diam, tempus id dapibus ac, mattis ut nibh. Nulla ipsum sem, blandit in augue non, congue molestie massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc tempor tortor id enim pharetra dictum. Aenean vel diam eu tortor porta sagittis. Donec id ex blandit, finibus orci eleifend, sollicitudin lacus. Integer at diam sollicitudin, finibus nibh vitae, cursus lacus."
 ---
 
-<PageLayout pageTitle={pageTitle} pageDescription={pageDescription} meta={meta} schema={schema}>    
+<PageLayout pageTitle={pageTitle} pageDescription={pageDescription} meta={meta}>
   <!-- Optimized background image -->
   <div class="relative min-h-screen w-full">
-    <MyImage img={glassImage} class="absolute size-full l-0 t-0 -z-10"/>
-    <p class="relative text-white z-10">Tutaj moja tresc</p>
+    <MyImage img={glassImage} class="l-0 t-0 absolute -z-10 size-full" />
+    <p class="relative z-10 text-white">Tutaj moja tresc</p>
   </div>
 
   <!-- Text -->
@@ -80,6 +71,7 @@ const loremDescription =
 
   <!-- Faq accordion -->
   <Section>
+    <h2>FAQ - Pytania i odpowiedzi</h2>
     <FAQ
       id="faq-1"
       data={[
@@ -93,11 +85,13 @@ const loremDescription =
 
   <!-- Icon list -->
   <Section>
+    <h2>Lista punktowana z ikonami</h2>
     <IconList items={["sdkasdklasdlkasjdasd", "asdaskldjaskdlasd", "asdaskdaslkdalsd"]} />
   </Section>
 
   <!-- Buttons -->
   <Section>
+    <h2>Przyciski</h2>
     <div class="flex flex-col items-start gap-y-7">
       <!-- primary buttons  -->
       <div class="flex flex-row flex-wrap gap-5">
@@ -310,17 +304,22 @@ const loremDescription =
 
   <!-- Counter -->
   <Section>
-    <Counter value={23} />
-    <Icon name="chevron-left" width={96} height={96} />
+    <h2>Licznik i ikona</h2>
+    <div class="row flex items-center">
+      <Counter value={23} />
+      <Icon name="chevron-left" width={48} height={48} />
+    </div>
   </Section>
 
   <!-- Image -->
   <Section>
+    <h2>Obraz</h2>
     <MyImage img={glassImage} alt="" />
   </Section>
 
   <!-- Gallery -->
   <Section class="bg-slate-200">
+    <h2>Galeria</h2>
     <Gallery
       id="gal1"
       images={[
@@ -334,6 +333,7 @@ const loremDescription =
 
   <!-- Carousel (slider) -->
   <Section>
+    <h2>Karuzela</h2>
     <Carousel
       id="car1"
       images={[
@@ -347,6 +347,7 @@ const loremDescription =
 
   <!-- Cards -->
   <Section class="bg-green-200">
+    <h2>Karty</h2>
     <Row>
       <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
         <h3 class="text-h5">{loremTitle}</h3>

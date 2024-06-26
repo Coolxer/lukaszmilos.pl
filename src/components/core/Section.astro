@@ -1,15 +1,27 @@
 ---
 export interface Props {
-  noVerticalPadding?: boolean
+  noTopPadding?: boolean
+  noBottomPadding?: boolean
   class?: string
 }
 
-const { noVerticalPadding = false, class: className, ...attributes } = Astro.props
+const { noTopPadding = false, noBottomPadding = false, class: className, ...attributes } = Astro.props
 ---
 
 <section class:list={["w-full", className]} {...attributes}>
-  <div class:list={["px-6", !noVerticalPadding ? " py-section-small md:py-section-large lg:py-section-large" : ""]}>
-    <div class="gap container mx-auto flex max-w-screen-xl flex-col">
+  <div
+    class:list={[
+      "px-6",
+      !noTopPadding && !noBottomPadding
+        ? " py-section-small md:py-section-large lg:py-section-large"
+        : noTopPadding
+          ? " pb-section-small md:pb-section-large lg:pb-section-large"
+          : noBottomPadding
+            ? " pt-section-small md:pt-section-large lg:pt-section-large"
+            : "",
+    ]}
+  >
+    <div class="container mx-auto flex max-w-screen-xl flex-col gap-8">
       <slot />
     </div>
   </div>

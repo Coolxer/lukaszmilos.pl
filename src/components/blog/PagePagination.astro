@@ -11,9 +11,10 @@ const { page } = Astro.props
 
 const generatePageNumbers = () => {
   const maxPagesToShow = 5
+  const currentPage = page.currentPage
   let pages = []
 
-  const lastPage = Math.ceil(page.total / data.site.blogItemsPerPage)
+  const lastPage = Math.ceil(page.total / data.site.blog.itemsPerPage)
 
   if (lastPage <= maxPagesToShow) {
     // If we have 5 or fewer pages, show all pages
@@ -22,7 +23,13 @@ const generatePageNumbers = () => {
     }
   } else {
     // If we have more than 5 pages
-    pages = [1, 2, 3, "...", lastPage]
+    if (currentPage <= 3) {
+      pages = [1, 2, 3, "...", lastPage]
+    } else if (currentPage >= lastPage - 2) {
+      pages = [1, "...", lastPage - 2, lastPage - 1, lastPage]
+    } else {
+      pages = [1, "...", currentPage, "...", lastPage]
+    }
   }
 
   return pages

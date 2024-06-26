@@ -1,8 +1,11 @@
 ---
 import type { MarkdownHeading } from "astro"
 import type { CollectionEntry } from "astro:content"
+import { Icon } from "astro-icon/components"
 
 import { readingTime } from "@utils/utils"
+
+import data from "~/data/site.json"
 
 import { type Meta, type Schema } from "@components/core/MySEO.astro"
 
@@ -42,7 +45,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } = Astro
     </div> -->
   </header>
 
-  <Section noVerticalPadding>
+  <Section noBottomPadding>
     <div class="flex items-center justify-center">
       <MyImage src={post.data.image.src} alt={post.data.image.alt} class="w-1/2" />
     </div>
@@ -52,8 +55,12 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } = Astro
     <!--Leading -->
     <p class="text-lg">{post.data.leading}</p>
 
+    <hr class="my-8 h-px border-0 bg-gray-200 dark:bg-gray-700" />
+
     <!-- Table of Contents -->
     <Toc headings={headings} />
+
+    <hr class="my-8 h-px border-0 bg-gray-200 dark:bg-gray-700" />
 
     <!-- Content -->
     <article class="prose lg:prose-xl">
@@ -61,21 +68,33 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } = Astro
     </article>
   </Section>
 
-  <!-- Post categories -->
   <Section>
-    <div class="flex flex-row gap-3">
-      {post.data.categories.map((category) => <div class="rounded-badge bg-slate-300 p-2 shadow">{category}</div>)}
+    <div class="flex flex-row justify-between">
+      <!-- Post categories -->
+      <div class="flex flex-row gap-3">
+        {post.data.categories.map((category) => <div class="rounded-badge bg-slate-300 p-2 shadow">{category}</div>)}
+      </div>
+      <!-- Author -->
+      <div class="flex items-center gap-4">
+        <!-- <img class="h-10 w-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="" /> -->
+        <Icon name="avatar" width={32} height={32} class="rounded-full bg-slate-200 p-1 shadow-sm" />
+        <div class="font-medium dark:text-white">
+          <div>{post.data.author || data.site.blog.author}</div>
+        </div>
+      </div>
     </div>
+
+    <hr class="my-8 h-px border-0 bg-gray-200 dark:bg-gray-700" />
+
+    <!-- Post navigation -->
+    <PostNavigation class="mt-5" prevPost={prevPost} nextPost={nextPost} />
   </Section>
 
   <!-- Related posts -->
-  <Section>
-    <p>Powiązane posty</p>
+  <Section noTopPadding>
+    <p class="text-h4">Powiązane posty</p>
     <Row>
       {relatedPosts.length > 0 && relatedPosts.map((post) => <PostCard post={post} />)}
     </Row>
   </Section>
-
-  <!-- Post navigation -->
-  <PostNavigation prevPost={prevPost} nextPost={nextPost} />
 </Layout>
