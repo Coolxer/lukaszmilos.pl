@@ -18,8 +18,7 @@
   }
 
   body {
-    @apply font-poppins;
-    @apply bg-slate-100 antialiased;
+    @apply bg-gray-lightest font-poppins antialiased;
   }
 
   h1 {

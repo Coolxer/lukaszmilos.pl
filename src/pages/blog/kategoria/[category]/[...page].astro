@@ -16,30 +16,47 @@ const meta: Meta = {
 
 const schema: Schema = {}
 
-export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction
+}) {
   const posts = (await getCollection("blog"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 
-  const categories = [...new Set(posts.map((post) => post.data.categories).flat())]
+  const categories = [
+    ...new Set(posts.map((post) => post.data.categories).flat()),
+  ]
 
   return categories.flatMap((category) => {
-    const filteredPosts = posts.filter((post) => post.data.categories.includes(category))
-    return paginate(filteredPosts, {
+    const filteredPosts = posts.filter((post) =>
+      post.data.categories.includes(category)
+    )
+    const paginatedPosts = paginate(filteredPosts, {
       params: { category: slugify(category) },
       pageSize: data.site.blog.itemsPerPage,
     })
+
+    return paginatedPosts.map((page) => ({
+      params: page.params,
+      props: {
+        ...page.props,
+        categories,
+      },
+    }))
   })
 }
 
 interface Props {
   page: Page
+  categories: string[]
 }
 
 const { category } = Astro.params
-const { page } = Astro.props
+const { page, categories } = Astro.props
 ---
 
-<BlogLayout page={page} meta={meta} schema={schema}>
-  <p>Posty kategorii {category}</p>
+<BlogLayout page={page} meta={meta} schema={schema} categories={categories}>
+  <p>Posty kategorii <span class="bg-gray-light p-1">{category}</span></p>
 </BlogLayout>

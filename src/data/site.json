@@ -7,6 +7,7 @@
   },
   "site": {
     "domain": "https://text.xce.pl/",
+    "trailingSlash": "always",
     "meta": {
       "home-title": "Oficjalna strona Łukasza Miłoś",
       "home-description": "Opis strony głównej",

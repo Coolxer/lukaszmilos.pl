@@ -18,7 +18,15 @@ export interface Props {
   class?: string
 }
 
-const { id, images, lightbox = false, zoom = false, height = "h-80", class: className, ...attributes } = Astro.props
+const {
+  id,
+  images,
+  lightbox = false,
+  zoom = false,
+  height = "h-80",
+  class: className,
+  ...attributes
+} = Astro.props
 ---
 
 <div class="relative w-full" data-carousel="slide" {...attributes}>
@@ -26,9 +34,11 @@ const { id, images, lightbox = false, zoom = false, height = "h-80", class: clas
     lightbox ? (
       <Gallery id={id} images={images} carousel zoom={zoom} height={height} />
     ) : (
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div class="relative h-80 overflow-hidden rounded md:h-96">
         {images?.map((image) => (
-          <div class="hidden rounded-box shadow duration-700 ease-in-out" data-carousel-item>
+          <div
+            class="hidden rounded shadow duration-500 ease-in-out"
+            data-carousel-item>
             <MyImage
               img={image.data}
               alt={image.alt}
@@ -43,79 +53,65 @@ const { id, images, lightbox = false, zoom = false, height = "h-80", class: clas
   }
 
   <!-- Slider indicators -->
-  <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
-    <button
-      type="button"
-      class="h-3 w-3 rounded-full"
-      aria-current="true"
-      aria-label="Slide 1"
-      data-carousel-slide-to="0"></button>
-    <button
-      type="button"
-      class="h-3 w-3 rounded-full"
-      aria-current="false"
-      aria-label="Slide 2"
-      data-carousel-slide-to="1"></button>
-    <button
-      type="button"
-      class="h-3 w-3 rounded-full"
-      aria-current="false"
-      aria-label="Slide 3"
-      data-carousel-slide-to="2"></button>
-    <button
-      type="button"
-      class="h-3 w-3 rounded-full"
-      aria-current="false"
-      aria-label="Slide 4"
-      data-carousel-slide-to="3"></button>
-    <button
-      type="button"
-      class="h-3 w-3 rounded-full"
-      aria-current="false"
-      aria-label="Slide 5"
-      data-carousel-slide-to="4"></button>
+  <div
+    class="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 space-x-4 rtl:space-x-reverse">
+    {
+      [...Array(images.length)].map((_, index) => (
+        <button
+          type="button"
+          class="h-4 w-4 rounded-full bg-gray hover:bg-gray-dark"
+          aria-current={index === 0}
+          aria-label={`Slide ${index + 1}`}
+          data-carousel-slide-to={index}
+        />
+      ))
+    }
   </div>
   <!-- Slider controls -->
   <button
     type="button"
-    class="group absolute start-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
-    data-carousel-prev
-  >
+    class="group absolute start-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4"
+    data-carousel-prev>
     <span
-      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
-    >
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray group-hover:bg-gray-dark group-hover:text-white">
       <svg
-        class="h-4 w-4 text-white dark:text-gray-800 rtl:rotate-180"
+        class="h-4 w-4 rtl:rotate-180"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        viewBox="0 0 6 10"
-      >
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"
-        ></path>
+        viewBox="0 0 6 10">
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 1 1 5l4 4">
+        </path>
       </svg>
-      <span class="sr-only">Previous</span>
+      <span class="sr-only">Poprzednie</span>
     </span>
   </button>
   <button
     type="button"
     class="group absolute end-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
-    data-carousel-next
-  >
+    data-carousel-next>
     <span
-      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70"
-    >
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray group-hover:bg-gray-dark group-hover:text-white">
       <svg
-        class="h-4 w-4 text-white dark:text-gray-800 rtl:rotate-180"
+        class="h-4 w-4 rtl:rotate-180"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        viewBox="0 0 6 10"
-      >
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"
-        ></path>
+        viewBox="0 0 6 10">
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 9 4-4-4-4">
+        </path>
       </svg>
-      <span class="sr-only">Next</span>
+      <span class="sr-only">Następne</span>
     </span>
   </button>
 </div>

@@ -4,9 +4,8 @@ import { Icon } from "astro-icon/components"
 
 <button
   id="scrollToTopBtn"
-  class="fixed bottom-12 right-12 z-50 hidden rounded-full bg-accent p-2 text-white shadow duration-500 ease-in-out hover:bg-accent-300"
->
-  <Icon name="chevron-left" width={48} height={48} class="rotate-90" />
+  class="fixed bottom-12 right-12 z-50 hidden rounded-full bg-accent p-2 text-white shadow duration-500 ease-in-out hover:bg-accent-dark">
+  <Icon name="chevron-left" class="size-12 rotate-90" />
 </button>
 
 <script is:inline>
@@ -21,11 +20,8 @@ import { Icon } from "astro-icon/components"
     })
 
     window.addEventListener("scroll", function () {
-      if (window.scrollY > 20) {
-        btn.style.display = "block"
-      } else {
-        btn.style.display = "none"
-      }
+      if (window.scrollY > 20) btn.style.display = "block"
+      else btn.style.display = "none"
     })
   }
 </script>

@@ -7,7 +7,7 @@ title: "Mój pierwszy post"
 subheading: "Krótki opis do pierwszego posta"
 leading: "Leading text"
 image:
-  src: "/src/assets/images/glass.jpg"
+  src: "glass.jpg"
   alt: "Opis alternatywny"
 categories:
   - strona-www

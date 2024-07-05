@@ -17,7 +17,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   site: data.site.domain,
   base: "",
-  trailingSlash: "always",
+  trailingSlash: data.site.trailingSlash,
   output: "static",
   compressHTML: true,
   scopedStyleStrategy: "class",
@@ -71,7 +71,8 @@ export default defineConfig({
     port: 4321,
     host: false,
     headers: {
-      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Strict-Transport-Security":
+        "max-age=63072000; includeSubDomains; preload",
       "X-Content-Type-Options": "nosniff",
       "X-XSS-Protection": "0",
       "X-Frame-Options": "SAMEORIGIN",

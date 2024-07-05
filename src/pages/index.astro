@@ -4,6 +4,10 @@ import data from "~/data/site.json"
 import Layout from "@layouts/Layout.astro"
 import { type Meta } from "@components/core/MySEO.astro"
 
+import Section from "~/components/core/Section.astro"
+import Row from "~/components/core/Row.astro"
+import MyImage from "~/components/ui/MyImage.astro"
+
 const meta: Meta = {
   title: data.site.meta["home-title"],
   description: data.site.meta["home-description"],

@@ -11,8 +11,7 @@ const { value, class: className } = Astro.props
   class:list={[
     "before:left-[calc(0.4em * var(--n, 1))] animate-[counter_3s_ease-out_forwards] [counter-set:_num_var(--num-counter)] before:content-[counter(num)]",
     className,
-  ]}
->
+  ]}>
   <span class="sr-only">{value}</span>
 </span>
 

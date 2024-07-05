@@ -13,13 +13,13 @@ export interface Props {
 const { heading } = Astro.props
 ---
 
-<li class="list-inside list-disc px-6 py-1.5 text-sm">
+<li class="list-inside list-disc px-6 py-2 text-sm">
   <a href={"#" + heading.slug}>
     {heading.text}
   </a>
   {
     (heading?.subheadings?.length ?? 0) > 0 && (
-      <ul class="translate-x-3">
+      <ul class="translate-x-4">
         {heading?.subheadings?.map((subheading: Heading) => (
           <Astro.self heading={subheading} />
         ))}

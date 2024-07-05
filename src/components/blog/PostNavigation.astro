@@ -2,6 +2,10 @@
 import { Icon } from "astro-icon/components"
 import type { CollectionEntry } from "astro:content"
 
+import { slugify } from "@utils/utils"
+
+import Button from "@components/ui/Button.astro"
+
 export interface Props {
   prevPost: CollectionEntry<"blog"> | null
   nextPost: CollectionEntry<"blog"> | null
@@ -11,32 +15,22 @@ export interface Props {
 const { prevPost, nextPost, class: className } = Astro.props
 ---
 
-<div class:list={["flex flex-row justify-center gap-4", className]}>
-  {
-    prevPost?.slug ? (
-      <a
-        href={prevPost?.slug}
-        class="flex items-center rounded-lg border p-3 px-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
-      >
-        <Icon name="chevron-left" width={24} height={24} />
-        <div class="flex items-center text-sm">Poprzedni post</div>
-      </a>
-    ) : (
-      <div class="invisible" />
-    )
-  }
+{
+  (prevPost || nextPost) && (
+    <div class:list={["flex flex-row justify-center gap-4", className]}>
+      {prevPost?.slug && (
+        <Button link={"/blog/" + slugify(prevPost.slug) + "/"}>
+          <Icon name="chevron-left" class="size-6" />
+          Poprzedni post
+        </Button>
+      )}
 
-  {
-    nextPost?.slug ? (
-      <a
-        href={nextPost?.slug}
-        class="flex items-center rounded-lg border p-3 px-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
-      >
-        <div class="flex items-center text-sm">Następny post</div>
-        <Icon name="chevron-right" width={24} height={24} />
-      </a>
-    ) : (
-      <div class="invisible" />
-    )
-  }
-</div>
+      {nextPost?.slug && (
+        <Button link={"/blog/" + slugify(nextPost.slug) + "/"}>
+          Następny post
+          <Icon name="chevron-right" class="size-6" />
+        </Button>
+      )}
+    </div>
+  )
+}

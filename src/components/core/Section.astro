@@ -2,26 +2,55 @@
 export interface Props {
   noTopPadding?: boolean
   noBottomPadding?: boolean
+  maxWidth?: string
+  center?: boolean
+  withBackgroundImage?: boolean
   class?: string
+  innerContainerClasses?: string
 }
 
-const { noTopPadding = false, noBottomPadding = false, class: className, ...attributes } = Astro.props
+const {
+  noTopPadding = false,
+  noBottomPadding = false,
+  maxWidth = "max-w-screen-xl",
+  center = false,
+  withBackgroundImage = false,
+  class: className,
+  innerContainerClasses,
+  ...attributes
+} = Astro.props
 ---
 
-<section class:list={["w-full", className]} {...attributes}>
+<section
+  class:list={["w-full", withBackgroundImage && "relative", className]}
+  {...attributes}>
+  {
+    withBackgroundImage && (
+      <div class="l-0 t-0 absolute -z-10 size-full">
+        <slot name="background" />
+      </div>
+    )
+  }
   <div
     class:list={[
       "px-6",
       !noTopPadding && !noBottomPadding
-        ? " py-section-small md:py-section-large lg:py-section-large"
+        ? "py-16 md:py-24 lg:py-32"
         : noTopPadding
-          ? " pb-section-small md:pb-section-large lg:pb-section-large"
+          ? "pb-16 md:pb-24 lg:pb-32"
           : noBottomPadding
-            ? " pt-section-small md:pt-section-large lg:pt-section-large"
+            ? "pt-16 md:pt-24 lg:pt-32"
             : "",
-    ]}
-  >
-    <div class="container mx-auto flex max-w-screen-xl flex-col gap-8">
+      withBackgroundImage && "relative z-10",
+      className,
+    ]}>
+    <div
+      class:list={[
+        "items container mx-auto flex flex-col items-start gap-6",
+        center && "items-center",
+        maxWidth,
+        innerContainerClasses,
+      ]}>
       <slot />
     </div>
   </div>

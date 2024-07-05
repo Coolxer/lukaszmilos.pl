@@ -7,16 +7,23 @@ export interface Props {
   class?: string
 }
 
-const { items, interactive = false, class: className, ...attributes } = Astro.props
+const {
+  items,
+  interactive = false,
+  class: className,
+  ...attributes
+} = Astro.props
 ---
 
-<ul class:list={["flex flex-col gap-3", className]} {...attributes}>
+<ul class:list={["flex flex-col gap-4", className]} {...attributes}>
   {
     items.map((item) => (
       <li
-        class:list={["flex flex-row items-center gap-2", interactive && "duration-500 ease-in-out hover:translate-x-3"]}
-      >
-        <Icon name="chevron-right" width={48} height={48} />
+        class:list={[
+          "flex flex-row items-center gap-2",
+          interactive && "duration-300 ease-in-out hover:translate-x-4",
+        ]}>
+        <Icon name="chevron-right" class="size-8" />
         {item}
       </li>
     ))

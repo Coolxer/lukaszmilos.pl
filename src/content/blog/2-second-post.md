@@ -7,7 +7,7 @@ title: "Drugi post"
 subheading: "Krótki opis do drugiego posta"
 leading: "Leading text"
 image:
-  src: "/src/assets/images/stop.jpg"
+  src: "stop.jpg"
   alt: "Opis alternatywny"
 categories:
   - strona-www

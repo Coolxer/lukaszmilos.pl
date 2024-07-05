@@ -1,8 +1,8 @@
 ---
-import Section from "@components/core/Section.astro"
-import Layout from "@layouts/Layout.astro"
-
 import { type Meta } from "@components/core/MySEO.astro"
+import Layout from "@layouts/Layout.astro"
+import Section from "@components/core/Section.astro"
+import Button from "@components/ui/Button.astro"
 
 const meta: Meta = {
   title: "404. Nie ma takiej strony",
@@ -11,5 +11,8 @@ const meta: Meta = {
 ---
 
 <Layout meta={meta}>
-  <Section><h1>404. Nie ma takiej strony</h1> </Section>
+  <Section
+    ><h1>404. Nie ma takiej strony</h1>
+    <Button link="/" class="">Wróć na stronę główną</Button>
+  </Section>
 </Layout>

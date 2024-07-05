@@ -1,4 +1,6 @@
 ---
+import { buildSlug } from "@utils/utils"
+
 const emailData = {
   key: "9bcaf1c6-2e0e-468a-a3df-caa7f49bc55c",
   subject: "Nowa wiadomość ze strony www",
@@ -23,10 +25,9 @@ const errors = {
   action="https://api.web3forms.com/submit"
   method="POST"
   id="form"
-  class="needs-validation flex flex-col gap-7"
+  class="needs-validation flex flex-col gap-6"
   data-astro-reload
-  novalidate
->
+  novalidate>
   <input type="hidden" name="access_key" value={emailData.key} />
 
   <!-- Spam prevention -->
@@ -49,7 +50,7 @@ const errors = {
       type="email"
       required
       placeholder="Twój adres e-mail"
-      class="rounded-badge border p-2.5 text-sm focus:border-accent"
+      class="rounded border border-border_color p-2 text-sm focus:border-accent"
     />
     <div class="empty-feedback">{errors.emailRequired}</div>
     <div class="invalid-feedback">{errors.emailInvalid}</div>
@@ -67,7 +68,8 @@ const errors = {
       cols="50"
       required
       placeholder="Twoja wiadomość"
-      class="rounded-badge border border-slate-500 p-2.5 text-sm text-black focus:border-accent"></textarea>
+      class="rounded border border-border_color p-2 text-sm text-black focus:border-accent">
+    </textarea>
     <div class="empty-feedback invalid-feedback">{errors.messageRequired}</div>
   </div>
 
@@ -79,7 +81,7 @@ const errors = {
         name="terms"
         type="checkbox"
         required
-        class="focus:ring-3 mr-2 h-4 w-4 border-slate-500 focus:border-accent"
+        class="mr-2 h-4 w-4 border-border_color focus:border-accent"
       />
       Zgadzam się z{" "}
       <a href="#" class="text-accent hover:underline">
@@ -91,8 +93,7 @@ const errors = {
   <!-- Submit -->
   <button
     type="submit"
-    class="text-mdr self-start rounded border border-accent bg-accent px-10 py-2 text-white shadow-md duration-300 ease-in-out hover:scale-105 hover:border-accent-300 hover:bg-accent-300"
-  >
+    class="text-mdr hover:border-accent-300 hover:bg-accent-300 self-start rounded border border-accent bg-accent px-10 py-2 text-white shadow-md duration-300 ease-in-out hover:scale-105">
     Wyślij wiadomość
   </button>
 
@@ -104,15 +105,15 @@ const errors = {
   .empty-feedback,
   .error {
     display: none;
-    @apply rounded-badge bg-danger-100 p-2 text-sm text-danger shadow-sm;
+    @apply rounded bg-danger-light p-2 text-sm text-danger shadow-sm;
   }
 
   .success {
-    @apply rounded-badge bg-success-100 p-2 text-sm text-success shadow-sm;
+    @apply rounded bg-success-light p-2 text-sm text-success shadow-sm;
   }
 
   .sending {
-    @apply rounded-badge bg-accent-100 p-2 text-sm text-accent shadow-sm;
+    @apply rounded bg-accent-lightest p-2 text-sm text-accent shadow-sm;
   }
 
   .was-validated :placeholder-shown:invalid ~ .empty-feedback {

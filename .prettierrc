@@ -1,16 +1,21 @@
 {
-  "printWidth": 120,
+  "printWidth": 80,
   "tabWidth": 2,
   "semi": false,
 
   "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "tailwindFunctions": ["tv"],
-  
+
+  "trailingComma": "es5",
+  "bracketSameLine": true,
+
   "overrides": [
     {
       "files": "*.astro",
       "options": {
-        "parser": "astro"
+        "parser": "astro",
+        "htmlWhitespaceSensitivity": "ignore",
+        "proseWrap": "always"
       }
     }
   ]

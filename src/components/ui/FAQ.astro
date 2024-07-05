@@ -13,32 +13,33 @@ export interface Props {
 const { id, data, class: className } = Astro.props
 ---
 
-<div data-accordion="collapse" data-active-classes="bg-accent-100 text-accent dark:text-white">
+<div
+  class="w-full"
+  data-accordion="collapse"
+  data-active-classes="bg-accent-lightest text-accent dark:text-white">
   {
     data?.map((item: FaqItem, index: number) => {
       const isLast = index === data.length - 1
       return (
         <>
-          <div>
+          <div class="w-full">
             <button
               type="button"
               class:list={[
-                "flex w-full items-center justify-between gap-3 border border-gray-200 p-5 text-gray-500 hover:bg-accent-100",
+                "flex w-full items-center justify-between gap-4 border border-border_color p-4 hover:bg-accent-lightest",
                 !isLast && "border-b-0",
               ]}
               data-accordion-target={`#${id}-item-${index}`}
               aria-expanded="false"
-              aria-controls={`${id}-item-${index}`}
-            >
+              aria-controls={`${id}-item-${index}`}>
               <span>{item.question}</span>
               <svg
                 data-accordion-icon
-                class="h-3 w-3 shrink-0 rotate-180"
+                class="h-4 w-4 shrink-0 rotate-180 text-gray-dark"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                viewBox="0 0 10 6"
-              >
+                viewBox="0 0 10 6">
                 <path
                   stroke="currentColor"
                   stroke-linecap="round"
@@ -50,9 +51,9 @@ const { id, data, class: className } = Astro.props
             </button>
           </div>
           <div id={`${id}-item-${index}`} class="hidden">
-            <div class="p-5 dark:border-gray-700 dark:bg-gray-900">
+            <div class="p-4">
               {item.answer.map((paragraph) => (
-                <p class="mb-2 text-gray-500 dark:text-gray-400">{paragraph}</p>
+                <p class="mb-2">{paragraph}</p>
               ))}
             </div>
           </div>

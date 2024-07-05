@@ -2,28 +2,39 @@
 import type { HTMLAttributes } from "astro/types"
 import { tv } from "tailwind-variants"
 
+import { buildSlug } from "@utils/utils"
+
 export interface Props extends HTMLAttributes<"a"> {
   variant?: "primary" | "secondary" | "link"
   size?: "sm" | "md" | "lg"
   link: string
+  rawLink?: boolean
   class?: string
 }
 
-const { variant = "primary", size = "md", link, class: className, ...attributes } = Astro.props
+const {
+  variant = "primary",
+  size = "md",
+  link,
+  rawLink = false,
+  class: className,
+  ...attributes
+} = Astro.props
 
 const button = tv({
-  base: "align-center inline-flex flex-row items-center justify-center gap-2 duration-300 ease-in-out",
+  base: "flex flex-row place-items-center justify-center gap-2 duration-300 ease-in-out",
   variants: {
     variant: {
       primary:
-        "rounded border border-accent bg-accent text-white shadow-md hover:scale-105 hover:border-accent-300 hover:bg-accent-300",
-      secondary: "rounded border border-black bg-transparent text-black shadow-md hover:scale-105",
+        "rounded border border-accent bg-accent text-white shadow-md hover:scale-105 hover:border-accent-dark hover:bg-accent-dark",
+      secondary:
+        "rounded border border-black bg-transparent text-black shadow-md hover:scale-105",
       link: "hover:text-accent",
     },
     size: {
-      sm: "px-3 text-sm",
-      md: "text-md px-5 py-2",
-      lg: "px-5 py-3 text-lg",
+      sm: "px-2 py-2 text-sm leading-none",
+      md: "px-4 py-2 text-base",
+      lg: "px-6 py-4 text-lg",
     },
   },
   compoundVariants: [
@@ -40,4 +51,9 @@ const button = tv({
 })
 ---
 
-<a href={link} class:list={[button({ variant: variant, size: size }), className]} {...attributes}><slot /></a>
+<a
+  href={rawLink ? link : buildSlug(link)}
+  class:list={[button({ variant: variant, size: size }), className]}
+  {...attributes}>
+  <slot />
+</a>

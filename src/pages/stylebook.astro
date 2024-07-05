@@ -42,14 +42,35 @@ const loremDescription =
 
 <PageLayout pageTitle={pageTitle} pageDescription={pageDescription} meta={meta}>
   <!-- Optimized background image -->
-  <div class="relative min-h-screen w-full">
-    <MyImage img={glassImage} class="l-0 t-0 absolute -z-10 size-full" />
-    <p class="relative z-10 text-white">Tutaj moja tresc</p>
-  </div>
+  <!-- <div class="relative min-h-screen w-full">
+    <MyImage img={glassImage} alt="person with VR glasses" class="l-0 t-0 absolute -z-10 size-full" />
+    <p class="relative z-10 text-white">Tutaj tresc</p>
+  </div> -->
+
+  <!-- Section with background image -->
+  <Section
+    maxWidth="max-w-screen-md min-h-screen"
+    center
+    withBackgroundImage
+    class="text-white">
+    <MyImage
+      slot="background"
+      src="glass.jpg"
+      alt=""
+      width={1920}
+      withOverlay
+      overlayColor="bg-gradient-to-b from-slate-800/50 to-slate-950/50"
+      class="h-full rounded-none"
+      loading="eager"
+    />
+    <h1 class="text-center font-bold leading-tight">
+      Wzrost Twojej firmy zaczyna się tutaj
+    </h1><div class="flex flex-row gap-4 text-black"></div>
+  </Section>
 
   <!-- Text -->
   <Section>
-    <div class="flex flex-col items-start gap-y-7">
+    <div class="flex flex-col items-start gap-y-6">
       <h1>Heading 1 first line <br /> Heading 1 second line</h1>
       <h2>Heading 2 first line <br /> Heading 2 second line</h2>
       <h3>Heading 3 first line <br /> Heading 3 second line</h3>
@@ -84,17 +105,19 @@ const loremDescription =
   </Section>
 
   <!-- Icon list -->
-  <Section>
+  <Section class="bg-gray-light">
     <h2>Lista punktowana z ikonami</h2>
-    <IconList items={["sdkasdklasdlkasjdasd", "asdaskldjaskdlasd", "asdaskdaslkdalsd"]} />
+    <IconList
+      items={["sdkasdklasdlkasjdasd", "asdaskldjaskdlasd", "asdaskdaslkdalsd"]}
+    />
   </Section>
 
   <!-- Buttons -->
   <Section>
     <h2>Przyciski</h2>
-    <div class="flex flex-col items-start gap-y-7">
+    <div class="flex flex-col items-start gap-y-6">
       <!-- primary buttons  -->
-      <div class="flex flex-row flex-wrap gap-5">
+      <div class="flex flex-row flex-wrap items-center gap-4">
         <Button link="#" variant="primary" size="sm"> Kup teraz </Button>
 
         <Button link="#" variant="primary"> Kup teraz </Button>
@@ -103,7 +126,7 @@ const loremDescription =
       </div>
 
       <!-- primary buttons with icon  -->
-      <div class="flex flex-row flex-wrap gap-5">
+      <div class="flex flex-row flex-wrap items-center gap-4">
         <Button link="#" variant="primary" size="sm">
           Kup teraz
           <svg
@@ -112,15 +135,14 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
 
@@ -132,15 +154,14 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
 
@@ -152,21 +173,20 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
       </div>
 
       <!-- secondary buttons  -->
-      <div class="flex flex-row flex-wrap gap-5">
+      <div class="flex flex-row flex-wrap items-center gap-4">
         <Button link="#" variant="secondary" size="sm"> Kup teraz </Button>
 
         <Button link="#" variant="secondary"> Kup teraz </Button>
@@ -175,7 +195,7 @@ const loremDescription =
       </div>
 
       <!-- secondary buttons with icon  -->
-      <div class="flex flex-row flex-wrap gap-5">
+      <div class="flex flex-row flex-wrap items-center gap-4">
         <Button link="#" variant="secondary" size="sm">
           Kup teraz
           <svg
@@ -184,15 +204,14 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
 
@@ -204,15 +223,14 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
 
@@ -224,21 +242,20 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
       </div>
 
       <!-- link buttons -->
-      <div class="flex flex-row flex-wrap gap-5">
+      <div class="flex flex-row flex-wrap items-center gap-4">
         <Button link="#" variant="link" size="sm">
           Kup teraz
           <svg
@@ -247,15 +264,14 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
 
@@ -267,15 +283,14 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
 
@@ -287,15 +302,14 @@ const loremDescription =
             width="24"
             height="24"
             fill="none"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
-            ></path>
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4">
+            </path>
           </svg>
         </Button>
       </div>
@@ -303,22 +317,44 @@ const loremDescription =
   </Section>
 
   <!-- Counter -->
-  <Section>
+  <Section class="bg-gray-light">
     <h2>Licznik i ikona</h2>
     <div class="row flex items-center">
       <Counter value={23} />
-      <Icon name="chevron-left" width={48} height={48} />
+      <Icon name="chevron-left" class="size-12" width={48} height={48} />
     </div>
   </Section>
 
-  <!-- Image -->
+  <!-- Images -->
   <Section>
+    <!-- Image -->
     <h2>Obraz</h2>
     <MyImage img={glassImage} alt="" />
+
+    <!-- Image with simply overlay-->
+    <h2>Obraz z prostą nakładką</h2>
+    <MyImage
+      src="glass.jpg"
+      alt=""
+      withOverlay
+      overlayColor="bg-slate-900/50"
+    />
+
+    <!-- Image with custom overlay -->
+    <h2>Obraz z zaawansoaną nakładką</h2>
+    <MyImage src="glass.jpg" alt="" withOverlay customOverlay>
+      <div
+        slot="overlay"
+        class="l-0 t-0 group absolute inset-0 flex size-full w-full items-end justify-center rounded bg-red-300/50 pb-3 transition-all duration-300 ease-in-out hover:bg-red-500/50 hover:pb-4">
+        <span class="text-h5 text-white group-hover:text-red-500">
+          Przykładowy tekst
+        </span>
+      </div>
+    </MyImage>
   </Section>
 
   <!-- Gallery -->
-  <Section class="bg-slate-200">
+  <Section class="bg-gray-light">
     <h2>Galeria</h2>
     <Gallery
       id="gal1"
@@ -349,42 +385,50 @@ const loremDescription =
   <Section class="bg-green-200">
     <h2>Karty</h2>
     <Row>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
       </div>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
       </div>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
       </div>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
       </div>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
       </div>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
       </div>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
       </div>
-      <div class="fade-in flex flex-col gap-4 rounded-box bg-slate-300 px-card-h py-card-v shadow">
+      <div
+        class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>
         <p>{loremLeading}</p>
         <Button link="#">Sprawdź</Button>
@@ -394,7 +438,7 @@ const loremDescription =
 
   <!-- Contact form -->
   <Section>
-    <div class="flex max-w-screen-sm flex-col gap-5">
+    <div class="flex max-w-screen-sm flex-col gap-4">
       <div class="flex flex-col items-center justify-center gap-2">
         <h2>Skontaktuj się</h2>
         <p class="text-lg">Zadaj pytanie lub rozpocznij współpracę.</p>

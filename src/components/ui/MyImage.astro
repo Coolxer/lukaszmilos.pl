@@ -7,7 +7,8 @@ import data from "~/data/site.json"
 export interface Props {
   img?: ImageMetadata
   src?: string
-  alt?: string
+  fromPublic?: boolean
+  alt: string
   full?: boolean
   layout?: "cover" | "contain" | "fill"
   width?: number
@@ -15,13 +16,17 @@ export interface Props {
   widths?: number[]
   sizes?: string
   loading?: "eager" | "lazy" | null | undefined
+  withOverlay?: boolean
+  customOverlay?: boolean
+  overlayColor?: string
   class?: string
 }
 
 const {
   img,
   src,
-  alt = "",
+  fromPublic = false,
+  alt,
   full = true,
   layout = "cover",
   width = 0,
@@ -29,12 +34,15 @@ const {
   widths = [320, 500, 800, 1080, 1600, 2000 /*img.width*/],
   sizes = `(max-width: 480px) 320px, (max-width: 768px) 500px, (max-width: 992px) 800px, (max-width: 1280px) 1080px, (max-width: 1600px) 1600px, 2000px`,
   loading = "lazy",
+  withOverlay = false,
+  customOverlay = false,
+  overlayColor = "bg-gradient-to-b from-slate-800/50 to-slate-950/50",
   class: className,
   ...attributes
 } = Astro.props
 
 const image = tv({
-  base: "aspect-square rounded-2xl shadow-md",
+  base: "aspect-square rounded shadow-md",
   variants: {
     full: {
       true: "size-full",
@@ -58,8 +66,22 @@ let imageSrc: string | ImageMetadata | Promise<{ default: ImageMetadata }>
 if (img) imageSrc = img
 // given image path
 else if (src) {
-  const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif,webp,avif}")
-  const imageImport = images[src]?.()
+  let images
+  let generalPath
+
+  if (fromPublic) {
+    generalPath = "/public/"
+    images = import.meta.glob<{ default: ImageMetadata }>(
+      "/public/*.{jpeg,jpg,png,gif,webp,avif}"
+    )
+  } else {
+    generalPath = "/src/assets/images/"
+    images = import.meta.glob<{ default: ImageMetadata }>(
+      "/src/assets/images/*.{jpeg,jpg,png,gif,webp,avif}"
+    )
+  }
+
+  const imageImport = images[`${generalPath}${src}`]?.()
   if (imageImport) {
     imageMetadata = (await imageImport).default
     imageSrc = imageMetadata
@@ -68,14 +90,43 @@ else if (src) {
 } else imageSrc = data.site.placeholderImage
 ---
 
-<Image
-  src={imageSrc as ImageMetadata}
-  alt={alt}
-  width={width ? width : !img && !imageMetadata ? 600 : undefined}
-  height={height ? height : !img && !imageMetadata ? 600 : undefined}
-  widths={width ? undefined : widths}
-  sizes={width ? undefined : sizes}
-  class:list={[image({ full: full, layout: layout }), className]}
-  loading={loading}
-  {...attributes}
-/>
+{
+  withOverlay ? (
+    <div class="relative size-full rounded">
+      <Image
+        src={imageSrc as ImageMetadata}
+        alt={alt}
+        width={width ? width : !img && !imageMetadata ? 600 : undefined}
+        height={height ? height : !img && !imageMetadata ? 600 : undefined}
+        widths={width ? undefined : widths}
+        sizes={width ? undefined : sizes}
+        class:list={[image({ full: full, layout: layout }), className]}
+        loading={loading}
+        {...attributes}
+      />
+      {!customOverlay ? (
+        <div
+          class:list={[
+            "l-0 t-0 absolute inset-0 size-full items-end justify-center rounded pb-2",
+            overlayColor,
+          ]}>
+          <slot name="overlayItems" />
+        </div>
+      ) : (
+        <slot name="overlay" />
+      )}
+    </div>
+  ) : (
+    <Image
+      src={imageSrc as ImageMetadata}
+      alt={alt}
+      width={width ? width : !img && !imageMetadata ? 600 : undefined}
+      height={height ? height : !img && !imageMetadata ? 600 : undefined}
+      widths={width ? undefined : widths}
+      sizes={width ? undefined : sizes}
+      class:list={[image({ full: full, layout: layout }), className]}
+      loading={loading}
+      {...attributes}
+    />
+  )
+}

@@ -9,7 +9,11 @@ export interface Props {
 const { class: className, ...attributes } = Astro.props
 ---
 
-<Breadcrumbs class:list={["", className]} indexText="strona główna" linkTextFormat="lower" {...attributes}>
+<Breadcrumbs
+  class:list={["", className]}
+  indexText="strona główna"
+  linkTextFormat="lower"
+  {...attributes}>
   <svg
     slot="separator"
     xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +24,7 @@ const { class: className, ...attributes } = Astro.props
     stroke="currentColor"
     stroke-width="2"
     stroke-linecap="round"
-    stroke-linejoin="round"
-    ><polyline points="9 18 15 12 9 6"></polyline>
+    stroke-linejoin="round">
+    <polyline points="9 18 15 12 9 6"></polyline>
   </svg></Breadcrumbs
 >

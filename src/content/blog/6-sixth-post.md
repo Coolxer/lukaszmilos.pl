@@ -7,7 +7,7 @@ title: "szosty post"
 subheading: "Krótki opis do szostego posta"
 leading: "Leading text"
 image:
-  src: "/src/assets/images/laptop.png"
+  src: "laptop.png"
   alt: "Opis alternatywny"
 categories:
   - strona-www

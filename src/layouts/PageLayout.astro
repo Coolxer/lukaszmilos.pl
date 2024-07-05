@@ -12,11 +12,17 @@ export interface Props {
   breadcrumbs?: boolean
 }
 
-const { pageTitle, pageDescription = null, meta, schema, breadcrumbs = false } = Astro.props
+const {
+  pageTitle,
+  pageDescription = null,
+  meta,
+  schema,
+  breadcrumbs = false,
+} = Astro.props
 ---
 
 <Layout meta={meta} schema={schema}>
-  <header class="align-center flex flex-col items-center gap-5 bg-slate-200 py-5">
+  <header class="align-center flex flex-col items-center gap-4 bg-gray py-12">
     {breadcrumbs && <MyBreadCrumbs />}
     <h1>{pageTitle}</h1>
     {pageDescription && <p>{pageDescription}</p>}

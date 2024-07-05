@@ -3,24 +3,33 @@ import type { Page } from "astro"
 
 import { type Meta, type Schema } from "@components/core/MySEO.astro"
 
-import PageLayout from "@layouts/PageLayout.astro"
+import Layout from "@layouts/Layout.astro"
 
 import Section from "~/components/core/Section.astro"
 import Row from "@components/core/Row.astro"
 import PostCard from "@components/blog/PostCard.astro"
-import PagePagination from "~/components/blog/PagePagination.astro"
+import PagePagination from "@components/blog/PagePagination.astro"
+
+import MyBreadCrumbs from "@components/widgets/MyBreadCrumbs.astro"
+
+import Categories from "@components/blog/Categories.astro"
 
 export interface Props {
   page: Page
   meta: Meta
   schema?: Schema
+  categories?: string[]
 }
 
-const { page, meta, schema } = Astro.props
+const { page, meta, schema, categories } = Astro.props
 ---
 
-<PageLayout pageTitle="Blog" meta={meta} schema={schema} breadcrumbs={true}>
-  <slot />
+<Layout meta={meta} schema={schema}>
+  <header class="align-center flex flex-col items-center gap-4 bg-gray py-12">
+    <MyBreadCrumbs />
+    <h1>Blog</h1>
+    <slot />
+  </header>
 
   <Section>
     <Row>
@@ -30,9 +39,20 @@ const { page, meta, schema } = Astro.props
 
       <!-- Split by categories? (like webflow blog) -->
     </Row>
+
+    {
+      categories && (
+        <div class="flex flex-col gap-2">
+          <>
+            <p class="text-lg font-medium">Kategorie</p>
+            <Categories categories={categories} />
+          </>{" "}
+        </div>
+      )
+    }
   </Section>
 
   <div class="flex items-center justify-center">
     <PagePagination page={page} />
   </div>
-</PageLayout>
+</Layout>

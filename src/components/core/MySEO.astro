@@ -104,7 +104,11 @@ const {
 
 <!-- Metadata -->
 <SEO
-  titleTemplate={noTemplate ? "%s" : titleTemplate ? titleTemplate : data.site.meta["meta-title-template"]}
+  titleTemplate={noTemplate
+    ? "%s"
+    : titleTemplate
+      ? titleTemplate
+      : data.site.meta["meta-title-template"]}
   title={title}
   description={description}
   canonical={canonical || Astro.url.href}
@@ -115,19 +119,25 @@ const {
   openGraph={og
     ? {
         basic: {
-          title: openGraph.basic?.title || (title ? title : data.site.meta["home-title"]),
+          title:
+            openGraph.basic?.title ||
+            (title ? title : data.site.meta["home-title"]),
           type: openGraph.basic?.type || "website",
-          image: openGraph.basic?.image || (image?.src ? image.src : data.site.meta["og-image"].src),
+          image:
+            openGraph.basic?.image ||
+            (image?.src ? image.src : data.site.meta["og-image"].src),
           url: openGraph.basic?.url || Astro.url.href,
         },
         optional: {
           audio: openGraph.optional?.audio || undefined,
           description:
-            openGraph.optional?.description || (description ? description : data.site.meta["home-description"]),
+            openGraph.optional?.description ||
+            (description ? description : data.site.meta["home-description"]),
           determiner: openGraph.optional?.determiner || "",
           locale: openGraph.optional?.locale || "pl_PL",
           localeAlternate: openGraph.optional?.localeAlternate || undefined,
-          siteName: openGraph.optional?.siteName || data.site.meta["home-title"],
+          siteName:
+            openGraph.optional?.siteName || data.site.meta["home-title"],
           video: openGraph.optional?.video || undefined,
         },
         image: {
@@ -136,7 +146,9 @@ const {
           type: openGraph.image?.type || "image/jpeg",
           width: openGraph.image?.width || 1200,
           height: openGraph.image?.height || 600,
-          alt: openGraph.image?.alt || (image?.alt ? image.alt : data.site.meta["og-image"].alt),
+          alt:
+            openGraph.image?.alt ||
+            (image?.alt ? image.alt : data.site.meta["og-image"].alt),
         },
         article: article
           ? {
@@ -156,9 +168,15 @@ const {
         site: twitter.site || data.site.domain,
         creator: twitter.creator || data.company.name,
         title: twitter.title || (title ? title : data.site.meta["home-title"]),
-        image: twitter.image || (image?.src ? image.src : data.site.meta["og-image"].src),
-        imageAlt: twitter.imageAlt || (image?.alt ? image.alt : data.site.meta["og-image"].alt),
-        description: twitter.description || (description ? description : data.site.meta["home-description"]),
+        image:
+          twitter.image ||
+          (image?.src ? image.src : data.site.meta["og-image"].src),
+        imageAlt:
+          twitter.imageAlt ||
+          (image?.alt ? image.alt : data.site.meta["og-image"].alt),
+        description:
+          twitter.description ||
+          (description ? description : data.site.meta["home-description"]),
       }
     : undefined}
   {...restMeta}
@@ -169,6 +187,10 @@ const {
 <!-- JSON LD (structured data) -->
 {
   schema && Object.keys(schema).length > 0 && (
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(schema)}
+    />
   )
 }

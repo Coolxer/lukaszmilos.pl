@@ -19,21 +19,28 @@ export interface Props {
   class?: string
 }
 
-const { id, images, carousel = false, zoom = false, height = "h-80", class: className, ...attributes } = Astro.props
+const {
+  id,
+  images,
+  carousel = false,
+  zoom = false,
+  height = "h-80",
+  class: className,
+  ...attributes
+} = Astro.props
 ---
 
-<astro-gallery data-id={id}>
+<astro-gallery data-id={id} class="w-full">
   <div
     id={id}
     class:list={[
       "pswp-gallery",
       !carousel
-        ? "grid grid-cols-1 place-content-stretch place-items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3"
-        : "relative h-56 overflow-hidden md:h-96",
+        ? "grid grid-cols-1 place-content-stretch place-items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3"
+        : "relative h-80 overflow-hidden md:h-96",
       className,
     ]}
-    {...attributes}
-  >
+    {...attributes}>
     {
       images?.map((image) => (
         <a
@@ -41,15 +48,22 @@ const { id, images, carousel = false, zoom = false, height = "h-80", class: clas
           data-pswp-width={image.data.width}
           data-pswp-height={image.data.height}
           target="_blank"
-          class:list={["rounded-box shadow", zoom && "overflow-hidden", carousel && "hidden duration-700 ease-in-out"]}
-          data-carousel-item={carousel ? true : undefined}
-        >
+          class:list={[
+            "rounded shadow",
+            height,
+            zoom && "overflow-hidden",
+            carousel && "hidden duration-500 ease-in-out",
+          ]}
+          data-carousel-item={carousel ? true : undefined}>
           <MyImage
             img={image.data}
             alt={image.alt}
             widths={[320, 500, 800]}
             sizes={`(max-width: 480px) 320px, (max-width: 768px) 500px, 800px`}
-            class:list={["object-cover", height, zoom && "transition-transform duration-500 hover:scale-110"]}
+            class:list={[
+              "object-cover",
+              zoom && "transition-transform duration-500 hover:scale-110",
+            ]}
           />
         </a>
       ))
