@@ -1,0 +1,94 @@
+---
+import data from "~/data/site.json"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import { Icon } from "astro-icon/components"
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+
+import ContactForm from "@components/widgets/ContactForm.astro"
+import Socials from "@components/widgets/Socials.astro"
+
+const meta: Meta = {
+  title: "Kontakt - Pytanie, Pomoc, Współpraca",
+  description:
+    "Szukasz wsparcia w zakresie technologii, działania  firmy w sieci, narzędzi cyfrowych lub automatyzacji? Skontaktuj się ze mną w wybranej formie i uzyskaj pomoc.",
+  openGraph: {},
+  twitter: {},
+}
+
+const schema: Schema = {
+  "@context": "http://schema.org",
+  "@type": "ContactPage",
+  url: "https://lukaszmilos.pl/kontakt",
+  breadcrumb: "Kontakt",
+  mainEntity: {
+    "@type": "ContactPoint",
+    telephone: "+48-123-456-789",
+    contactType: "customer service",
+    areaServed: "PL",
+  },
+}
+---
+
+<PageLayout pageTitle="Kontakt" meta={meta} schema={schema}>
+  <Section
+    ><Row
+      ><div class="flex flex-col justify-center gap-4">
+        <h2>Skontaktuj się</h2>
+        <p class="text-lg">
+          Zadaj pytanie, poproś o radę lub rozpocznij współpracę.
+        </p>
+        <p>
+          Aktualnie wszystkie linki ofertowe i kontaktowe prowadzą do tego
+          formularza i nie jest to błąd. Po prostu napisz wiadomość z czym masz
+          problem lub czym jesteś zainteresowany(a).
+        </p><ContactForm />
+      </div><div>
+        <MyImage
+          src="hero5.webp"
+          alt="Łukasz Miłoś rozmawiający przez telefon z klientem w sprawie pomocy technologicznej."
+        />
+      </div></Row
+    ></Section
+  >
+  <Section class="bg-accent-darkest text-white">
+    <h2>Formy kontaktu</h2>
+    <Row maxColumns={4}>
+      <div class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow">
+        <div class="flex flex-col gap-2">
+          <Icon name="tabler:mail" class="text-5xl" />
+          <h3 class="text-h5">E-mail</h3>
+        </div>
+        <p class="text-gray">{data.company.email[0]}</p>
+      </div>
+
+      <div class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow">
+        <div class="flex flex-col gap-2">
+          <Icon name="tabler:user-circle" class="text-5xl" />
+          <h3 class="text-h5">Media</h3>
+        </div>
+        <Socials itemsStyle="text-gray hover:text-accent" />
+      </div>
+
+      <div class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow">
+        <div class="flex flex-col gap-2">
+          <Icon name="tabler:phone" class="text-5xl" />
+          <h3 class="text-h5">Telefon</h3>
+        </div>
+        <p class="text-gray">{data.company.phone[0]}</p>
+      </div>
+
+      <div class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow">
+        <div class="flex flex-col gap-2">
+          <Icon name="tabler:map-pin" class="text-5xl" />
+          <h3 class="text-h5">Adres</h3>
+        </div>
+        <p class="text-gray">{data.company.address}</p>
+      </div>
+    </Row>
+  </Section>
+</PageLayout>

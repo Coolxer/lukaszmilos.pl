@@ -68,35 +68,40 @@ export default {
     borderRadius: {
       none: "0",
       sm: "0.5rem",
-      DEFAULT: "1rem",
+      DEFAULT: "0.5rem",
+      md: "1rem",
       lg: "2rem",
       full: "9999px",
     },
     extend: {
       fontSize: {
+        h0: [
+          "clamp(2.986rem, 2.5319rem + 2.2705vi, 4.2915rem)",
+          { lineHeight: "1", letterSpacing: "-0.03em", fontWeight: "700" },
+        ],
         h1: [
-          "clamp(3.81rem, 0.87vi + 3.6rem, 4.29rem)",
-          { lineHeight: "1", letterSpacing: "-0.03em" },
+          "clamp(2.4883rem, 2.1597rem + 1.6433vi, 3.4332rem)",
+          { lineHeight: "1", letterSpacing: "-0.03em", fontWeight: "700" },
         ],
         h2: [
-          "clamp(3.05rem, 0.69vi + 2.88rem, 3.43rem)",
-          { lineHeight: "1", letterSpacing: "-0.03em" },
+          "clamp(2.0736rem, 1.8395rem + 1.1704vi, 2.7466rem)",
+          { lineHeight: "1.2", letterSpacing: "-0.03em", fontWeight: "700" },
         ],
         h3: [
-          "clamp(2.44rem, 0.55vi + 2.3rem, 2.75rem)",
-          { lineHeight: "1", letterSpacing: "-0.03em" },
+          "clamp(1.728rem, 1.5648rem + 0.8161vi, 2.1973rem)",
+          { lineHeight: "1.2", letterSpacing: "-0.03em", fontWeight: "600" },
         ],
         h4: [
-          "clamp(1.95rem, 0.44vi + 1.84rem, 2.2rem)",
-          { lineHeight: "1", letterSpacing: "-0.03em" },
+          "clamp(1.44rem, 1.3295rem + 0.5527vi, 1.7578rem)",
+          { lineHeight: "1.2", letterSpacing: "-0.03em", fontWeight: "600" },
         ],
         h5: [
-          "clamp(1.56rem, 0.36vi + 1.47rem, 1.76rem)",
-          { lineHeight: "1", letterSpacing: "-0.03em" },
+          "clamp(1.2rem, 1.1283rem + 0.3587vi, 1.4063rem)",
+          { lineHeight: "1.3", letterSpacing: "-0.03em", fontWeight: "500" },
         ],
         h6: [
-          "clamp(1.25rem, 0.28vi + 1.18rem, 1.41rem)",
-          { lineHeight: "1", letterSpacing: "-0.03em" },
+          "1rem",
+          { lineHeight: "1.3", letterSpacing: "-0.03em", fontWeight: "500" },
         ],
       },
       colors: {

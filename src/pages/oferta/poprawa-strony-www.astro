@@ -1,0 +1,292 @@
+---
+import { buildSlug } from "@utils/utils"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+import FAQ from "~/components/parts/FAQ.astro"
+
+const meta: Meta = {
+  title: "Poprawa strony WWW - Ładniej, szybciej, lepiej",
+  description:
+    "Zleć poprawę swojej strony w wybranym aspekcie lub w całości. Responsywność, szybkość, użyteczność, a może SEO? Zajmę się wszystkim.",
+  og: false,
+  tw: false,
+}
+
+const schema: Schema = {}
+---
+
+<PageLayout
+  pageTitle="Poprawa strony internetowej"
+  pageDescription="Masz stronę internetową, która nie spełnia Twoich oczekiwań? Zależy Ci na tym, aby Twoja witryna była po prostu lepsza?"
+  meta={meta}
+  schema={schema}
+  ><Section
+    ><Row
+      ><div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Żadna strona www nie jest idealna - moja także</h2><p
+            class="text-lg">
+            Zawsze można coś poprawić na stronie internetowej i warto to robić.
+          </p><p class="text-lg">
+            Czasami impuls do poprawy wynika bezpośrednio z widocznego problemu
+            lub jest efektem analizy i dążenia do doskonałości.
+          </p><p class="text-lg font-bold">
+            Pamiętaj, że im lepsza jest strona internetowa, tym większe korzyści
+            przynosi dla Twojej firmy.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <MyImage
+          src="strona-nieidealna.webp"
+          alt="Abstrakcyjny obraz niesamowitej strony internetowej, która wyłania się poza ekran monitora."
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <!-- <Section class="bg-accent-darkest text-white"
+    ><Row
+      ><div class="flex flex-col items-start">
+        <h2>Kluczowe aspekty dobrej strony wwww</h2>
+      </div>
+
+      <p class="text-lg">
+        Dobra strona internetowa powinna być zoptymalizowana pod kątem
+        użytkowników i osiągania celów biznesowych. Strona nie musi być ultra
+        nowoczesna i oszałamiająca. Najważniejsza jest przejrzystość i wartość
+        przekazywanej treści w połączeniu z bezpieczeństwem i szybkością
+        działania.
+      </p>
+    </Row>
+    <div
+      class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        [
+          {
+            title: "Bezpieczeństwo",
+            description:
+              "Strona internetowa musi być chroniona certyfikatem SSL, aby zapewnić bezpieczeństwo danych użytkowników.",
+          },
+          {
+            title: "Szybkość",
+            description:
+              "Strona musi ładować się szybko, aby nie zniechęcić użytkowników do dalszego przeglądania witryny.",
+          },
+          {
+            title: "Responsywność",
+            description:
+              "Strona musi poprawnie wyświetlać się na różnych urządzeniach, takich jak komputery, tablety i smartfony.",
+          },
+          {
+            title: "Estetyka",
+            description:
+              "Strona musi być przejrzysta i schludna, by zachęcać do dalszego odkrywania jej treści.",
+          },
+          {
+            title: "Funkcjonalność",
+            description:
+              "Strona musi być przejrzysta i schludna, by zachęcać do dalszego odkrywania jej treści.",
+          },
+          {
+            title: "Intuicyjność",
+            description:
+              "Strona musi być intuicyjna w nawigacji, aby użytkownicy bez problemu mogli znaleźć to, czego szukają.",
+          },
+          {
+            title: "Wartość i użyteczność",
+            description:
+              "Strona musi zawierać wartościowe treści, które będą interesować i angażować użytkowników.",
+          },
+          {
+            title: "Wyszukiwalność",
+            description:
+              "Twoja strona powinna być łatwa w odnalezienii, jeśli zależy Ci na ruchu z wyszukiwarki internetowej.",
+          },
+        ].map((item) => (
+          <div class="flex flex-col gap-2">
+            <p class="text-h5">{item.title}</p>
+            <p class="text-gray">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section> -->
+
+  <Section class="bg-gray-light"
+    ><Row
+      ><div class="order-2 md:order-1">
+        <MyImage
+          src="wskazanie.webp"
+          alt="Osoba pokazuje palcem konkretne miejsce na ekranie monitora lub tablicy."
+        />
+      </div><div
+        class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
+        <div class="flex flex-col gap-4">
+          <h2>Zdecyduj, co chcesz poprawić</h2><p class="text-lg">
+            Uwierz mi, że błędów na stronach www jest naprawdę sporo.
+            Ograniczeniem, co do ich poprawy jest opłacalność, czas i pieniądze,
+            dlatego czasami trzeba wybierać, co warto poprawić.
+          </p>
+        </div><div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <span class="text-h5">Wybrany element</span><p>
+              Wiesz dokładnie, co chcesz poprawić, np. daną sekcję, przycisk,
+              zdjęcie.
+            </p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-h5">Wybrany aspekt</span><p>
+              Zależy Ci na ogólnie poprawie jakiegoś parametru np. szybkości,
+              responsywności czy bezpieczeństwa.
+            </p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-h5">Najpierw doradztwo</span><p>
+              Potrzebujesz doradztwa i wskazania, co warto poprawić. <a
+                href={buildSlug("/oferta/ocena-strony-www")}>
+                Zobacz ofertę ocenę strony.
+              </a>
+            </p>
+          </div>
+        </div>
+        <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+      </div></Row
+    ></Section
+  >
+
+  <Section center class="bg-accent-darkest text-white">
+    <h2>Co możesz dodatkowo zyskać?</h2>
+    <Row maxColumns={3} class="my-4" placement="items-stretch">
+      <div
+        class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow-sm">
+        <p class="text-h2 text-accent">1</p>
+        <h3 class="text-h5">Dodatkowe uwagi i naprawy</h3>
+        <p class="text-gray">
+          Nawet przy wskazaniu pojedynczego elementu czy aspektu do poprawy,
+          przy okazji mogę zwrócić uwagę na coś jeszcze innego, co jest naprawdę
+          ważne.
+        </p>
+      </div>
+      <div
+        class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow-sm">
+        <p class="text-h2 text-accent">2</p>
+        <h3 class="text-h5">Aktualizacja oprogramowania</h3>
+        <p class="text-gray">
+          Jeśli okaże się, że oprogramowanie Twojej strony nie jest w najnowszej
+          wersji i może to powodować problemy, np. z bezpieczeństwem to pomogę
+          Ci zaktualizować system.
+        </p>
+      </div>
+      <div
+        class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow-sm">
+        <p class="text-h2 text-accent">3</p>
+        <h3 class="text-h5">Opieka techniczna nad stroną</h3>
+        <p class="text-gray">
+          Bedąc świadom istoty dbania o stronę internetową, takżę pod względem
+          technicznym, możemy umówić się na stałą opiekę techniczną nad Twoją
+          stroną www.
+        </p>
+      </div>
+    </Row>
+    <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+  </Section>
+
+  <Section center>
+    <h2>Przeniesienie strony, migracja lub odnowienie?</h2>
+    <Row class="mt-4"
+      ><div class="flex flex-col items-start">
+        <h3 class="text-h5">
+          <span class="text-accent">Dlaczego?</span> Czyli problemy z przestarzałymi
+          lub zaniedbanymi stronami
+        </h3>
+      </div>
+
+      <p class="text-lg">
+        Poprawa przestarzałych stron jest trudna z kilku powodów, m.in.
+        przestarzałej technologii, błędów u podstaw, wygaśniętych rozwiązań
+        premium, ryzyka zepsucia podczas aktualizacji niestabilnych systemów lub
+        braku danych logowania, a także czasem z nietypowej technologii.
+      </p>
+    </Row>
+
+    <Row
+      ><div class="flex flex-col items-start">
+        <h3 class="text-h5">
+          <span class="text-accent">Rozwiązanie?</span> Migracja strony lub odnowienie
+        </h3>
+      </div>
+
+      <p class="text-lg">
+        Czasami lepiej stronę internetową odwzorować w świeżej technologii -
+        takiej samej lub całkiem innej. Często proponuję znacznie lepsze
+        rozwiązanie do witryn firmowych niż wordpress i mogę zbudować dla Ciebie
+        taką stronę.
+      </p>
+    </Row>
+  </Section>
+
+  <FAQ
+    id="faq-reviewing-site"
+    items={[
+      {
+        question: "Dlaczego warto poprawiać stronę internetową?",
+        answer: [
+          "Poprawa strony internetowej może zwiększyć jej skuteczność, przyciągnąć więcej klientów oraz poprawić wizerunek firmy. Lepsza strona internetowa przynosi większe korzyści biznesowe.",
+        ],
+      },
+      {
+        question: "Co można poprawić na stronie internetowej?",
+        answer: [
+          "Można poprawić wiele elementów strony, w tym szybkość, responsywność, bezpieczeństwo, wygląd, funkcjonalność oraz treść. Poprawa zależy od indywidualnych potrzeb i priorytetów.",
+        ],
+      },
+      {
+        question: "Czy warto skonsultować się przed poprawą strony?",
+        answer: [
+          "Tak, warto skonsultować się z ekspertem, który pomoże zidentyfikować najważniejsze elementy do poprawy oraz zaproponować najlepsze rozwiązania.",
+        ],
+      },
+      {
+        question:
+          "Jakie są najczęstsze problemy z przestarzałymi stronami internetowymi?",
+        answer: [
+          "Przestarzałe strony mogą mieć problemy związane z przestarzałą technologią, błędami u podstaw, wygaśniętymi rozwiązaniami premium, ryzykiem zepsucia podczas aktualizacji oraz brakiem danych logowania.",
+        ],
+      },
+      {
+        question: "Jakie są opcje migracji lub odnowienia strony internetowej?",
+        answer: [
+          "Migracja strony polega na przeniesieniu jej na nową platformę lub technologię. Odnowienie strony to zbudowanie jej od podstaw, często z wykorzystaniem nowoczesnych i bardziej efektywnych rozwiązań.",
+        ],
+      },
+      {
+        question: "Co to jest opieka techniczna nad stroną?",
+        answer: [
+          "Opieka techniczna to regularne monitorowanie i utrzymanie strony internetowej, aby zapewnić jej płynne działanie, bezpieczeństwo i aktualizacje. Taka opieka jest konieczna dla stron dynamicznych tworzonych na wordpress.",
+        ],
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CTA secondary>
+    <p class="text-center text-h2">Chcesz poprawić swoją stronę www?</p>
+
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("/kontakt")}>Uzyskaj darmową wycenę</Button>
+      <Button variant="secondary" link={buildSlug("/kontakt")}
+        >Skontaktuj się
+      </Button>
+    </div>
+  </CTA>
+</PageLayout>

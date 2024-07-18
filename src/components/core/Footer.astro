@@ -2,32 +2,51 @@
 import { buildSlug } from "@utils/utils"
 import Socials from "@components/widgets/Socials.astro"
 
+import { Icon } from "astro-icon/components"
+
 const data = [
   {
-    title: "Product",
+    title: "Ogólne",
     links: [
-      { text: "Features", href: "#" },
-      { text: "Security", href: "#" },
-      { text: "Team", href: "#" },
-      { text: "Enterprise", href: "#" },
+      { text: "Strona główna", href: "/" },
+      { text: "O mnie", href: "/o-mnie" },
+      { text: "Portfolio", href: "/portfolio" },
+      { text: "Blog", href: "/blog" },
+      { text: "Kontakt", href: "/kontakt" },
+      { text: "Polityka prywatności", href: "/polityka-prywatnosci" },
     ],
   },
   {
-    title: "Platform",
+    title: "Oferta",
     links: [
-      { text: "Developer API", href: "#" },
-      { text: "Partners", href: "#" },
-      { text: "Atom", href: "#" },
-      { text: "Electron", href: "#" },
-    ],
-  },
-  {
-    title: "Support",
-    links: [
-      { text: "Docs", href: "#" },
-      { text: "Community Forum", href: "#" },
-      { text: "Professional Services", href: "#" },
-      { text: "Skills", href: "#" },
+      {
+        text: "tworzenie strony www",
+        href: "/oferta/tworzenie-strony-www",
+      },
+      {
+        text: "ocena strony www",
+        href: "/oferta/ocena-strony-www",
+      },
+      {
+        text: "poprawa strony www",
+        href: "/oferta/poprawa-strony-www",
+      },
+      {
+        text: "rozwój strony www",
+        href: "/oferta/rozwoj-strony-www",
+      },
+      {
+        text: "wdrażanie narzędzi cyfrowych",
+        href: "/oferta/wdrazanie-narzedzi-cyfrowych",
+      },
+      {
+        text: "automatyzacja procesów firmowych",
+        href: "/oferta/automatyzacja-procesow-firmowych",
+      },
+      {
+        text: "inne",
+        href: "/oferta/inne",
+      },
     ],
   },
 ]
@@ -35,38 +54,51 @@ const data = [
 const year = new Date().getFullYear()
 ---
 
-<footer class="bg-white">
-  <div class="mx-auto w-full max-w-screen-xl">
-    <div class="grid grid-cols-2 gap-8 px-4 py-6 md:grid-cols-3 lg:py-8">
-      {
-        data.map(({ title, links }) => (
-          <div>
-            <p class="mb-8 text-sm font-semibold uppercase text-gray-dark">
-              {title}
-            </p>
-            {links && Array.isArray(links) && links.length > 0 && (
-              <ul class="font-medium text-gray">
-                {links.map(({ text, href }) => (
-                  <li class="mb-base">
-                    <a href={buildSlug(href)} class="hover:underline">
-                      {text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))
-      }
+<footer class="bg-black px-6 pt-8 text-white">
+  <div
+    class="mx-auto grid w-full max-w-screen-xl grid-cols-1 gap-8 md:grid-cols-3 md:py-6">
+    <div class="flex flex-col gap-2 border-gray-dark md:border-r">
+      <Icon name="logo" class="text-7xl" />
+      <div>
+        <p class="text-h3">Łukasz Miłoś</p>
+        <p class="text-lg">Inżynier IT. Programista. Informatyk.</p>
+      </div>
+      <p class="text-gray">Twój technologiczny partner.</p>
     </div>
-    <div
-      class="bg-gray-lightest px-4 py-6 md:flex md:items-center md:justify-between">
-      <p class="text-sm text-gray sm:text-center">
-        © <span id="footer-year">{year}</span>Flowbite™
-      </p>. All Rights Reserved.
-    </div>
-    <Socials />
+
+    <hr class="h-px w-full border-0 bg-gray-dark md:hidden" />
+
+    {
+      data.map(({ title, links }) => (
+        <div class="border-gray-dark last:border-0 md:border-r">
+          <p class="mb-2 text-h5">{title}</p>
+          {links && Array.isArray(links) && links.length > 0 && (
+            <ul class="list-inside list-disc font-medium">
+              {links.map(({ text, href }) => (
+                <li class="mb-base">
+                  <a
+                    href={buildSlug(href)}
+                    class="text-accent-light transition-colors duration-300 ease-in-out hover:text-accent">
+                    {text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+          <hr class="h-px w-full border-0 bg-gray-dark last:hidden md:hidden" />
+        </div>
+      ))
+    }
   </div>
+  <div
+    class="mx-auto mt-8 w-full border-t border-gray-dark py-4 md:flex md:items-center md:justify-between">
+    <div class="mx-auto w-full max-w-screen-xl">
+      <p class="text-center text-sm">
+        © <span id="footer-year">{year}</span> Łukasz Miłoś. Wszelkie prawa zastrzeżone.
+      </p>
+    </div>
+  </div>
+  <Socials class="justify-center" />
 </footer>
 
 <script is:inline>

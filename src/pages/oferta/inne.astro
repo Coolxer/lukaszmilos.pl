@@ -1,0 +1,50 @@
+---
+import data from "~/data/site.json"
+import { buildSlug } from "@utils/utils"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+
+import { Content as AllServices } from "@components/parts/AllServices.md"
+
+const meta: Meta = {
+  title: "Więcej umiejętności - Elementy współpracy",
+  description:
+    "Zobacz w czym jeszcze możemy współpracować. W skrócie - jest to niemal wszystko związane z cyfryzacją.",
+  og: false,
+  tw: false,
+  nofollow: true,
+  noindex: true,
+}
+
+const schema: Schema = {}
+---
+
+<PageLayout
+  pageTitle="Więcej umiejętności i pól do współpracy"
+  pageDescription="Zobacz zczym jeszcze  możemy współpracować. Jestem otwarty na wiele technicznych spraw, które mogą pomóc Twojej firmie."
+  meta={meta}
+  schema={schema}>
+  <!-- CTA -->
+
+  <Section center>
+    <article
+      class="prose marker:text-black prose-h1:text-h1 prose-h2:text-h3 prose-h3:text-h4 prose-h4:text-h5 prose-h5:text-h5 prose-h6:text-h6">
+      <AllServices />
+    </article>
+  </Section>
+
+  <CTA>
+    <p class="text-center text-h2">Chcesz ulepszyć swoją stronę?</p>
+
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("")}>Zapytaj o wdrożenie</Button>
+      <Button variant="tetriary" link={buildSlug("")}>Skontaktuj się </Button>
+    </div>
+  </CTA>
+</PageLayout>

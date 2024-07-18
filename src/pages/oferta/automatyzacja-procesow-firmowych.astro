@@ -1,0 +1,392 @@
+---
+import data from "~/data/site.json"
+import { buildSlug } from "@utils/utils"
+
+import { Icon } from "astro-icon/components"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+import FAQ from "@components/parts/FAQ.astro"
+
+const meta: Meta = {
+  title: "Automatyzacja - Oszczędź czas i pieniądze",
+  description:
+    "Wykonujesz monotonne i czasochłonne czynności? Zainwestuj w automatyzację procesów w Twojej firmie i oszczędź czas, pieniądze i siły.",
+  og: false,
+  tw: false,
+}
+---
+
+<PageLayout
+  pageTitle="Automatyzacja procesów firmowych"
+  pageDescription="Uwolnij się od monotonnych zadań i skup się na tym, co naprawdę ważne dla Twojego biznesu."
+  meta={meta}
+  ><Section
+    ><Row
+      ><div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Czym jest automatyzacja i jakie zapewnia korzyści?</h2><p
+            class="text-lg">
+            Automatyzacja to kolejny poziom cyfryzacji, gdzie wybrane zadania
+            odbywają się automatycznie. Nie zawsze oznacza to całkowitą
+            eliminację działań człowieka. <b>
+              Można powiedzieć, że to delegacja działań, ale algorytmom.
+            </b>
+          </p><p class="text-lg">
+            Jeśli posiadasz mikro lub małą firmę i w tym momencie nie stać cię
+            na zatrudnienie nowego pracownika to automatyzacja jest tańsza i
+            może Ci pomóc.
+          </p><p class="text-lg font-bold">
+            Zamiast robić coś samodzielnie lub zlecać to pracownikowi - można to
+            zautomatyzować. Dzięki temu uwolnisz dodatkowy czas i energię na
+            inne ważne zadania.
+          </p>
+        </div>
+      </div>
+      <div>
+        <MyImage
+          src="automatyzacja.webp"
+          alt="nowoczesna, zautomatyzoana ręka robotyczna"
+        />
+      </div>
+    </Row>
+
+    <div
+      class="mt-4 grid grid-cols-1 gap-8 md:mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        [
+          {
+            icon: "tabler:clock",
+            title: "Oszczędność czasu",
+            description:
+              "Szybsze i bardziej precyzyjne wykonywanie powtarzalnych zadań..",
+          },
+          {
+            icon: "tabler:bug",
+            title: "Redukcja błędów",
+            description:
+              "Eliminacja błędów, zapomnień i większa powtarzalność. ",
+          },
+          {
+            icon: "tabler:bolt",
+            title: "Większa efektywność",
+            description:
+              "Szybsze osiąganie zamierzonych celów i więcej zrealizowanych zadań.",
+          },
+          {
+            icon: "tabler:coin",
+            title: "Oszczędność finansowa",
+            description:
+              "Redukcja kosztów poprzez wydajne zarządzanie zasobami.",
+          },
+        ].map((item) => (
+          <div class="flex flex-col gap-2">
+            <Icon name={item.icon} class="text-5xl text-accent" />
+            <p class="text-h5">{item.title}</p>
+            <p class="text-gray-dark">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section center class="bg-accent-darkest text-white">
+    <h2>Jak mogę Ci pomóc w automatyzacji</h2>
+    <Row maxColumns={4} class="my-4" placement="items-stretch">
+      {
+        [
+          {
+            title: "Wykrycie procesu",
+            description:
+              "Czasami możesz nie być świadomy(a), że coś można uprościć i zautomatyzować. Korzystając ze swojej wiedzy, mogę odkryć ten proces.",
+          },
+          {
+            title: "Znalezienie rozwiązania",
+            description:
+              "Szukam najlepszego rozwiązania, testując i zaczynając od zastosowania gotowych rozwiązań, które można wykorzystać od zaraz.",
+          },
+          {
+            title: "Wdrożenie rozwiązania",
+            description:
+              "Ostatecznie wdrażam stosowne rozwiązanie, testując jego działanie, dokładnie na Twoich przykładach, by wszystko spełniało Twoje oczekiwania.",
+          },
+          {
+            title: "Przeszkolenie i wsparcie",
+            description:
+              "Dokładnie pokażę Ci w jaki sposób korzystać z wdrożonego rozwiązania i chętnie odpowiem na Twoje pytania.",
+          },
+        ].map((item, index) => (
+          <div class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow-sm">
+            <p class="text-h2 text-accent">{index + 1}</p>
+            <h3 class="text-h5">{item.title}</h3>
+            <p class="text-gray">{item.description}</p>
+          </div>
+        ))
+      }
+    </Row>
+    <div class="flex flex-col gap-4 lg:flex-row">
+      <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+      <Button link={buildSlug("/kontakt")} variant="tetriary"
+        >Skontaktuj się</Button
+      >
+    </div>
+  </Section>
+
+  <Section withBackgroundImage class="text-white">
+    <MyImage
+      slot="background"
+      src="focused.png"
+      alt=""
+      width={1920}
+      withOverlay
+      overlayColor="bg-gradient-to-b from-slate-800/50 to-slate-950/50"
+      class="h-full rounded-none"
+      loading="eager"
+    />
+    <Row placement="items-start"
+      ><div class="flex flex-col items-start">
+        <h2>Ile kosztuje automatyzacja?</h2>
+      </div>
+
+      <div class="flex flex-col items-start justify-center gap-8">
+        <p class="text-lg">
+          Panuje przekonanie, że automatyzacja jest niejako darmowa, bo i tak
+          trzeba by komuś zapłacić (znacznie więcej) za wykonanie tych zadań,
+          lub zwraca się bardzo szybko.
+        </p>
+        <p class="text-lg">
+          Oferuję elastyczne rozwiązania dopasowane do potrzeb każdego klienta.
+          Chcę, aby automatyzacja była dostępna dla każdego, także dla mikro i
+          małych firm, by nie zostały one w technologicznym tyle.
+        </p>
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+          <Button link={buildSlug("/kontakt")} variant="tetriary"
+            >Skontaktuj się</Button
+          >
+        </div>
+      </div>
+    </Row>
+  </Section>
+
+  <Section
+    ><Row
+      ><div class="order-2 md:order-1">
+        <MyImage src="co-automatyzowac.webp" alt="" />
+      </div><div class="order-1 flex flex-col justify-center gap-8 md:order-2">
+        <h2>Co można i warto automatyzować?</h2><div
+          class="flex flex-col items-start gap-6">
+          <div class="flex flex-col gap-2">
+            <h3 class="text-h5">Powtarzalne zadania</h3><p>
+              Automatyzować można coś co jest w jakiś sposób sprawdzone i
+              powtarzalne. Z natury nie optymalizuje się jednorazowych procesów,
+              chyba, że są bardzo długie i  dokładnie wiadomo jak będą działać.
+            </p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-h5">Działania na dużej liczbe danych</h3><p>
+              Przetwarzanie dużej liczby danych jest dla człowieka trudne i
+              monotonne. Algorytmy radzą sobie z tym znacznie lepiej.
+            </p>
+          </div>
+          <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+        </div>
+      </div>
+    </Row>
+
+    <div
+      class="mt-4 grid grid-cols-1 gap-8 md:mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        [
+          {
+            title: "sprzedaż i marketing",
+            description:
+              "Wsparcie w zdobywaniu i kontakcie z klientem. Łatwiejsze pozyskiwanie potencjalnych klientów, tworzenie spersonalizowanych ofert i umów.",
+          },
+          {
+            title: "obługa klientów",
+            description:
+              "Ułatwienie kontaktu z klientem, raportowanie postępów prac i zautomatyzowane wiadomości przy zakupie, zwrotach i reklamacjach.",
+          },
+          {
+            title: "główne działanie",
+            description:
+              "Automatyzacja zadań w głównej sferze działalności firmy, by działać jeszcze lepiej, szybciej i unikać błędów.",
+          },
+          {
+            title: "administracja",
+            description:
+              "Odpowiednie korzystanie z przetwarzanych danych umożliwia łatwiejsze generowanie dokumentów i raportów.",
+          },
+        ].map((item) => (
+          <div class="flex flex-col gap-2">
+            <p class="text-h5">{item.title}</p>
+            <p class="text-gray-dark">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section center class="bg-gray-light">
+    <h2>Przykłady pomocnych automatyzacji dla firm</h2>
+    <Row maxColumns={4} class="mt-8" placement="items-stretch">
+      {
+        [
+          {
+            title: "Powiadomienie sms, gdy przyjdzie e-mail",
+            description:
+              "Nie każdy ciągle sprawdza e-maila,  a czasami e-mail przyjdzie minutę później. Dowiaduj się na bieżąco.",
+          },
+          {
+            title: "Szybka odpowiedź sms",
+            description:
+              "Nie masz jak odebrać telefonu, bo akturat pracujesz?. Szybka odpowiedź jest bardzo ważna, więc wysyła się sms z informacją.",
+          },
+          {
+            title: "Wpis blogowy stworzony z filmu youtube",
+            description:
+              "Twórz automatycznie content na podstawie treści filmów z Youtube (tytuł i opis)",
+          },
+          {
+            title:
+              "Generowanie grafik na posty do social media, Google i bloga",
+            description:
+              "Twórz automatycznie okładki do social media / artykułów na blog (obrazek z tekstem tytułu)",
+          },
+          {
+            title:
+              "Automatyczne dodawanie opinii Google lub Facebook na stronę",
+            description:
+              "Najlepsze opinie Google lub Facebook same pojawiją się na Twojej stronie internetowej.",
+          },
+          {
+            title: "Automatyczne tworzenie bazy adresów e-mail w Google Sheet",
+            description:
+              "Na podstawie wiadomości wysłanej z formularz akontaktowego na Twojej stronie - e-mail sam zapisuje się w arkuszu.",
+          },
+          {
+            title:
+              "Generowanie grafik z komentarzami klientów i publikacja ich do social media",
+            description:
+              "Automatyzacja tworzenia prostych grafik zwiększająca zaufanie klientów i działająca samodzielnie.",
+          },
+          {
+            title: "Generator dokumentów, umów certyfikatów w firmie",
+            description:
+              "Łatwe generowanie dokumentów na podstawie szablonów pozwala także uniknąć błędów.",
+          },
+          {
+            title: "Generowanie automatycznych statystyk dla klienta",
+            description:
+              "Jeśli obsługujesz klientów i powstają jakieś dane - warto dzielić się statystykami. Nie podsumowania tworzą się same!",
+          },
+          {
+            title: "Automatyczne pobieranie informacji o firmie",
+            description:
+              "Teraz już nie musisz samodzielnie szukać informacji o nowym kliencie. System zrobi to za Ciebie.",
+          },
+          {
+            title: "Publikowanie nowych postów social media na wordpress",
+            description:
+              "Ta automatyzacja publikuje nowe posty z Twojej strony Facebook na Twoim blogu WordPress.",
+          },
+          {
+            title: "Zamiania postów blogowych na posty w social media",
+            description:
+              "Ta automatyzacja wysyła każdy nowy post WordPress jako wiadomość na określonym kanale Discord.",
+          },
+          {
+            title: "Generator opisów produktów",
+            description:
+              "Jeśli sprzedajesz produkty online to wiesz jak czasochłonne jest tworzenie opisów produktów. Zautomatyzuj to!",
+          },
+          {
+            title:
+              "Automatyczne informowanie klientow o niezaplaconych fakturach",
+            description:
+              "Zaległości w płatnościach to trudny temat, podobnie jak sam kontakt. Niech system robi to za Ciebie.",
+          },
+          {
+            title: "Automatyczne usuwanie plików z google drive",
+            description:
+              "Twój dysk google drive jest przeciążony? Można ustawić jego automatyczne czyszczenie.",
+          },
+          {
+            title: "Automatyczne zapisywanie zamowien w bazie danych",
+            description:
+              "Zamówienia lądują w Twojej bazie danych, co pozwala lepiej je kontroloać i podsumować.",
+          },
+          {
+            title: "Automatyczne zapisywanie zalacznikow gmail w google drive",
+            description:
+              "Twoi klienci często wysyłają załączniki? Ustaw ich zapis bezpośrednio na dysku Google.",
+          },
+          {
+            title: "Twoja sprawa. Twój pomysł.",
+            description:
+              "Masz inny pomysł, problem lub potrzebę? Możliwości są ogromne.",
+          },
+        ].map((item, index) => (
+          <div class="group flex flex-col gap-4 rounded bg-accent-light px-4 py-8 shadow last:bg-gray">
+            <div class="flex aspect-square items-center justify-center self-start rounded-full bg-accent-dark p-2 text-h3 text-white shadow-sm group-last:bg-gray-dark">
+              <span>{index + 1}</span>
+            </div>
+            <h3 class="text-h5">{item.title}</h3>
+            <hr class="h-px w-full border-0 bg-accent-dark" />
+            <p>{item.description}</p>
+          </div>
+        ))
+      }
+    </Row>
+  </Section>
+
+  <FAQ
+    id="faq-reviewing-site"
+    items={[
+      {
+        question: "Dlaczego warto wdrażać automatyzację w firmie?",
+        answer: [
+          "Automatyzacja pozwala na oszczędność czasu, redukcję błędów, zwiększenie efektywności oraz oszczędność finansową poprzez wydajne zarządzanie zasobami.",
+        ],
+      },
+      {
+        question: "Jakie są koszty automatyzacji?",
+        answer: [
+          "Koszty automatyzacji są elastyczne i dostosowane do potrzeb klienta. Automatyzacja jest zazwyczaj tańsza niż zatrudnienie dodatkowego pracownika i może szybko się zwrócić.",
+        ],
+      },
+      {
+        question: "Jakie zadania można automatyzować?",
+        answer: [
+          "Automatyzować można powtarzalne zadania, działania na dużej liczbie danych, sprzedaż i marketing, obsługę klienta, główne działania firmy oraz administrację.",
+        ],
+      },
+      {
+        question: "Jak przebiega proces automatyzacji?",
+        answer: [
+          "Proces automatyzacji obejmuje wykrycie procesów do uproszczenia i zautomatyzowania, znalezienie najlepszego rozwiązania, wdrożenie rozwiązania oraz przeszkolenie użytkowników i zapewnienie wsparcia.",
+        ],
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CTA secondary>
+    <p class="text-center text-h2">Chcesz automatyzować procesy w firmie?</p>
+
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("/kontakt")}>Uzyskaj darmową wycenę</Button>
+      <Button variant="secondary" link={buildSlug("/kontakt")}
+        >Skontaktuj się
+      </Button>
+    </div>
+  </CTA>
+</PageLayout>

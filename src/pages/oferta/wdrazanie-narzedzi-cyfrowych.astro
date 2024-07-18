@@ -1,0 +1,286 @@
+---
+import data from "~/data/site.json"
+import { buildSlug } from "@utils/utils"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+import FAQ from "~/components/parts/FAQ.astro"
+
+const meta: Meta = {
+  title: "Wdrażanie narzędzi cyfrowych - Cyfryzacja ",
+  description:
+    "Chcesz rozwijać swoją firmę dzięki technologii cyfrowej? Pomogę Ci tylko wdrożyć nowe narzędzia, ale także je wybrać, także wykryć proces.",
+  og: false,
+  tw: false,
+}
+
+const schema: Schema = {}
+---
+
+<PageLayout
+  pageTitle="Wdrażanie narzędzi cyfrowych"
+  pageDescription="Odkryj korzyści płynące ze stosowania narzędzi cyfrowych w Twojej firmie."
+  meta={meta}
+  schema={schema}
+  ><Section
+    ><Row
+      ><div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Czym jest cyfryzacja i jakie zapewnia korzyści?</h2><p
+            class="text-lg">
+            Cyfryzacja to zastosowanie technologii, narzędzi i programów w
+            firmie celem skutecznejszego działania i rozwoju.
+          </p><p class="text-lg">
+            Wiele prac dotyczy danych i te dane generuje. Kluczem jest ich
+            przechowywanie w formie cyfrowej, a nie papierowej, bo to zapewnia
+            szereg korzyści.
+          </p><p class="text-lg font-bold">
+            Dane to dzisiaj złoto, które pozwala lepiej rozumieć świat, firmę i
+            klientów oraz stosownie reagować. Wielkie koncerny płacą krocie za
+            dane. Ty też zacznij wszystko zapisywać i korzystać z danych.
+          </p>
+        </div>
+      </div>
+      <div>
+        <MyImage
+          src="korzysci-cyfryzacji.webp"
+          alt="laptop wyświetlający diagramy, tabelki i wykresy."
+        />
+      </div>
+    </Row>
+
+    <div
+      class="mt-4 grid grid-cols-1 gap-8 md:mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        [
+          {
+            title: "Spójność i kontrola",
+            description:
+              "Dane przechowywane cyfrowo są łatwiejsze w kontrolowaniu i zachowują spójność.",
+          },
+          {
+            title: "Współdzielenie",
+            description:
+              "Łatwiejsze dzielenie i praca nad danymi przez kilku pracowników jednocześnie.",
+          },
+          {
+            title: "Łatwość znalezienia",
+            description:
+              "Dane przechowywane cyfrowo bardzo łatwo jest znaleźć i podejrzeć i trudno je zgubić.",
+          },
+          {
+            title: "Łatwość pracy",
+            description:
+              "Można łatwo dodawać, usuwać i zmieniać dane, a także filtrowac i tworzyć raporty.",
+          },
+          {
+            title: "Wykorzystywanie aplikacji",
+            description:
+              "Dane cyfrowe można z łatwością przetwarzać różnymi aplikacjami, co umozliwia ich dalsze przetwarzanie.",
+          },
+          {
+            title: "Lepsza skalowalność",
+            description:
+              "Cyfryzacja umożliwia skalowanie firmy i jej (nie)naturalny szybki wzrost.",
+          },
+          {
+            title: "Oszczędności",
+            description:
+              "Szybsze odnajdywanie danych i ich przetwarzanie to czyste oszczędności.",
+          },
+        ].map((item) => (
+          <div class="flex flex-col gap-2">
+            <p class="text-h5">{item.title}</p>
+            <p class="text-gray-dark">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section center class="bg-accent-darkest text-white">
+    <h2>Jak mogę Ci pomóc w cyfryzacji</h2>
+    <Row maxColumns={4} class="my-4" placement="items-stretch">
+      {
+        [
+          {
+            title: "Wykrycie procesu",
+            description:
+              "Czasami możesz nie być świadomy(a), że coś można uprościć i zautomatyzować. Korzystając ze swojej wiedzy, mogę odkryć ten proces.",
+          },
+          {
+            title: "Znalezienie rozwiązania",
+            description:
+              "Szukam najlepszego rozwiązania, testując i zaczynając od zastosowania gotowych rozwiązań, które można wykorzystać od zaraz.",
+          },
+          {
+            title: "Wdrożenie rozwiązania",
+            description:
+              "Ostatecznie wdrażam stosowne rozwiązanie, testując jego działanie, dokładnie na Twoich przykładach, by wszystko spełniało Twoje oczekiwania.",
+          },
+          {
+            title: "Przeszkolenie i wsparcie",
+            description:
+              "Dokładnie pokażę Ci w jaki sposób korzystać z wdrożonego rozwiązania i chętnie odpowiem na Twoje pytania.",
+          },
+        ].map((item, index) => (
+          <div class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow-sm">
+            <p class="text-h2 text-accent">{index + 1}</p>
+            <h3 class="text-h5">{item.title}</h3>
+            <p class="text-gray">{item.description}</p>
+          </div>
+        ))
+      }
+    </Row>
+    <div class="flex flex-col gap-4 lg:flex-row">
+      <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+      <Button link={buildSlug("/kontakt")} variant="tetriary"
+        >Skontaktuj się</Button
+      >
+    </div>
+  </Section>
+
+  <Section withBackgroundImage class="text-white">
+    <MyImage
+      slot="background"
+      src="focused.png"
+      alt=""
+      width={1920}
+      withOverlay
+      overlayColor="bg-gradient-to-b from-slate-800/50 to-slate-950/50"
+      class="h-full rounded-none"
+      loading="eager"
+    />
+    <Row placement="items-start"
+      ><div class="flex flex-col items-start">
+        <h2>Ile kosztuje cyfryzacja?</h2>
+      </div>
+
+      <div class="flex flex-col items-start justify-center gap-8">
+        <p class="text-lg">
+          Oferuję elastyczne rozwiązania dopasowane do potrzeb każdego klienta.
+          Chcę, aby automatyzacja była dostępna dla każdego, także dla mikro i
+          małych firm, by nie zostały one w technologicznym tyle.
+
+          <div class="flex flex-col gap-4 lg:flex-row">
+            <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+            <Button link={buildSlug("/kontakt")} variant="tetriary"
+              >Skontaktuj się</Button
+            >
+          </div>
+        </p>
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-accent-lightest">
+    <Row placement="items-start"
+      ><div class="flex flex-col gap-4">
+        <h2>Zobacz realne przykłady zastosowania technologii w firmie</h2><p
+          class="text-lg">
+          W czym, po co i jakie narzędzia cyfrowe można stosować?
+        </p>
+      </div><div class="flex flex-col gap-8">
+        {
+          [
+            {
+              title: "Planowanie zadań",
+              description:
+                " Planowanie to klucz do sukcesu. Organizacja zadań zwiększa produktywność, efektywność i chroni przed niedotrzymaniem terminów.",
+              examples: ["Todoist", "Trello", "Notion", "Google Calendar"],
+            },
+            {
+              title: "Kontrola wysyłanych e-maili",
+              description:
+                "Często wysyłasz e-maile? Zastanawiasz się czy ktoś je już odczytał? Czy o to zapytać? Ponowić wiadomość? Są rozwiązania cyfrowe, dzięki którym dowiesz się, czy e-mail dotarł i czy został otwarty.",
+              examples: ["EmailTracker", "MailTruck"],
+            },
+            {
+              title: "Kontrola wielu pocz e-mail",
+              description:
+                " Masz wiele poczt e-mail, które musisz kontrolować? Logowanie na każdą z nich z osobna jest czasochłonne i trudne. Rozwiązaniem jest menadżer pocztowy - uruchamiany raz i kontrolujący dostęp do wszystkich twoich kont pocztowych.",
+              examples: ["Thunderbird", "Outlook"],
+            },
+            {
+              title: "Rozwiązanie na wiele haseł",
+              description:
+                "Coraz większa liczba serwisów online to coraz większy problem z hasłami, które trzeba pamiętać. Pomaga menadżer haseł dostępny w przeglądarce. Jeszcze lepszym rozwiązaniem jest konto Google / Gmail, którym można się logować do większości aplikacji..",
+              examples: ["Google Chrome", "Konto Google / G-mail"],
+            },
+            {
+              title: "Sparametryzowane obliczenia",
+              description:
+                "Być może często bliczasz coś wielokrokowo, w oparciu o pewne parametry. Robisz to na kartce i nawet posługujesz się kalkulatorem, ale wymaga to wielu operacji. Można stworzyć własny kalkulator, gdzie wystarczy podać wartości parametrów i od razu ukaże się wynik.",
+              examples: ["Google Sheets", "Dedykowany program"],
+            },
+            {
+              title: "Wirtualny doradca i pomocnik",
+              description:
+                "Czasami potrzebujesz się w czymś doradzić lub upewnić, ale nie masz do kogo się zwrócić? A może potrzebujesz pomocy np. w zredagowaniu tekstu. Sztuczna inteligencja przyjdzie Ci z pomocą.",
+              examples: ["ChatGPT", "Gemini"],
+            },
+          ].map((item) => (
+            <div class="flex flex-col gap-4 rounded bg-accent-light px-4 py-8 shadow">
+              <>
+                <h3 class="text-h4">{item.title}</h3>
+                <p>{item.description}</p>
+                <div class="flex flex-row flex-wrap gap-2">
+                  {item.examples.map((example) => (
+                    <div class="bg-accent-lightest p-2">{example}</div>
+                  ))}
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </Row>
+  </Section>
+
+  <FAQ
+    id="faq-reviewing-site"
+    items={[
+      {
+        question: "Dlaczego warto wdrażać narzędzia cyfrowe w firmie?",
+        answer: [
+          "Wdrażanie narzędzi cyfrowych zwiększa efektywność działania firmy, umożliwia lepsze przechowywanie, kontrolę i przetwarzanie danych, a także pozwala na łatwiejsze współdzielenie informacji oraz oszczędność czasu i zasobów.",
+        ],
+      },
+
+      {
+        question: "Jak sztuczna inteligencja może pomóc w pracy?",
+        answer: [
+          "Sztuczna inteligencja, taka jak ChatGPT czy Gemini, może doradzać, pomagać w redagowaniu tekstów i oferować wsparcie w różnych zadaniach, zwiększając efektywność pracy.",
+        ],
+      },
+      {
+        question:
+          "Jakie kroki są podejmowane podczas wdrażania narzędzi cyfrowych?",
+        answer: [
+          "Proces wdrażania narzędzi cyfrowych obejmuje wykrycie procesów do usprawnienia, znalezienie najlepszego rozwiązania, wdrożenie i testowanie rozwiązania oraz przeszkolenie użytkowników i zapewnienie wsparcia.",
+        ],
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CTA secondary>
+    <p class="text-center text-h2">
+      Chcesz wdrażać cyfryzację w swojej firmie?
+    </p>
+
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("/kontakt")}>Uzyskaj darmową wycenę</Button>
+      <Button variant="secondary" link={buildSlug("/kontakt")}
+        >Skontaktuj się
+      </Button>
+    </div>
+  </CTA>
+</PageLayout>

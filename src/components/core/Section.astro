@@ -1,21 +1,25 @@
 ---
 export interface Props {
+  id?: string
   noTopPadding?: boolean
   noBottomPadding?: boolean
-  maxWidth?: string
-  center?: boolean
   withBackgroundImage?: boolean
   class?: string
+  maxWidth?: string
+  center?: boolean
+  gap?: string
   innerContainerClasses?: string
 }
 
 const {
+  id = undefined,
   noTopPadding = false,
   noBottomPadding = false,
-  maxWidth = "max-w-screen-xl",
-  center = false,
   withBackgroundImage = false,
   class: className,
+  maxWidth = "max-w-screen-xl",
+  center = false,
+  gap = "gap-8",
   innerContainerClasses,
   ...attributes
 } = Astro.props
@@ -23,6 +27,7 @@ const {
 
 <section
   class:list={["w-full", withBackgroundImage && "relative", className]}
+  {id}
   {...attributes}>
   {
     withBackgroundImage && (
@@ -46,9 +51,10 @@ const {
     ]}>
     <div
       class:list={[
-        "items container mx-auto flex flex-col items-start gap-6",
-        center && "items-center",
+        "items container mx-auto flex flex-col items-start",
         maxWidth,
+        center && "items-center",
+        gap,
         innerContainerClasses,
       ]}>
       <slot />

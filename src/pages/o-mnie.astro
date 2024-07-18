@@ -1,0 +1,368 @@
+---
+import { buildSlug } from "@utils/utils"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+
+import IconList from "@components/ui/IconList.astro"
+import Gallery from "@components/ui/Gallery.astro"
+
+import marketing from "@assets/images/certificates/marketing.webp"
+import gmb from "@assets/images/certificates/gmb.webp"
+import gads from "@assets/images/certificates/gads.webp"
+import ga from "@assets/images/certificates/ga.webp"
+
+import webflow101 from "@assets/images/certificates/webflow-101.webp"
+import webflowLayout1 from "@assets/images/certificates/webflow-layout-1.webp"
+
+import zapier1 from "@assets/images/certificates/zapier-1.webp"
+import zapier2 from "@assets/images/certificates/zapier-2.webp"
+
+import coursera1 from "@assets/images/certificates/coursera-1.webp"
+import coursera2 from "@assets/images/certificates/coursera-2.webp"
+import coursera3 from "@assets/images/certificates/coursera-3.webp"
+import coursera4 from "@assets/images/certificates/coursera-4.webp"
+import coursera5 from "@assets/images/certificates/coursera-5.webp"
+
+import WorkingRules from "@components/parts/WorkingRules.astro"
+
+const meta: Meta = {
+  title: "O-mnie - specjalista i inż. IT",
+  description:
+    "Nazywam się Łukasz Miłoś i jestem specjalistą i inż. IT. Specjalizuję się w technologiach cyfrowych i  automatyzacji, a szczególnie w stronach www.",
+  openGraph: {},
+  twitter: {},
+}
+
+const schema: Schema = {
+  "@context": "http://schema.org",
+  "@type": "Person",
+  name: "Łukasz Miłoś",
+  url: "https://lukaszmilos.pl/o-mnie",
+  image: "link_do_zdjęcia_Łukasza_Miłosia",
+  description:
+    "Dowiedz się więcej o Łukaszu Miłoś- jego wiedzy, umiejętności i praktykach.",
+}
+---
+
+<PageLayout
+  pageTitle="O mnie"
+  pageDescription="Poznaj mnie lepiej by podjąć słuszną decyzję"
+  meta={meta}
+  schema={schema}
+  ><Section
+    ><Row
+      ><div class="flex flex-col justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>
+            Kim jestem? <br /><span class="text-accent">Łukasz Miłoś</span>
+          </h2><p class="text-lg">
+            Nazywam się Łukasz Miłoś. Rozwiązuję problemy za pomocą technologii
+            cyfrowej.
+          </p>
+        </div>
+        <IconList
+          items={[
+            "technik i inżynier IT",
+            "certyfikowany specjalista www",
+            "osoba techniczna, znająca wiele narzędzi i technologii",
+            "osoba z wiedzą i umiejętnościami z zakresu sieci, stron internetowych i aplikacji",
+            "osoba z pasją, zaangażowaniem i chęcią działania",
+          ]}
+        />
+      </div><div>
+        <MyImage
+          src="hero3.webp"
+          alt="Łukasz Miłoś trzymający klawiaturą w ręku - symbolu cyfryzacji."
+          withOverlay
+        />
+      </div></Row
+    >
+    <Row maxColumns={3} class="mt-4 md:mt-8">
+      <div class="flex flex-col gap-2">
+        <span class="text-h5">Inżynier IT</span>
+        <p class="text-gray-dark">
+          Technologia jest mi znana także od technicznej strony i śmiało stawiam
+          czoła wszystkim problemom.
+        </p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-h5">Programista</span>
+        <p class="text-gray-dark">
+          Mimo, że nie jestem zawodowym programistą, to dobrze znam koncepty i
+          miałem styczność z wieloma językami programowania.
+        </p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-h5">Początkujący Designer</span>
+        <p class="text-gray-dark">
+          Nie jestem wybitnym designerem i grafikiem, ale znam istotne podstawy,
+          mam nienajgorszy gust i czujne oko.
+        </p>
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-accent-darkest text-white"
+    ><h2>Moja technologiczna historia w skrócie</h2><div
+      class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      {
+        [
+          "Start technologicznej przygody od grafiki 3D i programowania w klasycznych językach takich jak C / C++.",
+          "Okres silnego zainteresowania tematyką embedded (elektronika, automatyka, budowa własnej drukarki 3D).",
+          "Okres zainteresowania technologią webową, podstawową jak i zaawansowaną, by w koncu poznać wordpressa.",
+          "Poznanie tematyki bezpieczeństwa, wydajności, SEO, UX stron internetowych i częstych błędów.",
+          "Zainteresowanie tematyką automatyzacji, także z użyciem platform no/low-code (webflow, make, zapier).",
+        ].map((item, index) => (
+          <div class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow">
+            <span class="text-h3 text-accent-light">{index + 1}</span>
+            <p class="text-white">{item}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+  <WorkingRules />
+
+  <Section class="bg-accent-lightest">
+    <Row placement="items-start"
+      ><div class="flex flex-col gap-4">
+        <h2>Wiedza i umiejętności</h2><p class="text-lg">
+          Zawsze lubiłem się uczyć i ciąglę to robię. Nowe problemy i narzędzia
+          nie stanowią dla mnie trudności, lecz są ciekawym wyzwaniem.
+        </p>
+
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <Button
+            link={buildSlug("/oferta/inne")}
+            rel="nofollow"
+            target="_blank">Zobacz szerszą listę pól do współpracy</Button
+          >
+          <Button
+            variant="secondary"
+            link={"https://github.com/Coolxer"}
+            rawLink
+            rel="nofollow"
+            target="_blank">Zajrzyj na github</Button
+          >
+        </div>
+      </div>
+      <div class="flex flex-col gap-8">
+        {
+          [
+            {
+              title: "Analityka",
+              skills: [
+                "podstawowa analiza biznesu",
+                "podstawowa analiza fraz",
+                "analiza stron i sklepów",
+              ],
+            },
+            {
+              title: "Technika",
+              skills: [
+                "wykorzystywanie i konfiguracja narzędzi",
+                "tworzenie własnych narzędzi",
+                "planowanie i budowa stron i aplikacji",
+              ],
+            },
+            {
+              title: "Narzędzia",
+              skills: [
+                "astro (SSG, code)",
+                "wordpress",
+                "webflow",
+                "figma, canva",
+                "make, zapier",
+                "Google Keyword Planner",
+                "Google Search Console",
+                "Google Analytics",
+              ],
+            },
+            {
+              title: "Programowanie",
+              skills: [
+                "html, css(scss), js(ts), php",
+                "react.js",
+                "C/C++",
+                "Python",
+                "git, npm",
+                "różne biblioteki, narzędzia, frameworki",
+              ],
+            },
+            {
+              title: "Ogólne",
+              skills: [
+                "wiedza o sieci",
+                "programowanie",
+                "grafika",
+                "szybka nauka",
+                "korzystanie z własnej i sztucznej inteligencji",
+              ],
+            },
+          ].map((item) => (
+            <div class="flex flex-col gap-4 rounded bg-accent-light px-4 py-8 shadow">
+              <>
+                <h3 class="text-h4">{item.title}</h3>
+                <div class="flex flex-row flex-wrap gap-2">
+                  {item.skills.map((skill) => (
+                    <div class="bg-accent-lightest p-2">{skill}</div>
+                  ))}
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div></Row
+    ></Section
+  >
+
+  <Section center
+    ><div class="flex max-w-prose flex-col gap-4 text-center">
+      <h2>Dyplomy i certyfikaty</h2><p class="text-lg">
+        Wiele z mojej wiedzy i umiejętności nie jest potwierdzone w sposób
+        formalny. Nie udostępniam także dyplomu ukończenia szkoły wyższej ani
+        kwalifikacji zawodowych z uwagi na wrażliwe dane.
+      </p>
+    </div><Gallery
+      id="certificates-gallery"
+      images={[
+        {
+          data: marketing,
+          alt: "Certyfikat ukończenia kursu Marketingu Internetowego Google przez Łukasza Miłoś",
+        },
+        {
+          data: gmb,
+          alt: "Certyfikat ukończenia kursu Google My Business (Moja wizytówka Google) przez Łukasza Miłoś",
+        },
+        {
+          data: gads,
+          alt: "Certyfikat ukończenia kursu Google As reklamy z sieci wyszukiwania przez Łukasza Miłoś",
+        },
+        {
+          data: ga,
+          alt: "Certyfikat ukończenia kursu Google Analitycs przez Łukasza Miłoś",
+        },
+        {
+          data: webflow101,
+          alt: "Certyfikat ukończenia kursu Webflow 101 przez Łukasza Miłoś",
+        },
+        {
+          data: webflowLayout1,
+          alt: "Certyfikat ukończenia kursu Webflow Layouts Level 1 przez Łukasza Miłoś",
+        },
+        {
+          data: zapier1,
+          alt: "Certyfikat ukończenia kursu Zapier: Discover your first automation przez Łukasza Miłoś",
+        },
+        {
+          data: zapier2,
+          alt: "Certyfikat ukończenia kursu Zapier: Building your first Zap przez Łukasza Miłoś",
+        },
+        {
+          data: coursera1,
+          alt: "Certyfikat ukończenia kursu Google Cloud Fundamentals: Core Infrastructure przez Łukasza Miłoś",
+        },
+        {
+          data: coursera2,
+          alt: "Certyfikat ukończenia kursu Essential Google Cloud Infrastructure: Foundation przez Łukasza Miłoś",
+        },
+        {
+          data: coursera3,
+          alt: "Certyfikat ukończenia kursu Essential Google Cloud Infrastructure: Core Services przez Łukasza Miłoś",
+        },
+        {
+          data: coursera4,
+          alt: "Certyfikat ukończenia kursu Elastic Google Cloud Infrastructure: Scaling and Automation przez Łukasza Miłoś",
+        },
+        {
+          data: coursera5,
+          alt: "Certyfikat ukończenia kursu Reliable Google Cloud Infrastructure: Design and Process przez Łukasza Miłoś",
+        },
+      ]}
+      height="aspect-square"
+      hoverEffects="hover:translate-y-2 duration-300 ease-in-out"
+    /></Section
+  >
+
+  <Section class="bg-gray-light"
+    ><Row
+      ><div class="flex flex-col justify-center gap-8">
+        <h2>Moje największe osiągnięcia</h2><div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <h3 class="text-h5">Uzyskanie tytułu inżyniera IT</h3><p>
+              Uzyskanie tytułu inżyniera z wyróżnieniem, ze specjalizacją
+              “Systemy i sieci komputerowe”.
+            </p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-h5">Budowa drukarki 3D</h3><p>
+              Zbudowanie własnej amatorskiej drukarki 3D w 2014 (zanim było to
+              modne i znane w Polsce).
+            </p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-h5">Budowa maszyny CNC</h3><p>
+              Zaprojektowanie, oprogramowanie i zbudowanie sterowania do
+              ostrzarki narzędzi CNC.
+            </p>
+          </div>
+        </div>
+      </div><div>
+        <MyImage
+          src="hero4.webp"
+          alt="Łukasz Miłoś trzymający płytkę ewaluacyjną - znak, że znajmuje się także elektroniką i programowaniem embedded."
+          withOverlay
+        />
+      </div></Row
+    ></Section
+  >
+  <!-- <Section center
+    ><h2>Niektóre z moich prac</h2><div
+      class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="flex flex-col gap-4">
+        <MyImage src="pro1.jpg" alt="Łukasz Miłoś 3" />
+        <h3 class="text-h5">Tytuł</h3>
+        <p>Opis</p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <MyImage src="pro1.jpg" alt="Łukasz Miłoś 3" />
+        <h3 class="text-h5">Tytuł</h3>
+        <p>Opis</p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <MyImage src="pro1.jpg" alt="Łukasz Miłoś 3" />
+        <h3 class="text-h5">Tytuł</h3>
+        <p>Opis</p>
+      </div>
+    </div></Section
+  > -->
+
+  <!-- CTA -->
+  <CTA>
+    <p class="text-center text-h2">Chcesz podjąć współpracę?</p>
+    <p class="text-center text-lg">
+      “Może można zarzucić mi brak doświadczenia, ale nie brak wiedzy,
+      umiejętności i zaangażowania”
+    </p>
+    <p class="text-center text-gray-light">
+      Jestem otwarty na propozycję realizacji projektów, ale i również na stałą
+      współpracę.
+    </p>
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("/oferta")}>Zobacz ofertę</Button>
+      <Button variant="tetriary" link={buildSlug("/kontakt")}
+        >Skontaktuj się</Button
+      >
+    </div>
+  </CTA>
+</PageLayout>

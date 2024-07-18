@@ -1,18 +1,289 @@
 ---
-import data from "~/data/site.json"
+import { buildSlug } from "@utils/utils"
 
 import Layout from "@layouts/Layout.astro"
-import { type Meta } from "@components/core/MySEO.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
 
-import Section from "~/components/core/Section.astro"
-import Row from "~/components/core/Row.astro"
-import MyImage from "~/components/ui/MyImage.astro"
+import { Icon } from "astro-icon/components"
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
 
 const meta: Meta = {
-  title: data.site.meta["home-title"],
-  description: data.site.meta["home-description"],
-  noTemplate: false,
+  title: "Technologia dla firm - szybko i prosto",
+  description:
+    "Zajmuję się technologią cyfrową i automatyzacją, a w szczególności stronami www. Szukam możliwości wdrożenia narzędzi i optymalizacji.",
+  openGraph: {},
+  twitter: {},
+}
+
+const schema: Schema = {
+  "@context": "https://schema.org/",
+  "@type": "Website",
+  name: "Łukasz Miłoś",
+  url: "https://lukaszmilos.pl",
+  description: "Strona Łukasza Miłoś - inż. IT",
 }
 ---
 
-<Layout meta={meta} meta={meta} />
+<Layout meta={meta} schema={schema}>
+  <!-- hero -->
+  <Section center
+    ><Row
+      ><div class="flex flex-col justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <p class="text-h5 font-semibold">
+            Nazywam się <span class="text-accent">Łukasz Miłoś</span>
+          </p>
+          <h1>Pomagam firmom lepiej korzystać z technologii</h1>
+        </div>
+
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <div class="flex flex-row items-center gap-4">
+            <Icon
+              name="tabler:device-laptop"
+              class="max-w-full text-5xl text-accent md:text-7xl"
+            />
+            <p class="text-lg">
+              skuteczne i pozbawione błędów strony internetowe
+            </p>
+          </div>
+          <div class="flex flex-row items-center gap-4">
+            <Icon
+              name="tabler:automation"
+              class="max-w-full text-5xl text-accent md:text-7xl"
+            />
+            <p class="text-lg">przydatne narzędzia cyfrowe i automatyzacje</p>
+          </div>
+        </div>
+        <div class="flex flex-row gap-4">
+          <Button link={buildSlug("/oferta")}>Zobacz ofertę</Button>
+          <Button variant="secondary" link={buildSlug("/kontakt")}
+            >Skontaktuj się</Button
+          >
+        </div>
+      </div><div>
+        <MyImage src="hero.webp" alt="Łukasz Miłoś" withOverlay />
+      </div>
+    </Row></Section
+  >
+
+  <!-- Technologia -->
+  <Section
+    center
+    class="bg-accent-darkest text-white"
+    gap="gap-12 lg:gap-16 2xl:gap-20">
+    <div class="flex max-w-prose flex-col items-center gap-4">
+      <h2 class="text-center">
+        Technologia z głową. <br /> Co jest dla mnie ważne?
+      </h2>
+      <p class="text-center text-lg text-accent-lightest">
+        Nie zapominam o kwestiach ludzkich i biznesowych (rozwiązywanie
+        problemów, zaspokajanie potrzeb, wygoda użytkowania i skuteczność
+        działania).
+      </p>
+    </div>
+
+    <hr class="h-px w-full border-0 bg-accent-dark" />
+
+    {
+      [
+        {
+          titleStrong: "Gdzie",
+          titleRest: "czyli w czym technologia może pomóc?",
+          icons: [
+            "tabler:user-plus",
+            "tabler:users-group",
+            "tabler:file",
+            "tabler:hammer",
+          ],
+          features: [
+            "pozyskiwanie klientów",
+            "obsługa klientów",
+            "prowadzenie firmy",
+            "procesy firmowe",
+            "planowanie, śledzenie, realizacja i podsumowanie zadań",
+          ],
+        },
+        {
+          titleStrong: "Cele",
+          titleRest: "czyli jakie korzyści przynosi technologia?",
+          icons: [
+            "tabler:brand-speedtest",
+            "tabler:bug-off",
+            "tabler:report-money",
+            "tabler:user-plus",
+            "tabler:time-duration-15",
+          ],
+          features: [
+            "profesjonalny wizerunek firmy",
+            "lepsza organizacja pracy",
+            "szybsze działanie",
+            "mniej błędów i opóźnień",
+            "mniejsze koszty",
+            "pozyskiwanie nowych klientów",
+            "lepsza obsługa klientów",
+            "większe zyski",
+            "więcej czasu",
+            "nowe możliwości",
+          ],
+        },
+        {
+          titleStrong: "Cechy",
+          titleRest: "czyli jaka powinna być technologia?",
+          icons: [
+            "tabler:lock",
+            "tabler:activity",
+            "tabler:adjustments",
+            "tabler:pig-money",
+            "tabler:time-duration-15",
+          ],
+          features: [
+            "bezpieczna",
+            "skuteczna",
+            "szybka",
+            "prosta",
+            "na czasie",
+            "rentowna",
+            "dopasowana",
+            "wygodna",
+            "wystarczająca",
+          ],
+        },
+      ].map((item) => (
+        <>
+          <Row>
+            <div class="flex max-w-prose flex-col gap-4">
+              <h3 class="text-center text-h4 md:text-left">
+                <span class="text-accent-light">{item.titleStrong}</span>,{" "}
+                {item.titleRest}
+              </h3>
+              <div class="flex flex-row justify-center gap-2 text-accent-light md:justify-start">
+                {item.icons.map((icon) => (
+                  <Icon name={icon} class="text-3xl" />
+                ))}
+              </div>
+            </div>
+            <div class="flex flex-row flex-wrap items-start gap-4 text-center text-accent-lightest">
+              {item.features.map((feature) => (
+                <div class="bg-accent-dark px-4 py-2">{feature}</div>
+              ))}
+            </div>
+          </Row>
+          <hr class="h-px w-full border-0 bg-accent-dark" />
+        </>
+      ))
+    }
+  </Section>
+
+  <!-- Usługi -->
+  <Section center>
+    <h2 class="max-wprose text-center">
+      Wiesz już czym się kieruję.<br /> Dowiedz się co robię
+    </h2>
+    <Row>
+      <div class="order-2 md:order-1">
+        <MyImage
+          src="pisanie-na-klawiaturze.webp"
+          alt="Osoba pracująca przy komputerze i technologii cyfrowej."
+          withOverlay
+        />
+      </div>
+      <div class="order-1 grid grid-cols-1 gap-8 md:order-2 lg:grid-cols-2">
+        {
+          [
+            {
+              icon: "tabler:browser",
+              title: "Buduję, oceniam, poprawiam i ulepszam strony internetowe",
+              description:
+                "Strona internetowa to centrum działań firmy w sieci. Korzystaj w pełni z jej atutów i spraw by była skuteczniejsza.",
+            },
+            {
+              icon: "tabler:automation",
+              title: "Wdrażam przydatne narzędzia cyfrowe i automatyzacje",
+              description:
+                "Transformacja cyfrowa i stały rozwój jest nieunikniony nawet dla mikrofirm. Korzystaj z przydatnych narzędzi i aplikacji.",
+            },
+            {
+              icon: "tabler:device-desktop-search",
+              title: "Szukam lepszych rozwiązań cyfrowych dla firm",
+              description:
+                "Poszukiwanie możliwości i wskazanie, co można wykorzystać i w jaki sposób lub jak coś poprawić, by przynosiło to większe korzyści.",
+            },
+            {
+              icon: "tabler:bookmark",
+              title: "Dzielę się wiedzą, pomysłami i swoimi projektami",
+              description:
+                "W ramach publikacji dzielę się wiedzą. Są to informacje na temat technologii, narzędzi i procesów. Pokazuję też własne projekty.",
+            },
+          ].map((item) => (
+            <div class="flex flex-1 flex-col gap-4">
+              <Icon name={item.icon} class="text-5xl text-accent" />
+              <h3 class="text-h5">{item.title}</h3>
+              <p class="text-gray-dark">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </Row>
+    <div class="flex flex-row gap-4 self-start md:self-center">
+      <Button link={buildSlug("/oferta")}>Zobacz ofertę</Button>
+      <Button variant="secondary" link={buildSlug("/kontakt")}
+        >Skontaktuj się</Button
+      >
+    </div>
+  </Section>
+
+  <!-- O mnie -->
+  <Section class="bg-gray-light"
+    ><Row
+      ><div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Kim jestem?</h2>
+          <p class="text-lg">
+            Nazywam się Łukasz Miłoś i lubię rozwiązywać problemy z pomocą
+            technologii. Charakteryzuję się dużym zaangażowaniem oraz szerokim
+            spektrum zainteresowań i narzędzi, które ciągle poszerzam.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <div class="flex flex-col gap-2">
+            <Icon name="tabler:school" class="text-5xl text-accent" />
+            <h3 class="text-h5 text-accent">Technik i inżynier IT</h3><p>
+              Nieprzypadkowa osoba z dużą wiedzą w swoim fachu
+            </p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <Icon name="tabler:certificate" class="text-5xl text-accent" />
+            <h3 class="text-h5 text-accent">Certyfikowany specjalista</h3><p>
+              Wiedza i umiejętności potwierdzone dyplomami
+            </p>
+          </div>
+        </div>
+        <Button link={buildSlug("/o-mnie")} class="">Poznaj mnie lepiej</Button>
+      </div><div>
+        <MyImage
+          src="hero2.webp"
+          alt="Łukasz Miłoś - technik i inżynier IT."
+          withOverlay
+        />
+      </div>
+    </Row></Section
+  >
+
+  <!-- CTA -->
+  <CTA>
+    <p class="text-center text-h2">
+      Chcesz lepiej korzystać z technologii? <br />Zrób pierwszy krok.
+    </p>
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("/oferta")}>Zobacz ofertę</Button>
+      <Button variant="tetriary" link={buildSlug("/kontakt")}
+        >Skontaktuj się</Button
+      >
+    </div>
+  </CTA>
+</Layout>

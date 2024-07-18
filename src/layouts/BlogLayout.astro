@@ -1,11 +1,12 @@
 ---
 import type { Page } from "astro"
+import type { CollectionEntry } from "astro:content"
 
 import { type Meta, type Schema } from "@components/core/MySEO.astro"
 
 import Layout from "@layouts/Layout.astro"
 
-import Section from "~/components/core/Section.astro"
+import Section from "@components/core/Section.astro"
 import Row from "@components/core/Row.astro"
 import PostCard from "@components/blog/PostCard.astro"
 import PagePagination from "@components/blog/PagePagination.astro"
@@ -13,46 +14,104 @@ import PagePagination from "@components/blog/PagePagination.astro"
 import MyBreadCrumbs from "@components/widgets/MyBreadCrumbs.astro"
 
 import Categories from "@components/blog/Categories.astro"
+import { buildSlug } from "@utils/utils"
+
+import Button from "@components/ui/Button.astro"
 
 export interface Props {
   page: Page
+  categories?: string[]
+  knowledgeBasePosts?: CollectionEntry<"blog">[]
+  blogSubTitle?: string
+  displaySectionTitle?: boolean
   meta: Meta
   schema?: Schema
-  categories?: string[]
 }
 
-const { page, meta, schema, categories } = Astro.props
+const {
+  page,
+  categories,
+  knowledgeBasePosts,
+  blogSubTitle,
+  displaySectionTitle = false,
+  meta,
+  schema,
+} = Astro.props
 ---
 
 <Layout meta={meta} schema={schema}>
-  <header class="align-center flex flex-col items-center gap-4 bg-gray py-12">
-    <MyBreadCrumbs />
-    <h1>Blog</h1>
-    <slot />
+  <header
+    class="align-center flex flex-col items-center bg-accent-darkest px-6 py-16 text-white">
+    <div
+      class="flex max-w-prose flex-col items-center justify-center gap-4 text-center">
+      <MyBreadCrumbs />
+      <h1>Blog</h1>
+      {blogSubTitle && <p class="text-h4">{blogSubTitle}</p>}
+    </div>
   </header>
 
-  <Section>
-    <Row>
-      <!--no pagination -->
-      <!-- {posts.map((post) => <PostCard post={post} />)} -->
-      {page.data.map((post) => <PostCard post={post} />)}
+  <!-- first blog page only -->
+  {
+    page.currentPage === 1 &&
+      knowledgeBasePosts &&
+      knowledgeBasePosts.length > 0 && (
+        <Section>
+          <h2>Baza wiedzy</h2>
+          <Row maxColumns={4}>
+            {knowledgeBasePosts?.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </Row>
+          <div class="mt-4 flex items-center justify-center">
+            <Button link={buildSlug("/blog/baza-wiedzy")}>Zobacz więcej</Button>
+          </div>
+        </Section>
+      )
+  }
 
-      <!-- Split by categories? (like webflow blog) -->
-    </Row>
-
+  <Section class:list={[page.currentPage === 1 && "bg-gray-light"]}>
     {
-      categories && (
-        <div class="flex flex-col gap-2">
-          <>
-            <p class="text-lg font-medium">Kategorie</p>
-            <Categories categories={categories} />
-          </>{" "}
+      page && page.data && page.data.length > 0 ? (
+        <div class="flex flex-col gap-4">
+          {displaySectionTitle && <h2>Wszystkie posty</h2>}
+
+          <Row maxColumns={4} class="mt-4">
+            {page.data.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </Row>
+
+          {categories && (
+            <div class="flex flex-col gap-2">
+              <p class="text-lg font-medium">Kategorie</p>
+              <Categories categories={categories} />
+            </div>
+          )}
+
+          <div class="flex items-center justify-center self-center">
+            <PagePagination page={page} />
+          </div>
+
+          {/* all pages exclude 1 */}
+          {page.currentPage !== 1 &&
+            knowledgeBasePosts &&
+            knowledgeBasePosts?.length > 0 && (
+              <div class="flex flex-row items-center justify-between rounded bg-gray-light p-8 shadow">
+                <p class="text-h5">
+                  Poznaj kluczowe kwestie technologii w firmie
+                </p>
+                <Button link={buildSlug("/blog/baza-wiedzy")}>
+                  Zobacz bazę wiedzy
+                </Button>
+              </div>
+            )}
+        </div>
+      ) : (
+        <div class="flex flex-col gap-4 self-center">
+          <p class="text-h5">Niestety, ale nie ma jeszcze postów</p>
+          <Button link={buildSlug("/")}>Wróć do strony głównej</Button>
         </div>
       )
     }
   </Section>
-
-  <div class="flex items-center justify-center">
-    <PagePagination page={page} />
-  </div>
 </Layout>

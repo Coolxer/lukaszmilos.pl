@@ -1,0 +1,79 @@
+---
+import Section from "@components/core/Section.astro"
+import { buildSlug } from "@utils/utils"
+import Button from "@components/ui/Button.astro"
+
+export type FaqItem = {
+  question: string
+  answer: string[]
+}
+
+export interface Props {
+  id: string
+  items: FaqItem[]
+  class?: string
+}
+
+const { id, items, class: className } = Astro.props
+---
+
+<Section center class="bg-accent-darkest text-white">
+  <h2>FAQ - Pytania i odpowiedzi</h2>
+  <div
+    class="flex w-full max-w-prose flex-col items-start gap-4"
+    data-accordion="collapse"
+    data-active-classes="bg-accent">
+    {
+      items?.map((item: FaqItem, index: number) => {
+        const isLast = index === items.length - 1
+        return (
+          <>
+            <div class="w-full">
+              <button
+                type="button"
+                class:list={[
+                  "flex w-full items-center justify-between gap-4 rounded bg-accent-dark p-4 text-white shadow-sm transition-all duration-100 ease-in-out hover:bg-accent",
+                  !isLast && "border-b-0",
+                ]}
+                data-accordion-target={`#${id}-item-${index}`}
+                aria-expanded="false"
+                aria-controls={`${id}-item-${index}`}>
+                <span class="text-left">{item.question}</span>
+                <svg
+                  data-accordion-icon
+                  class="h-4 w-4 shrink-0 rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6">
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5 5 1 1 5"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div id={`${id}-item-${index}`} class="hidden">
+              <div class="p-4">
+                {item.answer.map((paragraph) => (
+                  <p class="mb-2">{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </>
+        )
+      })
+    }
+  </div>
+  <div
+    class="flex w-full flex-col items-start gap-4 md:items-center md:text-center">
+    <p class="text-h5">Masz inne pytania?</p>
+    <p class="text-gray">
+      Napisz, co chcesz wiedzieć.<br />To darmowy i niezobowiązujący kontakt.
+    </p>
+    <Button link={buildSlug("/kontakt")}>Zadaj swoje pytanie</Button>
+  </div>
+</Section>

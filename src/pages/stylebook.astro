@@ -3,9 +3,7 @@ import { Icon } from "astro-icon/components"
 
 import { type Meta } from "@components/core/MySEO.astro"
 
-import laptopImage from "@assets/images/laptop.png"
-import glassImage from "@assets/images/glass.jpg"
-import stopImage from "@assets/images/stop.jpg"
+import glassImage from "@assets/images/cyfryzacja.webp"
 
 import PageLayout from "@layouts/PageLayout.astro"
 
@@ -21,7 +19,7 @@ import Carousel from "@components/ui/Carousel.astro"
 
 import ContactForm from "@components/widgets/ContactForm.astro"
 import Counter from "@components/widgets/Counter.astro"
-import FAQ from "@components/ui/FAQ.astro"
+import FAQ from "@components/parts/FAQ.astro"
 
 const meta: Meta = {
   title: "Stylebook",
@@ -55,7 +53,7 @@ const loremDescription =
     class="text-white">
     <MyImage
       slot="background"
-      src="glass.jpg"
+      src="cyfryzacja.webp"
       alt=""
       width={1920}
       withOverlay
@@ -63,7 +61,7 @@ const loremDescription =
       class="h-full rounded-none"
       loading="eager"
     />
-    <h1 class="text-center font-bold leading-tight">
+    <h1 class="text-center leading-tight">
       Wzrost Twojej firmy zaczyna się tutaj
     </h1><div class="flex flex-row gap-4 text-black"></div>
   </Section>
@@ -71,12 +69,12 @@ const loremDescription =
   <!-- Text -->
   <Section>
     <div class="flex flex-col items-start gap-y-6">
-      <h1>Heading 1 first line <br /> Heading 1 second line</h1>
-      <h2>Heading 2 first line <br /> Heading 2 second line</h2>
-      <h3>Heading 3 first line <br /> Heading 3 second line</h3>
-      <h4>Heading 4 first line <br /> Heading 4 second line</h4>
-      <h5>Heading 5 first line <br /> Heading 5 second line</h5>
-      <h6>Heading 6 first line <br /> Heading 6 second line</h6>
+      <h1 class="max-w-[20ch]">Heading 1 first line Heading 1 second line</h1>
+      <h2 class="max-w-[20ch]">Heading 2 first line Heading 2 second line</h2>
+      <h3 class="max-w-[20ch]">Heading 3 first line Heading 3 second line</h3>
+      <h4 class="max-w-[20ch]">Heading 4 first line Heading 4 second line</h4>
+      <h5 class="max-w-[20ch]">Heading 5 first line Heading 5 second line</h5>
+      <h6 class="max-w-[20ch]">Heading 6 first line Heading 6 second line</h6>
 
       <p class="text-sm">
         {loremDescription}
@@ -91,18 +89,15 @@ const loremDescription =
   </Section>
 
   <!-- Faq accordion -->
-  <Section>
-    <h2>FAQ - Pytania i odpowiedzi</h2>
-    <FAQ
-      id="faq-1"
-      data={[
-        { question: "abc", answer: ["cde", "asdasdasd", "asdasdasdasdas"] },
-        { question: "abc", answer: ["cde"] },
-        { question: "abc", answer: ["cde"] },
-        { question: "abc", answer: ["cde"] },
-      ]}
-    />
-  </Section>
+  <FAQ
+    id="faq-1"
+    items={[
+      { question: "abc", answer: ["cde", "asdasdasd", "asdasdasdasdas"] },
+      { question: "abc", answer: ["cde"] },
+      { question: "abc", answer: ["cde"] },
+      { question: "abc", answer: ["cde"] },
+    ]}
+  />
 
   <!-- Icon list -->
   <Section class="bg-gray-light">
@@ -334,7 +329,7 @@ const loremDescription =
     <!-- Image with simply overlay-->
     <h2>Obraz z prostą nakładką</h2>
     <MyImage
-      src="glass.jpg"
+      src="cyfryzacja.webp"
       alt=""
       withOverlay
       overlayColor="bg-slate-900/50"
@@ -342,7 +337,7 @@ const loremDescription =
 
     <!-- Image with custom overlay -->
     <h2>Obraz z zaawansoaną nakładką</h2>
-    <MyImage src="glass.jpg" alt="" withOverlay customOverlay>
+    <MyImage src="cyfryzacja.webp" alt="" withOverlay customOverlay>
       <div
         slot="overlay"
         class="l-0 t-0 group absolute inset-0 flex size-full w-full items-end justify-center rounded bg-red-300/50 pb-3 transition-all duration-300 ease-in-out hover:bg-red-500/50 hover:pb-4">
@@ -360,8 +355,8 @@ const loremDescription =
       id="gal1"
       images={[
         { data: glassImage, alt: "glass" },
-        { data: laptopImage, alt: "laptop" },
-        { data: stopImage, alt: "stop" },
+        { data: glassImage, alt: "glass2" },
+        { data: glassImage, alt: "glass3" },
       ]}
       zoom
     />
@@ -374,8 +369,8 @@ const loremDescription =
       id="car1"
       images={[
         { data: glassImage, alt: "glass" },
-        { data: laptopImage, alt: "laptop" },
-        { data: stopImage, alt: "stop" },
+        { data: glassImage, alt: "glass2" },
+        { data: glassImage, alt: "glass3" },
       ]}
       lightbox
     />
@@ -384,7 +379,7 @@ const loremDescription =
   <!-- Cards -->
   <Section class="bg-green-200">
     <h2>Karty</h2>
-    <Row>
+    <Row maxColumns={4}>
       <div
         class="fade-in flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow">
         <h3 class="text-h5">{loremTitle}</h3>

@@ -1,0 +1,55 @@
+---
+import Section from "@components/core/Section.astro"
+---
+
+<Section
+  ><div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="flex flex-col gap-4">
+      <h2>Podstawy mojego działania</h2><p class="text-lg">
+        Choć wywodzę się ze środowiska stricte technicznego, to zwracam uwagę
+        także na inne ważne aspekty.
+      </p>
+    </div><div
+      class="grid grid-cols-1 gap-8 lg:col-span-2 lg:grid-cols-2 xl:grid-cols-3">
+      {
+        [
+          {
+            title: "Skupienie na problemie",
+            description:
+              "Skupiam się na Twoim problemie i potrzebach, a następnie szukam najlepszego rozwiązania.",
+          },
+          {
+            title: "Duże zaangażowanie",
+            description:
+              "Mocno angażuje się w każdy projekt, traktując go jako własny. Ambicja nie pozwala mi inaczej.",
+          },
+          {
+            title: "Wiedza techniczna",
+            description:
+              "Długie lata nauki i styczność z wieloma technologiami dają mi przewagę nad wieloma twórcami, a nauka nowych rzeczy jest prostsza",
+          },
+          {
+            title: "Wartość Twojego czasu",
+            description:
+              "Doceniam wartość Twojego czasu, więc działam możliwe kompleksowo i zwalniam Cię z wszelkich obowiązków.",
+          },
+          {
+            title: "Rozsądna technologia",
+            description:
+              "Technologia musi być bezpieczna, skuteczna, szybka, prosta, na czasie, rentowna, dopasowana i wystarczająca.",
+          },
+          {
+            title: "Transparentność",
+            description:
+              "Informuje o postępach. Edukuje siebie i Ciebie. Nie obiecuję gruszek na wierzbie. Działam, ale także za Twoją zgodą eksperymentuję.",
+          },
+        ].map((item) => (
+          <div class="flex flex-col gap-2">
+            <span class="text-h5">{item.title}</span>
+            <p class="text-gray-dark">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div></Section
+>

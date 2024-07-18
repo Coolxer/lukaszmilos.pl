@@ -1,0 +1,232 @@
+---
+import { buildSlug } from "@utils/utils"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+import IconList from "@components/ui/IconList.astro"
+import FAQ from "~/components/parts/FAQ.astro"
+
+const meta: Meta = {
+  title: "Rozwój strony WWW - Nowe funkcje i jakość",
+  description:
+    "Chcesz dodać nowy element na stronie internetowej? Chcesz, aby Twoja strona zyskała nową funkcjonalność i była bardziej atrakcyjna? Czekam.",
+  og: false,
+  tw: false,
+}
+
+const schema: Schema = {}
+---
+
+<PageLayout
+  pageTitle="Rozwój strony internetowej"
+  pageDescription="Ciągle ulepszaj swoją stronę internetową, by ułatwiać życie sobie i swoim klientom"
+  meta={meta}
+  schema={schema}
+  ><Section class="bg-gray-light"
+    ><Row
+      ><div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Sens rozwoju strony www</h2><p class="text-lg">
+            O stronę internetową nie tylko trzeba dbać, ale warto także ciąglę
+            ją rozwijać.
+          </p><p class="text-lg">
+            Pomijając nawet analizowanie i poprawianie swojej oferty
+            sprzedażowej, co także warto robić, mowa o wprowadzaniu nowych
+            funkcjonalności, które pomagają zarówno Tobie i jak potencjalnym
+            klientom i częściej powodują konwersję.
+          </p><p class="text-lg font-bold">
+            Dzisiaj trzeba się naprawdę starać, by zdobyć klienta w gąszczu
+            konkurencji. Drobne szczegóły robią różnicę.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <MyImage src="sens-rozwoju-strony.webp" alt="Osoba pisząca nową funkcjonalność strony www na laptopie." />
+      </div>
+    </Row>
+  </Section>
+
+  <Section center>
+    <div class="flex max-w-prose flex-col gap-4 text-center">
+      <h2>Konkretne przykłady ulepszeń strony www</h2>
+      <p class="text-lg">
+        Co można dodać na stronę www, aby zwiększyć jej wartość i skuteczność?
+      </p>
+    </div>
+  </Section>
+
+  {
+    [
+      {
+        title: "Dodatkowa sekcja np. FAQ",
+        description:
+          "Czasami klientowi brakuje pewnych informacji o usłudze lub produkcie, co przeszkadza mu w podjęciu decyzji. Nie każdy jest skłonny zadzwonić i zapytać.",
+        features: [
+          "większa wartość strony dla wyszukiwarki",
+          "większa wartość w oczach użytkownika",
+          "więcej zdecydowanych klientów",
+          "oszczędność czasu na odpowiedzi",
+        ],
+        image: {
+          src: "faq.webp",
+          alt: "Przykład sekcji FAQ.",
+        },
+      },
+      {
+        title: "Rozbudowany formularz oferty",
+        description:
+          "W niektórych przypadkach dobrze sprawdza się rozbudowany formularz oferty, który pozwala klientowi poznać specyfikę danej usługi, a Tobie ułatwia pracę.",
+        features: [
+          "większa wartość i świadomość klienta",
+          "odrzucanie niewłaściwych klientów",
+          "ułatwienie pracy i oszczędność czasu",
+        ],
+        image: {
+          src: "survey.webp",
+          alt: "Przykład rozbudowanego formularza oferty.",
+        },
+      },
+      {
+        title: "Specjalistyczny kalkulator",
+        description:
+          "Kalkulator dobrze sprawdza się w przypadku niestandardowych ofert i rozwiązań szytych na miarę.",
+        features: [
+          "duża wartość dla klienta, który poznaje cenę",
+          "odrzucanie niewłaściwych klientów",
+          "większe zdecydowanie klientów",
+        ],
+        image: {
+          src: "calculator.webp",
+          alt: "Przykład dedykowanego kalkulatora dla danej niszy.",
+        },
+      },
+      {
+        title: "Kalendarz rezerwacji",
+        description:
+          "Kalendarz rezerwacji na stronie www sprawdza się w przypadku konsultacji czy usług umawianych na godziny, takie jak np. strzyżenie czy przegląd stanu uzębienia.",
+        features: [
+          "wartość dla klienta, który widzi dostępność terminów",
+          "wartość dla Ciebie, bo oszczędzasz czas na zapisy ",
+          "większe zdecydowanie klientów i łatwiejsza rezerwacja",
+        ],
+        image: {
+          src: "calendar.webp",
+          alt: "Przykład kalendarza rezerwacji wizyt.",
+        },
+      },
+      {
+        title: "Czat(bot)",
+        description:
+          "Czat na stronie to dodatkowy element, który może zwiększyć zaangażowanie użytkowników.",
+        features: [
+          "większe zaangażowanie użytkownika i konwersja",
+          "szybki, bezpośredni i wygodny kontakt dla obu stron",
+          "oszczędność czasu na odpowiedzi na często zadawane pytania",
+        ],
+        image: {
+          src: "chat.webp",
+          alt: "Przykład chatu do umieszczenia na stronie www.",
+        },
+      },
+    ].map((item, index) => (
+      <Section
+        class:list={[index % 2 !== 0 && "bg-gray-light"]}
+        noTopPadding={index === 0}>
+        <Row>
+          <div
+            class:list={[
+              "flex flex-col items-start justify-center gap-8",
+              index % 2 === 0 ? "order-1" : "order-1 md:order-2",
+            ]}>
+            <div class="flex flex-col gap-4">
+              <>
+                <h3>{item.title}</h3>
+                <p class="text-lg">{item.description}</p>
+              </>
+            </div>
+            <IconList items={item.features} />
+            <Button link={buildSlug("/kontakt")}>Zapytaj o wdrożenie</Button>
+          </div>
+
+          <div
+            class:list={[
+              "w-full",
+              index % 2 === 0 ? "order-2" : "order-2 md:order-1",
+            ]}>
+            <MyImage src={item.image.src} alt={item.image.alt} />
+          </div>
+        </Row>
+      </Section>
+    ))
+  }
+
+  <Section class="bg-gray-light"
+    ><Row placement="items-start"
+      ><div class="flex flex-col items-start">
+        <h2>Masz inny pomysł na ulepszenie swojej strony?</h2>
+      </div>
+
+      <div class="flex flex-col items-start justify-center gap-8">
+        <p class="text-lg">
+          Masz inną plan, potrzebę lub pomysł, ale nie wiesz jak go zrealizować?
+          Śmiało napisz, a postram się pomóc.
+        </p>
+        <Button link={buildSlug("/kontakt")}>Zapytaj o wdrożenie</Button>
+      </div>
+    </Row>
+  </Section>
+
+  <FAQ
+    id="faq-reviewing-site"
+    items={[
+      {
+        question: "Dlaczego warto ciągle rozwijać stronę internetową?",
+        answer: [
+          "Rozwój strony internetowej zwiększa jej wartość i skuteczność. Wprowadzanie nowych funkcjonalności może pomóc w przyciąganiu i konwersji klientów, a także w usprawnieniu procesów biznesowych.",
+        ],
+      },
+
+      {
+        question:
+          "Jakie funkcjonalności można dodać, aby poprawić wartość strony?",
+        answer: [
+          "Można dodać sekcję FAQ, rozbudowany formularz oferty, specjalistyczny kalkulator, kalendarz rezerwacji, czat lub inne dedykowane funkcjonalności, które zwiększą wartość strony dla użytkowników i wyszukiwarek.",
+        ],
+      },
+      {
+        question:
+          "Czy warto analizować i poprawiać ofertę sprzedażową na stronie?",
+        answer: [
+          "Tak, warto regularnie analizować i poprawiać ofertę sprzedażową na stronie, aby lepiej odpowiadała na potrzeby klientów i zwiększała szanse na konwersję.",
+        ],
+      },
+      {
+        question:
+          "Jak mogę uzyskać pomoc w realizacji swojego pomysłu na ulepszenie strony?",
+        answer: [
+          "Możesz skontaktować się bezpośrednio, opisać swoje potrzeby i pomysły, a otrzymasz pomoc w ich realizacji oraz doradztwo w zakresie najlepszych rozwiązań.",
+        ],
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CTA secondary>
+    <p class="text-center text-h2">Chcesz ulepszyć swoją stronę?</p>
+
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("/kontakt")}>Zapytaj o wdrożenie</Button>
+      <Button variant="secondary" link={buildSlug("/kontakt")}
+        >Skontaktuj się
+      </Button>
+    </div>
+  </CTA>
+</PageLayout>

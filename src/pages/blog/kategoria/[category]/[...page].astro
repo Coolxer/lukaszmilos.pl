@@ -9,13 +9,6 @@ import BlogLayout from "@layouts/BlogLayout.astro"
 
 import { type Meta, type Schema } from "@components/core/MySEO.astro"
 
-const meta: Meta = {
-  title: "Blog Łukasza - kategoria",
-  description: "Opis do bloga kategorii",
-}
-
-const schema: Schema = {}
-
 export async function getStaticPaths({
   paginate,
 }: {
@@ -55,8 +48,26 @@ interface Props {
 
 const { category } = Astro.params
 const { page, categories } = Astro.props
+
+const meta: Meta = {
+  title: `${category} - Blog techniczny`,
+  description: `Zobacz posty z kategorii ${category}. Na blog znajdziesz też innej cenne i ciekawe informacje`,
+  og: false,
+  tw: false,
+}
+
+const schema: Schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Blog Łukasza Miłoś",
+  articleSection: `${category}`,
+}
 ---
 
-<BlogLayout page={page} meta={meta} schema={schema} categories={categories}>
-  <p>Posty kategorii <span class="bg-gray-light p-1">{category}</span></p>
-</BlogLayout>
+<BlogLayout
+  page={page}
+  categories={categories}
+  blogSubTitle=`Kategoria: ${category}`
+  meta={meta}
+  schema={schema}
+/>

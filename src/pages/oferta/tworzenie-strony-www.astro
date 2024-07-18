@@ -1,0 +1,428 @@
+---
+import data from "~/data/site.json"
+import { buildSlug } from "@utils/utils"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+import IconList from "@components/ui/IconList.astro"
+import FAQ from "~/components/parts/FAQ.astro"
+
+const meta: Meta = {
+  title: "Tworzenie stron WWW - Miejsce dla Twojej firmy",
+  description:
+    "Profesjonalne projektowanie i tworzenie stron internetowych z pomysłem i planem. Wzorowe techniczne wykonanie i nastawienie na potrzeby.",
+  og: false,
+  tw: false,
+}
+
+const schema: Schema = {}
+---
+
+<PageLayout
+  pageTitle="Tworzenie strony internetowej"
+  pageDescription="Strona internetowa to serce działań w sieci. Bez względu na źródło ruchu internetowego, niemal zawsze prowadzi do strony internetowej."
+  meta={meta}
+  schema={schema}>
+  <Section>
+    <Row>
+      <div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Czy Twoja firma potrzebuje strony www?</h2>
+          <p class="text-lg">
+            Strona internetowa służy zarówno firmom, jak i potencjalnym
+            klientom. Stanowi ona niezbędne narzędzie niemal każdej firmy.
+          </p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Kto potrzebuje strony www?</p>
+          <IconList
+            items={[
+              "Każda działalność gospodarcza, nawet najmniejsza lokalna firma",
+              "Firmy promujące swoje produkty lub usługi w sieci",
+              "Firmy, które chcą zyskiwać nowych klientów",
+              "Firmy, które chcą ułatwić kontakt klientom",
+            ]}
+          />
+        </div>
+        <p class="text-sm text-gray-dark">
+          * Niektóre branże nie pozyskują klientów bezpośrednio z sieci i w ich
+          przypadku strona www może spełniać głównie rolę informacyjną (adres /
+          typy usług / odpowiedzi na pytania) i wizerunkową, ale wciąż jest
+          ważna.
+        </p>
+      </div>
+      <div>
+        <MyImage
+          src="kto-potrzebuje-strony.webp"
+          alt="Tłum ludzi - większość z nich to posiadacze lub użytkownicy stron internetowych."
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-gray-light"
+    ><Row
+      ><div class="order-2 md:order-1">
+        <MyImage
+          src="strona-to-nie-wszystko.webp"
+          alt="Pusty, biały ekran telefonu komórkowego."
+        />
+      </div><div
+        class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
+        <div class="flex flex-col gap-8">
+          <h2>Strona internetowa to nie wszystko</h2><p class="text-lg">
+            Strona internetowa jest w centrum działań firmy w sieci, jednak nie
+            stanowi wszystkiego i nie daje gwarancji sukcesu. Strona www musi
+            być częścią większego planu całości działań marketingowych.
+          </p>
+          <p class="text-lg">
+            Wiele zależy od planu działania w sieci, realizacji samej strony i
+            jej dalszego rozwoju i wykorzystania. Dzisiaj trudno jest osiągnąć
+            wysokie pozycje w Google i wymaga to dużej ilości pracy i czasu już
+            po wdrożeniu strony.
+          </p><p class="text-lg">
+            Dlatego jeśli zależy nam na zdobywaniu klientów bezpośrednio z sieci
+            warto dalej rozwijać stronę i zainteresować się także innymi
+            kanałami promocji, jak social media, youtube, ale i płatne reklamy w
+            Google czy na Facebooku.
+          </p>
+        </div>
+      </div>
+    </Row>
+  </Section>
+
+  <Section>
+    <Row>
+      <div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Chcesz stronę www? Odpowiedz na te pytania.</h2>
+          <p class="text-lg">
+            Potrzeby są różne. Każda sytuacja jest inna. Nie ma nic złego w
+            wyborach prostszych dróg lub rezygnacji z pewnych decyzji i funkcji,
+            jeśli teraz ich nie potrzebujesz lub masz inny plan.
+          </p>
+        </div>
+        <IconList
+          items={[
+            "Po co Ci strona www? Na czym Ci zależy?",
+            "Każda strona jest inna - jaka będzie Twoja?",
+            "Czy chcesz się wyróżniać? ",
+            "Czy strona ma zdobywać klientów? Czy po prostu być?",
+            "W jaki sposób ruch będzie sprowadzany na stronę?",
+            "Czy SEO ma dla Ciebie znaczenie?",
+          ]}
+        />
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+          <Button link={buildSlug("/kontakt")} variant="secondary"
+            >Skontaktuj się</Button
+          >
+        </div>
+      </div>
+      <div>
+        <MyImage
+          src="wazne-pytania.webp"
+          alt="Osoba przegląda tablicę informacyjną, zadaje sobie pytania i zastanawia się na dalszymi krokami."
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-gray-light">
+    <Row
+      ><div class="order-2 md:order-1">
+        <MyImage
+          src="cel-strony-www.webp"
+          alt="Piła zmierzająca do celu, czyli siatki kosza."
+        />
+      </div>
+      <div
+        class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
+        <div class="flex flex-col gap-4">
+          <h2>Cele strony www. Korzyści dla Ciebie</h2>
+          <p class="text-lg">
+            Co chcesz osiągnąć przy pomocy strony internetowej? Jakie są Twojej
+            cele? Jakie korzyści powinna przynosić strona www?
+          </p>
+        </div>
+        <IconList
+          items={[
+            "budowanie marki osobistej lub firmowej",
+            "zwiększenie wiarygodności firmy w oczach odbiorców",
+            "prezentacja oferty 24/7",
+            "sprzedaż usług lub produktów",
+            "pozyskiwanie nowych klientów",
+            "ułatwienie obsługi aktualnych klientów",
+            "Odpowiedzi na często zadawane pytania",
+            "wyjaśnienie jakiegoś procesu",
+            "Uproszczenie pracy dla Ciebie lub Twoich klientów",
+            "oszczędność czasu i pieniędzy",
+          ]}
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-accent-darkest text-white">
+    <div
+      class="align-items-center grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="flex flex-col gap-4">
+        <h2>Jaka będzie Twoja strona internetowa?</h2>
+        <p class="text-gray-light">O ile będziesz ze mną współpracować</p>
+      </div>
+      <div
+        class="col-span-2 flex flex-row flex-wrap items-start gap-4 text-black">
+        {
+          [
+            "estetyczna i profesjonalna",
+            "prosta, przejrzysta i czytelna",
+            "użyteczna i funkcjonalna",
+            "szybka i wydajna",
+            "responsywna",
+            "wartościowa dla użytkowników",
+            "bezpieczna",
+            "podstawowo zgodna z GPDR",
+            "zopymalizowana technicznie pod SEO",
+            "łatwą w zarządzaniu i obsłudze",
+            "nastawioną na zdobywanie celów",
+          ].map((item) => (
+            <div class="bg-accent-lightest px-4 py-2">{item}</div>
+          ))
+        }
+        <div class="mt-8 flex flex-col gap-4 lg:flex-row">
+          <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+          <Button link={buildSlug("/kontakt")} variant="tetriary"
+            >Skontaktuj się</Button
+          >
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section center class="bg-gray-light"
+    ><div class="flex max-w-prose flex-col gap-4 text-center">
+      <h2>W jakiej technologii tworzę strony www?</h2><p class="text-lg">
+        Bazując na mojej wiedzy i doświadczeniu, staram się nie ograniczać, co
+        do technologii, ale mam swoje wybory, które dostosowuję co sytuacji i
+        wymagań.
+      </p>
+    </div><Row maxColumns={3}
+      ><div
+        class="flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow-sm">
+        <h3 class="text-h5">Astro</h3><p>
+          Tzw. generator stron statycznych, w którym jednak strona jest
+          "ręcznie" kodowana przy pomocy najnowszych technik. Jest całkowicie
+          bezpieczna, nie wymaga utrzymania, nie ma ograniczeń i jest
+          niesamowicie szybka. Całe skupienie na rozwoju a nie utrzymaniu!
+        </p>
+      </div><div
+        class="flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow-sm">
+        <h3 class="text-h5">Wordpress</h3><p>
+          Do wielu projektów, zwłaszcza dynamicznych, stosuję też wordpressa
+          (gutenberg - spectra lub greenshift). Zaletą jest dostępność i łatwość
+          wdrażania, ale wadą bezpieczeństwo, awaryjność i koszty utrzymania. Do
+          większości stron polecam Astro.
+        </p>
+      </div><div
+        class="flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow-sm">
+        <h3 class="text-h5">Webflow</h3><p>
+          Webflow jest pewnym kompromisem pomiędzy Astro i Wordpress, dając
+          wygodę i bezpieczeństwo. Płacąc abonament zyskujemy pewność, co do
+          zabezpieczenia i możliwie poprawnego działania. Wygoda tworzenia także
+          jest duża.
+        </p>
+      </div></Row
+    ></Section
+  >
+
+  <Section>
+    <Row
+      ><div class="order-2 md:order-1">
+        <MyImage
+          src="dodatkowe-prace-przy-tworzeniu.webp"
+          alt="Laptop z uruchomionym sklepem internetowym."
+        />
+      </div>
+      <div
+        class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
+        <div class="flex flex-col gap-4">
+          <h2>W czym jeszcze pomogę Ci w ramach tworzenia strony www</h2>
+          <p class="text-lg">
+            Niestety wielu twórców zrzuca masę pracy na klienta. Ja doceniam
+            wartość Twojego czasu i odciążam cię z wielu obowiązków za dodatkową
+            opłatą.
+          </p>
+        </div>
+        <IconList
+          items={[
+            "zakup domeny i hostingu",
+            "utworzenie kont pocztowych",
+            "wybór odpowiednich zdjęć i grafik",
+            "napisanie bądź przeradagowanie tekstu",
+            "podpięcie witryny pod analitykę",
+            "implementacja podstawowe polityki prywatności",
+            "implementacja Consent Mode V2",
+            "implementacja dodatkowych funkcjonalności",
+            "opieka techniczna i monitorowanie",
+          ]}
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-gray-light">
+    <Row>
+      <div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Ile kosztuje strona internetowa?</h2>
+          <p class="text-lg">
+            Nie podaję konkretnych cen, bo to zależy od wielu czynników. Staram
+            się robić naprawdę dobrą robotę i do tematu podchodzić odpowiednio i
+            kompleksowo, poznając Twoje realne problemy i potrzeby.
+          </p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Cena zależy m.in. od</p>
+          <div
+            class="col-span-2 flex flex-row flex-wrap items-start gap-4 text-black">
+            {
+              [
+                "potrzeb, problemów i zaawansowania prac",
+                "ostatecznej liczby podstron",
+                "dodatkowych funkcjonalności",
+                "bazy projektowejj",
+                "rodzaju i ilości stworzonej treści",
+                "dodatkowych materiałów",
+              ].map((item) => (
+                <div class="bg-accent-lightest px-4 py-2">{item}</div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+          <Button link={buildSlug("/kontakt")} variant="secondary"
+            >Skontaktuj się</Button
+          >
+        </div>
+      </div><div>
+        <MyImage
+          src="koszt-strony-www.webp"
+          alt="Osoba dokonuje obliczeń na kalkulatorze kosztów strony internetowej."
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section>
+    <Row
+      ><div class="order-2 md:order-1">
+        <MyImage
+          src="tworzenie-kroki.webp"
+          alt="Planowanie schematu działania."
+        />
+      </div>
+      <div
+        class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
+        <h2>Jak w uproszczeniu wygląda cały proces?</h2>
+
+        <IconList
+          items={[
+            "Zbadanie potrzeb i ustalenie priorytetów",
+            "Wykonanie przeglądu rynku i konkurencji (jeśli tak ustalono)",
+            "Określenie zakresu i rodzaju prac",
+            "Zebranie niezbędnych materiałów",
+            "Przygotowanie pierwszej części realizacji",
+            "Ocena i ewentualne poprawki",
+            "Realizacja pozostałej części strony, jej ocena i ewentualne drobne poprawki",
+            "Prace wykończeniowe",
+            "Przekazanie witryny www",
+          ]}
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <FAQ
+    id="faq-creating-site"
+    items={[
+      {
+        question: "Dlaczego moja firma potrzebuje strony internetowej?",
+        answer: [
+          "Strona internetowa to kluczowy element obecności w sieci. Pozwala na dotarcie do nowych klientów, prezentację oferty przez całą dobę oraz budowanie wiarygodności firmy.",
+        ],
+      },
+      {
+        question: "Ile kosztuje stworzenie strony internetowej?",
+        answer: [
+          "Koszt stworzenia strony internetowej zależy od wielu czynników, takich jak liczba podstron, dodatkowe funkcjonalności oraz rodzaj treści. Zachęcam do zamówienia bezpłatnej wyceny, aby uzyskać dokładne informacje. Jestem tu po to, by Ci pomóc.",
+        ],
+      },
+      {
+        question: "W jakiej technologii tworzysz strony internetowe?",
+        answer: [
+          "Tworzę strony w technologiach takich jak Astro, Wordpress i Webflow. Wybór technologii zależy od specyficznych potrzeb projektu i preferencji klienta.",
+        ],
+      },
+      {
+        question:
+          "Czy mogę samodzielnie zarządzać swoją stroną po jej stworzeniu?",
+        answer: [
+          "To zależy od technologii. W przypadku Wordpress i Webflow nie ma problemu i pokażę Ci jak to zrobić. W przypadku astro jest nieco trudniej, ale tego typu strony zazwyczaj nie wymagają ciągłych zmian, a jedynie dodawania nowych treści.",
+        ],
+      },
+      {
+        question: "Jak długo trwa proces tworzenia strony internetowej?",
+        answer: [
+          "Czas realizacji zależy od złożoności projektu i dostarczenia niezbędnych materiałów. Standardowy proces tworzenia strony trwa od kilku dni do kilku tygodni.",
+        ],
+      },
+      {
+        question: "Czy oferujesz wsparcie po zakończeniu projektu?",
+        answer: [
+          "Tak, oferuję opiekę techniczną (w przypadku wordpress) i monitorowanie strony po jej wdrożeniu (każda strona). Pomagam również w implementacji nowych funkcji oraz aktualizacji treści.",
+        ],
+      },
+      {
+        question:
+          "Czy mogę skonsultować się przed zamówieniem strony internetowej?",
+        answer: [
+          "Oczywiście! Zachęcam do kontaktu w celu omówienia Twoich potrzeb i oczekiwań. Chętnie odpowiem na wszystkie pytania i doradzę najlepsze rozwiązania.",
+        ],
+      },
+      {
+        question: "Czy strona internetowa będzie zgodna z RODO?",
+        answer: [
+          "Tak, wszystkie strony, które tworzę, są zgodne z podstawowymi wymogami RODO, w tym z polityką prywatności i trybem zgody na cookies.",
+        ],
+      },
+      {
+        question: "Jak mogę zamówić wycenę strony internetowej?",
+        answer: [
+          "Aby zamówić bezpłatną wycenę, wystarczy skontaktować się ze mną przez formularz na stronie. Odpowiem na Twoje pytania i przedstawię indywidualną ofertę.",
+        ],
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CTA secondary>
+    <p class="text-center text-h2">
+      Strona internetowa to pierwszy krok. <br /> Zrób go dobrze.
+    </p>
+
+    <div class="flex flex-row gap-4">
+      <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+      <Button variant="secondary" link={buildSlug("/kontakt")}
+        >Skontaktuj się
+      </Button>
+    </div>
+  </CTA>
+</PageLayout>

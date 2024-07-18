@@ -6,11 +6,20 @@ import data from "~/data/site.json"
 
 import BlogLayout from "@layouts/BlogLayout.astro"
 
-import { type Meta } from "@components/core/MySEO.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
 
 const meta: Meta = {
-  title: "Blog Łukasza",
-  description: "Opis do bloga",
+  title: "Blog - Technologia cyfrowa i automatyzacja",
+  description:
+    "Blog o zastosowaniu technologii cyfrowej i automatyzacji w firmie. Informacje zarówno o ogólne jak i ściśle techniczne i praktyczne.",
+  og: false,
+  tw: false,
+}
+
+const schema: Schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Blog Łukasza Miłoś",
 }
 
 export async function getStaticPaths({
@@ -21,6 +30,9 @@ export async function getStaticPaths({
   const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+  const knowledgeBasePosts = posts.filter((post) => post.data.knowledgeBase)
+  const selectedKnowledgeBasePosts = knowledgeBasePosts.slice(0, 4)
 
   const categories = [
     ...new Set(posts.map((post) => post.data.categories).flat()),
@@ -35,6 +47,7 @@ export async function getStaticPaths({
     props: {
       ...page.props,
       categories,
+      selectedKnowledgeBasePosts,
     },
   }))
 }
@@ -42,9 +55,16 @@ export async function getStaticPaths({
 interface Props {
   page: Page
   categories: string[]
+  selectedKnowledgeBasePosts: CollectionEntry<"blog">[]
 }
 
-const { page, categories } = Astro.props
+const { page, categories, selectedKnowledgeBasePosts } = Astro.props
 ---
 
-<BlogLayout page={page} meta={meta} categories={categories} />
+<BlogLayout
+  page={page}
+  categories={categories}
+  knowledgeBasePosts={selectedKnowledgeBasePosts}
+  displaySectionTitle
+  meta={meta}
+/>

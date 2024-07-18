@@ -2,8 +2,8 @@ import { z, defineCollection, reference } from "astro:content"
 
 const meta = () =>
   z.object({
-    title: z.string(),
-    description: z.string(),
+    title: z.string().max(60),
+    description: z.string().max(130),
 
     canonical: z.string().url().optional(),
 
@@ -105,6 +105,7 @@ const blogCollection = defineCollection({
       )
       .default(["brak kategorii"]),
     // tags: z.array(z.string()).optional(),
+    knowledgeBase: z.boolean().default(false),
     relatedPosts: z.array(reference("blog")).max(3).optional(),
     date: z.coerce.date(),
     author: z.string().optional(),

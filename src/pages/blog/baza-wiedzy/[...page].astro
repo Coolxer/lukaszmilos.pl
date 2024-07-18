@@ -1,0 +1,50 @@
+---
+import type { Page, PaginateFunction } from "astro"
+import { type CollectionEntry, getCollection } from "astro:content"
+
+import data from "~/data/site.json"
+
+import BlogLayout from "@layouts/BlogLayout.astro"
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+const meta: Meta = {
+  title: "Baza Wiedzy - Najważniejsze informacje",
+  description:
+    "Znajdziesz tutaj bardzo ważne informacje z zakresu technologii cyfrowej, a w szczególności stron internetowych. ",
+  og: false,
+  tw: false,
+}
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction
+}) {
+  const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+  const knowledgeBasePosts = posts.filter((post) => post.data.knowledgeBase)
+
+  const paginatedPosts = paginate(knowledgeBasePosts, {
+    pageSize: data.site.blog.itemsPerPage,
+  })
+
+  return paginatedPosts.map((page) => ({
+    params: page.params,
+    props: {
+      ...page.props,
+    },
+  }))
+}
+
+interface Props {
+  page: Page
+  knowledgeBasePosts: CollectionEntry<"blog">[]
+}
+
+const { page } = Astro.props
+---
+
+<BlogLayout page={page} blogSubTitle="Baza wiedzy" meta={meta} />

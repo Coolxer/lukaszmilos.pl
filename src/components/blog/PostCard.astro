@@ -25,6 +25,7 @@ const link = buildSlug(`/blog/${post.slug}/`)
     <MyImage
       src={post.data.image.src}
       alt={post.data.image.alt}
+      rounded="rounded"
       class="h-60 rounded-b-none"
       loading="eager"
     />
@@ -35,10 +36,22 @@ const link = buildSlug(`/blog/${post.slug}/`)
       <a href={link} class="duration-300 ease-in-out hover:text-accent">
         <h2 class="text-h5">{post.data.title}</h2>
       </a>
-      <p>{post.data.subheading}</p>
+      <p class="line-clamp-3">{post.data.subheading}</p>
     </div>
 
-    <Button link={link} variant="primary" size="sm" class="self-start"
+    <div class="flex flex-row flex-wrap gap-2">
+      {
+        post.data.categories.map((category) => (
+          <a
+            class="block bg-accent-lightest px-2 hover:bg-accent-light"
+            href={buildSlug("/blog/kategoria/" + category)}>
+            #{category}
+          </a>
+        ))
+      }
+    </div>
+
+    <Button link={link} variant="primary" size="sm" class="mt-4 self-start"
       >Przeczytaj</Button
     >
   </div>

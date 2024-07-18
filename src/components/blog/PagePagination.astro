@@ -38,64 +38,62 @@ const generatePageNumbers = () => {
 const pageNumbers = generatePageNumbers()
 ---
 
-<nav aria-label="Page navigation" class="py-4">
-  <ul class="flex items-center text-base">
-    <li>
-      {
-        page.url.prev ? (
-          <a
-            href={page.url.prev}
-            class="ms-0 flex h-12 items-center justify-center rounded-s-lg border border-e-0 border-border_color bg-white px-4 leading-tight text-gray-dark hover:bg-gray-light">
-            <span class="sr-only">Poprzednie</span>
-            <Icon name="chevron-left" class="size-6" />
-          </a>
-        ) : (
-          <div class="ms-0 flex h-12 items-center justify-center rounded-s-lg border border-e-0 border-border_color bg-white px-4 leading-tight text-gray">
-            <Icon name="chevron-left" class="size-6" />
-          </div>
-        )
-      }
-    </li>
-
-    {
-      pageNumbers.map((num) =>
-        num === "..." ? (
-          <li class="px-base flex h-12 items-center justify-center border border-e-0 border-s-0 border-border_color bg-white leading-tight text-gray">
-            ...
-          </li>
-        ) : (
-          <li>
+{
+  page && page.data && page.data.length > 0 && (
+    <nav aria-label="Page navigation" class="py-4">
+      <ul class="flex items-center text-base">
+        <li>
+          {page.url.prev ? (
             <a
-              href={num !== 1 ? `/blog/${num}/` : "/blog/"}
-              class:list={[
-                "flex h-12 items-center justify-center border border-e-0 border-s-0 border-border_color px-4 leading-tight",
-                num === page.currentPage
-                  ? "bg-accent-lightest text-accent hover:bg-accent-light hover:text-accent-dark"
-                  : "bg-white text-gray-dark hover:bg-gray-light",
-              ]}
-              aria-current={num === page.currentPage ? "page" : undefined}>
-              {num}
+              href={page.url.prev}
+              class="ms-0 flex h-12 items-center justify-center rounded-s-lg border border-e-0 border-border_color bg-white px-4 leading-tight text-gray-dark hover:bg-gray-light">
+              <span class="sr-only">Poprzednie</span>
+              <Icon name="chevron-left" class="size-6" />
             </a>
-          </li>
-        )
-      )
-    }
+          ) : (
+            <div class="ms-0 flex h-12 items-center justify-center rounded-s-lg border border-e-0 border-border_color bg-white px-4 leading-tight text-gray">
+              <Icon name="chevron-left" class="size-6" />
+            </div>
+          )}
+        </li>
 
-    <li>
-      {
-        page.url.next ? (
-          <a
-            href={page.url.next}
-            class="flex h-12 items-center justify-center rounded-e-lg border border-s-0 border-border_color bg-white px-4 leading-tight text-gray-dark hover:bg-gray-light">
-            <span class="sr-only">Następne</span>
-            <Icon name="chevron-right" class="size-6" />
-          </a>
-        ) : (
-          <div class="flex h-12 items-center justify-center rounded-e-lg border border-s-0 border-border_color bg-white px-4 leading-tight text-gray">
-            <Icon name="chevron-right" class="size-6" />
-          </div>
-        )
-      }
-    </li>
-  </ul>
-</nav>
+        {pageNumbers.map((num) =>
+          num === "..." ? (
+            <li class="px-base flex h-12 items-center justify-center border border-e-0 border-s-0 border-border_color bg-white leading-tight text-gray">
+              ...
+            </li>
+          ) : (
+            <li>
+              <a
+                href={num !== 1 ? `/blog/${num}/` : "/blog/"}
+                class:list={[
+                  "flex h-12 items-center justify-center border border-e-0 border-s-0 border-border_color px-4 leading-tight",
+                  num === page.currentPage
+                    ? "bg-accent-lightest text-accent hover:bg-accent-light hover:text-accent-dark"
+                    : "bg-white text-gray-dark hover:bg-gray-light",
+                ]}
+                aria-current={num === page.currentPage ? "page" : undefined}>
+                {num}
+              </a>
+            </li>
+          )
+        )}
+
+        <li>
+          {page.url.next ? (
+            <a
+              href={page.url.next}
+              class="flex h-12 items-center justify-center rounded-e-lg border border-s-0 border-border_color bg-white px-4 leading-tight text-gray-dark hover:bg-gray-light">
+              <span class="sr-only">Następne</span>
+              <Icon name="chevron-right" class="size-6" />
+            </a>
+          ) : (
+            <div class="flex h-12 items-center justify-center rounded-e-lg border border-s-0 border-border_color bg-white px-4 leading-tight text-gray">
+              <Icon name="chevron-right" class="size-6" />
+            </div>
+          )}
+        </li>
+      </ul>
+    </nav>
+  )
+}

@@ -1,0 +1,36 @@
+---
+import Section from "@components/core/Section.astro"
+import MyImage from "@components/ui/MyImage.astro"
+
+export interface Props {
+  secondary?: boolean
+  class?: string
+}
+
+const { secondary = false, class: className } = Astro.props
+---
+
+{
+  !secondary ? (
+    <Section withBackgroundImage class="text-white" center>
+      <MyImage
+        slot="background"
+        src="laptop.webp"
+        alt=""
+        width={1920}
+        withOverlay
+        overlayColor="bg-accent-darkest/50"
+        class="h-full rounded-none"
+      />
+      <div class="flex max-w-prose flex-col items-center justify-center gap-8">
+        <slot />
+      </div>
+    </Section>
+  ) : (
+    <Section center>
+      <div class="flex max-w-prose flex-col items-center justify-center gap-8">
+        <slot />
+      </div>
+    </Section>
+  )
+}

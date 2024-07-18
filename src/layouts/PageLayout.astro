@@ -22,11 +22,15 @@ const {
 ---
 
 <Layout meta={meta} schema={schema}>
-  <header class="align-center flex flex-col items-center gap-4 bg-gray py-12">
-    {breadcrumbs && <MyBreadCrumbs />}
-    <h1>{pageTitle}</h1>
-    {pageDescription && <p>{pageDescription}</p>}
-    <slot name="header" />
+  <header
+    class="align-center flex flex-col items-center bg-accent-darkest px-6 py-16 text-white">
+    <div
+      class="flex max-w-prose flex-col items-center justify-center gap-4 text-center">
+      {breadcrumbs && <MyBreadCrumbs />}
+      <h1>{pageTitle}</h1>
+      {pageDescription && <p class="text-lg">{pageDescription}</p>}
+      <slot name="header" />
+    </div>
   </header>
 
   <slot />

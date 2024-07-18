@@ -1,6 +1,7 @@
 ---
 import { buildSlug } from "@utils/utils"
 import Button from "@components/ui/Button.astro"
+import { Icon } from "astro-icon/components"
 
 const data = [
   {
@@ -13,17 +14,37 @@ const data = [
     links: [
       {
         text: "tworzenie strony www",
-        href: "/tworzenie-strony-www",
+        href: "/oferta/tworzenie-strony-www",
       },
       {
-        text: "cyfryzacja",
-        href: "/cyfryzacja",
+        text: "ocena strony www",
+        href: "/oferta/ocena-strony-www",
+      },
+      {
+        text: "poprawa strony www",
+        href: "/oferta/poprawa-strony-www",
+      },
+      {
+        text: "rozwój strony www",
+        href: "/oferta/rozwoj-strony-www",
+      },
+      {
+        text: "wdrażanie narzędzi cyfrowych",
+        href: "/oferta/wdrazanie-narzedzi-cyfrowych",
+      },
+      {
+        text: "automatyzacja procesów firmowych",
+        href: "/oferta/automatyzacja-procesow-firmowych",
+      },
+      {
+        text: "inne",
+        href: "/oferta/inne",
       },
     ],
   },
   {
     text: "Portfolio",
-    href: "/portflio",
+    href: "/portfolio",
   },
   {
     text: "Blog",
@@ -32,28 +53,30 @@ const data = [
 ]
 ---
 
-<nav class="fixed start-0 top-0 z-20 w-full border-b border-gray bg-white">
+<nav
+  class="fixed start-0 top-0 z-20 flex w-full items-center border-b bg-white shadow-md">
   <div
-    class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-    <a
-      href="https://flowbite.com/"
-      class="flex items-center space-x-4 rtl:space-x-reverse">
-      <img
-        src="https://flowbite.com/docs/images/logo.svg"
-        class="h-8"
-        alt="Flowbite Logo"
-      />
-      <span class="self-center whitespace-nowrap text-2xl font-semibold">
-        Flowbite
-      </span>
+    class="mx-auto flex min-h-20 w-full max-w-screen-xl flex-wrap items-center justify-between px-4">
+    <a href="/" class="flex items-center space-x-2 rtl:space-x-reverse">
+      <Icon name="logo" class="text-5xl" />
+      <div class="flex flex-col justify-center text-lg leading-5">
+        <span>Łukasz</span>
+        <span>Miłoś</span>
+      </div>
     </a>
-    <div class="flex space-x-4 md:order-2 md:space-x-0 rtl:space-x-reverse">
-      <Button link="#" size="sm">Get started</Button>
+    <div
+      class="flex min-h-20 items-center space-x-4 md:order-2 md:space-x-0 rtl:space-x-reverse">
+      <Button link={buildSlug("/kontakt")} size="sm" class="display md:hidden"
+        >Kontakt</Button
+      >
+      <Button link={buildSlug("/kontakt")} class="hidden md:flex"
+        >Kontakt</Button
+      >
       <button
         id="hamburger-btn"
         data-collapse-toggle="navbar-sticky"
         type="button"
-        class="inline-flex h-10 w-10 items-center justify-center rounded p-2 text-sm text-gray-dark transition-all duration-300 ease-in-out hover:bg-gray-light focus:outline-none md:hidden"
+        class="inline-flex h-10 w-10 items-center justify-center rounded p-2 pr-0 text-sm text-black transition-all duration-300 ease-in-out hover:bg-accent-lightest focus:outline-none md:hidden md:p-0"
         aria-controls="navbar-sticky"
         aria-expanded="false">
         <span class="sr-only">Otwórz menu główne</span>
@@ -73,54 +96,69 @@ const data = [
       </button>
     </div>
     <div
-      class="mt-12 hidden h-screen w-full items-center justify-between md:order-1 md:mt-0 md:flex md:h-auto md:w-auto"
+      class="mt-12 hidden h-screen w-full items-center justify-between md:order-1 md:mt-0 md:flex md:size-auto"
       id="navbar-sticky">
       <p class="text-center text-h3 md:hidden">Menu główne</p>
       <ul
-        class="mt-6 flex flex-col gap-2 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse">
+        class="mt-6 flex flex-col gap-2 font-medium md:mt-0 md:flex-row md:items-center md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse">
         {
           data.map(({ text, href, links }) => (
-            <li>
+            <li class="flex flex-row items-start justify-between md:items-center md:gap-4">
               {links?.length ? (
                 <>
-                  <button
-                    id="dropdownNavbarLink"
-                    data-dropdown-toggle="dropdownNavbar"
-                    class="flex w-full items-center justify-between rounded bg-accent-light p-4 text-black transition-colors duration-300 ease-in-out hover:bg-accent hover:text-white md:w-auto md:border-0 md:bg-transparent md:p-0 md:hover:bg-transparent md:hover:text-accent-dark">
-                    Dropdown{" "}
-                    <svg
-                      class="ms-2 h-2 w-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6">
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m1 1 4 4 4-4"
-                      />
-                    </svg>
-                  </button>
+                  <a
+                    href={buildSlug(href)}
+                    class="block h-full w-auto rounded rounded-r-none border-b border-transparent bg-gray-light p-4 text-black transition-all duration-300 ease-in-out hover:bg-accent-lightest hover:text-accent md:rounded-none md:bg-transparent md:p-0 md:hover:border-accent md:hover:bg-transparent md:hover:text-accent"
+                    aria-current="page">
+                    {text}
+                  </a>
                   <div
-                    id="dropdownNavbar"
-                    class="z-10 hidden w-40 divide-y divide-gray-lightest rounded bg-white font-normal shadow">
-                    <ul
-                      class="py-2 text-sm text-gray-dark"
-                      aria-labelledby="dropdownLargeButton">
-                      {links.map(({ text: text2, href: href2 }) => (
-                        <li>
-                          <a href={buildSlug(href2)}>{text2}</a>
-                        </li>
-                      ))}
-                    </ul>
+                    id="accordion-collapse"
+                    data-accordion="collapse"
+                    class="w-full">
+                    <div id="menu-dropdown-collapse-heading">
+                      <button
+                        type="button"
+                        class="flex size-full h-[58px] flex-row items-center justify-end gap-4 rounded border border-b border-transparent border-l-border_color bg-gray-light p-4 text-black transition-all duration-300 ease-in-out hover:bg-accent-lightest hover:text-accent sm:rounded-l-none md:justify-between md:border-none md:bg-transparent md:p-0 md:hover:bg-transparent md:hover:text-accent"
+                        data-accordion-target="#menu-dropdown-collapse-body"
+                        aria-expanded="false"
+                        aria-controls="menu-dropdown-collapse-body">
+                        <svg
+                          class="size-4 shrink-0 rotate-180"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 10 6">
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      id="menu-dropdown-collapse-body"
+                      class="hidden rounded bg-white md:absolute md:-ml-16 md:mt-8 md:border md:border-border_color md:p-4 md:shadow"
+                      aria-labelledby="menu-dropdown-collapse-headin">
+                      <ul
+                        class="py-2 text-sm text-gray-dark"
+                        aria-labelledby="dropdownLargeButton">
+                        {links.map(({ text: text2, href: href2 }) => (
+                          <li class="hover:accent-dark border-b p-2 duration-300 ease-in-out last:border-none">
+                            <a href={buildSlug(href2)}>{text2}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </>
               ) : (
                 <a
                   href={buildSlug(href)}
-                  class="block rounded bg-accent-light p-4 text-black transition-all duration-300 ease-in-out hover:bg-accent hover:text-white md:bg-transparent md:p-0 md:hover:bg-transparent md:hover:text-accent-dark md:hover:underline md:hover:underline-offset-2"
+                  class="block size-full rounded border-b border-transparent bg-gray-light p-4 text-black transition-all duration-300 ease-in-out hover:bg-accent-lightest hover:text-accent md:rounded-none md:bg-transparent md:p-0 md:hover:border-accent md:hover:bg-transparent md:hover:text-accent"
                   aria-current="page">
                   {text}
                 </a>
@@ -148,12 +186,25 @@ const data = [
       if (isExpanded) hamburger?.classList.add("rotate-90")
       else hamburger?.classList.remove("rotate-90")
 
-      if (scrollToTop)
+      if (scrollToTop) {
         scrollToTop.style.display = isExpanded
           ? "none"
           : window.scrollY > 20
             ? "block"
             : "none"
+      }
+    })
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 768 && !navbar?.classList.contains("hidden")) {
+        navbar?.classList.add("hidden")
+        document.body.classList.remove("overflow-hidden")
+        hamburger?.classList.remove("rotate-90")
+
+        if (scrollToTop) {
+          scrollToTop.style.display = window.scrollY > 20 ? "block" : "none"
+        }
+      }
     })
   })
 </script>

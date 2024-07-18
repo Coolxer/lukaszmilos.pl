@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets"
-import { tv } from "tailwind-variants"
 
 import data from "~/data/site.json"
 
@@ -9,8 +8,11 @@ export interface Props {
   src?: string
   fromPublic?: boolean
   alt: string
-  full?: boolean
+  size?: string
   layout?: "cover" | "contain" | "fill"
+  aspect?: string
+  rounded?: string
+  shadow?: string
   width?: number
   height?: number
   widths?: number[]
@@ -27,8 +29,11 @@ const {
   src,
   fromPublic = false,
   alt,
-  full = true,
-  layout = "cover",
+  size = "size-full",
+  layout = "object-cover",
+  aspect = "aspect-square",
+  rounded = "rounded-lg",
+  shadow = "shadow-md",
   width = 0,
   height = 0,
   widths = [320, 500, 800, 1080, 1600, 2000 /*img.width*/],
@@ -36,28 +41,10 @@ const {
   loading = "lazy",
   withOverlay = false,
   customOverlay = false,
-  overlayColor = "bg-gradient-to-b from-slate-800/50 to-slate-950/50",
+  overlayColor = "bg-gradient-to-t from-slate-950/30 to-slate-700/10",
   class: className,
   ...attributes
 } = Astro.props
-
-const image = tv({
-  base: "aspect-square rounded shadow-md",
-  variants: {
-    full: {
-      true: "size-full",
-    },
-    layout: {
-      cover: "object-cover",
-      contain: "object-contain",
-      fill: "object-fill",
-    },
-    defaultVariants: {
-      full: true,
-      layout: "cover",
-    },
-  },
-})
 
 let imageMetadata: ImageMetadata | undefined
 let imageSrc: string | ImageMetadata | Promise<{ default: ImageMetadata }>
@@ -92,7 +79,7 @@ else if (src) {
 
 {
   withOverlay ? (
-    <div class="relative size-full rounded">
+    <div class:list={["relative size-full", rounded]}>
       <Image
         src={imageSrc as ImageMetadata}
         alt={alt}
@@ -100,14 +87,15 @@ else if (src) {
         height={height ? height : !img && !imageMetadata ? 600 : undefined}
         widths={width ? undefined : widths}
         sizes={width ? undefined : sizes}
-        class:list={[image({ full: full, layout: layout }), className]}
+        class:list={[size, layout, aspect, rounded, shadow, className]}
         loading={loading}
         {...attributes}
       />
       {!customOverlay ? (
         <div
           class:list={[
-            "l-0 t-0 absolute inset-0 size-full items-end justify-center rounded pb-2",
+            "l-0 t-0 absolute inset-0 size-full items-end justify-center pb-2",
+            rounded,
             overlayColor,
           ]}>
           <slot name="overlayItems" />
@@ -124,7 +112,7 @@ else if (src) {
       height={height ? height : !img && !imageMetadata ? 600 : undefined}
       widths={width ? undefined : widths}
       sizes={width ? undefined : sizes}
-      class:list={[image({ full: full, layout: layout }), className]}
+      class:list={[size, layout, aspect, rounded, shadow, className]}
       loading={loading}
       {...attributes}
     />

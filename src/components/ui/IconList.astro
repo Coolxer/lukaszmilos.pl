@@ -15,7 +15,7 @@ const {
 } = Astro.props
 ---
 
-<ul class:list={["flex flex-col gap-4", className]} {...attributes}>
+<ul class:list={["flex flex-col gap-2", className]} {...attributes}>
   {
     items.map((item) => (
       <li
@@ -23,8 +23,8 @@ const {
           "flex flex-row items-center gap-2",
           interactive && "duration-300 ease-in-out hover:translate-x-4",
         ]}>
-        <Icon name="chevron-right" class="size-8" />
-        {item}
+        <Icon name="chevron-right" class="text-left text-4xl text-accent" />
+        <span class="flex-1">{item}</span>
       </li>
     ))
   }

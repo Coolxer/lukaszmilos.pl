@@ -35,6 +35,9 @@ export default defineConfig({
     sitemap(),
     icon({
       iconDir: "src/assets/icons",
+      include: {
+        tabler: ["*"],
+      },
     }),
     devtoolBreakpoints(),
     react(),
@@ -81,4 +84,7 @@ export default defineConfig({
     },
   },
   redirects: {},
+  devToolbar: {
+    enabled: true,
+  },
 })
