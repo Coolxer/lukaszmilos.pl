@@ -6,7 +6,7 @@
     "phone": ["123 456 789"]
   },
   "site": {
-    "domain": "https://lukaszmilos.pl/",
+    "domain": "https://www.lukaszmilos.pl/",
     "trailingSlash": "always",
     "meta": {
       "home-title": "Oficjalna strona Łukasza Miłoś",

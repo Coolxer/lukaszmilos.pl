@@ -32,7 +32,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: (page) => page !== `${data.site.domain}/stylebook/`,
+    }),
     icon({
       iconDir: "src/assets/icons",
       include: {

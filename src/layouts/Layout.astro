@@ -14,7 +14,6 @@ import Footer from "@components/core/Footer.astro"
 
 import ScrollToTop from "@components/widgets/ScrollToTop.astro"
 import MySEO, { type Meta, type Schema } from "@components/core/MySEO.astro"
-import StylebookLink from "@components/widgets/StylebookLink.astro"
 
 export interface Props {
   meta: Meta
@@ -59,8 +58,8 @@ const SITE = data.site
       src="https://consent.cookiebot.com/uc.js"
       data-cbid="91afb1e7-501e-48b5-be69-5d193a417fe2"
       data-blockingmode="auto"
-      type="text/javascript"
-    ></script>
+      type="text/javascript">
+    </script>
 
     <!-- Google Search Console -->
     {
@@ -90,8 +89,6 @@ const SITE = data.site
     <div class="flex min-h-screen flex-col justify-between">
       <Header />
 
-      <StylebookLink />
-
       <main class="mt-20">
         <slot />
       </main>
@@ -103,8 +100,8 @@ const SITE = data.site
       <!-- Flowbite interative components -->
       <script
         is:inline
-        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
-      ></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js">
+      </script>
     </div>
   </body>
 </html>
