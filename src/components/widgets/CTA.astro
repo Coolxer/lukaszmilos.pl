@@ -4,10 +4,9 @@ import MyImage from "@components/ui/MyImage.astro"
 
 export interface Props {
   secondary?: boolean
-  class?: string
 }
 
-const { secondary = false, class: className } = Astro.props
+const { secondary = false } = Astro.props
 ---
 
 {

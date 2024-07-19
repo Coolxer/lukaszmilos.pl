@@ -11,10 +11,9 @@ export type FaqItem = {
 export interface Props {
   id: string
   items: FaqItem[]
-  class?: string
 }
 
-const { id, items, class: className } = Astro.props
+const { id, items } = Astro.props
 ---
 
 <Section center class="bg-accent-darkest text-white">
