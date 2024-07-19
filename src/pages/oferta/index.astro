@@ -165,7 +165,7 @@ const schema: Schema = {
           alt: "Nowoczesna, zautomatyzoana ręka robotyczna",
         },
       },
-    ].map((item) => (
+    ].map((item, index) => (
       <Section class:list={[item.style]}>
         <Row>
           <>
@@ -182,7 +182,11 @@ const schema: Schema = {
               </Button>
             </div>
             <div>
-              <MyImage src={item.image.src} alt={item.image.alt} />
+              <MyImage
+                src={item.image.src}
+                alt={item.image.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
             </div>
           </>
         </Row>

@@ -146,11 +146,25 @@ const schema: Schema = {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
+                data-cookieblock-src={item.video}
+                data-cookieconsent="marketing"
               />
+
+              <div class="cookieconsent-optout-marketing">
+                Proszę
+                <a href="javascript:Cookiebot.renew()">
+                  akceptuj pliki cookie marketingowe
+                </a>
+                aby obejrzeć ten film.
+              </div>
             </div>
           ) : (
             <div>
-              <MyImage src={item.image.src} alt={item.image.alt} />
+              <MyImage
+                src={item.image.src}
+                alt={item.image.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
             </div>
           )}
         </Row>

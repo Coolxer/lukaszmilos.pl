@@ -60,31 +60,32 @@ const SITE = data.site
       data-blockingmode="auto"
       type="text/javascript">
     </script>
-
-    <!-- Google Search Console -->
-    {
-      SITE.integrations["google-search-console"] && (
-        <meta
-          name="google-site-verification"
-          content={SITE.integrations["google-search-console"]}
-        />
-      )
-    }
-
-    <!-- Analytics -->
-    {
-      SITE.integrations["google-analytics"] ? (
-        <GoogleAnalytics
-          id={SITE.integrations["google-analytics"]}
-          partytown={true}
-        />
-      ) : null
-    }
-
-    <!-- Facebook Pixel, Hotjar ... -->
-
-    <!-- Cookie banner  -->
   </head>
+
+  <!-- Google Search Console -->
+  {
+    SITE.integrations["google-search-console"] && (
+      <meta
+        name="google-site-verification"
+        content={SITE.integrations["google-search-console"]}
+      />
+    )
+  }
+
+  <!-- Analytics -->
+  {
+    SITE.integrations["google-analytics"] ? (
+      <GoogleAnalytics
+        id={SITE.integrations["google-analytics"]}
+        partytown={true}
+      />
+    ) : null
+  }
+
+  <!-- Facebook Pixel, Hotjar ... -->
+
+  <!-- Cookie banner  -->
+
   <body>
     <div class="flex min-h-screen flex-col justify-between">
       <Header />
@@ -100,6 +101,7 @@ const SITE = data.site
       <!-- Flowbite interative components -->
       <script
         is:inline
+        type="text/partytown"
         src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js">
       </script>
     </div>

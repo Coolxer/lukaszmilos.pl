@@ -18,8 +18,8 @@ const meta: Meta = {
     "Zajmuję się technologią cyfrową i automatyzacją, a w szczególności stronami www. Szukam możliwości wdrożenia narzędzi i optymalizacji.",
   // openGraph: {},
   // twitter: {},
-  og:false,
-  tw:false
+  og: false,
+  tw: false,
 }
 
 const schema: Schema = {
@@ -40,7 +40,10 @@ const schema: Schema = {
           <p class="text-h5 font-semibold">
             Nazywam się <span class="text-accent">Łukasz Miłoś</span>
           </p>
-          <h1>Pomagam firmom lepiej korzystać z technologii</h1>
+          <h1>
+            Pomagam firmom <span class="text-accent">lepiej</span> korzystać z technologii
+          </h1>
+          <p class="text-h5 text-accent">szybko, prosto, skutecznie</p>
         </div>
 
         <div class="flex flex-col gap-4 lg:flex-row">
@@ -68,7 +71,12 @@ const schema: Schema = {
           >
         </div>
       </div><div>
-        <MyImage src="hero.webp" alt="Łukasz Miłoś" withOverlay />
+        <MyImage
+          src="hero.webp"
+          alt="Łukasz Miłoś"
+          withOverlay
+          loading="eager"
+        />
       </div>
     </Row></Section
   >
@@ -112,7 +120,7 @@ const schema: Schema = {
         },
         {
           titleStrong: "Cele",
-          titleRest: "czyli jakie korzyści przynosi technologia?",
+          titleRest: "czyli jakie korzyści ma przynieść technologia?",
           icons: [
             "tabler:brand-speedtest",
             "tabler:bug-off",
