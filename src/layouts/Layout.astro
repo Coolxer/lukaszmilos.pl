@@ -52,6 +52,15 @@ const SITE = data.site
       href={`${Astro.site}rss.xml`}
     />
 
+    <!-- Cookiebot -->
+    <script
+      id="Cookiebot"
+      src="https://consent.cookiebot.com/uc.js"
+      data-cbid="91afb1e7-501e-48b5-be69-5d193a417fe2"
+      data-blockingmode="auto"
+      type="text/javascript">
+    </script>
+
     <!-- Google Search Console -->
     {
       SITE.integrations["google-search-console"] && (
@@ -93,8 +102,8 @@ const SITE = data.site
       <!-- Flowbite interative components -->
       <script
         is:inline
-        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
-      ></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js">
+      </script>
     </div>
   </body>
 </html>
