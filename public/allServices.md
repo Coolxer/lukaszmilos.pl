@@ -7,9 +7,9 @@
 ## E-mail
 
 - utworzenie e-maila firmowego
-- przygotowanie szablonu e-maila
 - przygotowanie stopki dołączanej do każdego e-maila
-- konfiguracja monitorowania e-maila
+- przygotowanie szablonu e-maila
+- konfiguracja monitorowania e-maila (dotarcie, otwarcie, odczyt)
 - automatyzacja e-maila (automatyczna wysyłka, powiadomienie przy odbiorze, przetworzenie i zapis wiadomości)
 
 ## Technologia

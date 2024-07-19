@@ -1,10 +1,8 @@
 ---
-import { buildSlug } from "@utils/utils"
-
 const emailData = {
-  key: "9bcaf1c6-2e0e-468a-a3df-caa7f49bc55c",
+  key: "f4795573-4477-40a4-9134-7719525fa71e",
   subject: "Nowa wiadomość ze strony www",
-  from: "Nowa wiadomość ze strony www",
+  from: "Nowa wiadomość ze strony www.lukaszmilos.pl",
 }
 
 const statuses = {
@@ -50,7 +48,7 @@ const errors = {
       type="email"
       required
       placeholder="Twój adres e-mail"
-      class="rounded border border-border_color p-2 text-sm focus:border-accent"
+      class="rounded border border-border_color text-sm focus:border-accent"
     />
     <div class="empty-feedback">{errors.emailRequired}</div>
     <div class="invalid-feedback">{errors.emailInvalid}</div>
@@ -68,7 +66,7 @@ const errors = {
       cols="50"
       required
       placeholder="Twoja wiadomość"
-      class="rounded border border-border_color p-2 text-sm text-black focus:border-accent">
+      class="rounded border border-border_color text-sm text-black focus:border-accent">
     </textarea>
     <div class="empty-feedback invalid-feedback">{errors.messageRequired}</div>
   </div>
@@ -141,6 +139,8 @@ const errors = {
     () => {
       const form = document.getElementById("form")
       const result = document.getElementById("result")
+
+      document.getElementById("message").defaultValue = ""
 
       form.addEventListener("submit", function (e) {
         e.preventDefault()

@@ -37,8 +37,10 @@ const meta: Meta = {
   title: "O-mnie - specjalista i inż. IT",
   description:
     "Nazywam się Łukasz Miłoś i jestem specjalistą i inż. IT. Specjalizuję się w technologiach cyfrowych i  automatyzacji, a szczególnie w stronach www.",
-  openGraph: {},
-  twitter: {},
+  // openGraph: {},
+  // twitter: {},
+  og: false,
+  tw: false,
 }
 
 const schema: Schema = {
@@ -96,7 +98,7 @@ const schema: Schema = {
       <div class="flex flex-col gap-2">
         <span class="text-h5">Programista</span>
         <p class="text-gray-dark">
-          Mimo, że nie jestem zawodowym programistą, to dobrze znam koncepty i
+          Mimo że nie jestem zawodowym programistą, to dobrze znam koncepty i
           miałem styczność z wieloma językami programowania.
         </p>
       </div>
@@ -104,7 +106,7 @@ const schema: Schema = {
         <span class="text-h5">Początkujący Designer</span>
         <p class="text-gray-dark">
           Nie jestem wybitnym designerem i grafikiem, ale znam istotne podstawy,
-          mam nienajgorszy gust i czujne oko.
+          mam nie najgorszy gust i czujne oko.
         </p>
       </div>
     </Row>
@@ -117,7 +119,7 @@ const schema: Schema = {
         [
           "Start technologicznej przygody od grafiki 3D i programowania w klasycznych językach takich jak C / C++.",
           "Okres silnego zainteresowania tematyką embedded (elektronika, automatyka, budowa własnej drukarki 3D).",
-          "Okres zainteresowania technologią webową, podstawową jak i zaawansowaną, by w koncu poznać wordpressa.",
+          "Okres zainteresowania technologią webową, podstawową jak i zaawansowaną, by w końcu poznać WordPress.",
           "Poznanie tematyki bezpieczeństwa, wydajności, SEO, UX stron internetowych i częstych błędów.",
           "Zainteresowanie tematyką automatyzacji, także z użyciem platform no/low-code (webflow, make, zapier).",
         ].map((item, index) => (
@@ -135,7 +137,7 @@ const schema: Schema = {
     <Row placement="items-start"
       ><div class="flex flex-col gap-4">
         <h2>Wiedza i umiejętności</h2><p class="text-lg">
-          Zawsze lubiłem się uczyć i ciąglę to robię. Nowe problemy i narzędzia
+          Zawsze lubiłem się uczyć i ciągle to robię. Nowe problemy i narzędzia
           nie stanowią dla mnie trudności, lecz są ciekawym wyzwaniem.
         </p>
 
