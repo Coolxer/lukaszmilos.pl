@@ -467,7 +467,7 @@ const schema: Schema = {}
   </Section>
 
   <Section center>
-    <div class="flex max-w-prose flex-col gap-4 text-center">
+    <div class="flex max-w-prose flex-col gap-4 md:text-center">
       <h2>Skrypt szczegółowego audytu strony www</h2>
       <p class="text-lg">Zobacz, za co płacisz i co zostanie sprawdzone</p>
     </div>
@@ -544,7 +544,7 @@ const schema: Schema = {}
       Chcesz, aby Twoją stronę ocenił specjalista?
     </p>
 
-    <div class="flex flex-row gap-4">
+    <div class="flex w-full flex-col justify-center gap-4 md:flex-row">
       <Button link={buildSlug("/kontakt")}>Zleć pełny audyt</Button>
       <Button link={buildSlug("/kontakt")} variant="secondary"
         >Odbierz darmową próbkę</Button

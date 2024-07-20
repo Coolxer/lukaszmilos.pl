@@ -86,11 +86,12 @@ const schema: Schema = {
     center
     class="bg-accent-darkest text-white"
     gap="gap-12 lg:gap-16 2xl:gap-20">
-    <div class="flex max-w-prose flex-col items-center gap-4">
-      <h2 class="text-center">
-        Technologia z głową. <br /> Co jest dla mnie ważne?
+    <div class="flex max-w-prose flex-col gap-4 md:items-center">
+      <h2 class="md:text-center">
+        Technologia z głową. <br />
+        <span class="text-accent-light">Co jest dla mnie ważne?</span>
       </h2>
-      <p class="text-center text-lg text-accent-lightest">
+      <p class="text-lg text-accent-lightest md:text-center">
         Nie zapominam o kwestiach ludzkich i biznesowych (rozwiązywanie
         problemów, zaspokajanie potrzeb, wygoda użytkowania i skuteczność
         działania).
@@ -167,11 +168,11 @@ const schema: Schema = {
         <>
           <Row>
             <div class="flex max-w-prose flex-col gap-4">
-              <h3 class="text-center text-h4 md:text-left">
+              <h3 class="text-h4">
                 <span class="text-accent-light">{item.titleStrong}</span>,{" "}
                 {item.titleRest}
               </h3>
-              <div class="flex flex-row justify-center gap-2 text-accent-light md:justify-start">
+              <div class="flex flex-row gap-2 text-accent-light">
                 {item.icons.map((icon) => (
                   <Icon name={icon} class="text-3xl" />
                 ))}
@@ -191,8 +192,9 @@ const schema: Schema = {
 
   <!-- Usługi -->
   <Section center>
-    <h2 class="max-wprose text-center">
-      Wiesz już czym się kieruję.<br /> Dowiedz się co robię
+    <h2 class="max-wprose md:text-center">
+      Wiesz już czym się kieruję.<br />
+      <span class="text-accent">Dowiedz się co robię.</span>
     </h2>
     <Row>
       <div class="order-2 md:order-1">
@@ -287,9 +289,12 @@ const schema: Schema = {
   <!-- CTA -->
   <CTA>
     <p class="text-center text-h2">
-      Chcesz lepiej korzystać z technologii? <br />Zrób pierwszy krok.
+      Chcesz lepiej korzystać z technologii? <br /><span
+        class="text-accent-light">
+        Zrób pierwszy krok.
+      </span>
     </p>
-    <div class="flex flex-row gap-4">
+    <div class="flex w-full flex-col gap-4 md:flex-row md:justify-center">
       <Button link={buildSlug("/oferta")}>Zobacz ofertę</Button>
       <Button variant="tetriary" link={buildSlug("/kontakt")}
         >Skontaktuj się</Button

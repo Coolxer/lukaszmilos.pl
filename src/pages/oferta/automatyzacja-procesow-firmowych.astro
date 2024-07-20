@@ -340,7 +340,7 @@ const meta: Meta = {
               <span>{index + 1}</span>
             </div>
             <h3 class="text-h5">{item.title}</h3>
-            <hr class="h-px w-full border-0 bg-accent-dark" />
+            <hr class:list="h-px w-full border-0 bg-accent-dark" />
             <p>{item.description}</p>
           </div>
         ))
@@ -382,7 +382,7 @@ const meta: Meta = {
   <CTA secondary>
     <p class="text-center text-h2">Chcesz automatyzować procesy w firmie?</p>
 
-    <div class="flex flex-row gap-4">
+    <div class="flex w-full flex-col justify-center gap-4 md:flex-row">
       <Button link={buildSlug("/kontakt")}>Uzyskaj darmową wycenę</Button>
       <Button variant="secondary" link={buildSlug("/kontakt")}
         >Skontaktuj się

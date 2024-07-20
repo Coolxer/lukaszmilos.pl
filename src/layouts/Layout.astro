@@ -58,8 +58,8 @@ const SITE = data.site
       src="https://consent.cookiebot.com/uc.js"
       data-cbid="91afb1e7-501e-48b5-be69-5d193a417fe2"
       data-blockingmode="auto"
-      type="text/javascript">
-    </script>
+      type="text/javascript"
+    ></script>
   </head>
 
   <!-- Google Search Console -->
@@ -73,14 +73,14 @@ const SITE = data.site
   }
 
   <!-- Analytics -->
-  {
+  <!-- {
     SITE.integrations["google-analytics"] ? (
       <GoogleAnalytics
         id={SITE.integrations["google-analytics"]}
         partytown={true}
       />
     ) : null
-  }
+  } -->
 
   <!-- Facebook Pixel, Hotjar ... -->
 
@@ -101,9 +101,9 @@ const SITE = data.site
       <!-- Flowbite interative components -->
       <script
         is:inline
-        type="text/partytown"
-        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js">
-      </script>
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
+      ></script>
     </div>
   </body>
 </html>

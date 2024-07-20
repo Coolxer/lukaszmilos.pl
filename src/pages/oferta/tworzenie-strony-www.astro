@@ -102,7 +102,11 @@ const schema: Schema = {}
     <Row>
       <div class="flex flex-col items-start justify-center gap-8">
         <div class="flex flex-col gap-4">
-          <h2>Chcesz stronę www? Odpowiedz na te pytania.</h2>
+          <h2>
+            Chcesz stronę www? <span class="text-accent">
+              Odpowiedz na te pytania.
+            </span>
+          </h2>
           <p class="text-lg">
             Potrzeby są różne. Każda sytuacja jest inna. Nie ma nic złego w
             wyborach prostszych dróg lub rezygnacji z pewnych decyzji i funkcji,
@@ -207,7 +211,7 @@ const schema: Schema = {}
   </Section>
 
   <Section center class="bg-gray-light"
-    ><div class="flex max-w-prose flex-col gap-4 text-center">
+    ><div class="flex max-w-prose flex-col gap-4 md:text-center">
       <h2>W jakiej technologii tworzę strony www?</h2><p class="text-lg">
         Bazując na mojej wiedzy i doświadczeniu, staram się nie ograniczać, co
         do technologii, ale mam swoje wybory, które dostosowuję co sytuacji i
@@ -418,7 +422,7 @@ const schema: Schema = {}
       Strona internetowa to pierwszy krok. <br /> Zrób go dobrze.
     </p>
 
-    <div class="flex flex-row gap-4">
+    <div class="flex w-full flex-col justify-center gap-4 md:flex-row">
       <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
       <Button variant="secondary" link={buildSlug("/kontakt")}
         >Skontaktuj się
