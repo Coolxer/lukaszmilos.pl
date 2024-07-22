@@ -31,14 +31,14 @@ const SITE = data.site
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Sitemap -->
-    <link rel="sitemap" href={"/sitemap-index.xml"} />
-
     <!-- Favicons -->
     <link rel="shortcut icon" href={favIcon} />
     <link rel="icon" type="image/svg+xml" href={favIconSvg.src} />
     <link rel="mask-icon" href={favIconSvg.src} color="#8D46E7" />
     <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon.src} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href={"/sitemap-index.xml"} />
 
     <!-- Meta tags -->
     <MySEO meta={meta} schema={schema} />
@@ -57,20 +57,19 @@ const SITE = data.site
       id="Cookiebot"
       src="https://consent.cookiebot.com/uc.js"
       data-cbid="91afb1e7-501e-48b5-be69-5d193a417fe2"
-      data-blockingmode="auto"
       type="text/javascript"
     ></script>
   </head>
 
   <!-- Google Search Console -->
-  {
+  <!-- {
     SITE.integrations["google-search-console"] && (
       <meta
         name="google-site-verification"
         content={SITE.integrations["google-search-console"]}
       />
     )
-  }
+  } -->
 
   <!-- Analytics -->
   <!-- {
@@ -84,8 +83,6 @@ const SITE = data.site
 
   <!-- Facebook Pixel, Hotjar ... -->
 
-  <!-- Cookie banner  -->
-
   <body>
     <div class="flex min-h-screen flex-col justify-between">
       <Header />
@@ -97,13 +94,13 @@ const SITE = data.site
       <ScrollToTop />
 
       <Footer />
-
-      <!-- Flowbite interative components -->
-      <script
-        is:inline
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
-      ></script>
     </div>
+
+    <!-- Flowbite interative components -->
+    <script
+      is:inline
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"
+    ></script>
   </body>
 </html>

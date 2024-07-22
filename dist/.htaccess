@@ -1,35 +1,12 @@
-
-# Przekierowanie z HTTP na HTTPS
 RewriteEngine On
-RewriteCond %{HTTPS} off
+
+RewriteCond %{HTTPS} off 
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Przekierowanie z wersji bez www na wersję z www
-# RewriteCond %{HTTP_HOST} !^www\.
-# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} www.lukaszmilos.pl
+RewriteRule (.*) https://lukaszmilos.pl/$1 [R=301,L]
 
-# Przekierowanie z wersju www na wersję bez www
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^www.
-RewriteCond %{HTTPS}s ^on(s)|off
-RewriteCond http%1://%{HTTP_HOST} ^(https?://)(www.)?(.+)$
-RewriteRule ^ %1%3%{REQUEST_URI} [R=301,L]
-
-
-# Przekierowanie trailingslash - dodaj ukośnik na końcu URL, jeśli brak
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_URI} !\.[a-zA-Z]{2,4}$ # Wyklucz pliki
-# RewriteCond %{REQUEST_URI} !(.*)/$
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
-
-# Niestandardowa strona błędów 404
 ErrorDocument 404 /404.html
-
-# Niestandardowa strona błędów 500
 ErrorDocument 500 /500.html
 
-# Wyłącz indeksowanie katalogów
-# Options -Indexes
-
-# Zabezpieczenie przed wyświetlaniem listy plików w katalogach
-# Options -Indexes
+Options -Indexes
