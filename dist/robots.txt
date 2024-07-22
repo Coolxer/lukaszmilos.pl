@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.lukaszmilos.pl/sitemap-index.xml
+Sitemap: https://lukaszmilos.pl/sitemap-index.xml

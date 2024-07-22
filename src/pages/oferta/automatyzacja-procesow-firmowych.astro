@@ -131,7 +131,7 @@ const meta: Meta = {
         ))
       }
     </Row>
-    <div class="flex flex-col gap-4 lg:flex-row">
+    <div class="flex flex-col gap-4 self-stretch md:flex-row md:self-start">
       <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
       <Button link={buildSlug("/kontakt")} variant="tetriary"
         >Skontaktuj się</Button
@@ -166,7 +166,7 @@ const meta: Meta = {
           Chcę, aby automatyzacja była dostępna dla każdego, także dla mikro i
           małych firm, by nie zostały one w technologicznym tyle.
         </p>
-        <div class="flex flex-col gap-4 lg:flex-row">
+        <div class="flex flex-col gap-4 self-stretch lg:flex-row lg:self-start">
           <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
           <Button link={buildSlug("/kontakt")} variant="tetriary"
             >Skontaktuj się</Button
@@ -196,7 +196,10 @@ const meta: Meta = {
               monotonne. Algorytmy radzą sobie z tym znacznie lepiej.
             </p>
           </div>
-          <Button link={buildSlug("/kontakt")}>Odbierz darmową wycenę</Button>
+          <Button
+            link={buildSlug("/kontakt")}
+            class="self-stretch md:self-start">Odbierz darmową wycenę</Button
+          >
         </div>
       </div>
     </Row>

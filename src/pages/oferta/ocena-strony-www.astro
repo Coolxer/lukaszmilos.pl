@@ -236,7 +236,7 @@ const schema: Schema = {}
               <span class="text-h5">{item.text}</span>
               <button
                 data-popover-target={`function-description-${index}`}
-                data-popover-placement="right"
+                data-popover-placement="bottom"
                 type="button">
                 <>
                   <svg
@@ -281,7 +281,7 @@ const schema: Schema = {}
           Błędy są wyraźne wypunktowane, a miejsca, w których można coś jeszcze
           dodatkowo poprawić, także są wskazywane.
         </p>
-        <div class="flex flex-col gap-4 lg:flex-row">
+        <div class="flex flex-col gap-4 self-stretch lg:flex-row lg:self-start">
           <Button link={buildSlug("/kontakt")}>Zleć pełny audyt</Button>
           <Button link={buildSlug("/kontakt")} variant="secondary"
             >Odbierz darmową próbkę</Button
@@ -316,7 +316,7 @@ const schema: Schema = {}
             ))
           }
         </div>
-      </div><div>
+      </div><div class="">
         <MyImage src="stop.webp" alt="Znak stop - droga bez przejazdu." />
       </div>
     </div>
@@ -326,15 +326,15 @@ const schema: Schema = {}
     <h2>Cennik - ile kosztuje audyt strony www?</h2>
     <Row>
       <div class="flex flex-col gap-8 rounded-lg bg-accent-dark p-8 shadow">
-        <div class="flex w-full flex-row items-center justify-between">
-          <div class="flex flex-row items-center justify-center gap-4">
+        <div class="flex w-full flex-col justify-between">
+          <div class="flex flex-row items-center justify-between gap-4">
             <Icon name="tabler:camera" class="text-7xl" />
-            <div class="flex flex-col">
-              <p class="text-accent-lightest">Darmowa próbka</p>
-              <p class="text-h5">Audyt wideo</p>
-            </div>
+            <p class="text-h2">0 zł</p>
           </div>
-          <p class="text-h2">0 zł</p>
+          <div class="flex flex-col">
+            <p class="text-h5">Audyt wideo</p>
+            <p class="text-accent-lightest">Darmowa próbka</p>
+          </div>
         </div>
 
         <hr class="h-px w-full border-0 bg-accent-light" />
@@ -365,15 +365,15 @@ const schema: Schema = {}
       </div>
 
       <div class="flex flex-col gap-8 rounded-lg bg-accent-dark p-8 shadow">
-        <div class="flex w-full flex-row items-center justify-between">
-          <div class="flex flex-row items-center justify-center gap-4">
+        <div class="flex w-full flex-col justify-between">
+          <div class="flex flex-row items-center justify-between gap-4">
             <Icon name="tabler:file-type-pdf" class="text-7xl" />
-            <div class="flex flex-col">
-              <p class="text-accent-lightest">Pełny raport</p>
-              <p class="text-h5">Audyt PDF</p>
-            </div>
+            <p class="text-h2">od 399 zł*</p>
           </div>
-          <p class="text-h2">od 399 zł*</p>
+          <div class="flex flex-col">
+            <p class="text-h5">Audyt PDF</p>
+            <p class="text-accent-lightest">Pełny raport</p>
+          </div>
         </div>
 
         <hr class="h-px w-full border-0 bg-accent-light" />
@@ -456,7 +456,7 @@ const schema: Schema = {}
           nich osobna. Nie porusza on wszystkich kwestii, ale skupia się na
           rzeczach najważniejszych.
         </p>
-        <div class="flex flex-col gap-4 lg:flex-row">
+        <div class="flex flex-col gap-4 self-stretch lg:flex-row lg:self-start">
           <Button link={buildSlug("/kontakt")}>Zleć pełny audyt</Button>
           <Button link={buildSlug("/kontakt")} variant="tetriary"
             >Odbierz darmową próbkę</Button

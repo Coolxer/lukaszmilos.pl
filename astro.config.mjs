@@ -33,7 +33,9 @@ export default defineConfig({
     }),
     mdx(),
     sitemap({
-      filter: (page) => page !== `${data.site.domain}/stylebook/`,
+      filter: (page) =>
+        page !== `${data.site.domain}/stylebook/` &&
+        page !== `${data.site.domain}/polityka-prywatnosci/`,
     }),
     icon({
       iconDir: "src/assets/icons",

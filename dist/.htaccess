@@ -1,13 +1,20 @@
-# Włącz Rewrite Engine
-# RewriteEngine On
 
 # Przekierowanie z HTTP na HTTPS
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Przekierowanie z wersji bez www na wersję z www
 # RewriteCond %{HTTP_HOST} !^www\.
 # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Przekierowanie z wersju www na wersję bez www
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www.
+RewriteCond %{HTTPS}s ^on(s)|off
+RewriteCond http%1://%{HTTP_HOST} ^(https?://)(www.)?(.+)$
+RewriteRule ^ %1%3%{REQUEST_URI} [R=301,L]
+
 
 # Przekierowanie trailingslash - dodaj ukośnik na końcu URL, jeśli brak
 # RewriteCond %{REQUEST_FILENAME} !-f

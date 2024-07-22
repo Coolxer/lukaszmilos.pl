@@ -16,7 +16,7 @@ export interface Props {
 const { id, items } = Astro.props
 ---
 
-<Section center class="bg-accent-darkest text-white">
+<Section center class="bg-accent-darkest text-center text-white">
   <h2>FAQ - Pytania i odpowiedzi</h2>
   <div
     class="flex w-full max-w-prose flex-col items-start gap-4"
@@ -66,12 +66,13 @@ const { id, items } = Astro.props
       })
     }
   </div>
-  <div
-    class="flex w-full flex-col items-start gap-4 md:items-center md:text-center">
+  <div class="flex w-full flex-col items-center gap-4 text-center">
     <p class="text-h5">Masz inne pytania?</p>
     <p class="text-gray">
       Napisz, co chcesz wiedzieć.<br />To darmowy i niezobowiązujący kontakt.
     </p>
-    <Button link={buildSlug("/kontakt")}>Zadaj swoje pytanie</Button>
+    <Button link={buildSlug("/kontakt")} class="self-stretch md:self-center"
+      >Zadaj swoje pytanie</Button
+    >
   </div>
 </Section>

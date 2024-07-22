@@ -157,7 +157,11 @@ const schema: Schema = {}
               </>
             </div>
             <IconList items={item.features} />
-            <Button link={buildSlug("/kontakt")}>Zapytaj o wdrożenie</Button>
+            <Button
+              link={buildSlug("/kontakt")}
+              class="self-stretch md:self-start">
+              Zapytaj o wdrożenie
+            </Button>
           </div>
 
           <div
@@ -183,7 +187,9 @@ const schema: Schema = {}
           Masz inną plan, potrzebę lub pomysł, ale nie wiesz, jak go
           zrealizować? Śmiało napisz, a postaram się pomóc.
         </p>
-        <Button link={buildSlug("/kontakt")}>Zapytaj o wdrożenie</Button>
+        <Button link={buildSlug("/kontakt")} class="self-stretch md:self-start"
+          >Zapytaj o wdrożenie</Button
+        >
       </div>
     </Row>
   </Section>

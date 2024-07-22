@@ -123,7 +123,7 @@ const schema: Schema = {}
             "Czy SEO ma dla Ciebie znaczenie?",
           ]}
         />
-        <div class="flex flex-col gap-4 lg:flex-row">
+        <div class="flex flex-col gap-4 self-stretch lg:flex-row">
           <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
           <Button link={buildSlug("/kontakt")} variant="secondary"
             >Skontaktuj się</Button
@@ -200,12 +200,13 @@ const schema: Schema = {}
             <div class="bg-accent-lightest px-4 py-2">{item}</div>
           ))
         }
-        <div class="mt-8 flex flex-col gap-4 lg:flex-row">
-          <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
-          <Button link={buildSlug("/kontakt")} variant="tetriary"
-            >Skontaktuj się</Button
-          >
-        </div>
+      </div>
+      <div
+        class="mt-8 flex flex-col gap-4 self-stretch lg:flex-row lg:self-start">
+        <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+        <Button link={buildSlug("/kontakt")} variant="tetriary"
+          >Skontaktuj się</Button
+        >
       </div>
     </div>
   </Section>
@@ -310,7 +311,7 @@ const schema: Schema = {}
             }
           </div>
         </div>
-        <div class="flex flex-col gap-4 lg:flex-row">
+        <div class="flex flex-col gap-4 self-stretch lg:flex-row">
           <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
           <Button link={buildSlug("/kontakt")} variant="secondary"
             >Skontaktuj się</Button

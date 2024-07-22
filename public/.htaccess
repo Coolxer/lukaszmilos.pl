@@ -1,28 +1,12 @@
-# Włącz Rewrite Engine
-# RewriteEngine On
+RewriteEngine On
 
-# Przekierowanie z HTTP na HTTPS
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Przekierowanie z wersji bez www na wersję z www
-# RewriteCond %{HTTP_HOST} !^www\.
-# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} www.lukaszmilos.pl
+RewriteRule (.*) https://lukaszmilos.pl/$1 [R=301,L]
 
-# Przekierowanie trailingslash - dodaj ukośnik na końcu URL, jeśli brak
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_URI} !\.[a-zA-Z]{2,4}$ # Wyklucz pliki
-# RewriteCond %{REQUEST_URI} !(.*)/$
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
-
-# Niestandardowa strona błędów 404
 ErrorDocument 404 /404.html
-
-# Niestandardowa strona błędów 500
 ErrorDocument 500 /500.html
 
-# Wyłącz indeksowanie katalogów
-# Options -Indexes
-
-# Zabezpieczenie przed wyświetlaniem listy plików w katalogach
-# Options -Indexes
+Options -Indexes
