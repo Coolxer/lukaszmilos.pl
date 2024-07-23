@@ -1,4 +1,6 @@
 ---
+import { buildSlug } from "@utils/utils"
+
 const emailData = {
   key: "f4795573-4477-40a4-9134-7719525fa71e",
   subject: "Nowa wiadomość ze strony www",
@@ -82,7 +84,9 @@ const errors = {
         class="mr-2 h-4 w-4 border-border_color focus:border-accent"
       />
       Zgadzam się z{" "}
-      <a href="#" class="text-accent hover:underline">
+      <a
+        href={buildSlug("/polityka-prywatnosci")}
+        class="text-accent hover:underline">
         polityką prywatności <span class="text-danger">*</span>
       </a>
     </label>
