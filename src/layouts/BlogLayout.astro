@@ -51,7 +51,7 @@ const {
   </header>
 
   <!-- first blog page only -->
-  {
+  <!-- {
     page.currentPage === 1 &&
       knowledgeBasePosts &&
       knowledgeBasePosts.length > 0 && (
@@ -67,23 +67,25 @@ const {
           </div>
         </Section>
       )
-  }
+  } -->
 
-  <Section class:list={[page.currentPage === 1 && "bg-gray-light"]}>
+  <Section center>
     {
       page && page.data && page.data.length > 0 ? (
-        <div class="flex flex-col gap-4">
-          {displaySectionTitle && <h2>Wszystkie posty</h2>}
+        <div class="flex flex-col gap-16">
+          <div class="flex flex-col gap-4">
+            {displaySectionTitle && <h2>Wszystkie posty</h2>}
 
-          <Row maxColumns={4} class="mt-4" placement="items-stretch">
-            {page.data.map((post) => (
-              <PostCard post={post} />
-            ))}
-          </Row>
+            <Row maxColumns={4} placement="items-stretch">
+              {page.data.map((post) => (
+                <PostCard post={post} />
+              ))}
+            </Row>
+          </div>
 
           {categories && (
             <div class="flex flex-col gap-2">
-              <p class="text-lg font-medium">Kategorie</p>
+              <h2>Kategorie</h2>
               <Categories categories={categories} />
             </div>
           )}
@@ -93,18 +95,31 @@ const {
           </div>
 
           {/* all pages exclude 1 */}
-          {page.currentPage !== 1 &&
-            knowledgeBasePosts &&
-            knowledgeBasePosts?.length > 0 && (
-              <div class="flex flex-row items-center justify-between rounded bg-gray-light p-8 shadow">
-                <p class="text-h5">
-                  Poznaj kluczowe kwestie technologii w firmie
-                </p>
+          {knowledgeBasePosts && knowledgeBasePosts?.length > 0 && (
+            <div class="flex flex-row items-center justify-between rounded bg-accent-dark px-8 py-16 text-white shadow">
+              <p class="text-h5">
+                Poznaj kluczowe kwestie technologii w firmie
+              </p>
+              <Button link={buildSlug("/blog/baza-wiedzy")} variant="tetriary">
+                Zobacz bazę wiedzy
+              </Button>
+            </div>
+          )}
+          {/* {knowledgeBasePosts && knowledgeBasePosts.length > 0 && (
+            <Section class="bg-gray-light">
+              <h2>Baza wiedzy</h2>
+              <Row maxColumns={4} placement="items-stretch">
+                {knowledgeBasePosts?.map((post) => (
+                  <PostCard post={post} />
+                ))}
+              </Row>
+              <div class="mt-4 flex items-center justify-center">
                 <Button link={buildSlug("/blog/baza-wiedzy")}>
-                  Zobacz bazę wiedzy
+                  Zobacz więcej
                 </Button>
               </div>
-            )}
+            </Section>
+          )} */}
         </div>
       ) : (
         <div class="flex flex-col gap-4 self-center">
