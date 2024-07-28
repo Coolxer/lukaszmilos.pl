@@ -23,7 +23,7 @@
     },
     "blog": {
       "author": "Łukasz Miłoś",
-      "itemsPerPage": 3
+      "itemsPerPage": 16
     },
     "placeholderImage": "/placeholder.webp"
   }

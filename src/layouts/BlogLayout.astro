@@ -57,7 +57,7 @@ const {
       knowledgeBasePosts.length > 0 && (
         <Section>
           <h2>Baza wiedzy</h2>
-          <Row maxColumns={4}>
+          <Row maxColumns={4} placement="items-stretch">
             {knowledgeBasePosts?.map((post) => (
               <PostCard post={post} />
             ))}
@@ -75,7 +75,7 @@ const {
         <div class="flex flex-col gap-4">
           {displaySectionTitle && <h2>Wszystkie posty</h2>}
 
-          <Row maxColumns={4} class="mt-4">
+          <Row maxColumns={4} class="mt-4" placement="items-stretch">
             {page.data.map((post) => (
               <PostCard post={post} />
             ))}

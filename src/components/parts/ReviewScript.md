@@ -78,58 +78,19 @@
 
 - ### Inne
 
-  - czy działa wyszukiwanie?
-  - czy działają kategorie na blogu lub w sklepie?
   - czy jest odpowiednia obsługa braku strony (404)
 
-  - czy działa filtrowanie w sklepie?
-  - czy działa dodanie do koszyka?
-  - czy operacje w koszyku działają?
-  - czy działa wstępna płatność?
+  - #### Blog / sklep
+  - czy działa wyszukiwanie?
+  - czy działają kategorie na blogu lub w sklepie?
 
-<!-- Audyt sklepu internetowego
-Dodatkowe punkty dla sklepów internetowych:
-
-Strona główna i strony produktowe
-
-Czy strona główna jest przejrzysta i zawiera najważniejsze informacje?
-Czy produkty są dobrze opisane (pełny opis, specyfikacja, cena)?
-Czy są widoczne recenzje produktów?
-Czy istnieje możliwość sortowania i filtrowania produktów?
-Nowość: Czy produkty są oznaczone jako dostępne/wyprzedane?
-Koszyk
-
-Czy dodanie do koszyka działa poprawnie?
-Czy koszyk pokazuje poprawnie liczbę produktów i ich łączną wartość?
-Czy można łatwo usuwać produkty z koszyka?
-Proces zakupu
-
-Czy proces zakupu jest intuicyjny?
-Czy istnieje opcja zakupu jako gość?
-Czy wszystkie kroki procesu zakupu działają poprawnie?
-Czy dane są bezpiecznie przesyłane (sprawdzenie zabezpieczeń płatności)?
-Płatności
-
-Czy wszystkie metody płatności działają poprawnie?
-Czy jest możliwość wyboru różnych metod płatności?
-Nowość: Czy płatności są obsługiwane przez renomowanych dostawców usług płatniczych?
-Wysyłka i dostawa
-
-Czy wszystkie opcje wysyłki działają poprawnie?
-Czy koszty wysyłki są jasno określone?
-Czy jest możliwość śledzenia przesyłki?
-Konto użytkownika
-
-Czy rejestracja i logowanie działają poprawnie?
-Czy użytkownik może łatwo zarządzać swoimi danymi i zamówieniami?
-Nowość: Czy jest możliwość odzyskiwania hasła?
-Obsługa klienta
-
-Czy dane kontaktowe są łatwo dostępne?
-Czy istnieje sekcja FAQ (często zadawane pytania)?
-Czy działa czat na żywo (jeśli istnieje)?
-Marketing
-
-Czy istnieje możliwość zapisu do newslettera?
-Czy działają wszystkie promocje i kody rabatowe?
-Nowość: Czy strona posiada dobrze zaprojektowane kampanie remarketingowe? -->
+  - #### Sklep
+    - czy produkty są dobrze opisane (wraz z meta danymi)?
+    - czy działa filtrowanie i sortowanie produktów?
+    - czy działa dodanie do koszyka?
+    - czy koszyk pokazuje poprawną liczbę produktów i ich wartość?
+    - czy operacje w koszyku działają (np. usuwanie produktów)?
+    - czy proces zakupu działa poprawnie?
+    - czy rejestracja i logowanie działają poprawnie?
+    - czy jest możliwość odzyskania hasła?
+    - czy ew. kod rabatowy działa?

@@ -52,26 +52,24 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
     </div>
   </header>
 
-  {
-    post.data.image.src && (
-      <Section noBottomPadding center>
+  <Section center maxWidth="max-w-prose">
+    <!-- image -->
+    {
+      post.data.image.src && (
         <MyImage
           src={post.data.image.src}
           alt={post.data.image.alt}
-          class="md:w-1/2"
           loading="eager"
         />
-      </Section>
-    )
-  }
+      )
+    }
 
-  <Section>
     <!--Leading -->
     {
       post.data.leading && (
         <>
           <p class="text-lg">{post.data.leading}</p>
-          <hr class="my-8 h-px border-0 bg-gray" />
+          <hr class="h-px w-full border-0 bg-gray" />
         </>
       )
     }
@@ -81,20 +79,20 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
       headings && (
         <>
           <Toc headings={headings} />
-          <hr class="my-8 h-px border-0 bg-gray" />
+          <hr class="h-px w-full border-0 bg-gray" />
         </>
       )
     }
 
     <!-- Content -->
-    <article class="prose lg:prose-xl">
+    <article class="prose prose-xl text-black">
       <slot />
     </article>
-  </Section>
 
-  <Section>
+    <hr class="h-px w-full border-0 bg-gray" />
+
     <div
-      class="flex w-full flex-col justify-between gap-4 md:flex-row md:gap-0">
+      class="mt-8 flex w-full flex-col justify-between gap-4 md:flex-row md:gap-0">
       <!-- Post categories -->
       {post.data.categories && <Categories categories={post.data.categories} />}
 
@@ -122,7 +120,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
     relatedPosts.length > 0 && (
       <Section noTopPadding>
         <p class="text-h4">Powiązane posty</p>
-        <Row maxColumns={4}>
+        <Row maxColumns={4} placement="items-stretch">
           {relatedPosts.length > 0 &&
             relatedPosts.map((post) => <PostCard post={post} />)}
         </Row>

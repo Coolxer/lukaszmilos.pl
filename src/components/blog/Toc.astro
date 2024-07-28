@@ -7,10 +7,10 @@ const { headings } = Astro.props
 const toc = buildToc(headings)
 ---
 
-<div>
-  <span>Spis treści</span>
+<div class="w-full text-lg">
+  <span class="text-h5">Spis treści</span>
   <nav>
-    <ul class="py-4">
+    <ul class="mt-2">
       {toc.map((heading) => <TocHeading heading={heading} />)}
     </ul>
   </nav>

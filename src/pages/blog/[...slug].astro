@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<"blog">
 
-const posts = await getCollection("blog")
+const posts = (await getCollection("blog")).filter((post) => !post.data.draft)
 
 function getNextPost(): CollectionEntry<"blog"> | null {
   let postIndex

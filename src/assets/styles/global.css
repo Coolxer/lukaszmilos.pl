@@ -38,7 +38,7 @@
 /* BASE STYLES */
 @layer base {
   html {
-    @apply text-[16px] leading-none;
+    @apply scroll-pt-28 text-[16px] leading-none;
   }
 
   body {

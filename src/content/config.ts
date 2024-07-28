@@ -101,7 +101,7 @@ const blogCollection = defineCollection({
     //categories: z.array(z.string()).default(['brak kategorii']),
     categories: z
       .array(
-        z.enum(["brak kategorii", "strona-www", "cyfryzacja", "automatyzacja"])
+        z.enum(["brak kategorii", "biznes", "www", "cyfryzacja", "automatyzacja"])
       )
       .default(["brak kategorii"]),
     // tags: z.array(z.string()).optional(),
