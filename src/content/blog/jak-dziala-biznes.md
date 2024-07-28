@@ -12,7 +12,7 @@ image:
 categories:
   - biznes
 knowledgeBase: true
-date: "2024-07-23"
+date: "2024-07-28"
 draft: false
 ---
 

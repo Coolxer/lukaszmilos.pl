@@ -18,18 +18,17 @@ const link = buildSlug(`/blog/${post.slug}/`)
 
 <div
   class:list={[
-    "flex flex-col rounded opacity-75 shadow duration-300 ease-in-out hover:opacity-100",
+    "relative flex flex-col rounded opacity-75 shadow duration-300 ease-in-out hover:opacity-100",
     className,
   ]}>
-  <a href={link}>
-    <MyImage
-      src={post.data.image.src}
-      alt={post.data.image.alt}
-      rounded="rounded"
-      class="h-60 rounded-b-none"
-      loading="eager"
-    />
-  </a>
+  <a href={link} class="absolute left-0 top-0 size-full"></a>
+  <MyImage
+    src={post.data.image.src}
+    alt={post.data.image.alt}
+    rounded="rounded"
+    class="h-60 rounded-b-none"
+    loading="eager"
+  />
   <div
     class="flex flex-grow flex-col justify-between gap-2 rounded-b border border-t-0 border-border_color p-6">
     <div class="flex flex-col items-start gap-2">
