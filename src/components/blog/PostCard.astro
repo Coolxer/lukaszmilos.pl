@@ -18,7 +18,7 @@ const link = buildSlug(`/blog/${post.slug}/`)
 
 <div
   class:list={[
-    "relative flex flex-col rounded opacity-75 shadow duration-300 ease-in-out hover:opacity-100",
+    "relative flex flex-col overflow-hidden rounded opacity-75 shadow duration-300 ease-in-out hover:opacity-100",
     className,
   ]}>
   <a href={link} class="absolute left-0 top-0 size-full"></a>
@@ -29,6 +29,13 @@ const link = buildSlug(`/blog/${post.slug}/`)
     class="h-60 rounded-b-none"
     loading="eager"
   />
+  {
+    post.data.knowledgeBase && (
+      <div class="absolute -left-1/4 top-8 h-12 w-full -rotate-45 bg-accent p-4 text-center text-white">
+        baza wiedzy
+      </div>
+    )
+  }
   <div
     class="flex flex-grow flex-col justify-between gap-2 rounded-b border border-t-0 border-border_color p-6">
     <div class="flex flex-col items-start gap-2">
