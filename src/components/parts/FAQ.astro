@@ -57,7 +57,7 @@ const { id, items } = Astro.props
             <div id={`${id}-item-${index}`} class="hidden">
               <div class="p-4">
                 {item.answer.map((paragraph) => (
-                  <p class="mb-2">{paragraph}</p>
+                  <p class="mb-2 text-left">{paragraph}</p>
                 ))}
               </div>
             </div>

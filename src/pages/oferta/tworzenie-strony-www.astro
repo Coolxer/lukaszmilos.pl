@@ -214,10 +214,10 @@ const schema: Schema = {}
     ><div class="flex max-w-prose flex-col gap-4 md:text-center">
       <h2>W jakiej technologii tworzę strony www?</h2><p class="text-lg">
         Bazując na mojej wiedzy i doświadczeniu, staram się nie ograniczać, co
-        do technologii, ale mam swoje wybory, które dostosowuję co sytuacji i
+        do technologii, ale mam swoje wybory, które dostosowuję do sytuacji i
         wymagań.
       </p>
-    </div><Row maxColumns={3}
+    </div><Row maxColumns={3} placement="items-stretch"
       ><div
         class="flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow-sm">
         <h3 class="text-h5">Astro</h3><p>
@@ -271,7 +271,7 @@ const schema: Schema = {}
             "wybór odpowiednich zdjęć i grafik",
             "napisanie bądź przeredagowanie tekstu",
             "podpięcie witryny pod analitykę",
-            "implementacja podstawowe polityki prywatności",
+            "implementacja podstawowej polityki prywatności",
             "implementacja Consent Mode V2",
             "implementacja dodatkowych funkcjonalności",
             "opieka techniczna i monitorowanie",
@@ -293,7 +293,7 @@ const schema: Schema = {}
           </p>
         </div>
         <div>
-          <p class="text-lg font-bold">Cena zależy m.in. od</p>
+          <p class="mb-2 text-lg font-bold">Cena zależy m.in. od</p>
           <div
             class="col-span-2 flex flex-row flex-wrap items-start gap-4 text-black">
             {
@@ -305,7 +305,7 @@ const schema: Schema = {}
                 "rodzaju i ilości stworzonej treści",
                 "dodatkowych materiałów",
               ].map((item) => (
-                <div class="bg-accent-lightest px-4 py-2">{item}</div>
+                <div class="bg-accent-light px-4 py-2">{item}</div>
               ))
             }
           </div>
@@ -419,7 +419,8 @@ const schema: Schema = {}
   <!-- CTA -->
   <CTA secondary>
     <p class="text-center text-h2">
-      Strona internetowa to pierwszy krok. <br /> Zrób go dobrze.
+      Strona internetowa to pierwszy krok. <br />
+      <span class="text-accent">Zrób go dobrze.</span>
     </p>
 
     <div class="flex w-full flex-col justify-center gap-4 md:flex-row">

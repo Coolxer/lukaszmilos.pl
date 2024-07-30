@@ -1,0 +1,499 @@
+---
+import { buildSlug } from "@utils/utils"
+
+import PageLayout from "@layouts/PageLayout.astro"
+import { type Meta, type Schema } from "@components/core/MySEO.astro"
+
+import Section from "@components/core/Section.astro"
+import Row from "@components/core/Row.astro"
+import MyImage from "@components/ui/MyImage.astro"
+import Button from "@components/ui/Button.astro"
+
+import CTA from "@components/widgets/CTA.astro"
+import IconList from "@components/ui/IconList.astro"
+import FAQ from "~/components/parts/FAQ.astro"
+import { Icon } from "astro-icon/components"
+
+const meta: Meta = {
+  title: "Tworzenie sklepu www - niezależność sprzedaży w sieci",
+  description:
+    "Pomogę Ci zrealizować cel, jakim jest własny sklep internetowy. Szybki, bezpieczny, skuteczny i dopasowany do Twoich potrzeb i planów.",
+  og: false,
+  tw: false,
+}
+
+const schema: Schema = {}
+---
+
+<PageLayout
+  pageTitle="Tworzenie sklepu internetowego"
+  pageDescription="Sklep internetowy pozwala sprzedawać produkty w sieci bez żadnych ograniczeń. Zyskaj niezależność i buduj lepszą przyszłość."
+  meta={meta}
+  schema={schema}>
+  <Section>
+    <Row>
+      <div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Sprzedaż w sieci na własnych zasadach</h2>
+          <p class="text-lg">
+            Sprzedajesz lub dopiero planujesz sprzedaż w sieci?
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <p>
+            W sieci sprzedawać można na wiele sposobów i na różnych kanałach. Z
+            pewnością słyszałeś(aś) nie tylko o możliwości sprzedaży na rynkach
+            sprzedażowych (np. allegro, ebay, olx), ale marzysz także o własnym
+            sklepie internetowym? Dobrze trafiłeś(aś)!
+          </p>
+
+          <p>
+            <b>
+              Z moją pomocą zyskasz stabilny, szybki i ładny sklep www gotowy do
+              sprzedaży.
+            </b> Zanim jednak przystąpimy do działania, dowiedz się więcej.
+          </p>
+
+          <div class="flex flex-col gap-4 self-stretch lg:flex-row">
+            <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+            <Button link={buildSlug("/kontakt")} variant="secondary"
+              >Skontaktuj się</Button
+            >
+          </div>
+        </div>
+      </div>
+      <div>
+        <MyImage
+          src="sprzedaz-online.webp"
+          alt="Handel elektroniczny z koszykiem zakupowym z wykorzystaniem laptopa"
+          loading="eager"
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section center class="bg-gray-light" gap="gap-16"
+    ><div class="flex max-w-prose flex-col gap-4 md:text-center">
+      <h2>Własny sklep internetowy czy platformy sprzedażowe? Co wybrać?</h2><p
+        class="text-lg">
+        Chcę, abyś była świadomy(a) z czym wiąże się posiadanie własnego sklepu
+        www. Często sprzedawcy sprzedają na rynkach sprzedażowych i jednocześnie
+        rozwijają sklep internetowy. To dobra strategia.
+      </p>
+    </div>
+
+    <div class="flex w-full flex-col gap-8">
+      <Row placement="items-stretch"
+        ><div
+          class="flex flex-col gap-4 rounded border border-success bg-success-light px-4 py-8 shadow-sm">
+          <div class="flex flex-row items-center gap-4">
+            <Icon name="tabler:thumb-up" class="text-5xl text-success" />
+            <h3 class="text-h5">Zalety sklepu internetowego</h3>
+          </div>
+          <IconList
+            items={[
+              "pełna dowolność budowy i funkcjonalności",
+              "brak opłat za oprogramowanie (nie zawsze)",
+              "brak wysokiej prowizji od sprzedaży",
+              "brak ograniczeń ilości i typu produktów",
+              "dowolność strategii działania",
+              "większa kontrola nad SEO",
+              "budowa własnej marki teraz i na przyszłość",
+              "brak konkurencji wewnętrznej",
+              "dowolność integracji i brak ograniczeń w rozwoju",
+            ]}
+            color="text-success"
+          />
+        </div><div
+          class="flex flex-col gap-4 rounded border border-danger bg-danger-light px-4 py-8 shadow-sm">
+          <div class="flex flex-row items-center gap-4">
+            <Icon name="tabler:thumb-down" class="text-5xl text-danger" />
+            <h3 class="text-h5">Wady sklepu internetowego</h3>
+          </div>
+          <IconList
+            items={[
+              "wyższy koszt początkowy",
+              "wyższe wymogi i odpowiedzialność techniczna",
+              "dłuższy czas budowy i uruchomienia",
+              "konieczność większych nakładów na marketing i SEO",
+              "brak początkowej grupy klientów",
+            ]}
+            color="text-danger"
+          />
+        </div></Row
+      >
+    </div>
+
+    <div class="flex w-full flex-col gap-8">
+      <Row placement="items-stretch"
+        ><div
+          class="flex flex-col gap-4 rounded border border-danger bg-danger-light px-4 py-8 shadow-sm">
+          <div class="flex flex-row items-center gap-4">
+            <Icon name="tabler:thumb-down" class="text-5xl text-danger" />
+            <h3 class="text-h5">Wady platform sprzedażowych</h3>
+          </div>
+          <IconList
+            items={[
+              "wysokie opłaty i prowizje",
+              "większa konkurencja",
+              "brak budowania własnej marki",
+              "ograniczenia techniczne platformy",
+              "zależność od reputacji platformy",
+              "kłopotliwe zmiany zasad",
+              "trudność wyróżnienia się spośród tłumu",
+              "konieczność konkurowania ceną i czasem dostawy",
+            ]}
+            color="text-danger"
+          />
+        </div><div
+          class="flex flex-col gap-4 rounded border border-success bg-success-light px-4 py-8 shadow-sm">
+          <div class="flex flex-row items-center gap-4">
+            <Icon name="tabler:thumb-up" class="text-5xl text-success" />
+            <h3 class="text-h5">Zalety platform sprzedażowych</h3>
+          </div>
+          <IconList
+            items={[
+              '"darmowe" źródło klientów i większe zaufanie',
+              "mniejsze nakłady na marketing (niezerowe)",
+              "potencjalnie lepsza widoczność ofert w wynikach wyszukiwania (nie zawsze)",
+              "wsparcie w obsłudze klienta",
+              "szybszy start i walidacja pomysłów",
+              "mniej obaw technicznych",
+            ]}
+            color="text-success"
+          />
+        </div></Row
+      >
+    </div>
+  </Section>
+
+  <Section center class="bg-black text-white">
+    <div class="flex max-w-prose flex-col gap-4">
+      <h2 class="text-center">
+        Zdecydowany(a)? Zbudujmy razem Twój sklep internetowy
+      </h2>
+      <div class="flex flex-col gap-4 self-stretch lg:flex-row lg:self-center">
+        <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+        <Button link={buildSlug("/kontakt")} variant="tetriary"
+          >Skontaktuj się</Button
+        >
+      </div>
+    </div>
+  </Section>
+
+  <Section center
+    ><div class="flex max-w-prose flex-col gap-4 md:text-center">
+      <h2>Jaki będzie Twój sklep www?</h2><p class="text-lg">
+        Wszystko z dopasowaniem do Twoich celów i potrzeb, nawet jeśli jeszcze o
+        tym nie wiesz
+      </p>
+    </div>
+    <div
+      class="col-span-2 flex flex-row flex-wrap gap-4 text-black md:justify-center">
+      {
+        [
+          "estetyczny i profesjonalny",
+          "prosty, przejrzysty i czytelny",
+          "użyteczny i funkcjonalny",
+          "szybki i wydajny",
+          "responsywny",
+          "wartościowy dla użytkowników",
+          "bezpieczny",
+          "podstawowo zgodny z GDPR",
+          "zoptymalizowany technicznie pod SEO",
+          "łatwy w zarządzaniu i obsłudze",
+          "nastawiony na sprzedaż",
+        ].map((item) => <div class="bg-accent-lightest px-4 py-2">{item}</div>)
+      }
+    </div>
+  </Section>
+
+  <Section center class="bg-accent-darkest text-white">
+    <h2 class="max-w-prose md:text-center">Co zyskujesz w ofercie?</h2>
+
+    <Row placement="items-stretch"
+      ><div
+        class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow-sm">
+        <h4 class="text-h5">Zawsze</h4>
+        <IconList
+          items={[
+            "dopasowany projekt graficzny (szablon lub dedykowany)",
+            "kategorie i siatka produktów",
+            "klasyczne opcje płatności i wysyłki",
+            "pełna konfiguracja sklepu",
+            "proste wyszukiwanie produktów",
+            "formularz kontaktowy",
+            "optymalizacja techniczna SEO i wydajności",
+            "dodanie sklepu do wyszukiwarki",
+            "wsparcie w obsłudze sklepu",
+          ]}
+        />
+      </div><div
+        class="flex flex-col gap-4 rounded bg-accent-dark px-4 py-8 shadow-sm">
+        <h4 class="text-h5">Opcjonalnie</h4>
+        <IconList
+          items={[
+            "zaawansowane warianty, wyszukiwanie i filtry",
+            "kody rabatowe, cross sells",
+            "dodatkowe metody płatności i wysyłki",
+            "moduły takie jak: polecane produkty, opinie klientów, sekcje z kategoriami",
+            "dodatkowy język",
+            "blog",
+            "konfigurator produktu",
+            "dedykowany kalkulator",
+            "wsparcie w procesie dodawania kategorii i produktów",
+            "wsparcie w procesie integracji z magazynem i dodatkowych automatyzacji",
+            "... wszystko inne, czego potrzebujesz",
+          ]}
+        />
+      </div></Row
+    ></Section
+  >
+
+  <Section center class="bg-gray-light"
+    ><div class="flex max-w-prose flex-col gap-4 md:text-center">
+      <h2>Najlepsza technologia dla Twojego sklepu www</h2><p class="text-lg">
+        Bazując na mojej wiedzy i doświadczeniu, staram się nie ograniczać, co
+        do technologii, ale mam swoje wybory, które dostosowuję do sytuacji i
+        wymagań.
+      </p>
+    </div><Row maxColumns={3} placement="items-stretch"
+      ><div
+        class="flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow-sm">
+        <h3 class="text-h5">Wordpress Woocommerce</h3><p>
+          Wordpress z natywnym edytorem Gutenberg to aktualnie mój pierwszy
+          wybór w kontekście sklepu www. Korzystam z zestawu narzędzi Kadence,
+          Spectra lub Greenshift.
+        </p>
+      </div><div
+        class="flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow-sm">
+        <h3 class="text-h5">Webflow</h3><p>
+          Webflow jest bezpiecznym i nowoczesnym, ale płatnym rozwiązaniem do
+          tworzenia stron i sklepów www. Jeśli masz chęć to możemy tutaj też
+          podziałać.
+        </p>
+      </div><div
+        class="flex flex-col gap-4 rounded bg-gray-lightest px-4 py-8 shadow-sm">
+        <h3 class="text-h5">Inne rozwiązania</h3><p>
+          Jestem otwarty na współpracę z innymi technologiami, zarówno bardziej
+          deweloperskimi (prestashop, magento) jak i tzw. gotowcami typu saas
+          (shoper, shopify, itp.).
+        </p>
+      </div></Row
+    ></Section
+  >
+
+  <Section>
+    <Row>
+      <div class="flex flex-col gap-4">
+        <h2>Chodzi o to, aby zrobić to dobrze i skutecznie</h2>
+        <p class="text-lg">
+          Nie chcę tylko szybko zaliczyć projektu. Chcę Ci realnie doradzić i
+          pomóc, jak to zrobić najlepiej w Twojej sytuacji i w obrębie moich
+          możliwości.
+        </p>
+        <p>
+          Nie potrzebujesz niesamowitych efektów? - wybieramy sprawdzony szablon
+          i szybko działamy. Często nie ma sensu wymyślać koła na nowo.
+        </p>
+        <p>
+          Nie potrzebujesz na start specjalnych funkcji? - to ich na siłę nie
+          wdrażamy. Kiedyś może przyjdzie na nie czas.
+        </p>
+        <p>
+          O czymś nie pomyślałeś(aś), a według mnie to jest ważne? - informuję
+          Cię o tym i w ramach porozumienia to implementujemy.
+        </p>
+        <p class="font-bold">
+          Podsumowując: jestem tutaj po to, aby Ci pomóc, zarówno na etapie
+          projektu, wdrożenia, jak i późniejszej optymalizacji, opieki czy
+          automatyzacji.
+        </p>
+      </div>
+
+      <div>
+        <MyImage
+          src="ecommerce.webp"
+          alt="Zestaw paczek pakowanych i przesyłanych w ramach sklepu ecommerce"
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-gray-light">
+    <Row
+      ><div class="order-2 md:order-1">
+        <MyImage
+          src="handel-pomoc.webp"
+          alt="Pomoc w zakresie obsługi i korzystania ze sklepu internetowego na laptopie"
+        />
+      </div>
+      <div
+        class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
+        <div class="flex flex-col gap-4">
+          <h2>W czym jeszcze Ci pomogę?</h2>
+          <p class="text-lg">
+            Niestety wielu twórców zrzuca masę pracy na klienta. Ja doceniam
+            wartość Twojego czasu i odciążam cię z wielu obowiązków za dodatkową
+            opłatą.
+          </p>
+        </div>
+        <IconList
+          items={[
+            "zakup domeny i hostingu",
+            "utworzenie kont pocztowych",
+            "wybór odpowiednich zdjęć i grafik",
+            "napisanie bądź przeredagowanie tekstu",
+            "przygotowanie opisów i materiałów do produktów i kategorii",
+            "dodanie produktów do sklepu",
+            "podpięcie witryny pod analitykę",
+            "implementacja Consent Mode V2",
+            "implementacja dodatkowych funkcjonalności",
+            "opieka techniczna i monitorowanie",
+          ]}
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section>
+    <Row>
+      <div class="flex flex-col items-start justify-center gap-8">
+        <div class="flex flex-col gap-4">
+          <h2>Ile kosztuje sklep internetowy?</h2>
+          <p class="text-lg">
+            Nie podaję konkretnych cen, bo to zależy od wielu czynników. Staram
+            się robić naprawdę dobrą robotę i do tematu podchodzić odpowiednio i
+            kompleksowo, poznając Twoje realne problemy i potrzeby.
+          </p>
+        </div>
+        <div>
+          <p class="mb-2 text-lg font-bold">Cena zależy m.in. od</p>
+          <div
+            class="col-span-2 flex flex-row flex-wrap items-start gap-4 text-black">
+            {
+              [
+                "potrzeb, problemów i zaawansowania prac",
+                "ostatecznej liczby kategorii i produktów",
+                "dodatkowych funkcjonalności",
+                "bazy projektowej",
+                "rodzaju i ilości stworzonej treści",
+                "dodatkowych materiałów",
+              ].map((item) => (
+                <div class="bg-accent-lightest px-4 py-2">{item}</div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 self-stretch lg:flex-row">
+          <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+          <Button link={buildSlug("/kontakt")} variant="secondary"
+            >Skontaktuj się</Button
+          >
+        </div>
+      </div><div>
+        <MyImage
+          src="ogloszenie-ecommerce.webp"
+          alt="Przeglądanie ogłoszenia w sklepie internetowym z okazji black friday"
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <Section class="bg-gray-light">
+    <Row
+      ><div class="order-2 md:order-1">
+        <MyImage
+          src="tworzenie-kroki.webp"
+          alt="Planowanie schematu działania"
+        />
+      </div>
+      <div
+        class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
+        <h2>Jak w uproszczeniu wygląda cały proces?</h2>
+
+        <IconList
+          items={[
+            "Zbadanie potrzeb i ustalenie priorytetów",
+            "Wykonanie przeglądu rynku i konkurencji (jeśli tak ustalono)",
+            "Określenie zakresu i rodzaju prac",
+            "Zebranie niezbędnych materiałów",
+            "Przygotowanie pierwszej części realizacji",
+            "Ocena i ewentualne poprawki",
+            "Realizacja pozostałej części sklepu, ocena i ewentualne drobne poprawki",
+            "Prace wykończeniowe",
+            "Przekazanie sklepu www",
+          ]}
+        />
+      </div>
+    </Row>
+  </Section>
+
+  <FAQ
+    id="faq-creating-shop"
+    items={[
+      {
+        question: "Dlaczego warto mieć własny sklep internetowy?",
+        answer: [
+          "Posiadanie własnego sklepu internetowego daje pełną kontrolę nad ofertą, budową marki i strategiami sprzedażowymi, bez ograniczeń i prowizji platform sprzedażowych.",
+        ],
+      },
+      {
+        question:
+          "Jakie są zalety sklepu internetowego w porównaniu do platform sprzedażowych?",
+        answer: [
+          "Sklep internetowy pozwala na brak ograniczeń ilości i typu produktów, brak wysokich prowizji, pełną dowolność budowy i funkcjonalności, oraz większą kontrolę nad SEO i budową własnej marki.",
+        ],
+      },
+      {
+        question:
+          "Czy mogę sprzedawać jednocześnie na platformach sprzedażowych i w swoim sklepie internetowym?",
+        answer: [
+          "Tak, jest to dobra strategia, która pozwala na korzystanie z darmowego źródła klientów platform sprzedażowych i jednoczesne budowanie swojej marki poprzez własny sklep internetowy.",
+        ],
+      },
+      {
+        question:
+          "Jakie technologie wykorzystujesz do tworzenia sklepów internetowych?",
+        answer: [
+          "Wykorzystuję technologie takie jak Wordpress Woocommerce i Webflow, a także inne rozwiązania w zależności od potrzeb klienta, jak prestashop, magento, shoper, czy shopify.",
+        ],
+      },
+      {
+        question: "Ile kosztuje stworzenie sklepu internetowego?",
+        answer: [
+          "Cena zależy od wielu czynników, takich jak liczba kategorii i produktów, dodatkowych funkcjonalności, rodzaj treści oraz potrzeb i problemów klienta. Najlepiej skontaktować się w celu uzyskania bezpłatnej wyceny.",
+        ],
+      },
+      {
+        question: "Jak długo trwa proces tworzenia sklepu internetowego?",
+        answer: [
+          "Czas realizacji zależy od złożoności projektu i czasu dostarczenia niezbędnych materiałów. Realizacja zazwyczaj trwa od 7 do 30 dni.",
+        ],
+      },
+      {
+        question:
+          "Czy oferujesz wsparcie po zakończeniu projektu sklepu internetowego?",
+        answer: [
+          "Tak, oferuję opiekę techniczną, monitorowanie strony po jej wdrożeniu, pomoc w implementacji nowych funkcji oraz aktualizacji treści.",
+        ],
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CTA secondary>
+    <p class="text-center text-h2">
+      Sklep internetowy to ważny krok. <span class="text-accent">
+        Zrób go dobrze.
+      </span>
+    </p>
+
+    <div class="flex w-full flex-col justify-center gap-4 md:flex-row">
+      <Button link={buildSlug("/kontakt")}>Zamów bezpłatną wycenę</Button>
+      <Button variant="secondary" link={buildSlug("/kontakt")}
+        >Skontaktuj się
+      </Button>
+    </div>
+  </CTA>
+</PageLayout>

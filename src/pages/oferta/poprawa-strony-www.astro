@@ -15,7 +15,7 @@ import FAQ from "~/components/parts/FAQ.astro"
 const meta: Meta = {
   title: "Poprawa strony WWW - Ładniej, szybciej, lepiej",
   description:
-    "Zleć poprawę swojej strony w wybranym aspekcie lub w całości. Responsywność, szybkość, użyteczność, a może SEO? Zajmę się wszystkim.",
+    "Zleć poprawę swojej strony lub sklepu w wybranym aspekcie lub w całości. Responsywność, szybkość, użyteczność, a może SEO? Zajmę się wszystkim.",
   og: false,
   tw: false,
 }
@@ -24,8 +24,8 @@ const schema: Schema = {}
 ---
 
 <PageLayout
-  pageTitle="Poprawa strony internetowej"
-  pageDescription="Masz stronę internetową, która nie spełnia Twoich oczekiwań? Zależy Ci na tym, aby Twoja witryna była po prostu lepsza?"
+  pageTitle="Poprawa strony (sklepu) www"
+  pageDescription="Masz stronę internetową, która nie spełnia Twoich oczekiwań? Zależy Ci na tym, aby Twoja witryna była po prostu lepsza, a sklep internetowy lepiej sprzedawał?"
   meta={meta}
   schema={schema}
   ><Section
@@ -134,7 +134,7 @@ const schema: Schema = {}
         class="order-1 flex flex-col items-start justify-center gap-8 md:order-2">
         <div class="flex flex-col gap-4">
           <h2>Zdecyduj, co chcesz poprawić</h2><p class="text-lg">
-            Uwierz mi, że błędów na stronach www jest naprawdę sporo.
+            Uwierz mi, że błędów na stronach i sklepach www jest naprawdę sporo.
             Ograniczeniem co do ich poprawy jest opłacalność, czas i pieniądze,
             dlatego czasami trzeba wybierać, co warto poprawić.
           </p>
@@ -201,7 +201,9 @@ const schema: Schema = {}
         </p>
       </div>
     </Row>
-    <Button link={buildSlug("/kontakt")} class="self-stretch md:self-start"
+    <Button
+      link={buildSlug("/kontakt")}
+      class="self-stretch md:self-start lg:self-center"
       >Odbierz darmową wycenę</Button
     >
   </Section>
@@ -241,7 +243,7 @@ const schema: Schema = {}
   </Section>
 
   <FAQ
-    id="faq-reviewing-site"
+    id="faq-fixing-site"
     items={[
       {
         question: "Dlaczego warto poprawiać stronę internetową?",
@@ -285,7 +287,7 @@ const schema: Schema = {}
 
   <!-- CTA -->
   <CTA secondary>
-    <p class="text-center text-h2">Chcesz poprawić swoją stronę www?</p>
+    <p class="text-center text-h2">Chcesz poprawić swoją stron (sklep) www?</p>
 
     <div class="flex w-full flex-col justify-center gap-4 md:flex-row">
       <Button link={buildSlug("/kontakt")}>Uzyskaj darmową wycenę</Button>
