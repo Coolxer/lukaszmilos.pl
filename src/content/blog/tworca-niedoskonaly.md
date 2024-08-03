@@ -1,19 +1,22 @@
 ---
 slug: "tworca-niedoskonaly"
 meta:
-  title: "Twórca niedoskonały"
-  description: ""
-title: "Twórca strony"
+  title: "Twórca niedoskonały strony www"
+  description: "Istnieje wielu twórców źle wykonujących strony www. O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan?"
+title: "Niedoskonały twórca strony"
 subheading: "O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan"
 leading: "Są takie rzeczy, o których wielu twórców stron nie wie, zapomina lub celowo o tym nie mówi."
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: "tworca-stron-www.webp"
+  alt: "Osoba tworząca strony internetowe"
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
-draft: true
+relatedPosts:
+  - najczestszy-blad-na-stronie
+  - samodzielna-strona-dlaczego-nie
+date: "2024-08-03"
+draft: false
 ---
 
 Oczywiście nie jest to zawsze spotykane i są twórcy, którzy swoją pracę wykonują z pełnym zaangażowaniem, a dodatkowo posiadają ogromną wiedzę. Mówimy tutaj jednak o innych przypadkach.
@@ -30,9 +33,7 @@ To tylko niektóre kwestie, które zdarzają się naprawdę często.
 
 ### 2.1. Kwestia ściągania ruchu na stronę
 
-Strona www wymaga dodatkowego wysiłku, czasu i kosztów, by ściągnąć na nią ruch internetowy. Oczywiście przy dobrze wykonanej pracy, po pewnym czasie ruch organiczny także będzie widoczny, ale nie można oczekiwać fajerwerków. Trzeba mieć strategię i dalej działać i się rozwijać, bo bez tego będzie ciężko.
-
-O tym więcej tutaj ---
+Strona www wymaga dodatkowego wysiłku, czasu i kosztów, by ściągnąć na nią ruch internetowy. Oczywiście przy dobrze wykonanej pracy, po pewnym czasie ruch organiczny także będzie widoczny, ale nie można oczekiwać fajerwerków. Trzeba mieć strategię i dalej działać i się rozwijać, bo bez tego będzie ciężko. [Zobacz sposoby pozyskiwania ruchu](/blog/pozyskiwanie-ruchu-internetowego/).
 
 ### 2.2. Bezpieczeństwo.
 
@@ -53,8 +54,6 @@ Myślę, że niewiele osób korzystających z tzw. page builderów w obrębie wo
 ### 2.6. Poprawność techniczna.
 
 Jak to dobrze, że nie widać tego, co jest pod maską. Co jednak jeśli prowizorka kiedyś się zepsuje albo coś trzeba będzie zmienić? A co jeśli algorytmy wyszukiwarki to jednak widzą i źle oceniają? Wiele osób nie ma zielonego pojęcia co wyklikuje w kreatorach stron internetowych, po co to jest, dlaczego i jakie być powinno.
-
-O tym więcej tutaj -- błędy
 
 ## Podsumowanie.
 

@@ -2,18 +2,22 @@
 slug: "przyczyny-slabych-stron"
 meta:
   title: "Przyczyny słabych stron www"
-  description: ""
+  description: "Poznaj przyczyny niskiej jakości stron internetowych. Brak wiedzy, specjalistów, technologii, a może świadomości?"
 title: "Przyczyny słabych stron www"
 subheading: "Co najczęściej jest źle zrobione?"
 leading: "Dlaczego niektóre strony www są niskiej jakości?"
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: "niska-jakosc.webp"
+  alt: "Niska jakość, zamazane zdjęcie padającym deszczem i światłami"
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
-draft: true
+relatedPosts:
+  - tworca-niedoskonaly
+  - najczestszy-blad-na-stronie
+  - samodzielna-strona-dlaczego-nie
+date: "2024-08-03"
+draft: false
 ---
 
 W sieci zauważam wiele stron internetowych, którym brakuje jakości, funkcjonalności i poprawności. Dominują błędy, braki techniczne i nieodpowiedni projekt. Przyczyn jest wiele. Oto najistotniejsze z nich.
@@ -30,7 +34,7 @@ Nie ma nic złego w tym, że strona internetowa została stworzona bardzo dawno,
 
 ## 3. Brak świadomości.
 
-Niektórzy nie doceniają istoty strony internetowej w kontekście prowadzenia firmy, zlecając ją najtańszym i nie jakościowym wykonawcom, bagatelizując potrzebę odpowiedniego przemyślenia projektu oraz jego rozwoju. Być może Twoją stronę www zobaczy więcej osób niż biuro!
+Niektórzy nie doceniają istoty strony internetowej w kontekście prowadzenia firmy, zlecając ją najtańszym i [niejakościowym wykonawcom](/blog/tworca-niedoskonaly/), bagatelizując potrzebę odpowiedniego przemyślenia projektu oraz jego rozwoju. Być może Twoją stronę www zobaczy więcej osób niż biuro!
 
 ## Podsumowanie.
 

@@ -1,22 +1,24 @@
 ---
 slug: "najczestszy-blad-na-stronie"
 meta:
-  title: "Najczęstszy błąd na stronie"
-  description: ""
-title: "Najczęstszy błąd na stronie"
+  title: "Najczęstszy błąd na stronie www"
+  description: "Dowiedz się jaki jest najczęstszy błąd na stronie www? Czy czasami nie występuje także u Ciebie?"
+title: "Najczęstszy błąd na stronie www"
 subheading: "Co najczęściej jest źle zrobione?"
-leading: "Jaki jest najczęstszy błąd na stronie www i jak go naprawić?"
+leading: "Jaki jest najczęstszy błąd na stronie www i jak go naprawić? Obserwacja i ocena wielu stron www pozwoliła mi wyłonić jeden ważny i główny błąd pojawiający się na wielu stronach internetowych."
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: "najczestszy-blad-na-stronie.webp"
+  alt: "Podstawowy błąd 1+1=2, a nie 3"
 categories:
   - www
-knowledgeBase: true
-date: "2024-07-23"
-draft: true
+knowledgeBase: false
+relatedPosts:
+  - przyczyny-slabych-stron
+  - tworca-niedoskonaly
+  - samodzielna-strona-dlaczego-nie
+date: "2024-08-03"
+draft: false
 ---
-
-Obserwacja i ocena wielu stron www pozwoliła mi wyłoni jeden ważny i główny błąd pojawiający się na wielu stronach internetowych.
 
 ## 1. Co to za błąd?
 
@@ -44,7 +46,7 @@ Problem wynika też z nieodpowiedniej wielkości nagłówków, które nie pasuj�
 
 Odnośnie nagłówka H1 jest jedna ważna zasada, w której trzeba stosować tylko jeden nagłówek H1 na daną podstronę i powinien on być unikatowy w obrębie całej domeny.
 
-Jeśli natomiast chodzi o strukturę nagłówkówm to musi być ona uporządkowana. Tutaj najważniejsza jest semantyka i odpowiednie zagnieżdżanie. Najlepiej jest oddzielić style (rozmiar i grubość czcionki) od semantyki (h1,h2, h3, ... div, p).
+Jeśli natomiast chodzi o strukturę nagłówków, to musi być ona uporządkowana. Tutaj najważniejsza jest semantyka i odpowiednie zagnieżdżanie. Najlepiej jest oddzielić style (rozmiar i grubość czcionki) od semantyki (h1,h2, h3, ... div, p).
 
 Profesjonaliści robią to tak, że definiują zmienne lub klasy odpowiadające stylom dla poszczególnych elementów (heading-style-h1, heading-style-2, heading-style-h3, ... text-base, text-lg), czasami równocześnie przypisując jednakowe style domyślnie elementom semantycznym (h1, h2, h3 ...). Semantykę stawiamy na pierwszym miejscu i tak tworząc sekcję z kartami - nagłówek sekcji ma znacznik H2, a nagłówki kart H3. Okazuje się, że tekst w kartach jest za duży więc aby go zmniejszyć, nie zmieniamy znacznika, ale dodajemy mu styl nagłówka h5, przez co jest mniejszy, ale nadal poprawny semantycznie.
 

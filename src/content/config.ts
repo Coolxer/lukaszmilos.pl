@@ -2,7 +2,7 @@ import { z, defineCollection, reference } from "astro:content"
 
 const meta = () =>
   z.object({
-    title: z.string().max(60),
+    title: z.string().max(50),
     description: z.string().max(130),
 
     canonical: z.string().url().optional(),

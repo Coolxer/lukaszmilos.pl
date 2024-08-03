@@ -2,55 +2,56 @@
 slug: "pozyskiwanie-ruchu-internetowego"
 meta:
   title: "Pozyskiwanie ruchu internetowego"
-  description: ""
+  description: "Dowiedz się jak pozyskiwać ruch internetowy, który możesz kierować na swoją stronę internetową."
 title: "Pozyskiwanie ruchu internetowego"
-subheading: ""
-leading: ""
+subheading: "Skąd użytkownik trafi na Twoją stronę www?"
+leading: "W jaki sposób ktoś może znaleźć się na Twojej stronie www. Na tym się dzisiaj skupimy."
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: "ruch-internetowy.webp"
+  alt: "Grupa ludzi korzystających ze smartfonów i przeglądających stronę internetową"
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
-draft: true
+relatedPosts:
+  - jak-zaczac-w-sieci
+  - mozliwosci-dzialania-w-sieci
+date: "2024-08-03"
+draft: false
 ---
 
-W jaki sposób użytkownik może trafić na stronę?
+## Czym jest ruch internetowy i dlaczego jest ważny?
 
-- poprzez link - możesz mieć stronę internetową, której do której link wysyłasz razem z ofertą pisaną na sm lub e-mailu (nawet w footerze) - tak też działa sporo firm - zabiegając o klienta bezpośrednio (wychodząc do niego)
-- poprzez wyszukiwarkę (konieczne dobre SEO lub reklamy)
-- z social media (z postów lub reklam), które w jakiś sposób są ciekawe i kierują usera na stronę
-- z ogłoszeń,
-- itp.
+Samo stworzenie strony internetowej lub sklepu internetowego jako bazy firmy w sieci jest bardzo ważne, ale równie istotne jest ściągnięcie ruchu na te kanały.
 
-Powiedzieć, że samo stworzenie strony jest ważne, ale potem trzeba jeszcze sciagac ruch i sie tym wszystkim zajmowac.
+Bez ruchu internetowego (odwiedzających witrynę lub sklep) strona www nie będzie przynosić korzyści w postaci zdobywania klientów (ciągle może przynosić Ci inne korzyści), bo nikt o tej stronie jeszcze nie wie.
 
-Skąd pozyskiwać ruch, klientów (często potem lądują oni na stronie)
+## W jaki sposób użytkownik może trafić na stronę?
 
-- wizytówka google, google maps, merchant center
-- lokalne strony, ogłoszenia, wpisy goscinne,
-- ogloszenia na portalach ogloszeniowych i grupach
-- platna reklama google ads
-- seo, wyniki organiczne (wlasna strona, dobrze przygotowana zoptymalizowana, rozbudowana, podstrony, + wpisy blogowe)
-- inne reklamy displayowe
-- social media i reklamy na tych platformach
-- linkedin
-- youtube i reklama na youtube
-- influencer
-- email marketing
+### Sposoby offline.
 
-??????
+Przenieś klienta ze świata realnego do wirtualnego, by lepiej Cię poznał i zapamiętał. Jest na to co najmniej kilka sposobów:
+
+- słowna rekomendacja strony
+- wizytówka
+- umieszczenie adresu strony na dokumencie
+- ulotki i banery
+- oklejony samochód
+- lokalna tablica ogłoszeń
+- wpis w lokalnej gazecie
+
+### Sposoby online.
+
+- dołączenie adresu strony do wiadomości, sms, social media, e-mail
 
 - wizytówka google, google maps, merchant center
-- lokalne strony, ogłoszenia, wpisy goscinne,
-- ogloszenia na portalach ogloszeniowych i grupach
-- platna reklama google ads
-- seo, wyniki organiczne (wlasna strona, dobrze przygotowana zoptymalizowana, rozbudowana, podstrony, + wpisy blogowe)
-- inne reklamy displayowe
+- lokalne strony, ogłoszenia, wpisy gościnne,
+- ogłoszenia na portalach ogłoszeniowych i grupach
+- SEO, wyniki organiczne (własna strona, dobrze przygotowana i zoptymalizowana)
+- płatna reklama google ads i inne reklamy displayowe
 - social media i reklamy na tych platformach
-- linkedin
-- youtube i reklama na youtube
-- influencer
+
+Zobacz też szerszy artykuł na temat [możliwości działania w sieci](/blog/mozliwosci-dzialania-w-sieci/).
 
 ## Podsumowanie.
+
+Nowa strona internetowa jest jak sklep w środku lasu. Nikt o nim nie wie. Trzeba sprowadzić na niego ruch. Możliwości jest wiele.

@@ -4,7 +4,7 @@ meta:
   title: "Biznes: co, jak i dlaczego"
   description: "Poznaj moje obserwacje na temat biznesu. Dowiedz się, jak sprzedaż, wartość,  nisza i ekspozycja wpływają na sukces w biznesie."
 title: "Jak działa biznes?"
-subheading: "O co chodzi w biznesie?"
+subheading: "O co chodzi w biznesie? Czyli trochę o wartości i marketingu."
 leading: "Kilka moich przemyśleń na temat ważnych kwestii dotyczących biznesu. Pomysł, nisza, ekspozycja, sprzedaż. O co chodzi w biznesie?"
 image:
   src: "jak-dziala-biznes.webp"
@@ -12,7 +12,7 @@ image:
 categories:
   - biznes
 knowledgeBase: true
-date: "2024-07-28"
+date: "2024-08-03"
 draft: false
 ---
 

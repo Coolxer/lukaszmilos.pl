@@ -16,7 +16,6 @@ date: "2024-07-23"
 draft: true
 ---
 
-**Kto powinien być obecny w sieci?**
 Statyczna storna to
 
 - brak możliwości edycji, ulepszania,

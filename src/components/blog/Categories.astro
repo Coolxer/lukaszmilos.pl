@@ -3,10 +3,11 @@ import { buildSlug } from "@utils/utils"
 
 export interface Props {
   categories: string[]
+  h3?: boolean
   class?: string
 }
 
-const { categories, class: className } = Astro.props
+const { categories, h3 = false, class: className } = Astro.props
 ---
 
 {
@@ -16,7 +17,11 @@ const { categories, class: className } = Astro.props
         <a
           href={buildSlug("/blog/kategoria/" + category)}
           class="flex place-items-center border border-accent-lightest bg-accent-lightest px-4 py-2 text-center text-sm shadow-sm transition-colors duration-300 ease-in-out hover:bg-transparent">
-          {category}
+          {h3 ? (
+            <h3 class="text-base font-normal">{category}</h3>
+          ) : (
+            <p class="text-base font-normal">{category}</p>
+          )}
         </a>
       ))}
     </div>

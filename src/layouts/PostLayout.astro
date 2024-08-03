@@ -68,7 +68,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
     {
       post.data.leading && (
         <>
-          <p class="text-lg">{post.data.leading}</p>
+          <p class="text-left text-lg">{post.data.leading}</p>
           <hr class="h-px w-full border-0 bg-gray" />
         </>
       )
@@ -85,7 +85,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
     }
 
     <!-- Content -->
-    <article class="prose prose-xl text-black">
+    <article class="prose prose-lg text-black prose-p:text-lg">
       <slot />
     </article>
 
@@ -119,7 +119,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
   {
     relatedPosts.length > 0 && (
       <Section noTopPadding>
-        <p class="text-h4">Powiązane posty</p>
+        <h2 class="text-h3">Powiązane posty</h2>
         <Row maxColumns={4} placement="items-stretch">
           {relatedPosts.length > 0 &&
             relatedPosts.map((post) => <PostCard post={post} />)}
