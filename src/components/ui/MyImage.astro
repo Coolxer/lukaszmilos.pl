@@ -36,8 +36,15 @@ const {
   shadow = "shadow-md",
   width = 0,
   height = 0,
-  widths = [320, 500, 800, 1080, 1600, 2000 /*img.width*/],
-  sizes = `(max-width: 480px) 320px, (max-width: 768px) 500px, (max-width: 992px) 800px, (max-width: 1280px) 1080px, (max-width: 1600px) 1600px, 2000px`,
+
+  // almost full width
+  // widths = [320, 500, 800, 1080, 1600, 2000 /*img.width*/],
+  // sizes = `(max-width: 480px) 320px, (max-width: 768px) 500px, (max-width: 992px) 800px, (max-width: 1280px) 1080px, (max-width: 1600px) 1600px, 2000px`,
+
+  // half only
+  widths = [320, 500, 680, 800],
+  sizes = `(max-width: 480px) 320px, (max-width: 768px) 500px, (max-width: 992px) 680px, 800px`,
+
   loading = "lazy",
   withOverlay = false,
   customOverlay = false,

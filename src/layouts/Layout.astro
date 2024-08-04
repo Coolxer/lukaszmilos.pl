@@ -51,18 +51,23 @@ const SITE = data.site
       href={`${Astro.site}rss.xml`}
     />
 
-    <!-- Cookiebot -->
-    <script
-      is:inline
-      id="Cookiebot"
-      src="https://consent.cookiebot.com/uc.js"
-      data-cbid="91afb1e7-501e-48b5-be69-5d193a417fe2"
-      type="text/javascript"
-    ></script>
-  </head>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : ""
+        j.async = true
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, "script", "dataLayer", "GTM-NVZP7BLW")
+    </script>
+    <!-- End Google Tag Manager -->
 
-  <!-- Google Search Console -->
-  <!-- {
+    <!-- Google Search Console -->
+    <!-- {
     SITE.integrations["google-search-console"] && (
       <meta
         name="google-site-verification"
@@ -71,8 +76,8 @@ const SITE = data.site
     )
   } -->
 
-  <!-- Analytics -->
-  <!-- {
+    <!-- Analytics -->
+    <!-- {
     SITE.integrations["google-analytics"] ? (
       <GoogleAnalytics
         id={SITE.integrations["google-analytics"]}
@@ -81,9 +86,20 @@ const SITE = data.site
     ) : null
   } -->
 
-  <!-- Facebook Pixel, Hotjar ... -->
-
+    <!-- Facebook Pixel, Hotjar ... -->
+  </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NVZP7BLW"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div class="flex min-h-screen flex-col justify-between">
       <Header />
 

@@ -63,8 +63,10 @@ const {
           <MyImage
             img={image.data}
             alt={image.alt}
-            widths={[320, 500, 800]}
-            sizes={`(max-width: 480px) 320px, (max-width: 768px) 500px, 800px`}
+            width={500}
+            height={500}
+            widths={[320, 500, 680]}
+            sizes={`(max-width: 480px) 320px, (max-width: 768px) 500px, 680px`}
             class:list={[
               "object-cover",
               zoom && "transition-transform duration-500 hover:scale-110",
