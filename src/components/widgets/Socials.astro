@@ -27,6 +27,11 @@ export const socials = [
   //   href: "https://www.x.com/user",
   //   svg: "x",
   // },
+  {
+    title: "Youtube",
+    href: "https://www.youtube.com/@lukaszmilos",
+    svg: "youtube",
+  },
 ]
 
 export interface Props {
@@ -41,7 +46,7 @@ const { itemsStyle, class: className } = Astro.props
   {
     socials.map((social) => (
       <a href={social.href} rel="nofollow" target="_blank" class={itemsStyle}>
-        <Icon name={"socials/" + social.svg} class="size-6" />
+        <Icon name={"socials/" + social.svg} class="size-8" />
         <span class="sr-only">{social.title}</span>
       </a>
     ))
