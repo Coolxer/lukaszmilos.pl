@@ -40,7 +40,7 @@ Stosowanie nagłówków w nieodpowiedniej kolejności, zapominając o ich wadze 
 
 Prawdopodobnie z niewiedzy. Występuje on częściej u laików, którzy samodzielnie stworzyli swoją stronę www, ale zdarza się także u specjalistów, zwłaszcza wariacja związana ze strukturą nagłówków.
 
-Problem wynika też z nieodpowiedniej wielkości nagłówków, które nie pasują twórcy strony w odpowiednim miejscu. Standardowa wielkość nagłówków wedle wielu skal dopasowana jest do formatu blogowego. Tymczasem układ strony, np. karty w wierszu, często wymagają znacznie mniejszej czcionki, niż ma ją ustawiony stosowny nagłówek. Wiele osób, zamiast zmienić rozmiar czcionki - zmienia wtedy nagłówek na zupełnie inny, niszcząc semantykę i SEO swojej strony www.
+Problem wynika też z nieodpowiedniej wielkości nagłówków, które nie pasują twórcy strony w odpowiednim miejscu. Standardowa wielkość nagłówków wedle wielu skal dopasowana jest do formatu blogowego. Tymczasem układ strony, np. karty w wierszu, często wymagają znacznie mniejszej czcionki, niż ma ją ustawiony stosowny nagłówek. Wiele osób, zamiast zmienić rozmiar czcionki - zmienia wtedy nagłówek na zupełnie inny, niszcząc semantykę i SEO swojej strony www .
 
 ## 3. Jak to rozwiązać? Jak robią to profesjonaliści?
 
