@@ -3,7 +3,7 @@ slug: "co-wplywa-na-seo"
 meta:
   title: "Co wpływa na SEO?"
   description: ""
-title: "Co wpływa na SEO?"
+heading: "Co wpływa na SEO?"
 subheading: ""
 leading: ""
 image:

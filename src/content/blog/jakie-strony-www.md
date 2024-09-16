@@ -3,7 +3,7 @@ slug: "jakie-strony-www"
 meta:
   title: "Jakie strony www?"
   description: ""
-title: "Jakie strony www tworzę i na jakie zmieniam aktualne?"
+heading: "Jakie strony www tworzę i na jakie zmieniam aktualne?"
 subheading: ""
 leading: ""
 image:

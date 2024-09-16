@@ -3,7 +3,7 @@ slug: "brak-gwarancji-sukcesu"
 meta:
   title: "Brak gwarancji sukcesu w sieci - Dlaczego nie?"
   description: "Poznaj trudności działania w sieci i dowiedz się, dlaczego trudno jest dać gwarancję sukcesu."
-title: "Brak gwarancji sukcesu w sieci"
+heading: "Brak gwarancji sukcesu w sieci"
 subheading: "Dlaczego trudno jest zagwarantować efekty działań w sieci."
 leading: "Sukces nigdy nie przychodzi szybko, a już na pewno nie o dużej skali. Nie można też go zagwarantować."
 image:

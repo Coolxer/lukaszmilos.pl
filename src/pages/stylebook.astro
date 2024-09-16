@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components"
 
 import { type Meta } from "@components/core/MySEO.astro"
 
-import glassImage from "@assets/images/cyfryzacja.webp"
+import glassImage from "@assets/images/pages/cyfryzacja.webp"
 
 import PageLayout from "@layouts/PageLayout.astro"
 
@@ -55,7 +55,7 @@ const loremDescription =
     class="text-white">
     <MyImage
       slot="background"
-      src="cyfryzacja.webp"
+      src="pages/cyfryzacja.webp"
       alt=""
       width={1920}
       withOverlay
@@ -331,7 +331,7 @@ const loremDescription =
     <!-- Image with simply overlay-->
     <h2>Obraz z prostą nakładką</h2>
     <MyImage
-      src="cyfryzacja.webp"
+      src="pages/cyfryzacja.webp"
       alt=""
       withOverlay
       overlayColor="bg-slate-900/50"
@@ -339,7 +339,7 @@ const loremDescription =
 
     <!-- Image with custom overlay -->
     <h2>Obraz z zaawansoaną nakładką</h2>
-    <MyImage src="cyfryzacja.webp" alt="" withOverlay customOverlay>
+    <MyImage src="pages/cyfryzacja.webp" alt="" withOverlay customOverlay>
       <div
         slot="overlay"
         class="l-0 t-0 group absolute inset-0 flex size-full w-full items-end justify-center rounded bg-red-300/50 pb-3 transition-all duration-300 ease-in-out hover:bg-red-500/50 hover:pb-4">

@@ -3,7 +3,7 @@ slug: "samodzielna-strona-dlaczego-nie"
 meta:
   title: "Dlaczego nie warto robić stronę www samodzielnie?"
   description: "Dowiedz się, dlaczego zazwyczaj warto zlecić tworzenie strony internetowej specjalistom, zamiast robić to samodzielnie"
-title: "Samodzielna strona: dlaczego nie?"
+heading: "Samodzielna strona: dlaczego nie?"
 subheading: "Dlaczego nie warto robić samemu strony www?"
 leading: "Dzisiaj jest wiele szablonów, narzędzi i sztuczna inteligencja, które nakłaniają by działać samemu. Dlaczego to jednak nie zawsze dobry pomysł?"
 image:

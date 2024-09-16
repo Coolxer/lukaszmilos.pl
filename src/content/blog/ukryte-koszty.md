@@ -3,7 +3,7 @@ slug: "ukryte-koszty"
 meta:
   title: "Ukryte koszty wdrażania i rozwoju strony www"
   description: "Dowiedz się, jakie są ukryte koszty wdrażania strony internetowej, realizując pewne elementy samodzielnie. Czym płacisz?"
-title: "Ukryte koszty strony www"
+heading: "Ukryte koszty strony www"
 subheading: "Płacisz nie tylko pieniędzmi"
 leading: "Podczas tworzenia i rozwijania strony internetowej możemy natknąć się na wiele niespodziewanych kosztów. Nawet jeśli skupiamy się na wynikach organicznych, istotne jest, aby zrozumieć, jakie są realne koszty i jak nimi zarządzać, aby efektywnie wykorzystać dostępne zasoby."
 image:

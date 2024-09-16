@@ -3,7 +3,7 @@ slug: "problemy-malych-firm"
 meta:
   title: "Jakie problemy mają małe firmy?"
   description: ""
-title: "Jakie problemy mają małe firmy"
+heading: "Jakie problemy mają małe firmy"
 subheading: ""
 leading: ""
 image:

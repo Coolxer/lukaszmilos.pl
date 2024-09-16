@@ -3,7 +3,7 @@ slug: "istota-rozwoju"
 meta:
   title: "Dlaczego aktywność w sieci jest rozwija biznes?"
   description: "Odkryj, dlaczego ciągły rozwój i aktywność w internecie są niezbędne dla sukcesu Twojego biznesu. Działaj i się rozwijaj."
-title: "Aktywność i rozwój w sieci: klucz do sukcesu Twojego biznesu"
+heading: "Aktywność i rozwój w sieci: klucz do sukcesu Twojego biznesu"
 subheading: "Znaczenie ciągłej aktywności w internecie dla rozwoju firmy"
 leading: "Aby osiągnąć sukces w dzisiejszym dynamicznym świecie biznesu, nie wystarczy utworzyć wizytówkę, stronę, sklep internetowy czy profil w mediach społecznościowych. Kluczowe jest systematyczne działanie i ciągły rozwój, które pozwalają na utrzymanie konkurencyjności i budowanie zaufania w oczach klientów oraz algorytmów wyszukiwarek."
 image:

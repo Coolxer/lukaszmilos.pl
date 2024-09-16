@@ -3,7 +3,7 @@ slug: "seo-to-nie-wszystko"
 meta:
   title: "SEO to nie wszystko"
   description: ""
-title: "SEO to nie wszystko"
+heading: "SEO to nie wszystko"
 subheading: ""
 leading: ""
 image:

@@ -3,7 +3,7 @@ slug: "decyzje-budowy-strony"
 meta:
   title: "Decyzje budowy strony"
   description: ""
-title: "Decyzje budowy strony"
+heading: "Decyzje budowy strony"
 subheading: ""
 leading: ""
 image:

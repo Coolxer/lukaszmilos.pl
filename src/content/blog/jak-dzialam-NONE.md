@@ -3,7 +3,7 @@ slug: "jak-dzialam"
 meta:
   title: "Jak działam?"
   description: ""
-title: "Jak działam?"
+heading: "Jak działam?"
 subheading: ""
 leading: ""
 image:

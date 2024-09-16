@@ -42,7 +42,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
       class="flex max-w-prose flex-col items-center justify-center gap-4 text-center">
       <!-- Breadcrumbs -->
       <MyBreadCrumbs />
-      {post.data.title && <h1>{post.data.title}</h1>}
+      {post.data.heading && <h1>{post.data.heading}</h1>}
       {post.data.subheading && <p class="text-lg">{post.data.subheading}</p>}
 
       <!-- Reading time -->
@@ -57,7 +57,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
     {
       post.data.image.src && (
         <MyImage
-          src={post.data.image.src}
+          src={"posts/" + post.data.image.src}
           alt={post.data.image.alt}
           width={680}
           height={680}
@@ -73,6 +73,21 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
           <p class="text-left text-lg">{post.data.leading}</p>
           <hr class="h-px w-full border-0 bg-gray" />
         </>
+      )
+    }
+
+    <!-- Video -->
+    {
+      post.data.video && (
+        <div class="flex w-full flex-col gap-4 self-start">
+          <p class="text-h3">Jeśli wolisz oglądać: </p>
+          <div class="relative h-96 w-full">
+            <iframe
+              class="t-0 l-0 b-0 r-0 absolute h-full w-full rounded shadow"
+              src={post.data.video}
+            />
+          </div>
+        </div>
       )
     }
 

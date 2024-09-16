@@ -3,7 +3,7 @@ slug: "mozliwosci-dzialania-w-sieci"
 meta:
   title: "Jakie są możliwości działania w sieci dla firm?"
   description: "Dowiedz się, jak promować swoją firmę online, wykorzystując lokalne i globalne strategie, organiczne i płatne działania."
-title: "Jakie są możliwości działania w sieci dla firm?"
+heading: "Jakie są możliwości działania w sieci dla firm?"
 subheading: "Jakie media i kanały wybrać?"
 leading: "Dowiedz się, jak wybrać odpowiednią strategię promocji dla Twojego biznesu, w zależności od grupy docelowej, typu działalności i długoterminowych celów"
 image:

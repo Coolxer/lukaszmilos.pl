@@ -1,14 +1,14 @@
 ---
-slug: "najczestszy-blad-na-stronie"
+slug: najczestszy-blad-na-stronie
 meta:
-  title: "Najczęstszy błąd na stronie www"
-  description: "Dowiedz się jaki jest najczęstszy błąd na stronie www? Czy czasami nie występuje także u Ciebie?"
-title: "Najczęstszy błąd na stronie www"
-subheading: "Co najczęściej jest źle zrobione?"
-leading: "Jaki jest najczęstszy błąd na stronie www i jak go naprawić? Obserwacja i ocena wielu stron www pozwoliła mi wyłonić jeden ważny i główny błąd pojawiający się na wielu stronach internetowych."
+  title: Najczęstszy błąd na stronie www
+  description: Dowiedz się jaki jest najczęstszy błąd na stronie www? Czy czasami nie występuje także u Ciebie?
+heading: Najczęstszy błąd na stronie www
+subheading: Co najczęściej jest źle zrobione?
+leading: Jaki jest najczęstszy błąd na stronie www i jak go naprawić? Obserwacja i ocena wielu stron www pozwoliła mi wyłonić jeden ważny i główny błąd pojawiający się na wielu stronach internetowych.
 image:
-  src: "najczestszy-blad-na-stronie.webp"
-  alt: "Podstawowy błąd 1+1=2, a nie 3"
+  src: najczestszy-blad-na-stronie.webp
+  alt: Podstawowy błąd 1+1=2, a nie 3
 categories:
   - www
 knowledgeBase: false
@@ -16,7 +16,7 @@ relatedPosts:
   - przyczyny-slabych-stron
   - tworca-niedoskonaly
   - samodzielna-strona-dlaczego-nie
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
 ---
 

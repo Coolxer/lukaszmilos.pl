@@ -71,7 +71,7 @@ else if (src) {
   } else {
     generalPath = "/src/assets/images/"
     images = import.meta.glob<{ default: ImageMetadata }>(
-      "/src/assets/images/*.{jpeg,jpg,png,gif,webp,avif}"
+      "/src/assets/images/**/*.{jpeg,jpg,png,gif,webp,avif}"
     )
   }
 

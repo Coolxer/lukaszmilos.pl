@@ -3,7 +3,7 @@ slug: "wordpress-jakie-narzedzie"
 meta:
   title: "Wordpress jakie narzędzie?"
   description: ""
-title: "Wordpress jakie narzędzie?"
+heading: "Wordpress jakie narzędzie?"
 subheading: ""
 leading: ""
 image:

@@ -54,18 +54,22 @@ export default defineConfig({
     }),
     robotsTxt(),
     (await import("@playform/compress")).default({
-      CSS: false, //true
+      CSS: false,
+      //true
       HTML: {
         "html-minifier-terser": {
           removeAttributeQuotes: false,
         },
       },
-      Image: false, // true
-      JavaScript: false, // true
-      SVG: false, // true
+      Image: false,
+      // true
+      JavaScript: false,
+      // true
+      SVG: false,
+      // true
       Logger: 1,
       Path: ["./dist"],
-    }),
+    })
   ],
   vite: {
     resolve: {

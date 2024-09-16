@@ -3,7 +3,7 @@ slug: "statyczna-strona"
 meta:
   title: "Statyczna strona"
   description: ""
-title: "Statyczna strona"
+heading: "Statyczna strona"
 subheading: ""
 leading: ""
 image:

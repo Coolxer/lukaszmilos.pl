@@ -27,8 +27,6 @@ const schema: Schema = {}
   pageDescription="Zobacz, z czym jeszcze  możemy współpracować. Jestem otwarty na wiele technicznych spraw, które mogą pomóc Twojej firmie."
   meta={meta}
   schema={schema}>
-  <!-- CTA -->
-
   <Section center>
     <article
       class="prose marker:text-black prose-h1:text-h1 prose-h2:text-h3 prose-h3:text-h4 prose-h4:text-h5 prose-h5:text-h5 prose-h6:text-h6">
@@ -36,12 +34,12 @@ const schema: Schema = {}
     </article>
   </Section>
 
+  <!-- CTA -->
   <CTA>
-    <p class="text-center text-h2">Chcesz ulepszyć swoją stronę?</p>
+    <p class="text-center text-h2">Zainteresowany(a) współpracą?</p>
 
-    <div class="flex w-full flex-col justify-center gap-4 md:flex-row">
-      <Button link={buildSlug("")}>Zapytaj o wdrożenie</Button>
-      <Button variant="tetriary" link={buildSlug("")}>Skontaktuj się </Button>
-    </div>
+    <Button variant="tetriary" link={buildSlug("kontakt")}
+      >Skontaktuj się
+    </Button>
   </CTA>
 </PageLayout>

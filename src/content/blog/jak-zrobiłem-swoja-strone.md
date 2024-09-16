@@ -1,17 +1,16 @@
 ---
-slug: "jak-zrobilem-swoja-strone"
+slug: jak-zrobilem-swoja-strone
 meta:
-  title: "Jak zrobiłem swoją stronę?"
-  description: ""
-title: "Jak zrobiłem swoją stronę?"
+  title: Jak zrobiłem swoją stronę?
+  description: asdasd
+heading: Jak zrobiłem swoją stronę?
 subheading: ""
 leading: ""
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: placeholder.webp
+  alt: asdasd
 categories:
-  - www
-knowledgeBase: true
-date: "2024-07-23"
+  - brak kategorii
+date: 2024-07-23
 draft: true
 ---

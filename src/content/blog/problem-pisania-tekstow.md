@@ -3,7 +3,7 @@ slug: "problem-pisania-tekstow"
 meta:
   title: "Problem pisania tekstów na stronę"
   description: "W czym tkwi problem pisania tekstów na stronę www? O czym wiedzieć i pamiętać? Na co najlepiej postawić pisząc tekst www?"
-title: "Problem pisania tekstów na stronę www"
+heading: "Problem pisania tekstów na stronę www"
 subheading: "Samodzielne pisanie vs UX vs SEO."
 leading: "Każdy, kto kiedyś pisał tekst na stronę internetową, z pewnością spotkał się z tym problemem, a jeśli nie to warto o nim wiedzieć. Mowa o konieczności dopasowania się do pewnych standardów i wytycznych, które wpływają na formatowanie, ale także rodzaj treści."
 image:

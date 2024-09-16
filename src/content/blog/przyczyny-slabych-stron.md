@@ -3,7 +3,7 @@ slug: "przyczyny-slabych-stron"
 meta:
   title: "Przyczyny słabych stron www"
   description: "Poznaj przyczyny niskiej jakości stron internetowych. Brak wiedzy, specjalistów, technologii, a może świadomości?"
-title: "Przyczyny słabych stron www"
+heading: "Przyczyny słabych stron www"
 subheading: "Co najczęściej jest źle zrobione?"
 leading: "Dlaczego niektóre strony www są niskiej jakości?"
 image:

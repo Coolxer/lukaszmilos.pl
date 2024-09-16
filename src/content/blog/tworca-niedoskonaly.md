@@ -3,7 +3,7 @@ slug: "tworca-niedoskonaly"
 meta:
   title: "Twórca niedoskonały strony www"
   description: "Istnieje wielu twórców źle wykonujących strony www. O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan?"
-title: "Niedoskonały twórca strony"
+heading: "Niedoskonały twórca strony"
 subheading: "O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan"
 leading: "Są takie rzeczy, o których wielu twórców stron nie wie, zapomina lub celowo o tym nie mówi."
 image:

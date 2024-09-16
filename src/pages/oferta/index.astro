@@ -10,7 +10,6 @@ import MyImage from "@components/ui/MyImage.astro"
 import Button from "@components/ui/Button.astro"
 
 import CTA from "@components/widgets/CTA.astro"
-import IconList from "@components/ui/IconList.astro"
 import WorkingRules from "@components/parts/WorkingRules.astro"
 
 const meta: Meta = {
@@ -49,170 +48,6 @@ const schema: Schema = {
   pageDescription="Zobacz, w czym szczególnie mogę Ci pomóc"
   meta={meta}
   schema={schema}>
-  <!-- {
-    [
-      {
-        style: "",
-        title: "Tworzenie strony internetowej",
-        description:
-          "Zleć budowę nowej strony internetowej dla Twojej firmy, by otworzyć się na nowych klientów i lepiej obsługiwać aktualnych.",
-        features: [
-          "Jakiej strony internetowej potrzebujesz?",
-          "Jaki ma spełniać cel?",
-          "Jak ma wyglądać i działać?",
-        ],
-        action: {
-          link: "/oferta/tworzenie-strony-www",
-          text: "Sprawdź ofertę tworzenia strony",
-        },
-        image: {
-          src: "tworzenie-strony-www.webp",
-          alt: "Projekt kreślarski krzesła umieszczony na stronie internetowej.",
-        },
-      },
-      {
-        style: "bg-gray-light",
-        title: "Ocena strony internetowej lub sklepu",
-        description:
-          "Zleć ocenę strony internetowej, by poznać jej braki i niedoskonałości, przez które wiele tracisz. Dowiedz się, jak Twoją witrynę ocenia specjalista.",
-        features: [
-          "Jakiej błędy można zauważyć?",
-          "Jaki jest ich skutek?",
-          "Jak je naprawić?",
-        ],
-        action: {
-          link: "/oferta/ocena-strony-www",
-          text: "Sprawdź ofertę oceny strony",
-        },
-        image: {
-          src: "ocena-strony-www.webp",
-          alt: "Osoba przeglądająca notatki dot. strony internetowej przypięte na tablicy.",
-        },
-      },
-      {
-        style: "",
-        title: "Poprawa strony internetowej lub sklepu",
-        description:
-          "Zleć poprawę swojej strony internetowej na podstawie wcześniejszego audytu lub konkretnego aspektu, który chcesz poprawić.",
-        features: [
-          "Gdzie zauważasz problem?",
-          "Co chcesz poprawić?",
-          "W czym potrzebujesz pomocy?",
-        ],
-        action: {
-          link: "/oferta/poprawa-strony-www",
-          text: "Sprawdź ofertę poprawy strony",
-        },
-        image: {
-          src: "poprawa-strony-www.webp",
-          alt: "Tablet wyświetlający grafikę strony internetowej, a wokół widoczne są różne elementy i narzędzia naprawcze.",
-        },
-      },
-      {
-        style: "bg-gray-light",
-        title: "Rozwój strony internetowej",
-        description:
-          "Doradź się lub zleć dodanie nowej funkcjonalności do strony internetowej, zwiększającej jej wartość dla użytkowników.",
-        features: [
-          "Czego brakuje na stronie?",
-          "Co można ulepszyć?",
-          "Co można zrobić lepiej?",
-        ],
-        action: {
-          link: "/oferta/rozwoj-strony-www",
-          text: "Sprawdź ofertę rozwoju strony",
-        },
-        image: {
-          src: "rozwoj-strony-www.webp",
-          alt: "Nowoczesne i rozwinięte miasto z wysokimi budynkami i dużą ilością światła na drodze.",
-        },
-      },
-      {
-        style: "",
-        title: "Tworzenie sklepu internetowego",
-        description:
-          "Zleć budowę sklepu internetowego, by zyskać niezależność w sprzedaży online",
-        features: [
-          "Jakiego sklepu internetowego potrzebujesz?",
-          "Jak ma wyglądać i działać?",
-          "Czy potrzebujesz wsparcia w obsłudze?",
-        ],
-        action: {
-          link: "/oferta/tworzenie-sklepu-www",
-          text: "Sprawdź ofertę tworzenia sklepu",
-        },
-        image: {
-          src: "tworzenie-sklepu-www.webp",
-          alt: "Transport w handlu e-commerce (sklepie internetowym)",
-        },
-      },
-      {
-        style: "bg-black text-white",
-        title: "Wdrażanie cyfrowych narzędzi",
-        description:
-          "Zleć poszukiwanie możliwości i/lub wdrażanie narzędzi cyfrowych dla Twojej firmy. Badź na czasie i korzystaj z odpowiednich narzędzi.",
-        features: [
-          "Gdzie można wdrożyć narzędzia cyfrowe?",
-          "Jakie narzędzie będzie najlepsze?",
-          "Jak je wdrożyć i dopasować do siebie?",
-        ],
-        action: {
-          link: "/oferta/wdrazanie-narzedzi-cyfrowych",
-          text: "Sprawdź ofertę cyfryzacji",
-        },
-        image: {
-          src: "cyfryzacja.webp",
-          alt: "Osoba korzystając z nowoczesnych technologii - ubierająca okulary VR wirtualnej rzeczywistości.",
-        },
-      },
-      {
-        style: "bg-accent-darkest text-white",
-        title: "Automatyzacja procesów firmowych",
-        description:
-          "Zleć poszukiwanie możliwości i/lub wdrożenie automatyzacji części, lub całego procesu w Twojej firmie. Oszczędzaj czas, minimalizuj błędy, tnij koszty.",
-        features: [
-          "Gdzie i co można zautomatyzować?",
-          "Czy ten proces jest warty automatyzacji?",
-          "Jak to zautomatyzować i dopasować do siebie?",
-        ],
-        action: {
-          link: "/oferta/automatyzacja-procesow-firmowych",
-          text: "Sprawdź ofertę automatyzacji",
-        },
-        image: {
-          src: "automatyzacja.webp",
-          alt: "Nowoczesna, zautomatyzoana ręka robotyczna",
-        },
-      },
-    ].map((item, index) => (
-      <Section class:list={[item.style]}>
-        <Row>
-          <>
-            <div class="flex flex-col items-start justify-center gap-4 md:gap-8">
-              <div class="flex flex-col gap-4">
-                <h2>{item.title}</h2>
-                <p class="text-lg">{item.description}</p>
-              </div>
-              <IconList items={item.features} />
-              <Button
-                link={buildSlug(item.action.link)}
-                class="self-stretch md:self-start">
-                {item.action.text}
-              </Button>
-            </div>
-            <div>
-              <MyImage
-                src={item.image.src}
-                alt={item.image.alt}
-                loading={index === 0 ? "eager" : "lazy"}
-              />
-            </div>
-          </>
-        </Row>
-      </Section>
-    ))
-  } -->
-
   <Section center>
     <div class="flex max-w-prose flex-col gap-4 md:text-center">
       <p class="text-h2">
@@ -225,7 +60,7 @@ const schema: Schema = {
         class="flex flex-col justify-between gap-8 rounded bg-gray-light p-8 shadow-sm">
         <div class="h-64">
           <MyImage
-            src="tworzenie-strony-www.webp"
+            src="pages/tworzenie-strony-www.webp"
             alt="Projekt kreślarski krzesła umieszczony na stronie internetowej."
             loading="eager"
           />
@@ -254,7 +89,7 @@ const schema: Schema = {
         class="flex flex-col justify-between gap-8 rounded bg-gray-light p-8 shadow-sm">
         <div class="h-64">
           <MyImage
-            src="tworzenie-sklepu-www.webp"
+            src="pages/tworzenie-sklepu-www.webp"
             alt="Transport w handlu e-commerce (sklepie internetowym)"
             loading="eager"
           />
@@ -294,7 +129,7 @@ const schema: Schema = {
         class="flex flex-col justify-between gap-8 rounded bg-gray-lightest p-8 shadow-sm">
         <div class="h-64">
           <MyImage
-            src="ocena-strony-www.webp"
+            src="pages/ocena-strony-www.webp"
             alt="Osoba przeglądająca notatki dot. strony internetowej przypięte na tablicy."
           />
         </div><div class="flex flex-col gap-4">
@@ -322,7 +157,7 @@ const schema: Schema = {
         class="flex flex-col justify-between gap-8 rounded bg-gray-lightest p-8 shadow-sm">
         <div class="h-64">
           <MyImage
-            src="poprawa-strony-www.webp"
+            src="pages/poprawa-strony-www.webp"
             alt="Tablet wyświetlający grafikę strony internetowej, a wokół widoczne są różne elementy i narzędzia naprawcze."
           />
         </div><div class="flex flex-col gap-4">
@@ -349,7 +184,7 @@ const schema: Schema = {
         class="flex flex-col justify-between gap-8 rounded bg-gray-lightest p-8 shadow-sm">
         <div class="h-64">
           <MyImage
-            src="rozwoj-strony-www.webp"
+            src="pages/rozwoj-strony-www.webp"
             alt="Nowoczesne i rozwinięte miasto z wysokimi budynkami i dużą ilością światła na drodze."
           />
         </div><div class="flex flex-col gap-4">
@@ -388,7 +223,7 @@ const schema: Schema = {
         class="flex flex-col justify-between gap-8 rounded bg-accent-dark p-8 shadow-sm">
         <div class="h-64">
           <MyImage
-            src="cyfryzacja.webp"
+            src="pages/cyfryzacja.webp"
             alt="Osoba korzystając z nowoczesnych technologii - ubierająca okulary VR wirtualnej rzeczywistości."
           />
         </div><div class="flex flex-col gap-4">
@@ -415,7 +250,7 @@ const schema: Schema = {
         class="flex flex-col justify-between gap-8 rounded bg-accent-dark p-8 shadow-sm">
         <div class="h-64">
           <MyImage
-            src="automatyzacja.webp"
+            src="pages/automatyzacja.webp"
             alt="Nowoczesna, zautomatyzoana ręka robotyczna"
           />
         </div><div class="flex flex-col gap-4">

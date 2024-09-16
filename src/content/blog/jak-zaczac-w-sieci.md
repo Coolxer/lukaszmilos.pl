@@ -1,19 +1,19 @@
 ---
-slug: "jak-zaczac-w-sieci"
+slug: jak-zaczac-w-sieci
 meta:
-  title: "Jak zacząć działać w sieci?"
-  description: "Dowiedz się jak zacząć działać w sieci i jak do tego skuteczniej podejść."
-title: "Jak zacząć działać w sieci?"
-subheading: "O czym trzeba wiedzieć? Co jest ważne?"
-leading: "Większość osób w sieci działa dość chaotycznie, impulsywnie i tymczasowo. Szybko zaczynają i szybko kończą. Widząc brak błyskawicznych rezultatów, poddają się, by po jakimś czasie znowu spróbować tego samego lub czegoś innego. Tymczasem bardzo ważny jest plan, strategia działania i świadomość, że efekty nie przychodzą od razu."
+  title: Jak zacząć działać w sieci?
+  description: Dowiedz się jak zacząć działać w sieci i jak do tego skuteczniej podejść.
+heading: Jak zacząć działać w sieci?
+subheading: O czym trzeba wiedzieć? Co jest ważne?
+leading: Większość osób w sieci działa dość chaotycznie, impulsywnie i tymczasowo. Szybko zaczynają i szybko kończą. Widząc brak błyskawicznych rezultatów, poddają się, by po jakimś czasie znowu spróbować tego samego lub czegoś innego. Tymczasem bardzo ważny jest plan, strategia działania i świadomość, że efekty nie przychodzą od razu.
 image:
-  src: "start-w-sieci.webp"
-  alt: "Osoba przygotowująca się do startu swojego biegu."
+  src: start-w-sieci.webp
+  alt: Osoba przygotowująca się do startu swojego biegu.
 categories:
   - biznes
   - www
 knowledgeBase: true
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
 ---
 
