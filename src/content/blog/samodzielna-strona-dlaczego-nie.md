@@ -1,21 +1,22 @@
 ---
-slug: "samodzielna-strona-dlaczego-nie"
+slug: samodzielna-strona-dlaczego-nie
 meta:
-  title: "Dlaczego nie warto robić stronę www samodzielnie?"
-  description: "Dowiedz się, dlaczego zazwyczaj warto zlecić tworzenie strony internetowej specjalistom, zamiast robić to samodzielnie"
+  title: Dlaczego nie warto robić stronę www samodzielnie?
+  description: Dowiedz się, dlaczego zazwyczaj warto zlecić tworzenie strony internetowej specjalistom, zamiast robić to samodzielnie
 heading: "Samodzielna strona: dlaczego nie?"
-subheading: "Dlaczego nie warto robić samemu strony www?"
-leading: "Dzisiaj jest wiele szablonów, narzędzi i sztuczna inteligencja, które nakłaniają by działać samemu. Dlaczego to jednak nie zawsze dobry pomysł?"
+subheading: Dlaczego nie warto robić samemu strony www?
+leading: Dzisiaj jest wiele szablonów, narzędzi i sztuczna inteligencja, które nakłaniają by działać samemu. Dlaczego to jednak nie zawsze dobry pomysł?
 image:
-  src: "samodzielne-tworzenie-strony.webp"
-  alt: "Osoba siedząca na ławce jest załamana, po tym jak samodzielnie stworzyła stronę www"
+  src: samodzielne-tworzenie-strony.webp
+  alt: Osoba siedząca na ławce jest załamana, po tym jak samodzielnie stworzyła stronę www
 categories:
   - www
 knowledgeBase: false
 relatedPosts:
   - ukryte-koszty
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 Tworzenie strony internetowej może wydawać się prostym zadaniem, ale bez odpowiedniej wiedzy i doświadczenia łatwo popełnić błędy, które mogą negatywnie wpłynąć na wizerunek firmy. Poniżej przedstawiam najważniejsze powody, dla których warto zlecić to zadanie profesjonalistom.

@@ -1,19 +1,20 @@
 ---
-slug: "problemy-malych-firm"
+slug: problemy-malych-firm
 meta:
-  title: "Jakie problemy mają małe firmy?"
+  title: Jakie problemy mają małe firmy?
   description: ""
-heading: "Jakie problemy mają małe firmy"
+heading: Jakie problemy mają małe firmy
 subheading: ""
 leading: ""
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: placeholder.webp
+  alt: asdasd
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
+date: 2024-07-23
 draft: true
+fmContentType: blog
 ---
 
 ### **Jakie w moim mniemaniu firmy mogą mieć problemy?**

@@ -1,19 +1,20 @@
 ---
-slug: "seo-to-nie-wszystko"
+slug: seo-to-nie-wszystko
 meta:
-  title: "SEO to nie wszystko"
+  title: SEO to nie wszystko
   description: ""
-heading: "SEO to nie wszystko"
+heading: SEO to nie wszystko
 subheading: ""
 leading: ""
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: placeholder.webp
+  alt: asdasd
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
+date: 2024-07-23
 draft: true
+fmContentType: blog
 ---
 
 Strona internetowa z dnia na dzień nie zacznie pojawiać się wysoko w wyszukiwarce, zwłaszcza taka prosta i mało rozbudowana. Klasyczne SEO jest strategią długoterminową, która wymaga czasu i dużego zaangażowania (nowe treści, optymalizacja, pozyskiwanie linków) i kosztów (finansowych lub czasu). W końcu na rynku istnieje konkurencja, która jest daleko w przodzie i trzeba sporo wysiłku by ją dogonić, zwłaszcza w niektórych branżach.

@@ -15,6 +15,7 @@ categories:
 knowledgeBase: true
 date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## Czy zatem utworzenie strony internetowej lub social media nie wystarczy?

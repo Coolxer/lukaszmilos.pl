@@ -1,19 +1,20 @@
 ---
-slug: "jak-dziala-biznes"
+slug: jak-dziala-biznes
 meta:
   title: "Biznes: co, jak i dlaczego"
-  description: "Poznaj moje obserwacje na temat biznesu. Dowiedz się, jak sprzedaż, wartość,  nisza i ekspozycja wpływają na sukces w biznesie."
-heading: "Jak działa biznes?"
-subheading: "O co chodzi w biznesie? Czyli trochę o wartości i marketingu."
-leading: "Kilka moich przemyśleń na temat ważnych kwestii dotyczących biznesu. Pomysł, nisza, ekspozycja, sprzedaż. O co chodzi w biznesie?"
+  description: Poznaj moje obserwacje na temat biznesu. Dowiedz się, jak sprzedaż, wartość,  nisza i ekspozycja wpływają na sukces w biznesie.
+heading: Jak działa biznes?
+subheading: O co chodzi w biznesie? Czyli trochę o wartości i marketingu.
+leading: Kilka moich przemyśleń na temat ważnych kwestii dotyczących biznesu. Pomysł, nisza, ekspozycja, sprzedaż. O co chodzi w biznesie?
 image:
-  src: "jak-dziala-biznes.webp"
-  alt: "Sprzedawca na targu warzywnym sprzedaje produkt swojemu klientowi."
+  src: jak-dziala-biznes.webp
+  alt: Sprzedawca na targu warzywnym sprzedaje produkt swojemu klientowi.
 categories:
   - biznes
 knowledgeBase: true
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## 1. Zawsze musisz coś sprzedać.

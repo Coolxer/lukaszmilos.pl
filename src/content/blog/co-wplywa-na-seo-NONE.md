@@ -1,19 +1,20 @@
 ---
-slug: "co-wplywa-na-seo"
+slug: co-wplywa-na-seo
 meta:
-  title: "Co wpływa na SEO?"
+  title: Co wpływa na SEO?
   description: ""
-heading: "Co wpływa na SEO?"
+heading: Co wpływa na SEO?
 subheading: ""
 leading: ""
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: placeholder.webp
+  alt: asdasd
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
+date: 2024-07-23
 draft: true
+fmContentType: blog
 ---
 
 Od jakich najważniejszych kwestii zależy Twoja pozycja w sieci (na przykładzie strony internetowej). Co na nią pokrótce i m.in. wpływa. Mowa tutaj o kwestiach ogólnych, na wysokim poziomie rozumowania.

@@ -13,4 +13,5 @@ categories:
   - brak kategorii
 date: 2024-07-23
 draft: true
+fmContentType: blog
 ---

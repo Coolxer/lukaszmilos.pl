@@ -1,19 +1,20 @@
 ---
-slug: "jak-dzialam"
+slug: jak-dzialam
 meta:
-  title: "Jak działam?"
+  title: Jak działam?
   description: ""
-heading: "Jak działam?"
+heading: Jak działam?
 subheading: ""
 leading: ""
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: placeholder.webp
+  alt: asdasd
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
+date: 2024-07-23
 draft: true
+fmContentType: blog
 ---
 
 ## Jakie są moje główne cele?

@@ -18,6 +18,7 @@ relatedPosts:
   - samodzielna-strona-dlaczego-nie
 date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## 1. Co to za błąd?

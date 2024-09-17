@@ -1,22 +1,23 @@
 ---
-slug: "pozyskiwanie-ruchu-internetowego"
+slug: pozyskiwanie-ruchu-internetowego
 meta:
-  title: "Pozyskiwanie ruchu internetowego"
-  description: "Dowiedz się jak pozyskiwać ruch internetowy, który możesz kierować na swoją stronę internetową."
-heading: "Pozyskiwanie ruchu internetowego"
-subheading: "Skąd użytkownik trafi na Twoją stronę www?"
-leading: "W jaki sposób ktoś może znaleźć się na Twojej stronie www. Na tym się dzisiaj skupimy."
+  title: Pozyskiwanie ruchu internetowego
+  description: Dowiedz się jak pozyskiwać ruch internetowy, który możesz kierować na swoją stronę internetową.
+heading: Pozyskiwanie ruchu internetowego
+subheading: Skąd użytkownik trafi na Twoją stronę www?
+leading: W jaki sposób ktoś może znaleźć się na Twojej stronie www. Na tym się dzisiaj skupimy.
 image:
-  src: "ruch-internetowy.webp"
-  alt: "Grupa ludzi korzystających ze smartfonów i przeglądających stronę internetową"
+  src: ruch-internetowy.webp
+  alt: Grupa ludzi korzystających ze smartfonów i przeglądających stronę internetową
 categories:
   - www
 knowledgeBase: true
 relatedPosts:
   - jak-zaczac-w-sieci
   - mozliwosci-dzialania-w-sieci
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## Czym jest ruch internetowy i dlaczego jest ważny?

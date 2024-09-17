@@ -1,19 +1,20 @@
 ---
-slug: "statyczna-strona"
+slug: statyczna-strona
 meta:
-  title: "Statyczna strona"
+  title: Statyczna strona
   description: ""
-heading: "Statyczna strona"
+heading: Statyczna strona
 subheading: ""
 leading: ""
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: placeholder.webp
+  alt: asdasd
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
+date: 2024-07-23
 draft: true
+fmContentType: blog
 ---
 
 Statyczna storna to

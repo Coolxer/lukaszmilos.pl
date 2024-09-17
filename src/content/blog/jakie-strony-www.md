@@ -1,19 +1,20 @@
 ---
-slug: "jakie-strony-www"
+slug: jakie-strony-www
 meta:
-  title: "Jakie strony www?"
+  title: Jakie strony www?
   description: ""
-heading: "Jakie strony www tworzę i na jakie zmieniam aktualne?"
+heading: Jakie strony www tworzę i na jakie zmieniam aktualne?
 subheading: ""
 leading: ""
 image:
-  src: "placeholder.webp"
-  alt: "asdasd"
+  src: placeholder.webp
+  alt: asdasd
 categories:
   - www
 knowledgeBase: true
-date: "2024-07-23"
+date: 2024-07-23
 draft: true
+fmContentType: blog
 ---
 
 ### Jakie strony internetowe robię i na jakie zmieniam aktualne?

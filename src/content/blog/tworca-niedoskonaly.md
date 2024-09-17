@@ -1,22 +1,23 @@
 ---
-slug: "tworca-niedoskonaly"
+slug: tworca-niedoskonaly
 meta:
-  title: "Twórca niedoskonały strony www"
-  description: "Istnieje wielu twórców źle wykonujących strony www. O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan?"
-heading: "Niedoskonały twórca strony"
-subheading: "O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan"
-leading: "Są takie rzeczy, o których wielu twórców stron nie wie, zapomina lub celowo o tym nie mówi."
+  title: Twórca niedoskonały strony www
+  description: Istnieje wielu twórców źle wykonujących strony www. O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan?
+heading: Niedoskonały twórca strony
+subheading: O czym wielu twórców stron nie wie, zapomina lub zamiata pod dywan
+leading: Są takie rzeczy, o których wielu twórców stron nie wie, zapomina lub celowo o tym nie mówi.
 image:
-  src: "tworca-stron-www.webp"
-  alt: "Osoba tworząca strony internetowe"
+  src: tworca-stron-www.webp
+  alt: Osoba tworząca strony internetowe
 categories:
   - www
 knowledgeBase: true
 relatedPosts:
   - najczestszy-blad-na-stronie
   - samodzielna-strona-dlaczego-nie
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 Oczywiście nie jest to zawsze spotykane i są twórcy, którzy swoją pracę wykonują z pełnym zaangażowaniem, a dodatkowo posiadają ogromną wiedzę. Mówimy tutaj jednak o innych przypadkach.

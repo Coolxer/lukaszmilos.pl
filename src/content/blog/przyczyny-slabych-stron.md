@@ -1,14 +1,14 @@
 ---
-slug: "przyczyny-slabych-stron"
+slug: przyczyny-slabych-stron
 meta:
-  title: "Przyczyny słabych stron www"
-  description: "Poznaj przyczyny niskiej jakości stron internetowych. Brak wiedzy, specjalistów, technologii, a może świadomości?"
-heading: "Przyczyny słabych stron www"
-subheading: "Co najczęściej jest źle zrobione?"
-leading: "Dlaczego niektóre strony www są niskiej jakości?"
+  title: Przyczyny słabych stron www
+  description: Poznaj przyczyny niskiej jakości stron internetowych. Brak wiedzy, specjalistów, technologii, a może świadomości?
+heading: Przyczyny słabych stron www
+subheading: Co najczęściej jest źle zrobione?
+leading: Dlaczego niektóre strony www są niskiej jakości?
 image:
-  src: "niska-jakosc.webp"
-  alt: "Niska jakość, zamazane zdjęcie padającym deszczem i światłami"
+  src: niska-jakosc.webp
+  alt: Niska jakość, zamazane zdjęcie padającym deszczem i światłami
 categories:
   - www
 knowledgeBase: true
@@ -16,8 +16,9 @@ relatedPosts:
   - tworca-niedoskonaly
   - najczestszy-blad-na-stronie
   - samodzielna-strona-dlaczego-nie
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 W sieci zauważam wiele stron internetowych, którym brakuje jakości, funkcjonalności i poprawności. Dominują błędy, braki techniczne i nieodpowiedni projekt. Przyczyn jest wiele. Oto najistotniejsze z nich.

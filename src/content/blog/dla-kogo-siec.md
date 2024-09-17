@@ -1,14 +1,14 @@
 ---
-slug: "dla-kogo-siec"
+slug: dla-kogo-siec
 meta:
-  title: "Dlaczego Twoja firma powinna być obecna w sieci?"
-  description: "Dowiedz się, dlaczego obecność w internecie jest niezbędna dla każdej firmy - od małych lokalnych biznesów po globalne korporacje."
-heading: "Dlaczego Twoja firma powinna być obecna w sieci?"
-subheading: "Korzyści z obecności firmy w internecie"
-leading: "W dzisiejszym cyfrowym świecie obecność w sieci to nie tylko opcja, ale często konieczność dla każdej firmy. Bez względu na wielkość przedsiębiorstwa, internet oferuje wiele korzyści, które mogą przyczynić się do rozwoju i sukcesu Twojego biznesu."
+  title: Dlaczego Twoja firma powinna być obecna w sieci?
+  description: Dowiedz się, dlaczego obecność w internecie jest niezbędna dla każdej firmy - od małych lokalnych biznesów po globalne korporacje.
+heading: Dlaczego Twoja firma powinna być obecna w sieci?
+subheading: Korzyści z obecności firmy w internecie
+leading: W dzisiejszym cyfrowym świecie obecność w sieci to nie tylko opcja, ale często konieczność dla każdej firmy. Bez względu na wielkość przedsiębiorstwa, internet oferuje wiele korzyści, które mogą przyczynić się do rozwoju i sukcesu Twojego biznesu.
 image:
-  src: "dla-kogo-siec.webp"
-  alt: "Specjalista elektryk zakładający panele fotowoltaiczne także potrzebuje strony www"
+  src: dla-kogo-siec.webp
+  alt: Specjalista elektryk zakładający panele fotowoltaiczne także potrzebuje strony www
 categories:
   - biznes
   - www
@@ -17,8 +17,9 @@ relatedPosts:
   - jak-zaczac-w-sieci
   - mozliwosci-dzialania-w-sieci
   - pozyskiwanie-ruchu-internetowego
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## Kto powinien być obecny w sieci?

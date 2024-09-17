@@ -1,19 +1,20 @@
 ---
-slug: "ukryte-koszty"
+slug: ukryte-koszty
 meta:
-  title: "Ukryte koszty wdrażania i rozwoju strony www"
-  description: "Dowiedz się, jakie są ukryte koszty wdrażania strony internetowej, realizując pewne elementy samodzielnie. Czym płacisz?"
-heading: "Ukryte koszty strony www"
-subheading: "Płacisz nie tylko pieniędzmi"
-leading: "Podczas tworzenia i rozwijania strony internetowej możemy natknąć się na wiele niespodziewanych kosztów. Nawet jeśli skupiamy się na wynikach organicznych, istotne jest, aby zrozumieć, jakie są realne koszty i jak nimi zarządzać, aby efektywnie wykorzystać dostępne zasoby."
+  title: Ukryte koszty wdrażania i rozwoju strony www
+  description: Dowiedz się, jakie są ukryte koszty wdrażania strony internetowej, realizując pewne elementy samodzielnie. Czym płacisz?
+heading: Ukryte koszty strony www
+subheading: Płacisz nie tylko pieniędzmi
+leading: Podczas tworzenia i rozwijania strony internetowej możemy natknąć się na wiele niespodziewanych kosztów. Nawet jeśli skupiamy się na wynikach organicznych, istotne jest, aby zrozumieć, jakie są realne koszty i jak nimi zarządzać, aby efektywnie wykorzystać dostępne zasoby.
 image:
-  src: "ukryte-koszty-www.webp"
-  alt: "Osoba licząca monety na dodatkowe koszty strony www"
+  src: ukryte-koszty-www.webp
+  alt: Osoba licząca monety na dodatkowe koszty strony www
 categories:
   - www
 knowledgeBase: true
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 Niestety, ale podczas wdrażania i rozwoju strony internetowej można się spotkać z wieloma różnymi kosztami, których wcześniej nie przewidzieliśmy, nawet jeśli skupiamy się tylko na wynikach organicznych (bezpłatnych).

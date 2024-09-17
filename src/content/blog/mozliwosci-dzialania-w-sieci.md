@@ -1,14 +1,14 @@
 ---
-slug: "mozliwosci-dzialania-w-sieci"
+slug: mozliwosci-dzialania-w-sieci
 meta:
-  title: "Jakie są możliwości działania w sieci dla firm?"
-  description: "Dowiedz się, jak promować swoją firmę online, wykorzystując lokalne i globalne strategie, organiczne i płatne działania."
-heading: "Jakie są możliwości działania w sieci dla firm?"
-subheading: "Jakie media i kanały wybrać?"
-leading: "Dowiedz się, jak wybrać odpowiednią strategię promocji dla Twojego biznesu, w zależności od grupy docelowej, typu działalności i długoterminowych celów"
+  title: Jakie są możliwości działania w sieci dla firm?
+  description: Dowiedz się, jak promować swoją firmę online, wykorzystując lokalne i globalne strategie, organiczne i płatne działania.
+heading: Jakie są możliwości działania w sieci dla firm?
+subheading: Jakie media i kanały wybrać?
+leading: Dowiedz się, jak wybrać odpowiednią strategię promocji dla Twojego biznesu, w zależności od grupy docelowej, typu działalności i długoterminowych celów
 image:
-  src: "mozliwosci-dzialania-w-sieci.webp"
-  alt: "Wskazanie palcem na ekranie laptopa, jakie są możliwości działania w sieci dla firm"
+  src: mozliwosci-dzialania-w-sieci.webp
+  alt: Wskazanie palcem na ekranie laptopa, jakie są możliwości działania w sieci dla firm
 categories:
   - biznes
   - www
@@ -16,8 +16,9 @@ knowledgeBase: true
 relatedPosts:
   - jak-zaczac-w-sieci
   - pozyskiwanie-ruchu-internetowego
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## Lokalne i globalne.

@@ -1,21 +1,22 @@
 ---
-slug: "cena-strony-www"
+slug: cena-strony-www
 meta:
-  title: "Koszt strony internetowej - Co wpływa na cenę?"
-  description: "Poznaj czynniki wpływające na koszt strony www. Dowiedz się, dlaczego ceny sięgają od kilkuset do kilkudziesięciu tysięcy złotych."
-heading: "Ile kosztuje strona www?"
-subheading: "Poznaj kluczowe czynniki wpływające na cenę strony www."
-leading: "Cena strony internetowej to temat, który budzi wiele pytań. Oferty mogą się wahać od kilkuset złotych do kilkudziesięciu tysięcy. Jakie są przyczyny tych różnic? Czy warto inwestować w droższe rozwiązania? W tym artykule przyjrzymy się czynnikom, które wpływają na koszt stworzenia strony www."
+  title: Koszt strony internetowej - Co wpływa na cenę?
+  description: Poznaj czynniki wpływające na koszt strony www. Dowiedz się, dlaczego ceny sięgają od kilkuset do kilkudziesięciu tysięcy złotych.
+heading: Ile kosztuje strona www?
+subheading: Poznaj kluczowe czynniki wpływające na cenę strony www.
+leading: Cena strony internetowej to temat, który budzi wiele pytań. Oferty mogą się wahać od kilkuset złotych do kilkudziesięciu tysięcy. Jakie są przyczyny tych różnic? Czy warto inwestować w droższe rozwiązania? W tym artykule przyjrzymy się czynnikom, które wpływają na koszt stworzenia strony www.
 image:
-  src: "cena-strony-www.webp"
-  alt: "Kalkulator z wyceną strony www"
+  alt: Kalkulator z wyceną strony www
+  src: cena-strony-www.webp
 categories:
   - www
 knowledgeBase: true
 relatedPosts:
   - ukryte-koszty
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## Cena strony www - skąd te różnice?

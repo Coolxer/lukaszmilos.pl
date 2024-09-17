@@ -1,14 +1,14 @@
 ---
-slug: "brak-gwarancji-sukcesu"
+slug: brak-gwarancji-sukcesu
 meta:
-  title: "Brak gwarancji sukcesu w sieci - Dlaczego nie?"
-  description: "Poznaj trudności działania w sieci i dowiedz się, dlaczego trudno jest dać gwarancję sukcesu."
-heading: "Brak gwarancji sukcesu w sieci"
-subheading: "Dlaczego trudno jest zagwarantować efekty działań w sieci."
-leading: "Sukces nigdy nie przychodzi szybko, a już na pewno nie o dużej skali. Nie można też go zagwarantować."
+  title: Brak gwarancji sukcesu w sieci - Dlaczego nie?
+  description: Poznaj trudności działania w sieci i dowiedz się, dlaczego trudno jest dać gwarancję sukcesu.
+heading: Brak gwarancji sukcesu w sieci
+subheading: Dlaczego trudno jest zagwarantować efekty działań w sieci.
+leading: Sukces nigdy nie przychodzi szybko, a już na pewno nie o dużej skali. Nie można też go zagwarantować.
 image:
-  src: "gwarancja-sukcesu-w-sieci.webp"
-  alt: "Osoba podpisuje dokument gwarancji sukcesu"
+  src: gwarancja-sukcesu-w-sieci.webp
+  alt: Osoba podpisuje dokument gwarancji sukcesu
 categories:
   - biznes
   - www
@@ -16,8 +16,9 @@ knowledgeBase: true
 relatedPosts:
   - jak-zaczac-w-sieci
   - istota-rozwoju
-date: "2024-08-03"
+date: 2024-08-03
 draft: false
+fmContentType: blog
 ---
 
 ## Jakie są trudności działania w sieci?
