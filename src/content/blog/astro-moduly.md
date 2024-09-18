@@ -14,7 +14,9 @@ image:
 categories:
   - www
 date: 2024-09-18T14:32:03.000Z
-draft: true
+relatedPosts:
+  - jak-relume-pomaga-w-projektowaniu-stron-www
+video: https://www.youtube.com/embed/md8JPDafMGg?si=LaRiORfbSKiRcp0O
 ---
 
 ## Wprowadzenie do Astro
