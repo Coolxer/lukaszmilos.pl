@@ -14,8 +14,11 @@ image:
   src: thunderbird.JPG
 categories:
   - biznes
-date: 2024-09-19T07:18:45.000Z
-draft: true
+  - cyfryzacja
+date: 2024-09-21T07:18:45.000Z
+video: https://www.youtube.com/embed/745OJbfcDZU?si=EuhWOJCS6bQInvab
+relatedPosts:
+  - jak-relume-pomaga-w-projektowaniu-stron-www
 ---
 
 ## Dlaczego wybrałem Thunderbird?
