@@ -124,50 +124,22 @@ const schema: Schema = {
           zyskaj widoczność, wiarygodność i lepszą skuteczność
         </span>
       </p>
-    </div><Row maxColumns={3} placement="items-stretch"
-      ><div
-        class="flex flex-col justify-between gap-8 rounded bg-gray-lightest p-8 shadow-sm">
-        <div class="h-64">
-          <MyImage
-            src="pages/ocena-strony-www.webp"
-            alt="Osoba przeglądająca notatki dot. strony internetowej przypięte na tablicy."
-          />
-        </div><div class="flex flex-col gap-4">
-          <h2 class="text-h4">Ocena strony internetowej lub sklepu</h2><p
-            class="text-lg">
-            Zleć ocenę strony internetowej, by poznać jej braki i
-            niedoskonałości, przez które wiele tracisz. Dowiedz się, jak Twoją
-            witrynę ocenia specjalista.
-          </p>
-        </div>
-        <!-- <IconList
-          class="text-gray-dark"
-          items={[
-            "Jakiej błędy można zauważyć?",
-            "Jaki jest ich skutek?",
-            "Jak je naprawić?",
-          ]}
-        /> -->
-        <Button
-          link={buildSlug("/oferta/ocena-strony-www")}
-          class="self-stretch md:self-start">
-          Sprawdź ofertę oceny strony
-        </Button>
-      </div><div
-        class="flex flex-col justify-between gap-8 rounded bg-gray-lightest p-8 shadow-sm">
-        <div class="h-64">
-          <MyImage
-            src="pages/poprawa-strony-www.webp"
-            alt="Tablet wyświetlający grafikę strony internetowej, a wokół widoczne są różne elementy i narzędzia naprawcze."
-          />
-        </div><div class="flex flex-col gap-4">
-          <h2 class="text-h4">Poprawa strony internetowej lub sklepu</h2><p
-            class="text-lg">
-            Zleć poprawę swojej strony internetowej na podstawie wcześniejszego
-            audytu lub konkretnego aspektu, który chcesz poprawić.
-          </p>
-        </div>
-        <!-- <IconList
+    </div><div
+      class="flex w-full flex-col justify-between gap-8 rounded bg-gray-lightest p-8 shadow-sm md:w-1/2">
+      <div class="h-64">
+        <MyImage
+          src="pages/poprawa-strony-www.webp"
+          alt="Tablet wyświetlający grafikę strony internetowej, a wokół widoczne są różne elementy i narzędzia naprawcze."
+        />
+      </div><div class="flex max-w-prose flex-col gap-4">
+        <h2 class="text-h4">Poprawa strony internetowej lub sklepu</h2><p
+          class="text-lg">
+          Zleć poprawę swojej strony internetowej by nie tylko prezentowała się
+          lepiej dla Ciebie i Twoich klientów, ale dawała także lepsze
+          rezultaty.
+        </p>
+      </div>
+      <!-- <IconList
           class="text-gray-dark"
           items={[
             "Gdzie zauważasz problem?",
@@ -175,41 +147,13 @@ const schema: Schema = {
             "W czym potrzebujesz pomocy?",
           ]}
         /> -->
-        <Button
-          link={buildSlug("/oferta/poprawa-strony-www")}
-          class="self-stretch md:self-start">
-          Sprawdź ofertę poprawy strony
-        </Button>
-      </div><div
-        class="flex flex-col justify-between gap-8 rounded bg-gray-lightest p-8 shadow-sm">
-        <div class="h-64">
-          <MyImage
-            src="pages/rozwoj-strony-www.webp"
-            alt="Nowoczesne i rozwinięte miasto z wysokimi budynkami i dużą ilością światła na drodze."
-          />
-        </div><div class="flex flex-col gap-4">
-          <h2 class="text-h4">Rozwój strony internetowej lub sklepu</h2><p
-            class="text-lg">
-            "Doradź się lub zleć dodanie nowej funkcjonalności do strony
-            internetowej, zwiększającej jej wartość dla użytkowników.
-          </p>
-        </div>
-        <!-- <IconList
-          class="text-gray-dark"
-          items={[
-            "Czego brakuje na stronie?",
-            "Co można ulepszyć?",
-            "Co można zrobić lepiej?",
-          ]}
-        /> -->
-        <Button
-          link={buildSlug("/oferta/rozwoj-strony-www")}
-          class="self-stretch md:self-start">
-          Sprawdź ofertę rozwoju strony
-        </Button>
-      </div>
-    </Row></Section
-  >
+      <Button
+        link={buildSlug("/oferta/poprawa-strony-www")}
+        class="self-stretch md:self-start">
+        Sprawdź ofertę poprawy strony
+      </Button>
+    </div>
+  </Section>
 
   <Section center class="bg-accent-darkest text-white"
     ><div class="flex max-w-prose flex-col gap-4 md:text-center">

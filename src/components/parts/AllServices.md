@@ -36,6 +36,5 @@
 
 - prosta analiza biznesu w sieci i poszukiwanie możliwości poprawy
 - optymalizacja wizytówki Google Moja Firma
-- prowadzenie wizytówki Google Moja Firma (publikacja postów, monitoring, opinie)
 - wystawianie produktów w sklepie internetowym i na platformach sprzedażowych
 - tworzenie prostych wpisów na platformy społecznościowe oraz możliwość automatyzacji tego procesu
