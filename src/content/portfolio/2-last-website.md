@@ -1,15 +1,15 @@
 ---
-slug: moja-aktualna-strona-www
+slug: moja-dotychczasowa-strona-www
 order: 2
 meta:
   title: Profesjonalna własna strona www - kodowana z Astro
   description: Nowoczesna strona www oparta na Astro, wspierająca budowę marki osobistej i prezentację projektów
-title: Moja aktualna strona www, która nauczyła mnie poprawnie budować witryny i przyciągać uwagę klientów
+title: Moja dotychczasowa strona www, która nauczyła mnie poprawnie budować witryny i przyciągać uwagę klientów
 problem: Brak rozpoznawalności w sieci i zaufania klientów
 target: Budowa marki osobistej
 result: Ponad 1400 wyświetleń i estetyczna prezentacja
 image:
-  alt: Aktualna stronna internetowa Łukasza Miłoś www.lukaszmilos.pl
+  alt: Dotychczasowa stronna internetowa Łukasza Miłoś
   src: portfolio/obecna-strona/obecna-strona-pokaz.webp
 webMetrics:
   speed: 98
@@ -18,7 +18,7 @@ webMetrics:
   seo: 100
   views: 1400
   clicks: 30
-link: https://www.lukaszmilos.pl/
+link: https://lukaszmilos-pl---old-website.pages.dev/
 category: www
 videos:
   - https://www.youtube.com/embed/Fhb67CdMRYU?si=-r-sCNwBeBpauZy0
