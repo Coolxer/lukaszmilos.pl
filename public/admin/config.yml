@@ -7,7 +7,7 @@ backend:
   repo: "coolxer/lm-astro-2025"
   branch: main
   skip_ci: true
-  # base_url: https://sveltia-cms-auth.automatyzacja-demo.workers.dev/
+  base_url: https://lukaszmilospl-cms-auth.lukasz-milos-dev.workers.dev
 
 media_folder: "src/assets/images"
 public_folder: "/images"

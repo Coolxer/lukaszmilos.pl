@@ -20,7 +20,6 @@ webMetrics:
   clicks: 150
 link: https://miernik-rozwarcia.xce.pl/
 category: www
-review: AK
 videos:
   - https://www.youtube.com/embed/Qt4iBtRPIYI?si=30TQm3jbKH7uLjK8
 draft: false
