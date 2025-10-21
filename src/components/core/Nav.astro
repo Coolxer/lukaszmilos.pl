@@ -1,0 +1,43 @@
+---
+import { buildSlug } from "~/utils/utils";
+
+export type NavLink = {
+  slug: string;
+  label: string;
+};
+
+export interface Props {
+  items?: NavLink[];
+  additionalItems?: NavLink[];
+  class?: string;
+}
+
+const {
+  items = [
+    {
+      slug: "strony-www",
+      label: "Strony www",
+    },
+    {
+      slug: "systemy-i-automatyzacje",
+      label: "Systemy i automatyzacje",
+    },
+    {
+      slug: "portfolio",
+      label: "Portfolio",
+    },
+  ],
+  additionalItems = [],
+  class: className,
+} = Astro.props;
+
+const links = [...items, ...additionalItems];
+---
+
+{
+  links.map((link) => (
+    <a href={buildSlug(link.slug)} class={className}>
+      {link.label}
+    </a>
+  ))
+}

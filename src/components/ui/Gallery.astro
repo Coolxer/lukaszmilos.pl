@@ -1,0 +1,240 @@
+---
+import type { ImageMetadata } from "astro";
+
+import "photoswipe/photoswipe.css";
+
+import MyImage from "@components/ui/MyImage.astro";
+
+type GalleryImage = {
+  data?: ImageMetadata;
+  src?: string;
+  fromPublic?: boolean;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
+export interface Props {
+  id: string;
+  images: GalleryImage[];
+  lightbox?: boolean;
+  zoom?: boolean;
+  maxColumns?: 1 | 2 | 3 | 4 | 5 | 6;
+  gap?: string;
+  height?: string;
+  hoverEffects?: string;
+  class?: string;
+}
+
+const {
+  id,
+  images,
+  lightbox = true,
+  zoom = false,
+  maxColumns = 3,
+  gap = "gap-8",
+  height = "h-80",
+  hoverEffects,
+  class: className,
+  ...attributes
+} = Astro.props;
+
+const getGridClasses = (max: number): string => {
+  const classes = ["grid-cols-1"];
+  if (max >= 2) classes.push("md:grid-cols-2");
+  if (max >= 3) classes.push("lg:grid-cols-3");
+  if (max >= 4) classes.push("xl:grid-cols-4");
+  if (max >= 5) classes.push("2xl:grid-cols-5");
+  if (max >= 6) classes.push("2xl:grid-cols-6");
+  return classes.join(" ");
+};
+
+const gridClasses = getGridClasses(maxColumns);
+
+const getImageHref = (image: GalleryImage): string => {
+  if (image.data) return image.data.src;
+  if (image.src) return image.src;
+  return "";
+};
+
+const getImageDimensions = (image: GalleryImage) => {
+  return {
+    width: image.width || image.data?.width || 1200,
+    height: image.height || image.data?.height || 800,
+  };
+};
+---
+
+<astro-gallery data-id={id} data-lightbox={lightbox} class="w-full">
+  <div
+    id={id}
+    class:list={[
+      lightbox && "pswp-gallery",
+      "grid place-content-stretch place-items-stretch",
+      gridClasses,
+      gap,
+      className,
+    ]}
+    {...attributes}
+  >
+    {
+      images?.map((image) => {
+        const { width, height } = getImageDimensions(image);
+        const href = getImageHref(image);
+
+        const containerClasses = [
+          "rounded-box shadow",
+          height,
+          zoom && "overflow-hidden",
+          hoverEffects,
+        ];
+
+        const imageClasses = [
+          "object-cover",
+          zoom && "transition-transform duration-500 hover:scale-110",
+        ];
+
+        const imageComponent = (
+          <MyImage
+            img={image.data}
+            src={image.src}
+            fromPublic={image.fromPublic}
+            alt={image.alt}
+            width={500}
+            height={500}
+            widths={[320, 500, 680]}
+            sizes="(max-width: 480px) 320px, (max-width: 768px) 500px, 680px"
+            class:list={imageClasses}
+          />
+        );
+
+        return lightbox ? (
+          <a
+            href={href}
+            data-pswp-width={width}
+            data-pswp-height={height}
+            target="_blank"
+            class:list={containerClasses}
+          >
+            {imageComponent}
+          </a>
+        ) : (
+          <div class:list={containerClasses}>{imageComponent}</div>
+        );
+      })
+    }
+  </div>
+</astro-gallery>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  class AstroGallery extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      const galleryId = this.dataset.id;
+      const lightboxEnabled = this.dataset.lightbox === "true";
+
+      if (!lightboxEnabled) return;
+
+      const lightbox = new PhotoSwipeLightbox({
+        bgOpacity: 1,
+        showHideAnimationType: "fade",
+        loop: true,
+        spacing: 0.1,
+
+        // Włącz counter (licznik)
+        counter: true,
+
+        // Tytuły i opisy
+        closeTitle: "Zamknij okno",
+        zoomTitle: "Przybliż zdjęcie",
+        arrowPrevTitle: "Poprzednie zdjęcie",
+        arrowNextTitle: "Następne zdjęcie",
+
+        indexIndicatorSep: " / ",
+        errorMsg: "Zdjęcie nie może być załadowane",
+
+        gallery: "#" + galleryId,
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+      });
+
+      // Dodaj custom bulleted indicators (kropki)
+      lightbox.on("uiRegister", function () {
+        lightbox.pswp.ui.registerElement({
+          name: "bulleted-indicators",
+          order: 9,
+          isButton: false,
+          appendTo: "wrapper",
+          onInit: (el, pswp) => {
+            const indicatorsContainer = document.createElement("div");
+            indicatorsContainer.className = "pswp__bulleted-indicators";
+
+            // Dodaj style inline
+            indicatorsContainer.style.cssText = `
+              position: absolute;
+              bottom: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+              display: flex;
+              gap: 8px;
+              z-index: 1000;
+            `;
+
+            // Stwórz kropki dla każdego zdjęcia
+            for (let i = 0; i < pswp.getNumItems(); i++) {
+              const indicator = document.createElement("button");
+              indicator.className = "pswp__indicator";
+              indicator.style.cssText = `
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5);
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s;
+                padding: 0;
+              `;
+
+              indicator.addEventListener("click", () => {
+                pswp.goTo(i);
+              });
+
+              indicatorsContainer.appendChild(indicator);
+            }
+
+            el.appendChild(indicatorsContainer);
+
+            // Update aktywnego wskaźnika
+            const updateIndicators = () => {
+              const indicators =
+                indicatorsContainer.querySelectorAll(".pswp__indicator");
+              indicators.forEach((ind, i) => {
+                if (i === pswp.currIndex) {
+                  (ind as HTMLElement).style.background =
+                    "rgba(255, 255, 255, 1)";
+                  (ind as HTMLElement).style.transform = "scale(1.2)";
+                } else {
+                  (ind as HTMLElement).style.background =
+                    "rgba(255, 255, 255, 0.5)";
+                  (ind as HTMLElement).style.transform = "scale(1)";
+                }
+              });
+            };
+
+            pswp.on("change", updateIndicators);
+            updateIndicators();
+          },
+        });
+      });
+
+      lightbox.init();
+    }
+  }
+
+  customElements.define("astro-gallery", AstroGallery);
+</script>

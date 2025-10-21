@@ -1,0 +1,132 @@
+---
+import "@fontsource/poppins";
+import "@assets/styles/global.css";
+
+import config from "@data/consts.json";
+
+import MySEO, { type Meta, type Schema } from "@components/core/MySEO.astro";
+import { getImagePath } from "astro-opengraph-images";
+
+const { url, site } = Astro;
+const openGraphImageUrl = getImagePath({ url, site });
+
+type Props = {
+  meta: Meta;
+  schema?: Schema;
+};
+
+const { meta, schema } = Astro.props;
+---
+
+<!doctype html>
+<html lang={config.site.language || "pl"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    {/* Sitemap */}
+    <link rel="sitemap" href={"/sitemap-index.xml"} />
+
+    {/* Meta and schema tags */}
+    <MySEO
+      meta={{
+        ...meta,
+        openGraph: {
+          basic: {
+            title: meta.title,
+            type: "website",
+            image: openGraphImageUrl,
+            url: url,
+          },
+          optional: {
+            description: meta.description,
+          },
+        },
+      }}
+      schema={schema}
+    />
+
+    {/* RSS Link */}
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={config.site.name}
+      href={new URL("rss.xml", Astro.site)}
+    />
+
+    {/* GSC */}
+    {
+      /*  <meta
+    name="google-site-verification"
+    content="UKFmXV6Z88v-ubaiozP5juUw0eEc_8AdyeZwphizZX0"
+    /> */
+    }
+
+    {/* Theme change - localStorage */}
+    <script is:inline define:vars={{ theme: config.site.themes[0] }}>
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", theme);
+      } else
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme")
+        );
+    </script>
+
+    <script>
+      import { themeChange } from "theme-change";
+      themeChange();
+    </script>
+  </head>
+  <body>
+    <slot />
+    {/* 100% privacy-first analytics */}
+    {
+      /*  <script
+      async
+      src="https://scripts.simpleanalyticscdn.com/latest.js"
+      is:inline></script> */
+    }
+  </body>
+</html>
+
+{/* Animations */}
+<script>
+  // Fade in on scroll - tylko dla sekcji
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+        }
+      });
+    },
+    {
+      threshold: 0.05,
+      rootMargin: "100px 0px 0px 0px", // Większy margines górny
+    }
+  );
+
+  const sections = document.querySelectorAll("section");
+
+  // Sprawdź widoczne sekcje gdy przeglądarka jest bezczynna
+  const checkVisible = () => {
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        section.classList.add("animate-in");
+      }
+    });
+  };
+
+  // Obserwuj wszystkie sekcje
+  sections.forEach((el) => observer.observe(el));
+
+  // Sprawdź widoczne elementy bez blokowania głównego wątku
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(checkVisible);
+  } else {
+    // Fallback dla starszych przeglądarek
+    setTimeout(checkVisible, 100);
+  }
+</script>

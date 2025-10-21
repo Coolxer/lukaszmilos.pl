@@ -1,0 +1,16 @@
+{
+  // For YAML config file
+  "yaml.schemas": {
+    "https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json": [
+      "/static/admin/config.yml"
+    ]
+  },
+
+  // For JSON config file
+  "json.schemas": [
+    {
+      "fileMatch": ["/static/admin/config.json"],
+      "url": "https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json"
+    }
+  ]
+}

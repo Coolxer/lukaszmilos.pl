@@ -1,0 +1,771 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+import { PORTFOLIO_CATEGORIES } from "~/content/schemas";
+
+import PageLayout from "@layouts/PageLayout.astro";
+
+import HeroImg from "@assets/images/pages/strony-www/strona-www.svg";
+
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import IconList from "@components/ui/IconList.astro";
+
+import PortfolioCard from "@components/collection/PortfolioCard.astro";
+import ReviewCard from "@components/collection/ReviewCard.astro";
+
+import FAQ from "@components/ui/FAQ.astro";
+import CTA from "~/components/sections/CTA.astro";
+
+const meta: Meta = {
+  title: "Strony internetowe bez bólu głowy.",
+  description:
+    "Buduję strony, które po prostu działają. Bez ciągłych aktualizacji, abonamentów i stresu. Skup się na biznesie – resztą zajmie się Twoja nowa witryna.",
+};
+
+const schema: Schema = {
+  "@context": "https://schema.org",
+  "@type": "WebService",
+  name: "Tworzenie szybkich i bezpiecznych stron internetowych",
+  description:
+    "Usługa budowy nowoczesnych stron internetowych w oparciu o architekturę Jamstack (Astro), zapewniających szybkość, bezpieczeństwo i niezależność od platform abonamentowych.",
+  provider: {
+    "@type": "Person",
+    name: "Rola - Ekspert front-end",
+  },
+  serviceType: "Tworzenie stron internetowych",
+  areaServed: "PL",
+};
+
+const relatedProjects = (
+  await getCollection("portfolio", ({ data }) => {
+    return (
+      !data.draft && data.category && data.category === PORTFOLIO_CATEGORIES[0]
+    );
+  })
+).slice(0, 2);
+
+const relatedReviews = (
+  await getCollection("reviews", ({ data }) => {
+    return (
+      !data.draft &&
+      data.service &&
+      data.service.includes(PORTFOLIO_CATEGORIES[0])
+    );
+  })
+).slice(0, 2);
+---
+
+<PageLayout meta={meta} schema={schema}>
+  {/* SEKCJA HERO */}
+  <Section
+    headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
+  >
+    <Heading tag="h1" look="h0" slot="heading">
+      Strona internetowa <span class="text-primary"> bez bólu głowy.</span>
+    </Heading>
+    <p slot="paragraph">
+      Bez ciągłych aktualizacji, problemów z działaniem, wysokich kosztów i
+      uciążliwych limitów.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <Button link="#o-co-chodzi" rawLink class="btn-primary">
+        Zobacz o co chodzi?
+      </Button>
+      <Button link="/kontakt" class="btn-ghost"> Skontaktuj się </Button>
+    </div>
+
+    <div>
+      <HeroImg
+        class="w-full h-auto text-base-content/50"
+        preserveAspectRatio="xMidYMid meet"
+        aria-hidden="true"
+        focusable="false"
+      />
+    </div>
+  </Section>
+
+  <Section variant="secondary" id="o-co-chodzi">
+    <Heading tag="h2" slot="heading">Masz dość tego, że:</Heading>
+    <div class="rounded-box border-2 border-error/30 bg-error/5 p-6 shadow-sm">
+      <IconList
+        iconName="tabler:circle-x"
+        color="text-error"
+        size="text-3xl"
+        items={[
+          "Kolejna aktualizacja WordPressa zepsuła stronę?",
+          "Webflow / Framer / inna platforma znów podniósła opłaty, a i tak było drogo?",
+          "Martwisz się o bezpieczeństwo strony?",
+          "Twoja witryna ładuje się wieki, a klienci uciekają?",
+          "Potrzebujesz droższego planu, żeby zwiększyć uciążliwe limity?",
+          "Obsługa Twojej strony jest trudna i nieintuicyjna?",
+          "Nie chcesz uzależniać się od platformy i mieć stronę na własność?",
+        ]}
+      />
+    </div>
+  </Section>
+
+  <Section>
+    <Heading tag="h2" slot="heading"
+      >Może być inaczej! <br /> Co dostajesz u mnie?</Heading
+    >
+    <p slot="paragraph">
+      To nowa filozofia tworzenia stron, która daje Ci realne korzyści.
+    </p>
+
+    <div class="my-big-stack">
+      {
+        [
+          {
+            icon: "tabler:mood-smile",
+            title: "Święty spokój i niezawodność",
+            description:
+              'Brak wtyczek, baz danych i konfliktów. Strona działa stabilnie latami, bez ciągłej opieki. To filozofia "Ustaw i zapomnij", ale rozwijaj jeśli chcesz.',
+          },
+          {
+            icon: "tabler:rocket",
+            title: "Błyskawiczna szybkość",
+            description:
+              "Wyniki w Google PageSpeed bliskie ideału (90+/100). Klienci to uwielbiają, a Google nagradza Cię wyższą pozycją.",
+          },
+          {
+            icon: "tabler:shield-lock",
+            title: "Wysoki poziom bezpieczeństwa",
+            description:
+              "Statyczna architektura (brak PHP, bazy danych), SSL i kopie na GitHubie sprawiają, że strona jest naturalnie odporna na 99% ataków.",
+          },
+          {
+            icon: "tabler:key",
+            title: "Pełna własność i zero uzależnienia",
+            description:
+              "Otrzymujesz pełen kod źródłowy na swoje konto. Strona jest w 100% Twoja. Nie jesteś zakładnikiem żadnej platformy czy wykonawcy.",
+          },
+          {
+            icon: "tabler:pig-money",
+            title: "Przejrzyste koszty",
+            description:
+              "Płacisz raz za budowę. Utrzymanie strony może kosztować Cię 0 zł rocznie dzięki darmowemu hostingowi klasy światowej.",
+          },
+          {
+            icon: "tabler:infinity",
+            title: "Brak sztucznych limitów",
+            description:
+              "Chcesz dodać 100 nowych wpisów na bloga albo 10 wersji językowych? Proszę bardzo. Nie ograniczają Cię żadne plany i subskrypcje.",
+          },
+          {
+            icon: "tabler:device-mobile",
+            title: "Bajecznie prosty panel CMS (opcja)",
+            description:
+              "Możesz samodzielnie dodawać treści przez panel prostszy niż WordPress, także wygodnie z telefonu.",
+          },
+          {
+            icon: "tabler:zoom-check",
+            title: "SEO techniczne na najwyższym poziomie",
+            description:
+              "Szybkość, responsywność, meta tagi, struktura, schema.org – wszystko, o czym inni zapominają, u mnie jest standardem.",
+          },
+        ].map((item) => (
+          <div class="flex items-start gap-8 px-4 py-8 bg-primary/10 rounded-box shadow-sm">
+            <div class="bg-primary/50 p-2 rounded-full">
+              <Icon name={item.icon} class="size-8 text-primary-content" />
+            </div>
+
+            <div class="my-stack">
+              <Heading tag="h3" look="h4">
+                {item.title}
+              </Heading>
+              <p class="text-base-content/80 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section
+    variant="tetriary"
+    headingAndParagraphClasses="[&_h2]:text-neutral-content [&_p]:text-neutral-content [&_p]:text-lg"
+  >
+    <Heading tag="h2" slot="heading">Uczciwie o ograniczeniach</Heading>
+    <p slot="paragraph">Każda technologia ma swoje kompromisy. Oto one:</p>
+
+    <Grid cols={2}>
+      {
+        [
+          {
+            title: "Publikacja z opóźnieniem",
+            description:
+              "Zmiany w CMS pojawiają się po ok. 3-5 minutach. To wynika z technologii, ale gwarantuje stabilność. Nie jest to problemem dla większości biznesów.",
+          },
+          {
+            title: "Prosty panel edycji",
+            description:
+              "W panelu CMS zmieniasz i dodajesz wcześniej ustalone treści, ale nie wszystkie. To chroni Cię przed przypadkowym zepsuciem strony. Większe zmiany robię ja.",
+          },
+          {
+            title: "Brak hostingu e-mail",
+            description:
+              "Hosting strony (np. Cloudflare) nie obejmuje skrzynek pocztowych. Pomogę Ci skonfigurować profesjonalny e-mail u zewnętrznego dostawcy, jeśli tego potrzebujesz.",
+          },
+          {
+            title: "Nie dla dużych e-commerce",
+            description:
+              "Jeśli planujesz sklep z setkami produktów lub złożoną platformę, dedykowane rozwiązania mogą być lepsze. Proste sklepy da się zintegrować.",
+          },
+        ].map((item) => (
+          <div class="bg-base-300 px-4 py-8 my-stack rounded-box">
+            <div>
+              <h3 class="text-xl font-bold">{item.title}</h3>
+              <div class="divider mt-2 mb-0" />
+            </div>
+            <p class="text-base-content/80">{item.description}</p>
+          </div>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Section>
+    <Heading tag="h2" slot="heading">Minimalizm, który sprzedaje</Heading>
+    <div class="text-lg my-big-stack">
+      <p>
+        W dobie ciągłych rozpraszaczy, prostota jest najskuteczniejszą
+        strategią. Twoi klienci przychodzą na stronę w konkretnym celu –
+        dowiedzieć się czegoś lub dokonać zakupu. Moim zadaniem jest usunąć
+        wszystkie przeszkody na ich drodze.
+      </p>
+      <p class="font-medium text-primary border-l-4 border-primary pl-4">
+        Moja filozofia to ponadczasowy design, który się nie starzeje. Twoja
+        strona będzie wyglądać nowocześnie i profesjonalnie dziś, za rok i za
+        pięć lat. To klasyka, nie chwilowa moda.
+      </p>
+      <p>
+        Stawiam na czytelne, często jednokolumnowe układy z odpowiednią
+        hierarchią treści, proste elementy, unikam stockowych i wygenerowanych
+        zdjęć (autentyczność materiałów) oraz zbędnych animacji.
+      </p>
+
+      <div role="alert" class="alert alert-info alert-soft text-base">
+        Jeśli podoba Ci się technologia, ale preferujesz bogatszy design – żaden
+        problem. Dostarcz gotowy projekt graficzny, a ja zbuduję na jego
+        podstawie tak samo szybką i bezpieczną stronę.
+      </div>
+    </div>
+  </Section>
+
+  {
+    /*{
+    relatedProjects && relatedProjects.length > 0 && (
+      <Section variant="secondary" id="realizacje">
+        <Heading tag="h2" slot="heading">
+          Przykładowe realizacje stron internetowych
+        </Heading>
+        <p slot="paragraph">
+          Zobacz konkretne projekty i rezultaty, które udało mi się osiągnąć dla
+          klientów.
+        </p>
+
+        <Grid cols={1}>
+          {relatedProjects.map((project) => (
+            <PortfolioCard item={project} />
+          ))}
+        </Grid>
+
+        <div class="flex justify-center mt-8">
+          <Button link="/portfolio/kategoria/www" class="btn-primary">
+            Zobacz inne realizacje
+          </Button>
+        </div>
+      </Section>
+    )
+  */
+  }
+
+  {
+    /*
+    relatedReviews && relatedReviews.length > 0 && (
+      <Section>
+        <Heading tag="h2" slot="heading">
+          Co mówią zadowoleni klienci?
+        </Heading>
+        <p slot="paragraph">Opinie osób, które zdecydowały się na współpracę</p>
+
+        <Grid cols={2}>
+          {relatedReviews.map((review) => (
+            <ReviewCard item={review} />
+          ))}
+        </Grid>
+
+        <div class="flex justify-center mt-8">
+          <Button link="/opinie/" class="btn-primary">
+            Zobacz wszystkie opinie
+          </Button>
+        </div>
+      </Section>
+    )
+  */
+  }
+
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading"
+      >Moja specjalizacja. <br />W czym Ci pomogę?</Heading
+    >
+    <p slot="paragraph">
+      Aby zapewnić Ci najwyższą jakość, skupiam się w 100% na tym, w czym jestem
+      najlepszy.
+    </p>
+
+    <div class="my-big-stack">
+      <div
+        class="rounded-box border-2 border-success/30 bg-success/5 p-6 shadow-sm my-big-stack"
+      >
+        <Heading tag="h3" look="h4">✅ Czym się zajmuję:</Heading>
+
+        <ul class="flex flex-col gap-6 list-disc list-outside ml-8">
+          {
+            [
+              {
+                title: "Perfekcyjnym wykonaniem technicznym",
+                description:
+                  "Buduję niezawodne, szybkie i bezpieczne strony internetowe.",
+              },
+              {
+                title: "Wdrożeniem Twojej wizji",
+                description:
+                  " Przekładam Twoje treści i ewentualny projekt graficzny na działający kod.",
+              },
+              {
+                title: "Zapewnieniem prostoty obsługi",
+                description:
+                  "Tworzę intuicyjne narzędzia (CMS), które ułatwiają Ci zarządzanie treścią i eliminuję wady innych platform.",
+              },
+              {
+                title: "Wdrożeniem innych narzędzi / automatyzacji",
+                description:
+                  "Jeśli jest coś, czym mogę Ci ułatwić codzienną pracę, to chętnie to zrobię.",
+              },
+            ].map((item) => (
+              <li class="">
+                <p class="font-bold">{item.title}</p>
+                <p class="text-base-content/80 mt-1">{item.description}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div
+        class="rounded-box border-2 border-error/30 bg-error/5 p-6 shadow-sm my-big-stack"
+      >
+        <Heading tag="h3" look="h4">❌ Czego nie robię:</Heading>
+
+        <ul class="flex flex-col gap-6 list-disc list-outside ml-8">
+          {
+            [
+              {
+                title: "Wybitnego copywritingu i strategii marketingowej",
+                description:
+                  "Robię podstawową analizę branży i piszę tak jak uważam, nie zawsze tak jak się powinno. Ewentualne poprawki wprowadzam z AI.",
+              },
+              {
+                title: "Zaawansowanego SEO (poza technicznym)",
+                description:
+                  "Zapewniam idealny fundament techniczny pod SEO, ale nie zajmuję się pozycjonowaniem, analizą słów kluczowych czy link buildingiem.",
+              },
+              {
+                title: "Projektowania graficznego od podstaw",
+                description:
+                  "Działam w oparciu o sprawdzony, minimalistyczny styl. Jeśli potrzebujesz unikalnego, złożonego projektu, powinieneś współpracować z grafikiem.",
+              },
+              {
+                title: "Prowadzenia kampanii reklamowych",
+                description:
+                  "Nie konfiguruję ani nie zarządzam reklamami w Google Ads czy na Facebooku.",
+              },
+            ].map((item) => (
+              <li class="">
+                <p class="font-bold">{item.title}</p>
+                <p class="text-base-content/80 mt-1">{item.description}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <Heading tag="h2" slot="heading"
+      >Czy to rozwiązanie jest dla Ciebie?</Heading
+    >
+
+    <Grid cols={2}>
+      <div
+        class="rounded-box border-2 border-success/30 bg-success/5 p-6 shadow-sm my-big-stack"
+      >
+        <Heading tag="h3" look="h4">✅ Tak, jeśli:</Heading>
+        <IconList
+          iconName="tabler:circle-check"
+          color="text-success"
+          size="text-2xl"
+          items={[
+            "Masz stronę na WordPressie i dość problemów",
+            "Płacisz wysoki abonament za Webflow/Framer",
+            "Masz dość limitów i chcesz pełnej własności strony",
+            "Potrzebujesz strony dla nowego projektu / firmy",
+            'Chcesz prowadzić blog lub portfolio w modelu "ustaw i zapomnij"',
+            "Zależy Ci na topowych wynikach szybkości i SEO",
+          ]}
+        />
+      </div>
+      <div
+        class="rounded-box border-2 border-error/30 bg-error/5 p-6 shadow-sm my-big-stack"
+      >
+        <Heading tag="h3" look="h4">❌ Nie, jeśli:</Heading>
+        <IconList
+          iconName="tabler:circle-x"
+          color="text-error"
+          size="text-2xl"
+          items={[
+            "Planujesz duży sklep e-commerce",
+            "Chcesz codziennie samodzielnie zmieniać wygląd strony",
+            "Budujesz rozbudowaną platformę społecznościową",
+            "Ustawicznie wspominasz o wordpressowych wtyczkach",
+          ]}
+        />
+      </div>
+    </Grid>
+  </Section>
+
+  <Section id="cennik" variant="secondary">
+    <Heading tag="h2" slot="heading">Cennik – prosto i transparentnie</Heading>
+    <div
+      class="bg-base-100 border-2 border-neutral shadow-md rounded-box p-8 flex flex-col gap-6"
+    >
+      <div>
+        <Heading tag="h3" look="h4">Budowa strony</Heading>
+        <div class="divider"></div>
+      </div>
+      <div class="grid grid-cols-2">
+        <div class="">
+          <div class="badge badge-primary mb-2">landing</div>
+          <p class="text-h3">
+            od 3 470 zł <span class="text-lg font-normal">netto</span>
+          </p>
+        </div>
+        <div class="">
+          <div class="badge badge-primary mb-2">5+ podstron</div>
+          <p class="text-h3">
+            od 5 970 zł <span class="text-lg font-normal">netto</span>
+          </p>
+        </div>
+      </div>
+      <p class="text-base-content/80 mb-6">
+        Płacisz raz i masz. Strona, kod i pełna własność są Twoje.
+      </p>
+
+      <div class="flex flex-col gap-2">
+        <h4 class="font-bold text-base-content">Elementy dodatkowo płatne:</h4>
+        <ul class="list-disc list-outside space-y-2 pl-5">
+          <li>Dodatkowa podstrona: od 400 zł</li>
+          <li>Panel CMS (jednorazowo): od 500 zł</li>
+          <li>Wielojęzyczność: od 1 000 zł (bez limitów)</li>
+          <li>Motyw jasny/ciemny: 400 zł</li>
+          <li>Formularze, kalkulatory, kalendarz, itp.: wycena indywidualna</li>
+        </ul>
+      </div>
+
+      <p class="italic text-base-content/50">
+        Ostateczna cena zależy od złożoności projektu.
+      </p>
+    </div>
+    <div
+      class="bg-base-100 border-2 border-neutral shadow-md rounded-box p-8 flex flex-col gap-6"
+    >
+      <div>
+        <Heading tag="h3" look="h4">Obsługa i utrzymanie</Heading>
+        <div class="divider"></div>
+      </div>
+      <div class="">
+        <div class="badge badge-primary">abonament</div>
+        <p class="text-h3">
+          od 0 zł <span class="text-lg font-normal">/ miesiąc</span>
+        </p>
+      </div>
+      <p class="text-base-content/80 mb-6">Hosting jest darmowy.</p>
+
+      <div class="flex flex-col gap-2">
+        <h4 class="font-bold text-base-content">Wyjaśnienie:</h4>
+        <ul class="list-disc list-outside space-y-2 pl-5">
+          <li>Strona bez panelu CMS: 0 zł / miesiąc*</li>
+          <li>Strona z panelem CMS: 50 zł / miesiąc*</li>
+          <li>Wprowadzanie zmian: 100 zł / h</li>
+        </ul>
+      </div>
+
+      <p class="italic text-base-content/50">
+        Drobne poprawki (literówka, cena, jedno zdanie) często wykonuję w ramach
+        dobrej współpracy – bez opłat.
+      </p>
+
+      <p class="italic text-base-content/50">
+        * Jeśli nie stosujemy płatnych zewnętrznych integracji (np. cookieyes
+        dla większej witryny).
+      </p>
+    </div>
+  </Section>
+
+  <Section>
+    <Heading tag="h2" slot="heading">FAQ</Heading>
+    <p slot="paragraph">Pytania i odpowiedzi</p>
+    <FAQ
+      name="faq1"
+      items={[
+        {
+          question: "Czy ta strona na pewno będzie w 100% moja?",
+          answer:
+            "Absolutnie tak. Otrzymujesz pełen kod źródłowy na swoje konta. Nie jesteś zakładnikiem żadnej platformy, abonamentu ani wykonawcy. Masz pełną wolność i kontrolę.",
+        },
+        {
+          question: "Czy nie uzależniam się od Ciebie i od tej technologii?",
+          answer: `
+<p class="mb-4">To doskonałe pytanie, które dotyka sedna problemu "vendor lock-in", czyli uzależnienia od dostawcy – zarówno osoby, jak i platformy. Moje rozwiązanie jest zaprojektowane jako antidotum na ten problem. Rozbijmy to na dwie części:</p>
+
+<h4 class="text-xl font-bold mb-2 mt-6">1. Czy uzależniam się od technologii (Astro)?</h4>
+<p class="mb-3">Absolutnie nie. Wręcz przeciwnie – zyskujesz wolność. Oto dlaczego:</p>
+<ul class="list-disc list-outside space-y-3 pl-5">
+  <li><strong>Fundamenty Web Developmentu:</strong> Astro to nie jest zamknięta, magiczna skrzynka. To nowoczesne narzędzie, które ostatecznie generuje czysty HTML, CSS i JavaScript – czyli uniwersalny język internetu. Te technologie są ponadczasowe i nigdzie się nie wybierają.</li>
+  <li><strong>Technologia Open Source:</strong> Astro jest projektem open source. Oznacza to, że jego kod jest publicznie dostępny, rozwijany przez globalną społeczność i nie należy do żadnej korporacji. Nikt nie może Ci go "wyłączyć", nagle zmienić cennika ani zmusić do płacenia abonamentu.</li>
+  <li><strong>Brak "Uwięzienia":</strong> Nawet jeśli za 10 lat Astro przestanie istnieć (co jest mało prawdopodobne), Twoja zbudowana strona nadal będzie działać bez zarzutu. Co więcej, kod źródłowy oparty na standardach można łatwo przenieść do innego, podobnego narzędzia. To przeciwieństwo platform takich jak Webflow czy Framer, gdzie jesteś całkowicie zależny(a) od ich istnienia i polityki cenowej.</li>
+</ul>
+
+<h4 class="text-xl font-bold mb-2 mt-8">2. A co z uzależnieniem ode mnie jako wykonawcy?</h4>
+<p class="mb-3">Tutaj również dbam o Twoją niezależność:</p>
+<ul class="list-disc list-outside space-y-3 pl-5">
+  <li><strong>Uniwersalne i popularne narzędzia:</strong> Używamy Astro i Tailwind CSS – technologii, które zna lub może szybko poznać każdy kompetentny web developer. To nie jest niszowy, autorski system.</li>
+  <li><strong>Czysty i zrozumiały kod:</strong> Projekt jest pisany czytelnie, z logicznym podziałem na komponenty. Nowy programista szybko odnajdzie się w strukturze, w przeciwieństwie do przedzierania się przez gąszcz wtyczek i motywów w WordPressie.</li>
+  <li><strong>Pełny dostęp i własność:</strong> Od początku masz pełny dostęp do kodu na swoim koncie GitHub. Możesz w każdej chwili dać dostęp innemu deweloperowi, bez mojej zgody czy pośrednictwa.</li>
+  <li><strong>Wsparcie AI:</strong> Kod oparty na standardach jest doskonale rozumiany przez sztuczną inteligencję. Uzyskanie pomocy od asystentów AI przy prostych zmianach będzie z czasem tylko łatwiejsze.</li>
+</ul>
+<p class="mt-6 font-medium">W skrócie: inwestujesz w otwartą, przyszłościową technologię i otrzymujesz klucze do świetnie zorganizowanego domu zbudowanego ze standardowych, popularnych materiałów. To przeciwieństwo zamkniętej, wynajmowanej fortecy, z której nie ma ucieczki.</p>
+`,
+        },
+        {
+          question: "Czy to rozwiązanie jest lepsze od WordPressa?",
+          answer: `
+<p class="mb-4">Dla większości stron firmowych, portfolio i blogów – zdecydowanie tak. WordPress to potężny system, który zdominował internet, ale jego siła (ogromna elastyczność) jest też jego największą słabością dla prostszych projektów. Oto konkretne różnice:</p>
+<ul class="list-disc list-outside space-y-3 pl-5">
+  <li><strong>Szybkość i Bezpieczeństwo:</strong> Moje strony są statyczne – nie mają bazy danych ani skomplikowanego kodu po stronie serwera (PHP). To czyni je ekstremalnie szybkimi i naturalnie odpornymi na 99% ataków. WordPress, z jego bazą danych i ekosystemem wtyczek, jest wolniejszy i stanowi stały cel dla hakerów.</li>
+  <li><strong>Koszty i Utrzymanie:</strong> Utrzymanie mojej strony może kosztować 0 zł. W przypadku WordPressa płacisz za hosting (droższy, bo z PHP/bazą danych), często za premium wtyczki, a także za czas dewelopera, który musi regularnie wszystko aktualizować i naprawiać.</li>
+  <li><strong>Prostota vs. Złożoność:</strong> Panel WordPressa potrafi być przytłaczający. Opcjonalny panel CMS, który oferuję, jest skrojony na miarę – zawiera tylko te funkcje, których naprawdę potrzebujesz. Jest prosty i intuicyjny.</li>
+  <li><strong>Własność i Niezależność:</strong> Chociaż WordPress jest open-source, stajesz się niewolnikiem jego skomplikowanego ekosystemu. Moje rozwiązanie daje Ci czysty, nowoczesny i przenośny kod, który jest w 100% Twój.</li>
+</ul>
+<p class="mt-4 font-bold">Kiedy więc WordPress może być lepszy?</p>
+<p>WordPress wciąż ma sens przy bardzo złożonych projektach, takich jak rozbudowane platformy e-learningowe, portale społecznościowe, lub gdy potrzebujesz specyficznej, gotowej wtyczki, której nie ma alternatywy, a jej budowa od zera byłaby nieopłacalna.</p>
+
+
+<p>Upierasz się na wordpress, bo potrzebujesz jego funkcji, wtyczek, lub masz inny powód? Jeśli masz ciekawy projekt i odpowiedni budżet, to możemy pomyśleć nad wdrożeniem na wordpressie, ale tylko za pomocą page-buildera o nazwie Greenshift, który jest dużo lżejszy i szybszy niż klasyczny edytor Gutenberga czy Elementor.</p>
+`,
+        },
+        {
+          question: "Jak to rozwiązanie wypada na tle Webflow czy Framer?",
+          answer: `
+<p class="mb-4">Webflow i Framer to fantastyczne narzędzia, zwłaszcza dla projektantów, którzy chcą szybko tworzyć wizualnie imponujące strony bez kodowania. Jednak ten komfort ma swoją cenę – i to dosłownie. Moje podejście oparte na Astro rozwiązuje fundamentalne problemy, z którymi borykają się użytkownicy tych platform:</p>
+<ul class="list-disc list-outside space-y-3 pl-5">
+  <li><strong>Własność (Wynajem vs Posiadanie):</strong> Korzystając z Webflow/Framer, wynajmujesz platformę. Twoja strona, jej kod i treści są zamknięte w ich ekosystemie. Jeśli przestaniesz płacić, strona znika (w webflow możesz eksportować kod, ale potem jego ewentualna edycja poza panelem jest uciążliwa). U mnie otrzymujesz pełną własność kodu – strona jest Twoja na zawsze.</li>
+  <li><strong>Koszty:</strong> Platformy no-code to drogi, stały abonament (często setki złotych miesięcznie), który rośnie wraz z potrzebami (więcej wpisów CMS, większy ruch). U mnie płacisz raz za budowę, a utrzymanie może być darmowe. Różnica w kosztach po 2-3 latach jest gigantyczna.</li>
+  <li><strong>Szybkość i Optymalizacja:</strong> Moje strony są domyślnie tworzone z myślą o maksymalnej wydajności (tzw. "zero-JS by default"). Platformy no-code, choć szybkie, generują bardziej złożony kod, który nigdy nie będzie tak zoptymalizowany jak czysta, statyczna strona.</li>
+  <li><strong>Brak Limitów:</strong> Webflow i Framer są znane z limitów: liczby wpisów w CMS, miesięcznych odwiedzin, czy wysłanych formularzy. Przekroczenie limitu oznacza konieczność przejścia na droższy plan. U mnie nie ma żadnych sztucznych ograniczeń.</li>
+  <li><strong>Elastyczność Techniczna:</strong> Na platformie no-code jesteś ograniczony do funkcji, które oferuje. Z Astro mogę zintegrować dowolne narzędzie, API czy bibliotekę z całego ekosystemu JavaScript, dając Ci nieograniczone możliwości rozwoju.</li>
+</ul>
+<p class="mt-4">Podsumowując, jeśli cenisz sobie pełną własność, brak abonamentów, najwyższą wydajność i nieograniczoną elastyczność, rozwiązanie oparte na Astro jest technicznie i finansowo lepszym wyborem na dłuższą metę.</p>
+`,
+        },
+        //         {
+        //           question:
+        //             "Jak wypada Twoje rozwiązanie na tle WordPressa, Webflow i innych?",
+        //           answer: `
+        // <p class="mb-4">To zależy od celu, ale dla większości stron firmowych, portfolio czy blogów, moje podejście oparte na Astro oferuje kluczowe przewagi. Aby ułatwić porównanie, zebrałem najważniejsze różnice w nowej, bardziej przejrzystej formie:</p>
+
+        // <div class="overflow-x-auto rounded-lg border border-base-300">
+        //   <table class="table w-full text-base">
+        //     <thead class="bg-base-200">
+        //       <tr class="text-base-content">
+        //         <th class="py-4 pl-6 w-1/4">Kryterium</th>
+        //         <th class="py-4 w-1/4">Technologia</th>
+        //         <th class="py-4 pr-6 w-2/4">Ocena i kluczowe szczegóły</th>
+        //       </tr>
+        //     </thead>
+        //     <tbody>
+        //
+        //       <tr>
+        //         <th rowspan="3" class="align-top font-bold py-4 pl-6">Własność i Niezależność</th>
+        //         <td class="font-medium text-primary py-4">Moje Rozwiązanie (Astro)</td>
+        //         <td class="py-4 pr-6"><span class="text-success font-bold">✅ Pełna.</span> Otrzymujesz kod, pełna swoboda hostingu.</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">WordPress</td>
+        //         <td class="py-4 pr-6"><span class="text-warning font-bold">〰️ Częściowa.</span> Jesteś "przywiązany" do hostingu z PHP i bazą danych.</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">Platformy No-Code</td>
+        //         <td class="py-4 pr-6"><span class="text-error font-bold">❌ Brak.</span> Wynajmujesz platformę, jesteś jej zakładnikiem.</td>
+        //       </tr>
+
+        //
+        //       <tr class="border-t-2 border-base-300">
+        //         <th rowspan="3" class="align-top font-bold py-4 pl-6">Koszty Utrzymania</th>
+        //         <td class="font-medium text-primary py-4">Moje Rozwiązanie (Astro)</td>
+        //         <td class="py-4 pr-6"><span class="text-success font-bold">✅ Od 0 zł/mies.</span> Płacisz raz za budowę.</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">WordPress</td>
+        //         <td class="py-4 pr-6"><span class="text-error font-bold">❌ Wysokie.</span> Koszt hostingu, płatnych wtyczek, opieki technicznej.</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">Platformy No-Code</td>
+        //         <td class="py-4 pr-6"><span class="text-error font-bold">❌ Bardzo wysokie.</span> Drogi, stały abonament, który rośnie wraz z limitami.</td>
+        //       </tr>
+
+        //
+        //       <tr class="border-t-2 border-base-300">
+        //         <th rowspan="3" class="align-top font-bold py-4 pl-6">Szybkość i Wydajność</th>
+        //         <td class="font-medium text-primary py-4">Moje Rozwiązanie (Astro)</td>
+        //         <td class="py-4 pr-6"><span class="text-success font-bold">✅ Ekstremalnie wysoka.</span> Wynik 90-100 w PageSpeed to standard.</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">WordPress</td>
+        //         <td class="py-4 pr-6"><span class="text-error font-bold">❌ Niska/Średnia.</span> Wymaga drogich optymalizacji i stałej opieki.</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">Platformy No-Code</td>
+        //         <td class="py-4 pr-6"><span class="text-warning font-bold">〰️ Dobra, ale z kompromisem.</span> Zawsze wolniejsza niż czysty kod z Astro.</td>
+        //       </tr>
+
+        //
+        //       <tr class="border-t-2 border-base-300">
+        //         <th rowspan="3" class="align-top font-bold py-4 pl-6">Bezpieczeństwo i Obsługa</th>
+        //         <td class="font-medium text-primary py-4">Moje Rozwiązanie (Astro)</td>
+        //         <td class="py-4 pr-6"><span class="text-success font-bold">✅ Maksymalne.</span> Brak wtyczek i baz danych. "Ustaw i zapomnij".</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">WordPress</td>
+        //         <td class="py-4 pr-6"><span class="text-error font-bold">❌ Niskie.</span> Ciągłe aktualizacje, ryzyko włamań, konflikty wtyczek.</td>
+        //       </tr>
+        //       <tr>
+        //         <td class="font-medium py-4">Platformy No-Code</td>
+        //         <td class="py-4 pr-6"><span class="text-success font-bold">✅ Wysokie.</span> Zapewniane przez platformę, ale nie masz nad tym kontroli.</td>
+        //       </tr>
+
+        //     </tbody>
+        //   </table>
+        // </div>
+        // `,
+        //         },
+        {
+          question: "Ile tak naprawdę kosztuje utrzymanie strony?",
+          answer:
+            "Płacisz raz za budowę. Samo utrzymanie może kosztować Cię 0 zł rocznie (brak panelu i zmian), ponieważ korzystamy z darmowych hostingów klasy światowej. Jeśli zdecydujesz się na opcjonalny panel CMS do samodzielnej edycji treści, koszt wynosi 50 zł miesięcznie. Jeśli nie stosujemy płatnych zewnętrznych integracji, to są to jedyne koszty.",
+        },
+        {
+          question: "Co jeśli za rok będę chciał coś zmienić na stronie?",
+          answer:
+            "To zależy od rodzaju zmiany. Proste treści (np. wpisy na blogu) edytujesz samodzielnie w panelu CMS. Drobne poprawki, jak zmiana numeru telefonu czy literówka, często wykonuję gratis w ramach dobrej współpracy. Większe modyfikacje wyceniam indywidualnie stawką 100 zł/h.",
+        },
+        {
+          question:
+            "Czy będę mógł samodzielnie dodawać treści, np. wpisy na bloga?",
+          answer:
+            "Oczywiście. Mogę przygotować dla Ciebie opcjonalny, bajecznie prosty panel CMS. Jest o wiele łatwiejszy w obsłudze niż WordPress i pozwala wygodnie dodawać i edytować wcześniej ustalone treści, np. artykuły, realizacje w portfolio czy opinie klientów. Jest też opcja przygotowania formularza, który pozwoli Ci samodzielnie dodawać treści bez logowania (np. wpisy na bloga), czy nawet automatyzacja tego procesu.",
+        },
+        {
+          question: "Co z tekstami i zdjęciami na stronę?",
+          answer: `Mamy trzy opcje:
+
+1.  Dostarczasz gotowe materiały.
+2.  Dostarczasz 'surowe' notatki i zdjęcia, a ja je profesjonalnie opracowuję.
+3.  Na podstawie rozmowy tworzę wszystko od zera.
+
+Najczęściej klienci wybierają opcję nr 2 – owocną współpracę.`,
+        },
+        {
+          question:
+            "Czy każda minimalistyczna strona jest podobna / taka sama?",
+          answer:
+            "Naturalnie, że nie. Różnią się kolorami, ozdobnikami i stylem, choć bazowo są podobne.",
+        },
+
+        {
+          question: "Czy moja strona musi być minimalistyczna?",
+          answer:
+            "Specjalizuję się w czystym, ponadczasowym designie, który jest skuteczny i się nie starzeje. Jeśli jednak masz gotowy, bardziej rozbudowany projekt graficzny – nie ma problemu. Wdrożę go, zachowując wszystkie korzyści techniczne: szybkość, bezpieczeństwo i niezawodność.",
+        },
+        {
+          question: "Czy mogę wiedzieć więcej o tej koncepcji minimalizmu?",
+          answer: `
+Jasne. Poniżej kilka kluczowych myśli stojących za tą koncepcją:
+
+**Skąd ten pomysł?**
+Wywodzi się on głównie z własnych doświadczeń, zarówno jako użytkownika napotykającego problematyczne strony, jak i twórcy. Zauważyłem, jak wiele czasu i energii pochłania walka ze skomplikowanymi narzędziami, szablonami i błędami. Postanowiłem wrócić do sedna – prostoty i celu, bo tylko minimalizm pozwala zbliżyć się do perfekcji.
+
+**Dlaczego to istotne?**
+W dzisiejszym świecie ludzie nie mają czasu ani cierpliwości. Potrzebują informacji tu i teraz. Zbędne animacje, ciężkie zdjęcia i skomplikowane układy to przeszkody, które frustrują użytkownika i oddalają go od celu, zamiast pomagać go osiągnąć.
+
+**Czy taki minimalizm to nie przesada?**
+Uważam, że nie. Strona jest schludna i czysta, ale nie pozbawiona stylu. Chodzi o ponadczasową klasykę, a nie chwilową modę. Większość firm nie potrzebuje krzykliwego brandingu, ale czytelności i użyteczności. To świadomy sprzeciw wobec stron, które są nieintuicyjne, wolne i przeładowane.
+
+**Dlaczego w tym podejściu strony są takie wąskie?**
+Ponieważ fundamentem jest treść. Czytanie bardzo szerokich linii tekstu jest męczące dla oka. Ograniczenie szerokości sprawia, że tekst jest znacznie łatwiejszy w odbiorze. Wymusza to również prostsze, bardziej przejrzyste układy, co poprawia czytelność całej strony.
+
+**Czy nie prościej byłoby użyć pliku PDF?**
+Rozważałem to, ale dokumenty PDF czy Notion mają poważne wady: problemy z SEO, analityką, responsywnością (fatalnie wyglądają na telefonach) i pełną własnością. To rozwiązanie łączy prostotę z techniczną doskonałością, której brakuje w zwykłych dokumentach.
+  
+**Na sam koniec, jeszcze raz - czy to ma sens?**
+Rozważmy to na przykładzie - dlaczego informacja przekazana po prostu w schludny sposób jest kluczowa, a nie super design i animacje, nawet czasem bez niesamowitego SEO.
+
+Chcesz się umówić do dentysty? Znalazłeś specjalistę i co chcesz o nim wiedzieć? Kto, gdzie, kiedy (godziny otwarcia), jakie ma opinie, czy przyjmuje na NFZ czy tylko prywatnie, jaki zakres usług oferuje, ile to kosztuje, kiedy są wolne terminy i w jaki sposób możesz umówić. Czy podejmiesz decyzję na podstawie pięknej animacji na stronie - chyba nie?
+
+Teraz rozumiesz? Tak jest z większością biznesów. Słowa to klucz.
+`,
+        },
+
+        {
+          question: "Dla kogo NIE jest to rozwiązanie?",
+          answer:
+            "To rozwiązanie nie jest optymalne, jeśli planujesz duży sklep e-commerce z setkami produktów, rozbudowaną platformę społecznościową lub portal, w którym chcesz codziennie samodzielnie zmieniać globalny wygląd i układ strony.",
+        },
+        {
+          question: "Jaka jest technologia wykonania?",
+          answer:
+            "Stawiam na nowoczesność i odpowiedni dobór technologii do przypadków - wybieram strony kodowane przy pomocy Astro (astro.build). To najlepsze rozwiązanie dla większości stron internetowych, zwłaszcza do stron firmowych. Szybkość, bezpieczeństwo i bezawaryjność są kluczowe dla biznesu. Wordpress ma swoje zalety, ale w tych przypadkach nie powinien byc stosowany.",
+        },
+        {
+          question:
+            "Jestem twórcą stron. Jakie zalety ma dla mnie to podejście?",
+          answer: `
+- **Łatwe globalne zmiany i naprawy:** Modyfikujesz kod, a nie walczysz z bazą danych, wtyczkami i nieprzewidzianymi konfliktami. Zmiany są proste i bezpieczne.
+- **Komponentowa budowa:** Tworzysz w oparciu o komponenty i pętle. Zmiana w jednym pliku (np. wyglądzie karty) natychmiast aktualizuje wszystkie jej wystąpienia. To czysta i efektywna praca.
+- **Nieograniczone możliwości:** Masz pełną swobodę w budowie i integracji z dowolnymi API, headless CMS-ami czy zewnętrznymi narzędziami. Nie ograniczają Cię ramy platformy. Masz natychmiastowy dostęp do technicznych nowości, nie musisz czekać na aktualizacje wtyczek / platformy.
+- **Idealne pod AI:** LLM-y doskonale rozumieją kod (HTML/CSS/JS). Możesz łatwiej automatyzować pracę, a ekosystem Astro (z integracjami jak 'llm.txt') jest na to otwarty.
+- **Spokojna głowa:** Dostarczasz produkt, który po prostu działa. Klient jest zadowolony, bo jego strona jest szybka, bezpieczna i bezproblemowa, a Ty nie odbierasz telefonów o awariach.
+  `,
+        },
+      ]}
+    />
+  </Section>
+
+  <CTA
+    id="kontakt"
+    heading="Gotowy(a) na stronę, która wreszcie daje spokój?"
+    paragraph="Umów się na krótką, niezobowiązującą rozmowę. Sprawdzimy, czy to rozwiązanie jest dla Ciebie i odpowiem na wszystkie Twoje pytania."
+    button1={{ link: "/kontakt", text: "Skontaktuj się" }}
+    variant="primary"
+  />
+</PageLayout>

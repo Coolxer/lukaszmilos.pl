@@ -1,0 +1,18 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { type Meta } from "@components/core/MySEO.astro";
+
+import Content from "@data/policy.md";
+import Section from "~/components/layout/Section.astro";
+
+const meta: Meta = {
+  title: "Polityka prywatności",
+  description: "Zobacz w jaki sposób są przetwarzane Twoje dane osobowe.",
+  noindex: true,
+  nofollow: true,
+};
+---
+
+<PageLayout meta={meta}
+  ><Section><article class="prose"><Content /></article></Section>
+</PageLayout>

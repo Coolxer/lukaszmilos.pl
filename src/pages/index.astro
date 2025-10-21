@@ -1,0 +1,187 @@
+---
+import { Icon } from "astro-icon/components";
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+
+import heroImg from "@assets/images/pages/lukasz-milos.webp";
+
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+
+import CTA from "@components/sections/CTA.astro";
+
+const meta: Meta = {
+  title: "Pomagam firmom lepiej korzystać z technologii",
+  description:
+    "Specjalista IT. Buduję strony internetowe, wdrażam systemy i automatyzacje, by Twoja firma działała prościej, szybciej i skuteczniej.",
+};
+---
+
+<PageLayout meta={meta}>
+  <Section
+    headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
+  >
+    <Heading tag="h1" look="h0" slot="heading">
+      Technologia wsparciem, <br />
+      <span class="text-primary">nie problemem.</span>
+    </Heading>
+
+    <p slot="paragraph">
+      Cześć, z tej strony <span class="font-bold">Łukasz Miłoś</span>. Wdrażam
+      strony, narzędzia i automatyzacje, dzięki którym <span
+        class="text-primary">jest szybciej, prościej i skuteczniej.</span
+      >
+    </p>
+
+    <div class="flex flex-wrap gap-4 justify-center">
+      <Button link="#oferta" rawLink>Zobacz, jak pomagam</Button>
+      <Button link="/kontakt" class="btn-outline">Skontaktuj się</Button>
+    </div>
+
+    <div>
+      <MyImage
+        img={heroImg}
+        alt="Zdjęcie Łukasza Miłoś, inż. IT"
+        size="size-auto h-96 w-full"
+        class="object-[0_20%]"
+      />
+    </div>
+  </Section>
+
+  <Section variant="secondary" id="oferta">
+    <Heading tag="h2" slot="heading"
+      >W czym mogę pomóc? <br />Rozwiązuje problemy i upraszczam zadania.</Heading
+    >
+    <Grid cols={2}>
+      {
+        [
+          {
+            tag: "inne niż wszystkie",
+            heading: "Buduję i migruje strony internetowe",
+            description:
+              "Moim celem jest, by Twoja strona nie przynosiła Ci żadnych problemów.",
+            button: { link: "/strony-www", text: "Zobacz koniecznie" },
+          },
+          {
+            tag: "dopasowane do Ciebie",
+            heading: "Wdrażam systemy i automatyzacje",
+            description:
+              "Chcę byś korzystał(a) z dzisiejszej technologii, tak aby było Ci po prostu lepiej i łatwiej działać.",
+            button: {
+              link: "/systemy-i-automatyzacje",
+              text: "Dowiedz się więcej",
+            },
+          },
+        ].map((item) => (
+          <div class="p-8 border-2 border-primary rounded-box my-stack justify-between shadow-md bg-base-100">
+            <div class="my-stack">
+              <div class="badge badge-soft badge-primary">{item.tag}</div>
+              <Heading tag="h3" look="h4">
+                {item.heading}
+              </Heading>
+              <p>{item.description}</p>
+            </div>
+            <Button link={item.button.link}>{item.button.text}</Button>
+          </div>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Section>
+    <Heading tag="h2" slot="heading">Chcę by było po prostu…</Heading>
+    <Grid cols={3} gap="small" class="!grid-cols-2">
+      {
+        [
+          { icon: "tabler:arrow-rotary-straight", text: "prościej" },
+          { icon: "tabler:brand-speedtest", text: "szybciej" },
+          { icon: "tabler:timeline", text: "skuteczniej" },
+          { icon: "tabler:lock", text: "bezpieczniej" },
+          { icon: "tabler:bed", text: "wygodniej" },
+          { icon: "tabler:bug-off", text: "bezawaryjnie" },
+        ].map((item) => (
+          <div class="flex flex-row gap-2 items-center rounded-box p-4 bg-primary/10 shadow-sm">
+            <div class="bg-primary/50 p-2 rounded-full">
+              <Icon name={item.icon} class="size-8 text-primary-content" />
+            </div>
+            <span class="">{item.text}</span>
+          </div>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading">Fundamenty mojego działania</Heading>
+    <p slot="paragraph">
+      Technologia to tylko narzędzie. Najważniejszy jest cel i sposób, w jaki do
+      niego dążymy.
+    </p>
+    <div class="my-big-stack">
+      {
+        [
+          {
+            icon: "tabler:focus-2",
+            title: "Skupienie na problemie",
+            description:
+              "Najpierw dogłębnie analizuję Twój problem i potrzeby, a dopiero potem szukam najlepszego, szytego na miarę rozwiązania.",
+          },
+          {
+            icon: "tabler:flame",
+            title: "Duże zaangażowanie",
+            description:
+              "Mocno angażuję się w każdy projekt, traktując go jak własny. Ambicja nie pozwala mi inaczej.",
+          },
+          {
+            icon: "tabler:puzzle",
+            title: "Rozsądna technologia",
+            description:
+              "Musi być bezpieczna, skuteczna, szybka, prosta, rentowna i dopasowana do skali problemu. Nic mniej, nic więcej.",
+          },
+          {
+            icon: "tabler:message-2-check",
+            title: "Transparentność",
+            description:
+              "Jasno informuję o postępach. Edukuję siebie i Ciebie. Nie obiecuję gruszek na wierzbie. Działam i komunikuję.",
+          },
+        ].map((item) => (
+          <div class="flex items-start gap-8 px-4 py-8 bg-primary/10 rounded-box shadow-sm">
+            <div class="bg-primary/50 p-2 rounded-full">
+              <Icon name={item.icon} class="size-8 text-primary-content" />
+            </div>
+            <div class="my-stack">
+              <h3 class="font-bold text-xl">{item.title}</h3>
+              <p class="text-base-content/80">{item.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section variant="tetriary" id="portfolio">
+    <Grid cols={2}>
+      <Heading tag="h2" class="text-neutral-content"
+        >Zobacz moje portfolio</Heading
+      >
+      <div class="my-big-stack">
+        <p class="text-lg text-neutral-content/80">
+          Jakie problemy rozwiązałem? W jaki sposób i dlaczego tak, a nie
+          inaczej? Czy projekt zakończył się sukcesem?
+        </p>
+        <Button link="/portfolio">Zobacz portfolio</Button>
+      </div>
+    </Grid>
+  </Section>
+
+  <CTA
+    id="kontakt"
+    heading="Porozmawiajmy o Twoim celu lub problemie"
+    paragraph="Chętnie dowiem się, co chcesz osiągnąć i sprawdzimy, jak mogę Ci w tym pomóc."
+    button1={{ link: "/kontakt", text: "Skontaktuj się" }}
+    variant="primary"
+  />
+</PageLayout>

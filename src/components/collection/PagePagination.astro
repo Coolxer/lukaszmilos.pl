@@ -1,0 +1,84 @@
+---
+import type { Page } from "astro";
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  page: Page;
+  itemsPerPage: number;
+  baseSlug: string;
+}
+
+const { page, itemsPerPage, baseSlug } = Astro.props;
+
+const generatePageNumbers = () => {
+  const maxPagesToShow = 5;
+  const currentPage = page.currentPage;
+  let pages = [];
+
+  const lastPage = Math.ceil(page.total / itemsPerPage);
+
+  if (lastPage <= maxPagesToShow) {
+    // If we have 5 or fewer pages, show all pages
+    for (let i = 1; i <= lastPage; i++) {
+      pages.push(i);
+    }
+  } else {
+    // If we have more than 5 pages
+    if (currentPage <= 3) {
+      pages = [1, 2, 3, "...", lastPage];
+    } else if (currentPage >= lastPage - 2) {
+      pages = [1, "...", lastPage - 2, lastPage - 1, lastPage];
+    } else {
+      pages = [1, "...", currentPage, "...", lastPage];
+    }
+  }
+
+  return pages;
+};
+
+const pageNumbers = generatePageNumbers();
+---
+
+{
+  page && page.data && page.data.length > 0 && (
+    <nav aria-label="Page navigation" class="py-4">
+      <div class="join">
+        {/* prev */}
+        <a
+          href={page.url.prev}
+          class:list={["join-item btn", !page.url.prev ? "btn-disabled" : ""]}
+          aria-label="Poprzednia strona"
+        >
+          <Icon name="tabler:chevron-left" class="size-6" />
+        </a>
+
+        {/* numbers */}
+        {pageNumbers.map((num) =>
+          num === "..." ? (
+            <button class="join-item btn btn-disabled">...</button>
+          ) : (
+            <a
+              href={num !== 1 ? `${baseSlug}${num}/` : baseSlug}
+              class:list={[
+                "join-item btn",
+                num === page.currentPage && "btn-active",
+              ]}
+              aria-current={num === page.currentPage ? "page" : undefined}
+            >
+              {num}
+            </a>
+          )
+        )}
+
+        {/* next */}
+        <a
+          href={page.url.next}
+          class:list={["join-item btn", !page.url.next ? "btn-disabled" : ""]}
+          aria-label="Poprzednia strona"
+        >
+          <Icon name="tabler:chevron-right" class="size-6" />
+        </a>
+      </div>
+    </nav>
+  )
+}

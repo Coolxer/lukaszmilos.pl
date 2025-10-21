@@ -1,0 +1,179 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
+
+/* to be able to use dark: selector if needed */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --font-sans: "Poppins", "sans-serif";
+}
+
+/* ======================================================================== */
+/* Light Theme - Czysty, profesjonalny i nowoczesny                       */
+/* ======================================================================== */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+
+  /* Twój kolor marki, lekko dostosowany dla idealnego kontrastu w UI.
+     Wciąż jest to ten sam, energetyczny niebieski. */
+  --color-primary: #0062e6; /* Bliski #0070FF, ale z lepszym kontrastem */
+  --color-primary-content: #ffffff;
+
+  /* Neutralny, chłodny szary jako kolor drugorzędny - bardzo profesjonalny wybór. */
+  --color-secondary: #64748b; /* Slate 500 */
+  --color-secondary-content: #ffffff;
+
+  /* Akcent - subtelny, ale nowoczesny turkus. */
+  --color-accent: #14b8a6; /* Teal 500 */
+  --color-accent-content: #ffffff;
+
+  /* Domyślne tło (białe) i tekst (czarny) z DaisyUI są tutaj idealne. */
+}
+
+/* ======================================================================== */
+/* Dark Theme - Komfortowy, elegancki i spójny z marką                    */
+/* ======================================================================== */
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+
+  /* Podstawa: Ciemnoszare, "miękkie" tło zamiast czarnego. */
+  --color-base-100: #1d232a;
+  --color-base-200: #191e24;
+  --color-base-300: #15191e;
+
+  /* Tekst: Złamana biel, która nie męczy oczu. */
+  --color-base-content: #a6adbb;
+
+  /* Kolor główny: Jaśniejsza, bardziej "świecąca" wersja na ciemnym tle. */
+  --color-primary: #3b82f6; /* Blue 500 */
+  --color-primary-content: #ffffff; /* Biały tekst ma teraz świetny kontrast */
+
+  /* Kolor drugorzędny: Ciemniejszy szary, dobrze widoczny na tle. */
+  --color-secondary: #475569; /* Slate 600 */
+  --color-secondary-content: #ffffff;
+
+  /* Akcent: Jaśniejsza wersja turkusu, aby się wyróżniał. */
+  --color-accent: #2dd4bf; /* Teal 400 */
+  --color-accent-content: #0f172a; /* Ciemny tekst dla czytelności */
+}
+
+html {
+  @apply text-[16px] leading-none;
+
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  color-scheme: normal;
+}
+
+body {
+  @apply antialiased text-base;
+}
+
+strong,
+b {
+  @apply font-bold;
+}
+
+section {
+  @apply scroll-mt-28;
+}
+
+@utility my-stack {
+  @apply flex flex-col gap-y-4;
+}
+
+@utility my-big-stack {
+  @apply flex flex-col gap-y-8;
+}
+
+@utility text-h0 {
+  font-size: clamp(2.986rem, 2.5319rem + 2.2705vi, 4.2915rem);
+  line-height: 1.1;
+  @apply font-bold tracking-[-0.03em];
+}
+
+@utility text-h1 {
+  font-size: clamp(2.4883rem, 2.1597rem + 1.6433vi, 3.4332rem);
+  line-height: 1.1;
+  @apply font-medium tracking-[-0.03em];
+}
+
+@utility text-h2 {
+  font-size: clamp(2.0736rem, 1.8395rem + 1.1704vi, 2.7466rem);
+  line-height: 1.2;
+  @apply font-bold tracking-[-0.03em];
+}
+
+@utility text-h3 {
+  font-size: clamp(1.728rem, 1.5648rem + 0.8161vi, 2.1973rem);
+  line-height: 1.2;
+  @apply font-semibold tracking-[-0.03em];
+}
+
+@utility text-h4 {
+  font-size: clamp(1.44rem, 1.3295rem + 0.5527vi, 1.7578rem);
+  line-height: 1.2;
+  @apply font-semibold tracking-[-0.03em];
+}
+
+@utility text-h5 {
+  font-size: clamp(1.2rem, 1.1283rem + 0.3587vi, 1.4063rem);
+  line-height: 1.3;
+  @apply font-medium tracking-[-0.03em];
+}
+
+@utility text-h6 {
+  @apply text-base font-medium tracking-[-0.03em];
+  line-height: 1.3;
+}
+
+/* Animacje */
+/* Subtelna animacja wejścia */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Wyjątek: Hero nie animuje się (jest od razu widoczny) */
+section:first-of-type {
+  opacity: 1;
+  transform: none;
+}
+
+/* Subtelne podkreślenie linków */
+/* a:not(.btn) {
+  position: relative;
+} */
+
+/* a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:not(.btn):hover::after {
+  width: 100%;
+} */

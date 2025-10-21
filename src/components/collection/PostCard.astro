@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { buildSlug } from "@utils/utils";
+
+import MyImage from "@components/ui/MyImage.astro";
+import Button from "@components/ui/Button.astro";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+  class?: string;
+}
+
+const { post, class: className } = Astro.props;
+
+const link = buildSlug(`/blog/${post.id}/`);
+---
+
+<article
+  class:list={[
+    "group bg-base-100 border-2 border-primary/30 rounded-box shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full",
+    className,
+  ]}
+>
+  {/* Obrazek */}
+  {
+    post.data.image && (
+      <a href={link} class="block overflow-hidden">
+        <MyImage
+          src={"posts/" + post.data.image.src}
+          alt={post.data.image.alt}
+          width={500}
+          height={500}
+          rounded="rounded-none"
+          class="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="eager"
+        />
+      </a>
+    )
+  }
+
+  {/* Treść */}
+  <div class="flex flex-col flex-grow p-6 my-stack">
+    {/* Kategorie */}
+    {
+      post.data.categories && post.data.categories.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {post.data.categories.map((category) => (
+            <a
+              href={buildSlug("/blog/kategoria/" + category)}
+              class="badge badge-primary badge-sm hover:badge-primary-focus transition-colors"
+            >
+              {category}
+            </a>
+          ))}
+        </div>
+      )
+    }
+
+    {/* Tytuł */}
+    <a href={link} class="group-hover:text-primary transition-colors">
+      <h3 class="text-xl font-bold leading-tight">
+        {post.data.heading}
+      </h3>
+    </a>
+
+    {/* Podtytuł / opis */}
+    {
+      post.data.subheading && (
+        <p class="text-base-content/80 line-clamp-3 leading-relaxed">
+          {post.data.subheading}
+        </p>
+      )
+    }
+
+    <div class="flex-grow"></div>
+
+    <div class="mt-4">
+      <Button link={link} class="btn-primary btn-sm w-full">
+        Czytaj więcej
+      </Button>
+    </div>
+  </div>
+</article>

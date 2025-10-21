@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry, CollectionKey } from "astro:content";
+
+import { slugify } from "@utils/utils";
+import Button from "@components/ui/Button.astro";
+
+export interface Props<C extends CollectionKey = CollectionKey> {
+  collection: C;
+  baseSlug: string;
+  prevElement: CollectionEntry<C> | null;
+  prevText?: string;
+  nextElement: CollectionEntry<C> | null;
+  nextText?: string;
+  class?: string;
+}
+
+const {
+  collection,
+  baseSlug,
+  prevElement,
+  prevText = "poprzedni",
+  nextElement,
+  nextText = "następny",
+  class: className,
+} = Astro.props;
+
+const prevElementExists = prevElement && prevElement?.id;
+const nextElementExists = nextElement && nextElement?.id;
+---
+
+<div class:list={["join grid grid-cols-2 gap-4", className]}>
+  <Button
+    link={baseSlug + (prevElementExists && slugify(prevElement.id))}
+    class:list={["join-item btn-outline", !prevElementExists && "btn-disabled"]}
+  >
+    <Icon name="tabler:chevron-left" class="size-6" />
+    {prevText}
+  </Button>
+
+  <Button
+    link={baseSlug + (nextElement && slugify(nextElement.id))}
+    class:list={["join-item btn-outline", !nextElementExists && "btn-disabled"]}
+  >
+    {nextText}
+    <Icon name="tabler:chevron-right" class="size-6" />
+  </Button>
+</div>

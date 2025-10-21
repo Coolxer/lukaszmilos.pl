@@ -1,0 +1,258 @@
+---
+import type { MarkdownHeading } from "astro";
+import { getEntry, type CollectionEntry, render } from "astro:content";
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+import { getPortfolioCategoryColor } from "@utils/utils";
+
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import { Icon } from "astro-icon/components";
+
+import Toc from "@components/blog/Toc.astro";
+import ElementNavigation from "@components/collection/ElementNavigation.astro";
+import PortfolioCard from "@components/collection/PortfolioCard.astro";
+import ReviewCard from "~/components/collection/ReviewCard.astro";
+import CTA from "~/components/sections/CTA.astro";
+
+export interface Props {
+  item: CollectionEntry<"portfolio">;
+  headings: MarkdownHeading[];
+  meta: Meta;
+  schema?: Schema;
+  relatedItems: CollectionEntry<"portfolio">[];
+  prevItem: CollectionEntry<"portfolio"> | null;
+  nextItem: CollectionEntry<"portfolio"> | null;
+}
+
+const { item, headings, meta, schema, relatedItems, prevItem, nextItem } =
+  Astro.props;
+
+const review = item.data.review ? await getEntry(item.data.review) : null;
+
+const color = getPortfolioCategoryColor(item.data.category);
+
+const colorClasses = {
+  primary: {
+    background: "bg-primary/30",
+    border: "border-primary/30",
+    badge: "badge-primary",
+    text: "text-primary",
+  },
+  secondary: {
+    background: "bg-secondary/30",
+    border: "border-secondary/30",
+    badge: "badge-secondary",
+    text: "text-secondary",
+  },
+  accent: {
+    background: "bg-accent/30",
+    border: "border-accent/30",
+    badge: "badge-accent",
+    text: "text-accent",
+  },
+};
+
+const selectedClasses =
+  colorClasses[color as keyof typeof colorClasses] || colorClasses.primary;
+---
+
+<PageLayout meta={meta} schema={schema}>
+  {/* HEADER CASE STUDY */}
+  <Section>
+    <div class="my-big-stack text-center">
+      <div class="flex flex-row gap-4 justify-center">
+        {/* case study */}
+        <div class="badge badge-lg badge-neutral">case-study</div>
+
+        {/* Kategoria */}
+        {
+          item.data.category && (
+            <div class:list={["badge badge-lg", selectedClasses.badge]}>
+              {item.data.category}
+            </div>
+          )
+        }
+      </div>
+
+      {/* Tytuł */}
+      <Heading tag="h1" look="h0">
+        {item.data.title}
+      </Heading>
+
+      {/* Obrazek wyróżniający */}
+      {
+        item.data.image && (
+          <div class="mt-12">
+            <MyImage
+              src={item.data.image.src}
+              alt={item.data.image.alt}
+              size="w-full h-auto max-h-[600px] object-cover rounded-box shadow-lg"
+            />
+          </div>
+        )
+      }
+    </div>
+  </Section>
+
+  {/* KLUCZOWE INFORMACJE */}
+  <Section variant="secondary">
+    <div class="">
+      <div
+        class:list={[
+          "bg-base-100 border-2 rounded-box p-8 shadow-md",
+          selectedClasses.border,
+        ]}
+      >
+        <Grid cols={1}>
+          {
+            [
+              {
+                icon: "tabler:alert-circle",
+                label: "Problem",
+                content: item.data.problem,
+              },
+              {
+                icon: "tabler:target",
+                label: "Cel",
+                content: item.data.target,
+              },
+              {
+                icon: "tabler:trophy",
+                label: "Wynik",
+                content: item.data.result,
+              },
+            ].map((section) => (
+              <div class="flex items-start gap-4">
+                <div
+                  class:list={[
+                    "p-3 rounded-full shrink-0",
+                    selectedClasses.background,
+                  ]}
+                >
+                  <Icon
+                    name={section.icon}
+                    class:list={["size-6", selectedClasses.text]}
+                  />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <p class="font-bold text-lg uppercase tracking-wide">
+                    {section.label}
+                  </p>
+                  <p class="text-base-content/80">{section.content}</p>
+                </div>
+              </div>
+            ))
+          }
+        </Grid>
+      </div>
+    </div>
+  </Section>
+
+  {/* TREŚĆ CASE STUDY */}
+  <Section>
+    <div class="my-big-stack">
+      {/* Spis treści */}
+      {
+        headings && headings.length > 0 && (
+          <div
+            class:list={[
+              "bg-base-100 border-2  rounded-box p-6 shadow-sm",
+              selectedClasses.border,
+            ]}
+          >
+            <Toc headings={headings} />
+          </div>
+        )
+      }
+
+      {/* Treść artykułu */}
+      <article
+        class="prose prose-lg max-w-none
+        prose-headings:font-bold prose-headings:text-base-content
+        prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+        prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-base-content/80 prose-p:leading-relaxed prose-p:text-lg
+        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-base-content prose-strong:font-bold
+        prose-ul:text-base-content/80 prose-ul:my-6
+        prose-ol:text-base-content/80 prose-ol:my-6
+        prose-li:my-2
+        prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-base-content/70
+        prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+        prose-pre:bg-base-300 prose-pre:text-base-content prose-pre:rounded-box prose-pre:shadow-sm
+        prose-img:rounded-box prose-img:shadow-md prose-img:my-8"
+      >
+        <slot />
+      </article>
+    </div>
+  </Section>
+
+  {
+    review && (
+      <Section>
+        <Heading tag="h2" slot="heading">
+          Opinia klienta
+        </Heading>
+        <ReviewCard item={review} />
+      </Section>
+    )
+  }
+
+  {/* PODOBNE PROJEKTY */}
+  {
+    relatedItems && relatedItems.length > 0 && (
+      <Section>
+        <Heading tag="h2" slot="heading">
+          Podobne projekty
+        </Heading>
+        <p slot="paragraph">
+          Zobacz również inne realizacje z mojego portfolio
+        </p>
+
+        <Grid cols={1}>
+          {relatedItems.map((item) => (
+            <PortfolioCard item={item} />
+          ))}
+        </Grid>
+      </Section>
+    )
+  }
+
+  {/* NAWIGACJA MIĘDZY PROJEKTAMI */}
+  {
+    (prevItem || nextItem) && (
+      <Section variant="secondary">
+        <Heading tag="h2" slot="heading">
+          Inne projekty
+        </Heading>
+        <div class="max-w-3xl mx-auto my-stack">
+          <ElementNavigation
+            collection="portfolio"
+            baseSlug="/portfolio/"
+            prevElement={prevItem}
+            prevText="Poprzedni projekt"
+            nextElement={nextItem}
+            nextText="Następny projekt"
+          />
+          <Button link="/portfolio" class=" btn-outline">
+            Wszystkie projekty
+          </Button>
+        </div>
+      </Section>
+    )
+  }
+
+  <CTA
+    id="kontakt"
+    heading="Zainteresował Cię ten projekt?"
+    paragraph=" Mogę pomóc Ci rozwiązać podobny problem. Porozmawiajmy o Twoich potrzebach i znajdźmy najlepsze rozwiązanie."
+    button1={{ link: "/kontakt", text: "Skontaktuj się" }}
+    button2={{ link: "/portfolio", text: "Zobacz więcej projektów" }}
+    variant="primary"
+  />
+</PageLayout>

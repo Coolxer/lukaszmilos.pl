@@ -1,0 +1,42 @@
+{
+  "name": "lm-astro-2025",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.6",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "@fontsource/poppins": "^5.2.7",
+    "@fontsource/roboto": "^5.2.8",
+    "@iconify-json/tabler": "^1.2.23",
+    "@playform/compress": "^0.2.0",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/markdown-it": "^14.1.2",
+    "@types/sanitize-html": "^2.16.0",
+    "astro": "^5.13.11",
+    "astro-favicons": "^3.1.5",
+    "astro-icon": "^1.1.5",
+    "astro-opengraph-images": "^1.13.1",
+    "astro-seo": "^0.8.4",
+    "gsap": "^3.13.0",
+    "markdown-it": "^14.1.0",
+    "marked": "^16.4.0",
+    "photoswipe": "^5.4.4",
+    "sanitize-html": "^2.17.0",
+    "tailwindcss": "^4.1.13",
+    "theme-change": "^2.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/react": "^19.1.13",
+    "daisyui": "^5.1.25",
+    "react": "^19.1.1"
+  }
+}

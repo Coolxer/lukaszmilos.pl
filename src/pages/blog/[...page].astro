@@ -1,0 +1,68 @@
+---
+import type { Page, PaginateFunction } from "astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import config from "~/data/consts.json";
+
+import ArchiveLayout from "@layouts/blog/ArchiveLayout.astro";
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+const pageTitle = "Blog";
+const pageDescription =
+  "Dzielę się wiedzą, doświadczeniem i praktycznymi rozwiązaniami z obszaru technologii i cyfryzacji.";
+
+const meta: Meta = {
+  title: "Blog - Technologia cyfrowa i automatyzacja",
+  description:
+    "Blog o zastosowaniu technologii cyfrowej i automatyzacji w firmie. Informacje zarówno o ogólne jak i ściśle techniczne i praktyczne.",
+};
+
+const schema: Schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Blog Łukasza Miłoś",
+};
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}) {
+  const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  const categories = [
+    ...new Set(posts.map((post) => post.data.categories).flat()),
+  ];
+
+  const paginatedPosts = paginate(posts, {
+    pageSize: config.site.itemsPerPage.blog,
+  });
+
+  return paginatedPosts.map((page) => ({
+    params: page.params,
+    props: {
+      ...page.props,
+      categories,
+    },
+  }));
+}
+
+interface Props {
+  page: Page;
+  categories: string[];
+}
+
+const { page, categories } = Astro.props;
+---
+
+<ArchiveLayout
+  page={page}
+  categories={categories}
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  meta={meta}
+  schema={schema}
+/>

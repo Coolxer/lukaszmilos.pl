@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPortfolioCategoryColor } from "@utils/utils";
+
+import { buildSlug } from "@utils/utils";
+
+import MyImage from "@components/ui/MyImage.astro";
+import Button from "@components/ui/Button.astro";
+import Heading from "@components/ui/Heading.astro";
+
+export interface Props {
+  item: CollectionEntry<"portfolio">;
+  class?: string;
+}
+
+const { item, class: className } = Astro.props;
+
+const color = getPortfolioCategoryColor(item.data.category);
+
+const link = buildSlug(`/portfolio/${item.id}/`);
+
+const colorClasses = {
+  primary: {
+    background: "bg-primary/5",
+    border: "border-primary/30",
+    badge: "badge-primary",
+  },
+  secondary: {
+    background: "bg-secondary/5",
+    border: "border-secondary/30",
+    badge: "badge-secondary",
+  },
+  accent: {
+    background: "bg-accent/5",
+    border: "border-accent/30",
+    badge: "badge-accent",
+  },
+};
+
+const selectedClasses =
+  colorClasses[color as keyof typeof colorClasses] || colorClasses.primary;
+---
+
+<article
+  class:list={[
+    "p-6 md:p-8 border-2 rounded-box my-stack shadow-md",
+    selectedClasses.background,
+    selectedClasses.border,
+  ]}
+>
+  <div class:list={["badge badge-xl badge-soft", selectedClasses.badge]}>
+    {item.data.category}
+  </div>
+
+  <Heading tag="h3" look="h4">
+    {item.data.title}
+  </Heading>
+
+  <ul class="my-stack text-base-content/80 my-4">
+    <li>
+      <span class="font-bold uppercase tracking-wide">Problem</span>
+      <p>{item.data.problem}</p>
+    </li>
+    <li>
+      <span class="font-bold uppercase tracking-wide">Cel</span>
+      <p>{item.data.target}</p>
+    </li>
+    <li>
+      <span class="font-bold uppercase tracking-wide">Wynik</span>
+      <p>{item.data.result}</p>
+    </li>
+  </ul>
+
+  <Button link={link}>Zobacz opis projektu (case study)</Button>
+</article>

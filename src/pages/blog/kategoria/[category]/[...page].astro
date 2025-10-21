@@ -1,0 +1,74 @@
+---
+import type { Page, PaginateFunction } from "astro";
+import { getCollection } from "astro:content";
+
+import { slugify } from "@utils/utils";
+import config from "@data/consts.json";
+
+import ArchiveLayout from "@layouts/blog/ArchiveLayout.astro";
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}) {
+  const posts = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  const categories = [
+    ...new Set(posts.map((post) => post.data.categories).flat()),
+  ];
+
+  return categories.flatMap((category) => {
+    const filteredPosts = posts.filter((post) =>
+      post.data.categories.includes(category)
+    );
+    const paginatedPosts = paginate(filteredPosts, {
+      params: { category: slugify(category) },
+      pageSize: config.site.itemsPerPage.blog,
+    });
+
+    return paginatedPosts.map((page) => ({
+      params: page.params,
+      props: {
+        ...page.props,
+        categories,
+      },
+    }));
+  });
+}
+
+interface Props {
+  page: Page;
+  categories: string[];
+}
+
+const { category } = Astro.params;
+const { page, categories } = Astro.props;
+
+const pageTitle = `Kategoria: ${category} - Blog`;
+const pageDescription = `Zobacz posty z kategorii ${category}`;
+
+const meta: Meta = {
+  title: `${category} - Blog`,
+  description: `Zobacz posty z kategorii ${category}.`,
+};
+
+const schema: Schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Blog Łukasza Miłoś",
+  articleSection: `${category}`,
+};
+---
+
+<ArchiveLayout
+  page={page}
+  categories={categories}
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  meta={meta}
+  schema={schema}
+/>

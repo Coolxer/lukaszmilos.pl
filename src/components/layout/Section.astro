@@ -1,0 +1,71 @@
+---
+import Container from "@components/layout/Container.astro";
+
+export interface Props {
+  id?: string;
+  variant?: "default" | "secondary" | "tetriary";
+  padding?: "none" | "sm" | "md" | "lg";
+  containerSize?: "sm" | "md" | "lg" | "xl" | "prose" | "full";
+  innerDivClasses?: string;
+  innerDivAdditionalClasses?: string;
+  headingAndParagraphClasses?: string;
+  class?: string;
+}
+
+const {
+  id,
+  variant = "default",
+  padding = "lg",
+  containerSize = "md",
+  innerDivClasses = "flex flex-col gap-12",
+  innerDivAdditionalClasses = "",
+  headingAndParagraphClasses = "[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-lg",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const variantClasses = {
+  default: "",
+  secondary: "bg-base-200",
+  tetriary: "bg-neutral",
+};
+
+const paddingClasses = {
+  none: "",
+  sm: "py-6 md:py-8",
+  md: "py-8 md:py-10 lg:py-12",
+  lg: "py-10 md:py-14 lg:py-16",
+};
+---
+
+<section
+  id={id}
+  class:list={[
+    "w-full",
+    variantClasses[variant],
+    paddingClasses[padding],
+    className,
+  ]}
+  {...rest}
+>
+  <Container size={containerSize}>
+    <div class:list={[innerDivClasses, innerDivAdditionalClasses]}>
+      {
+        (Astro.slots.has("heading") || Astro.slots.has("paragraph")) && (
+          <div class="flex w-full items-center justify-center">
+            <div
+              class:list={[
+                "flex flex-col gap-4 text-center max-w-prose",
+                headingAndParagraphClasses,
+              ]}
+            >
+              <slot name="heading" />
+              <slot name="paragraph" />
+            </div>
+          </div>
+        )
+      }
+      <slot />
+    </div>
+  </Container>
+</section>

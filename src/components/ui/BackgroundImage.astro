@@ -1,0 +1,41 @@
+---
+import MyImage from "@components/ui/MyImage.astro";
+
+export interface Props {
+  img?: ImageMetadata;
+  src?: string;
+  fromPublic?: boolean;
+  alt?: string;
+  overlay?: boolean;
+  overlayColor?: string;
+}
+
+const {
+  img,
+  src,
+  fromPublic = false,
+  alt = "",
+  overlay = false,
+  overlayColor = "bg-black/30",
+} = Astro.props;
+---
+
+{/* Background Image */}
+<div class="absolute inset-0 -z-10">
+  <MyImage
+    {img}
+    {src}
+    {fromPublic}
+    {alt}
+    size="size-full"
+    layout="object-cover"
+    aspect="aspect-auto"
+    rounded="rounded-none"
+    shadow="shadow-none"
+    widths={[640, 768, 1024, 1280, 1536]}
+    sizes="100vw"
+  />
+</div>
+
+{/* Optional Overlay */}
+{overlay && <div class:list={["absolute inset-0 -z-10", overlayColor]} />}

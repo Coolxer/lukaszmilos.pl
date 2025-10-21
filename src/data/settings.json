@@ -1,0 +1,12 @@
+{
+  "banner": {
+    "visible": true,
+    "text": "PROMOCJA! Ludzie promocja!",
+    "bgcolor": "#bb2525",
+    "textcolor": "#ffffff"
+  },
+  "contact": {
+    "email": "kontakt@gmail.com",
+    "phone": "123456789"
+  }
+}

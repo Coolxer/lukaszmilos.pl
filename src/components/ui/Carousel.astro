@@ -1,0 +1,202 @@
+---
+import type { ImageMetadata } from "astro";
+import MyImage from "@components/ui/MyImage.astro";
+
+type GalleryImage = {
+  data?: ImageMetadata;
+  src?: string;
+  fromPublic?: boolean;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
+export interface Props {
+  id: string;
+  images: GalleryImage[];
+  autoplay?: boolean;
+  interval?: number;
+  height?: string;
+  alignment?: "start" | "center" | "end";
+  class?: string;
+}
+
+const {
+  id,
+  images,
+  autoplay = false,
+  interval = 3000,
+  height = "h-80 md:h-96",
+  alignment = "center",
+  class: className,
+  ...attributes
+} = Astro.props;
+
+const alignmentClass = `carousel-${alignment}`;
+---
+
+<div
+  class:list={["relative w-full", height, className]}
+  data-carousel-id={id}
+  data-autoplay={autoplay}
+  data-interval={interval}
+  {...attributes}
+>
+  <div class:list={["carousel w-full h-full rounded-box", alignmentClass]}>
+    {
+      images.map((image, index) => (
+        <div
+          id={`${id}-slide-${index}`}
+          class="carousel-item relative w-full flex-shrink-0"
+        >
+          <MyImage
+            img={image.data}
+            src={image.src}
+            fromPublic={image.fromPublic}
+            alt={image.alt}
+            size="w-full h-full"
+            layout="object-cover"
+            rounded="rounded-none"
+            shadow="shadow-none"
+            widths={[640, 768, 1024, 1280]}
+            sizes="100vw"
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  {/* Navigation buttons */}
+  <div
+    class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between z-10"
+  >
+    <button
+      class="btn btn-circle btn-sm opacity-80 hover:opacity-100"
+      data-prev
+      aria-label="Poprzedni slajd">❮</button
+    >
+    <button
+      class="btn btn-circle btn-sm opacity-80 hover:opacity-100"
+      data-next
+      aria-label="Następny slajd">❯</button
+    >
+  </div>
+
+  {/* Indicators */}
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+    {
+      images.map((_, index) => (
+        <button
+          class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors"
+          data-indicator={index}
+          aria-label={`Slajd ${index + 1}`}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  function initCarousels() {
+    const carousels = document.querySelectorAll("[data-carousel-id]");
+
+    carousels.forEach((container) => {
+      const id = container.getAttribute("data-carousel-id");
+      const carousel = container.querySelector(".carousel");
+      const autoplay = container.getAttribute("data-autoplay") === "true";
+      const interval = parseInt(
+        container.getAttribute("data-interval") || "3000"
+      );
+
+      if (!carousel || !id) return;
+
+      const slides = Array.from(carousel.querySelectorAll(".carousel-item"));
+      const indicators = container.querySelectorAll("[data-indicator]");
+
+      let currentIndex = 0;
+      let autoplayInterval: number | null = null;
+
+      const scrollToSlide = (index: number) => {
+        const scrollLeft = carousel.clientWidth * index;
+        carousel.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth",
+        });
+        currentIndex = index;
+        updateIndicators();
+      };
+
+      const updateIndicators = () => {
+        indicators.forEach((indicator, i) => {
+          if (i === currentIndex) {
+            indicator.classList.remove("bg-white/50");
+            indicator.classList.add("bg-white");
+          } else {
+            indicator.classList.remove("bg-white");
+            indicator.classList.add("bg-white/50");
+          }
+        });
+      };
+
+      const nextSlide = () => {
+        const newIndex = (currentIndex + 1) % slides.length;
+        scrollToSlide(newIndex);
+      };
+
+      const prevSlide = () => {
+        const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+        scrollToSlide(newIndex);
+      };
+
+      const startAutoplay = () => {
+        if (autoplay && !autoplayInterval) {
+          autoplayInterval = window.setInterval(nextSlide, interval);
+        }
+      };
+
+      const stopAutoplay = () => {
+        if (autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
+        }
+      };
+
+      container.querySelector("[data-prev]")?.addEventListener("click", (e) => {
+        e.preventDefault();
+        stopAutoplay();
+        prevSlide();
+        startAutoplay();
+      });
+
+      container.querySelector("[data-next]")?.addEventListener("click", (e) => {
+        e.preventDefault();
+        stopAutoplay();
+        nextSlide();
+        startAutoplay();
+      });
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", (e) => {
+          e.preventDefault();
+          stopAutoplay();
+          scrollToSlide(index);
+          startAutoplay();
+        });
+      });
+
+      carousel.addEventListener("mouseenter", stopAutoplay);
+      carousel.addEventListener("mouseleave", startAutoplay);
+
+      updateIndicators();
+      startAutoplay();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCarousels);
+  } else {
+    initCarousels();
+  }
+
+  document.addEventListener("astro:page-load", initCarousels);
+</script>

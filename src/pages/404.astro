@@ -1,0 +1,18 @@
+---
+import { type Meta } from "@components/core/MySEO.astro";
+import ErrorLayout from "@layouts/ErrorLayout.astro";
+
+const meta: Meta = {
+  title: "404 - Brak strony",
+  description:
+    "Strona nie została znaleziona. Sprawdź adres lub wróć na stronę główną.",
+  noindex: true,
+  nofollow: true,
+};
+---
+
+<ErrorLayout
+  pageTitle="404. Nie ma takiej strony"
+  pageDescription="Sprawdź adres lub wróć na stronę główną."
+  meta={meta}
+/>

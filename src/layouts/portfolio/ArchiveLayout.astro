@@ -1,0 +1,104 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import PageLayout from "@layouts/PageLayout.astro";
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+import Section from "@components/layout/Section.astro";
+import PortfolioCard from "@components/collection/PortfolioCard.astro";
+import Button from "@components/ui/Button.astro";
+import Grid from "~/components/layout/Grid.astro";
+import Categories from "~/components/collection/Categories.astro";
+
+import Heading from "@components/ui/Heading.astro";
+import CTA from "~/components/sections/CTA.astro";
+
+// const meta: Meta = {
+//   title: "Portfolio i case studies | Realizacje",
+//   description:
+//     "Zobacz, co już zbudowałem: strony www, automatyzacje i aplikacje. Jakie były problemy, cele i wyniki? Przeczytaj konkretne case studies.",
+// };
+
+// const schema: Schema = {
+//   "@context": "https://schema.org",
+//   "@type": "CollectionPage",
+//   name: "Portfolio – realizacje i case studies",
+//   url: "https://lukaszmilos.pl/realizacje",
+//   description:
+//     "Archiwum projektów: strony www, automatyzacje i aplikacje z opisem problemu, celu i wyników.",
+// };
+
+export interface Props {
+  items: CollectionEntry<"portfolio">[];
+  categories?: string[];
+  pageTitle?: string;
+  pageDescription?: string;
+  meta: Meta;
+  schema?: Schema;
+}
+
+const { items, categories, pageTitle, pageDescription, meta, schema } =
+  Astro.props;
+---
+
+<PageLayout
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  meta={meta}
+  schema={schema}
+>
+  {/* HERO */}
+  <Section>
+    {
+      items.length === 0 ? (
+        <div class="flex bg-base-300 py-16 rounded-box shadow flex-col gap-4 items-center justify-center w-auto">
+          <p class="text-h5">
+            Niestety, ale nie ma jeszcze realizacji na stronie
+          </p>
+          <Button link="/">Wróć na strony głównej</Button>
+        </div>
+      ) : (
+        <div class="my-big-stack">
+          {/* KATEGORIE */}
+          {categories && categories.length > 0 && (
+            <div class="flex flex-col justify-start items-center gap-4">
+              <p class="font-bold text-lg">Kategorie:</p>
+              <Categories
+                baseSlug="/portfolio/kategoria/"
+                categories={categories}
+              />
+            </div>
+          )}
+
+          <Grid cols={1}>
+            {items.map((item) => (
+              <PortfolioCard item={item} />
+            ))}
+          </Grid>
+        </div>
+      )
+    }
+  </Section>
+
+  {/* CTA: GITHUB */}
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading">Zobacz więcej moich prac</Heading>
+    <p slot="paragraph">
+      Kod, prototypy i mniejsze projekty publikuję również na GitHubie.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <Button link="#" class="btn-primary">Przejdź na GitHub</Button>
+      <Button link="/kontakt/" class="btn-ghost">Skontaktuj się</Button>
+    </div>
+  </Section>
+
+  {/* FINALNE CTA */}
+  <CTA
+    id="kontakt"
+    heading="Chcesz podjąć współpracę?"
+    paragraph="“Może można zarzucić mi brak doświadczenia, ale nie brak wiedzy, umiejętności i zaangażowania”. Jestem otwarty na realizację konkretnych projektów oraz stałą współpracę."
+    button1={{ link: "/kontakt", text: "Skontaktuj się" }}
+    variant="primary"
+  />
+</PageLayout>

@@ -1,0 +1,39 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import ArchiveLayout from "@layouts/portfolio/ArchiveLayout.astro";
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+const pageTitle = "Portfolio - Zobacz moje realizacje";
+const pageDescription =
+  "Zobacz moje realizacje, czyli wybrane projekty z przeszłości, które pozwolą Ci podjąć lepszą decyzję o współpracy.";
+
+const meta: Meta = {
+  title: "Portfolio - Zobacz moje realizacje",
+  description:
+    "Zobacz moje realizacje, czyli wybrane projekty z przeszłości, które pozwolą Ci podjąć lepszą decyzję o współpracy.",
+};
+
+const schema: Schema = {
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  url: "https://lukaszmilos.pl/portfolio/",
+  name: "Portfolio - Łukasz Miłoś",
+  description:
+    "Przeglądaj portfolio Łukasza Miłoś, aby zobaczyć przykłady jego prac i projekty z zakresu cyfrowej transformacji.",
+};
+
+const items: CollectionEntry<"portfolio">[] = (
+  await getCollection("portfolio")
+).sort((a, b) => a.data.order - b.data.order);
+
+const categories = [...new Set(items.map((item) => item.data.category).flat())];
+---
+
+<ArchiveLayout
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  meta={meta}
+  schema={schema}
+  items={items}
+  categories={categories}
+/>

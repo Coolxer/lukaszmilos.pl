@@ -1,0 +1,174 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { Icon } from "astro-icon/components";
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+
+import Form from "@components/widgets/Form.astro";
+
+const meta: Meta = {
+  title: "Kontakt | Rozpocznij współpracę",
+  description:
+    "Masz pytanie? Chcesz omówić projekt? Skontaktuj się ze mną – odpowiem na wszystkie pytania i pomogę znaleźć najlepsze rozwiązanie dla Twojej firmy.",
+};
+
+const schema: Schema = {
+  "@context": "http://schema.org",
+  "@type": "ContactPage",
+  url: "https://lukaszmilos.pl/kontakt",
+  breadcrumb: "Kontakt",
+  mainEntity: {
+    "@type": "ContactPoint",
+    telephone: "+48-123-456-789",
+    contactType: "customer service",
+    areaServed: "PL",
+  },
+};
+---
+
+<PageLayout meta={meta} schema={schema}>
+  {/* SEKCJA HERO */}
+  <Section
+    headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
+  >
+    <Heading tag="h1" look="h0" slot="heading"> Skontaktuj się </Heading>
+    <p slot="paragraph">
+      Rozwiąż swój problem i osiągnij cel. Zadaj pytanie, poproś o radę lub
+      rozpocznij współpracę.
+    </p>
+  </Section>
+
+  {/* SEKCJA FORMULARZ */}
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading">Napisz wiadomość</Heading>
+
+    <div class="">
+      <Form />
+    </div>
+  </Section>
+
+  {/* SEKCJA INNE FORMY KONTAKTU I DANE FIRMY */}
+  <Section>
+    <Heading tag="h2" slot="heading">Inne formy kontaktu</Heading>
+
+    <div class="my-big-stack">
+      <Grid cols={2}>
+        <div
+          class="bg-base-100 border-2 border-primary/30 rounded-box p-8 my-stack shadow-sm"
+        >
+          <div class="flex items-center gap-3">
+            <div class="bg-primary/20 p-3 rounded-full">
+              <Icon name="tabler:mail" class="size-6 text-primary" />
+            </div>
+            <Heading tag="h3" look="h4">E-mail</Heading>
+          </div>
+          <div class="divider my-2"></div>
+          <div class="flex flex-col gap-2">
+            <a
+              href="mailto:kontakt@lukaszmilos.pl"
+              class="link link-hover text-base-content/80"
+            >
+              kontakt@lukaszmilos.pl
+            </a>
+            <a
+              href="mailto:lukasz.milos.it@gmail.com"
+              class="link link-hover text-base-content/80"
+            >
+              lukasz.milos.it@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="bg-base-100 border-2 border-primary/30 rounded-box p-8 my-stack shadow-sm"
+        >
+          <div class="flex items-center gap-3">
+            <div class="bg-primary/20 p-3 rounded-full">
+              <Icon name="tabler:share-3" class="size-6 text-primary" />
+            </div>
+            <Heading tag="h3" look="h4">Media społecznościowe</Heading>
+          </div>
+          <div class="divider my-2"></div>
+          <div class="flex gap-4">
+            {
+              [
+                {
+                  name: "Facebook",
+                  icon: "tabler:brand-facebook",
+                  link: "#",
+                },
+                {
+                  name: "LinkedIn",
+                  icon: "tabler:brand-linkedin",
+                  link: "#",
+                },
+                {
+                  name: "YouTube",
+                  icon: "tabler:brand-youtube",
+                  link: "#",
+                },
+              ].map((social) => (
+                <a
+                  href={social.link}
+                  class="btn btn-circle btn-ghost hover:bg-primary/10"
+                  aria-label={social.name}
+                >
+                  <Icon name={social.icon} class="size-6" />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </Grid>
+
+      {/* DANE FIRMY - BOX NA CAŁĄ SZEROKOŚĆ */}
+      <div
+        class="bg-base-100 border-2 border-primary/30 rounded-box p-8 shadow-sm"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <div class="bg-primary/20 p-3 rounded-full">
+            <Icon name="tabler:building" class="size-6 text-primary" />
+          </div>
+          <Heading tag="h3" look="h4">Dane firmy</Heading>
+        </div>
+        <div class="divider my-2"></div>
+
+        <div class="my-stack">
+          <div>
+            <p class="font-bold text-lg">Moc Cyfryzacji - Łukasz Miłoś</p>
+            <p class="text-base-content/80">39-305 Borowa, Polska</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex items-start gap-2">
+              <Icon
+                name="tabler:id"
+                class="size-5 text-primary mt-0.5 shrink-0"
+              />
+              <div>
+                <p class="font-medium">NIP</p>
+                <p class="text-base-content/80">8172216931</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2">
+              <Icon
+                name="tabler:file-text"
+                class="size-5 text-primary mt-0.5 shrink-0"
+              />
+              <div>
+                <p class="font-medium">REGON</p>
+                <p class="text-base-content/80">529387133</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

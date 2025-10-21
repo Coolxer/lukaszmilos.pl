@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+import EntryLayout from "@layouts/portfolio/EntryLayout.astro";
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+export async function getStaticPaths() {
+  const items = (await getCollection("portfolio")).filter(
+    (item) => !item.data.draft
+  );
+
+  return items.map((item, index) => ({
+    params: { id: item.id },
+    props: {
+      item,
+      prevItem: items[index - 1] || null,
+      nextItem: items[index + 1] || null,
+    },
+  }));
+}
+
+type Props = {
+  item: CollectionEntry<"portfolio">;
+  prevItem: CollectionEntry<"portfolio"> | null;
+  nextItem: CollectionEntry<"portfolio"> | null;
+};
+
+const { item, prevItem, nextItem } = Astro.props;
+
+const { Content } = await render(item);
+
+const meta: Meta = {
+  ...item.data.meta,
+  article: true,
+};
+---
+
+<EntryLayout item={item} prevItem={prevItem} nextItem={nextItem} meta={meta}>
+  <Content />
+</EntryLayout>

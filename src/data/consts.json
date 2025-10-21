@@ -1,0 +1,25 @@
+{
+  "company": {
+    "name": "Łukasz Miłoś",
+    "address": "39-305 Borowa, Polska",
+    "email": ["lukasz.milos.it@gmail.com", "kontakt@lukaszmilos.pl"],
+    "phone": ["123 456 789"]
+  },
+  "site": {
+    "domain": "https://lukaszmilos.pl",
+    "name": "lukaszmilos.pl",
+    "language": "pl",
+    "trailingSlash": "ignore",
+    "meta": {
+      "home-title": "Łukasz Miłoś",
+      "meta-title-template": "%s - Łukasz Miłoś"
+    },
+    "placeholderImage": "/src/assets/images/placeholder.webp",
+    "themes": ["light", "dark"],
+    "itemsPerPage": {
+      "blog": 9,
+      "projects": 6,
+      "reviews": 12
+    }
+  }
+}

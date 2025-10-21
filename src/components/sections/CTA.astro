@@ -1,0 +1,87 @@
+---
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+
+interface ButtonProps {
+  text: string;
+  link: string;
+  class?: string;
+  rawLink?: boolean;
+}
+
+interface Props {
+  id?: string;
+  heading: string;
+  paragraph?: string;
+  description?: string;
+  button1?: ButtonProps;
+  button2?: ButtonProps;
+  variant?: "primary" | "subtle";
+  class?: string;
+}
+
+const {
+  id,
+  heading,
+  paragraph,
+  description,
+  button1,
+  button2,
+  variant = "primary",
+  class: additionalClasses,
+} = Astro.props;
+
+const variantStyles = {
+  primary: {
+    inner: "bg-primary text-primary-content shadow-md",
+    text: "[&_p]:text-primary-content/80 [&_p]:text-lg",
+  },
+  subtle: {
+    inner: "bg-base-200 text-base-content",
+    text: "[&_p]:text-base-content/80 [&_p]:text-lg",
+  },
+};
+
+const styles = variantStyles[variant];
+
+const innerDivAdditionalClasses =
+  "rounded-box p-10 md:p-16 text-center " + styles.inner + additionalClasses;
+---
+
+<Section
+  id={id}
+  innerDivAdditionalClasses={innerDivAdditionalClasses}
+  headingAndParagraphClasses={styles.text}
+>
+  <Heading tag="h2" slot="heading">{heading}</Heading>
+
+  {paragraph && <p slot="paragraph">{paragraph}</p>}
+
+  {description && <p class="mt-4">{description}</p>}
+
+  {
+    (button1 || button2) && (
+      <div class=" flex flex-wrap justify-center items-center gap-4">
+        {button1 && (
+          <Button
+            link={button1.link}
+            class="btn-neutral"
+            rawLink={button1.rawLink}
+          >
+            {button1.text}
+          </Button>
+        )}
+        {button2 && (
+          <Button
+            link={button2.link}
+            class="btn-ghost"
+            rawLink={button2.rawLink}
+          >
+            {button2.text}
+          </Button>
+        )}
+      </div>
+    )
+  }
+</Section>

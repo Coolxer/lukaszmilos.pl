@@ -1,0 +1,353 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { type Meta } from "@components/core/MySEO.astro";
+
+import testImage from "@assets/images/placeholder.webp";
+import testImage2 from "@assets/images/pages/test2.webp";
+import testImage3 from "@assets/images/pages/test3.webp";
+
+import PageLayout from "@layouts/PageLayout.astro";
+
+import Button from "@components/ui/Button.astro";
+
+import MyImage from "@components/ui/MyImage.astro";
+import Gallery from "@components/ui/Gallery.astro";
+import Carousel from "@components/ui/Carousel.astro";
+import IconList from "@components/ui/IconList.astro";
+
+import FAQ from "@components/ui/FAQ.astro";
+
+const meta: Meta = {
+  title: "Stylebook",
+  description: "Strona ustawień stylu",
+  noindex: true,
+  nofollow: true,
+};
+
+const pageTitle = meta.title;
+const pageDescription = "Oprawa graficzna strony";
+
+const loremTitle = "Lorem ipsum dolor sit amet";
+const loremLeading =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin arcu sit amet blandit efficitur. In convallis bibendum dui quis facilisis. Nunc et dui quam.";
+const loremDescription =
+  "Cras a fringilla nisi, non laoreet magna. Vestibulum justo dolor, tempus quis mauris ac, bibendum tincidunt dui. Pellentesque nec odio quis eros tristique dictum. Phasellus vestibulum, lectus vitae cursus aliquam, metus nulla auctor risus, vitae condimentum nibh est ut lectus. Sed ultrices malesuada pulvinar. Vestibulum vehicula dui sed euismod lobortis. Praesent lectus diam, tempus id dapibus ac, mattis ut nibh. Nulla ipsum sem, blandit in augue non, congue molestie massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc tempor tortor id enim pharetra dictum. Aenean vel diam eu tortor porta sagittis. Donec id ex blandit, finibus orci eleifend, sollicitudin lacus. Integer at diam sollicitudin, finibus nibh vitae, cursus lacus.";
+---
+
+<PageLayout pageTitle={pageTitle} pageDescription={pageDescription} meta={meta}>
+  {/* Section with background image */}
+
+  {/* Text */}
+  <section class="max-w-3xl mx-auto">
+    <div class="flex flex-col items-start gap-y-6">
+      <h1 class="max-w-[20ch]">Heading 1 first line Heading 1 second line</h1>
+      <h2 class="max-w-[20ch]">Heading 2 first line Heading 2 second line</h2>
+      <h3 class="max-w-[20ch]">Heading 3 first line Heading 3 second line</h3>
+      <h4 class="max-w-[20ch]">Heading 4 first line Heading 4 second line</h4>
+      <h5 class="max-w-[20ch]">Heading 5 first line Heading 5 second line</h5>
+      <h6 class="max-w-[20ch]">Heading 6 first line Heading 6 second line</h6>
+
+      <p class="text-sm">
+        {loremDescription}
+      </p>
+      <p>
+        {loremDescription}
+      </p>
+      <p class="text-lg">
+        {loremDescription}
+      </p>
+    </div>
+  </section>
+
+  {/* Faq accordion */}
+  <section class="max-w-3xl mx-auto">
+    <FAQ
+      id="faq-1"
+      items={[
+        { question: "abc", answer: ["cde", "asdasdasd", "asdasdasdasdas"] },
+        { question: "abc", answer: ["cde"] },
+        { question: "abc", answer: ["cde"] },
+        { question: "abc", answer: ["cde"] },
+      ]}
+    />
+  </section>
+
+  {/* Icon list */}
+  <section class="max-w-3xl mx-auto">
+    <h2>Lista punktowana z ikonami</h2>
+    <IconList
+      items={["sdkasdklasdlkasjdasd", "asdaskldjaskdlasd", "asdaskdaslkdalsd"]}
+    />
+  </section>
+
+  {/* Buttons */}
+  <section class="max-w-3xl mx-auto">
+    <h2>Przyciski</h2>
+    <div class="flex flex-col items-start gap-y-6">
+      {/* primary buttons */}
+      <div class="flex flex-row flex-wrap items-center gap-4">
+        <Button link="#" class="btn-primary btn-sm"> Kup teraz </Button>
+
+        <Button link="#" class="btn-primary"> Kup teraz </Button>
+
+        <Button link="#" class="btn-primary btn-lg"> Kup teraz </Button>
+      </div>
+
+      {/* primary buttons with icon */}
+      <div class="flex flex-row flex-wrap items-center gap-4">
+        <Button link="#" class="btn-primary btn-sm">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+
+        <Button link="#">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+
+        <Button link="#" class="btn-primary btn-lg">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+      </div>
+
+      {/* secondary buttons */}
+      <div class="flex flex-row flex-wrap items-center gap-4">
+        <Button link="#" class="btn-secondary btn-sm"> Kup teraz </Button>
+
+        <Button link="#" class="btn-secondary"> Kup teraz </Button>
+
+        <Button link="#" class="btn-secondary btn-lg"> Kup teraz </Button>
+      </div>
+
+      {/* secondary buttons with icon */}
+      <div class="flex flex-row flex-wrap items-center gap-4">
+        <Button link="#" class="btn-secondary btn-sm">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+
+        <Button link="#" class="btn-secondary">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+
+        <Button link="#" class="btn-lg btn-secondary">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+      </div>
+
+      {/* link buttons */}
+      <div class="flex flex-row flex-wrap items-center gap-4">
+        <Button link="#" class="btn-sm">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+
+        <Button link="#">
+          Kup teraz
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"
+            >
+            </path>
+          </svg>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  {/* Images */}
+  <section class="max-w-3xl mx-auto">
+    {/* Image */}
+    <h2>Obraz</h2>
+    <MyImage img={testImage} alt="" />
+
+    {/* Image with simply overlay */}
+    <h2>Obraz z prostą nakładką</h2>
+    <MyImage
+      src="placeholder.webp"
+      alt=""
+      withOverlay
+      overlayColor="bg-slate-900/50"
+    />
+
+    {/* Image with custom overlay */}
+    <h2>Obraz z zaawansoaną nakładką</h2>
+    <MyImage src="placeholder.webp" alt="" withOverlay customOverlay>
+      <div
+        slot="overlay"
+        class="l-0 t-0 group absolute inset-0 flex size-full w-full items-end justify-center rounded bg-red-300/50 pb-3 transition-all duration-300 ease-in-out hover:bg-red-500/50 hover:pb-4"
+      >
+        <span class="text-h5 text-white group-hover:text-red-500">
+          Przykładowy tekst
+        </span>
+      </div>
+    </MyImage>
+  </section>
+
+  {/* Gallery */}
+  <section class="max-w-3xl mx-auto">
+    <h2>Galeria</h2>
+    <Gallery
+      id="gal1"
+      images={[
+        { data: testImage, alt: "glass" },
+        { data: testImage2, alt: "glass2" },
+        { data: testImage3, alt: "glass3" },
+      ]}
+      zoom
+    />
+  </section>
+
+  {/* Carousel (slider) */}
+  <section class="max-w-3xl mx-auto">
+    <h2>Karuzela</h2>
+    {/* Podstawowy */}
+    <Carousel
+      id="basic"
+      images={[
+        { data: testImage, alt: "glass" },
+        { data: testImage2, alt: "glass2" },
+        { data: testImage3, alt: "glass3" },
+      ]}
+    />
+
+    {/* Z autoplay */}
+    <Carousel
+      id="auto"
+      images={[
+        { data: testImage, alt: "glass" },
+        { data: testImage2, alt: "glass2" },
+        { data: testImage3, alt: "glass3" },
+      ]}
+      autoplay
+      interval={5000}
+    />
+  </section>
+</PageLayout>

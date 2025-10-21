@@ -1,0 +1,25 @@
+---
+import { type Meta } from "@components/core/MySEO.astro";
+import ErrorLayout from "@layouts/ErrorLayout.astro";
+
+interface Props {
+  error: unknown;
+}
+
+const meta: Meta = {
+  title: "500 - Błąd serwera",
+  description:
+    "Wystąpił błąd serwera. Spróbuj ponownie za chwilę. Przepraszamy za utrudnienia.",
+  noindex: true,
+  nofollow: true,
+};
+
+const { error } = Astro.props;
+---
+
+<ErrorLayout
+  pageTitle="500. Wewnętrzny błąd serwera."
+  pageDescription="Spróbuj ponownie za chwilę."
+  meta={meta}
+  >{error instanceof Error ? error.message : "Nieznany błąd"}</ErrorLayout
+>

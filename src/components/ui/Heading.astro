@@ -1,0 +1,28 @@
+---
+type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
+type Look = "h0" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+export interface Props {
+  tag: Tag;
+  look?: Look;
+  class?: string;
+}
+
+const { tag: Tag, look, class: className } = Astro.props;
+
+const finalLook = look ?? (Tag.startsWith("h") ? (Tag as Look) : "h3");
+
+const lookClasses: Record<Look, string> = {
+  h0: "text-h0",
+  h1: "text-h1",
+  h2: "text-h2",
+  h3: "text-h3",
+  h4: "text-h4",
+  h5: "text-h5",
+  h6: "text-h6",
+};
+---
+
+<Tag class:list={[lookClasses[finalLook], className]}>
+  <slot />
+</Tag>

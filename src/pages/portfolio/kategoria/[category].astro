@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+import { slugify } from "@utils/utils";
+
+import ArchiveLayout from "@layouts/portfolio/ArchiveLayout.astro";
+import { type Meta } from "@components/core/MySEO.astro";
+
+export async function getStaticPaths() {
+  const items = (await getCollection("portfolio")).filter(
+    (item) => !item.data.draft
+  );
+
+  // Pobierz unikalne kategorie
+  const categories = [
+    ...new Set(items.map((item) => item.data.category).flat()),
+  ];
+
+  // Dla każdej kategorii stwórz osobną stronę
+  return categories.map((category) => {
+    const filteredItems = items.filter((item) =>
+      item.data.category.includes(category)
+    );
+
+    return {
+      params: { category: slugify(category) },
+      props: {
+        category,
+        items: filteredItems,
+        categories, // wszystkie kategorie do nawigacji
+      },
+    };
+  });
+}
+
+interface Props {
+  category: string;
+  items: CollectionEntry<"portfolio">[];
+  categories: string[];
+}
+
+const { category, items, categories } = Astro.props;
+
+const pageTitle = `Kategoria: ${category} - Portfolio`;
+const pageDescription = `Zobacz projekty z kategorii ${category}`;
+
+const meta: Meta = {
+  title: `${category} - Portfolio`,
+  description: `Zobacz projekty z kategorii ${category}.`,
+};
+---
+
+<ArchiveLayout
+  items={items}
+  categories={categories}
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  meta={meta}
+/>

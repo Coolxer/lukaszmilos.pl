@@ -1,0 +1,47 @@
+---
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Section from "~/components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+
+type Props = {
+  pageTitle?: string;
+  pageDescription?: string;
+  meta: Meta;
+  schema?: Schema;
+};
+
+const { pageTitle, pageDescription, meta, schema } = Astro.props;
+---
+
+<BaseLayout meta={meta} schema={schema}>
+  <div class="w-full flex justify-center">
+    <div
+      class="flex flex-col min-h-screen justify-between w-full shadow-primary"
+    >
+      <Navbar />
+      <main class="w-full py-12 block">
+        {
+          pageTitle && (
+            <Section
+              padding="md"
+              containerSize="md"
+              headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
+            >
+              <Heading tag="h1" look="h0" slot="heading">
+                {pageTitle}
+              </Heading>
+              {pageDescription && <p slot="paragraph">{pageDescription}</p>}
+              <slot name="header" />
+            </Section>
+          )
+        }
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

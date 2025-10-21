@@ -1,0 +1,48 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  item: CollectionEntry<"reviews">;
+  class?: string;
+}
+
+const { item, class: className } = Astro.props;
+
+const { Content } = await render(item);
+---
+
+<div
+  class="w-full shadow-primary glass bg-primary-content rounded-box p-6 md:p-8 flex flex-col gap-4"
+>
+  <div class="flex md:mb-6">
+    {
+      Array(item.data.rating)
+        .fill(null)
+        .map(() => (
+          <Icon
+            name="tabler:star"
+            class="mr-1 size-6 text-yellow-400 [&_path]:fill-yellow-400"
+          />
+        ))
+    }
+  </div>
+  <article
+    class="prose prose-sm max-w-none prose-p:text-neutral prose-strong:text-neutral"
+  >
+    <Content />
+  </article>
+  <div
+    class="flex w-full flex-col items-start gap-4 md:w-fit md:flex-row md:items-center"
+  >
+    {
+      item.data.clientImage && (
+        <img
+          src={item.data.clientImage.src}
+          alt={item.data.clientImage.alt}
+          class="size-12 min-h-12 min-w-12 rounded-full object-cover"
+        />
+      )
+    }
+  </div>
+</div>

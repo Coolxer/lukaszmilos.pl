@@ -1,0 +1,51 @@
+---
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+import PageLayout from "@layouts/PageLayout.astro";
+
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "~/components/ui/Button.astro";
+
+export interface Props {
+  pageTitle: string;
+  pageDescription?: string;
+  href?: string;
+  btnText?: string;
+  meta: Meta;
+  schema?: Schema;
+}
+
+const {
+  pageTitle,
+  pageDescription = null,
+  href = "/",
+  btnText = "Wróć na stronę główną",
+  meta,
+  schema,
+} = Astro.props;
+---
+
+<PageLayout meta={meta} schema={schema}>
+  <Section>
+    <div
+      class="rounded-box p-8 md:p-16 text-center bg-base-200 text-base-content flex flex-col justify-center min-h-[32rem] md:min-h-[40rem] my-stack"
+    >
+      <Heading tag="h1">
+        {pageTitle}
+      </Heading>
+
+      <p class="text-lg text-base-content/80">
+        {pageDescription}
+      </p>
+
+      <div class="text-lg text-base-content/80">
+        <slot />
+      </div>
+
+      <div class="mt-4 flex flex-wrap justify-center items-center gap-4">
+        <Button link={href}> {btnText}</Button>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

@@ -1,0 +1,272 @@
+---
+interface Props {
+  buttonTitle?: string;
+}
+
+const { buttonTitle = "Wyślij wiadomość" } = Astro.props;
+
+const formAPIKey = import.meta.env.WEB3FORMS_SECRET_KEY;
+---
+
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  id="contact-form"
+  class="mx-auto w-full"
+  data-astro-reload
+  novalidate
+>
+  {/* Web3Forms Access Key */}
+  <input type="hidden" name="access_key" value={formAPIKey} />
+  {/* Honeypot */}
+  <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+
+  <div class="grid grid-cols-1 gap-6">
+    {/* Email */}
+    <div class="form-control w-full">
+      <label class="label" for="email">
+        <span class="label-text text-base">Email</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="input input-bordered w-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        placeholder="jan@example.com"
+        required
+      />
+      <label class="label pt-1">
+        <span
+          class="label-text-alt text-error opacity-0 transition-opacity duration-200"
+          data-error="email"
+        >
+          Proszę podać poprawny adres email.
+        </span>
+      </label>
+    </div>
+
+    {/* Message */}
+    <div class="form-control w-full">
+      <label class="label" for="message">
+        <span class="label-text text-base">Wiadomość</span>
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Wpisz swoją wiadomość..."
+        class="textarea textarea-bordered w-full min-h-[11.25rem] resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        required></textarea>
+      <label class="label pt-1">
+        <span
+          class="label-text-alt text-error opacity-0 transition-opacity duration-200"
+          data-error="message"
+        >
+          Proszę wpisać wiadomość.
+        </span>
+      </label>
+    </div>
+
+    <!-- Zgoda na politykę prywatności (wymagana) -->
+    <div class="form-control">
+      <label class="flex cursor-pointer items-start gap-3 py-0">
+        <input
+          type="checkbox"
+          id="privacy-consent"
+          name="privacy-consent"
+          class="checkbox checkbox-primary mt-1"
+          required
+        />
+        <span class="label-text text-sm min-w-0">
+          Zapoznałem(-am) się z <a
+            href="/politka-prywatnosci"
+            class="link link-primary underline">polityką prywatności</a
+          > i akceptuję jej postanowienia. <span class="text-error">*</span>
+        </span>
+      </label>
+      <label class="label pt-1">
+        <p
+          class="label-text-alt text-error opacity-0 transition-opacity duration-200"
+          data-error="privacy-consent"
+        >
+          Ta zgoda jest wymagana.
+        </p>
+      </label>
+    </div>
+
+    <!-- Zgoda na marketing (opcjonalna) -->
+    <div class="form-control">
+      <label class="flex cursor-pointer items-start gap-3 py-0">
+        <input
+          type="checkbox"
+          id="marketing-consent"
+          name="marketing-consent"
+          class="checkbox checkbox-primary mt-1"
+        />
+        <span class="label-text text-sm min-w-0">
+          Wyrażam zgodę na otrzymywanie informacji handlowych (ofert) środkami
+          komunikacji elektronicznej.
+        </span>
+      </label>
+    </div>
+
+    {/* Submit Button */}
+    <div class="text-center pt-2">
+      <button type="submit" class="btn btn-primary btn-wide gap-2">
+        <span class="btn-text">{buttonTitle}</span>
+        <span class="loading loading-spinner loading-sm hidden"></span>
+      </button>
+    </div>
+
+    {/* Result Message */}
+    <div id="result" class="text-center font-semibold empty:hidden"></div>
+  </div>
+</form>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const result = document.getElementById("result");
+    const submitBtn = form?.querySelector(
+      'button[type="submit"]'
+    ) as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector(".btn-text");
+    const spinner = submitBtn?.querySelector(".loading");
+
+    if (!form || !result || !submitBtn) return;
+
+    // Funkcja do pokazywania błędów
+    function showError(fieldName: string, show: boolean) {
+      const errorEl = form.querySelector(`[data-error="${fieldName}"]`);
+      const input = form.querySelector(
+        `[name="${fieldName}"]`
+      ) as HTMLInputElement;
+
+      if (errorEl && input) {
+        if (show) {
+          errorEl.classList.remove("opacity-0");
+          errorEl.classList.add("opacity-100");
+          input.classList.add("input-error", "border-error");
+        } else {
+          errorEl.classList.add("opacity-0");
+          errorEl.classList.remove("opacity-100");
+          input.classList.remove("input-error", "border-error");
+        }
+      }
+    }
+
+    // Walidacja w czasie rzeczywistym
+    ["name", "email", "message", "terms"].forEach((fieldName) => {
+      const field = form.querySelector(
+        `[name="${fieldName}"]`
+      ) as HTMLInputElement;
+
+      if (field) {
+        field.addEventListener("blur", () => {
+          if (field.value.trim() === "" || !field.checkValidity()) {
+            showError(fieldName, true);
+          } else {
+            showError(fieldName, false);
+          }
+        });
+
+        field.addEventListener("input", () => {
+          if (field.checkValidity()) {
+            showError(fieldName, false);
+          }
+        });
+      }
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Walidacja wszystkich pól
+      let isValid = true;
+      ["name", "email", "message", "terms"].forEach((fieldName) => {
+        const field = form.querySelector(
+          `[name="${fieldName}"]`
+        ) as HTMLInputElement;
+        if (!field.checkValidity()) {
+          showError(fieldName, true);
+          isValid = false;
+        }
+      });
+
+      if (!isValid) {
+        const firstInvalid = form.querySelector(
+          ".input-error, .checkbox:invalid"
+        ) as HTMLElement;
+        firstInvalid?.focus();
+        return;
+      }
+
+      // Pobierz dane
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      // Zmień stan przycisku
+      const originalText = btnText?.textContent;
+      if (btnText) btnText.textContent = "Wysyłanie...";
+      submitBtn.disabled = true;
+      spinner?.classList.remove("hidden");
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        });
+
+        const data = await response.json();
+
+        if (response.status === 200) {
+          result.classList.remove("text-error");
+          result.classList.add("text-success");
+          result.innerHTML = "✅ Wiadomość została wysłana!";
+          form.reset();
+
+          // Ukryj wszystkie błędy
+          ["name", "email", "message", "terms"].forEach((fieldName) => {
+            showError(fieldName, false);
+          });
+        } else {
+          result.classList.remove("text-success");
+          result.classList.add("text-error");
+          result.innerHTML =
+            data.message || "❌ Coś poszło nie tak. Spróbuj ponownie.";
+        }
+      } catch (error) {
+        console.error(error);
+        result.classList.remove("text-success");
+        result.classList.add("text-error");
+        result.innerHTML =
+          "❌ Błąd połączenia. Sprawdź internet i spróbuj ponownie.";
+      } finally {
+        // Przywróć przycisk
+        if (btnText && originalText) btnText.textContent = originalText;
+        submitBtn.disabled = false;
+        spinner?.classList.add("hidden");
+
+        // Ukryj wiadomość po 5 sekundach
+        setTimeout(() => {
+          result.innerHTML = "";
+          result.classList.remove("text-success", "text-error");
+        }, 5000);
+      }
+    });
+  }
+
+  // Inicjalizacja - obsługa zarówno zwykłego ładowania jak i View Transitions
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initContactForm);
+  } else {
+    initContactForm();
+  }
+
+  // Dla Astro View Transitions
+  document.addEventListener("astro:page-load", initContactForm);
+</script>

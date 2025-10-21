@@ -1,0 +1,207 @@
+---
+import type { MarkdownHeading } from "astro";
+import type { CollectionEntry } from "astro:content";
+
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+
+import Toc from "@components/blog/Toc.astro";
+import ElementNavigation from "@components/collection/ElementNavigation.astro";
+import PostCard from "@components/collection/PostCard.astro";
+import CTA from "~/components/sections/CTA.astro";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+  headings: MarkdownHeading[];
+  meta: Meta;
+  schema?: Schema;
+  relatedPosts: CollectionEntry<"blog">[];
+  prevPost: CollectionEntry<"blog"> | null;
+  nextPost: CollectionEntry<"blog"> | null;
+}
+
+const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
+  Astro.props;
+---
+
+<PageLayout meta={meta} schema={schema}>
+  {/* HEADER POSTA */}
+  <Section>
+    <div class="my-big-stack text-center">
+      {/* Kategorie */}
+      {
+        post.data.categories && post.data.categories.length > 0 && (
+          <div class="flex flex-wrap gap-2 justify-center">
+            {post.data.categories.map((category) => (
+              <div class="badge badge-primary badge-lg">{category}</div>
+            ))}
+          </div>
+        )
+      }
+
+      {/* Tytuł */}
+      <Heading tag="h1" look="h0">
+        {post.data.heading}
+      </Heading>
+
+      {/* Podtytuł */}
+      {
+        post.data.subheading && (
+          <p class="text-xl text-base-content/80 mt-4">
+            {post.data.subheading}
+          </p>
+        )
+      }
+
+      {/* Meta informacje (opcjonalnie - data, autor, czas czytania) */}
+      {
+        /*<div class="flex flex-wrap gap-4 justify-center text-sm text-base-content/60">
+        <span>12 stycznia 2024</span>
+        <span>•</span>
+        <span>5 min czytania</span>
+      </div> */
+      }
+    </div>
+
+    {/* Obrazek wyróżniający */}
+    {
+      post.data.image && (
+        <div class="mt-8">
+          <MyImage
+            src={"posts/" + post.data.image.src}
+            alt={post.data.heading}
+            size="w-full h-auto max-h-[600px] object-cover rounded-box shadow-lg"
+          />
+        </div>
+      )
+    }
+  </Section>
+
+  {/* TREŚĆ POSTA */}
+  <Section variant="secondary">
+    <div class="mx-auto my-big-stack">
+      {/* Link do wideo na YouTube (jeśli istnieje) */}
+      {
+        post.data.video && (
+          <a
+            href={post.data.video}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-box border-2 border-primary/30 bg-base-100 p-6 shadow-sm no-underline transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:-translate-y-1"
+          >
+            <div class="flex items-center gap-4 sm:gap-6">
+              {/* Ikona YouTube */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-12 w-12 flex-shrink-0 text-red-600 transition-transform duration-300 group-hover:scale-110"
+              >
+                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+              </svg>
+              <div>
+                <p class="font-bold text-lg text-base-content">
+                  Wolisz oglądać? Zobacz na YouTube!
+                </p>
+                <p class="text-sm text-base-content/70">
+                  Ten artykuł jest również dostępny w formie wideo.
+                </p>
+              </div>
+            </div>
+          </a>
+        )
+      }
+
+      {/* Spis treści */}
+      {
+        headings && headings.length > 0 && (
+          <div class="bg-base-100 border-2 border-primary/30 rounded-box p-6 shadow-sm">
+            <Toc headings={headings} />
+          </div>
+        )
+      }
+
+      {/* Treść artykułu */}
+      <article
+        class="prose prose-lg max-w-none
+        prose-headings:font-bold prose-headings:text-base-content
+        prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+        prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-base-content/80 prose-p:leading-relaxed prose-p:text-lg
+        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-base-content prose-strong:font-bold
+        prose-ul:text-base-content/80 prose-ul:my-6
+        prose-ol:text-base-content/80 prose-ol:my-6
+        prose-li:my-2
+        prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-base-content/70
+        prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+        prose-pre:bg-base-300 prose-pre:text-base-content prose-pre:rounded-box prose-pre:shadow-sm
+        prose-img:rounded-box prose-img:shadow-md prose-img:my-8"
+      >
+        <slot />
+      </article>
+    </div>
+  </Section>
+
+  {/* POWIĄZANE POSTY */}
+  {
+    relatedPosts && relatedPosts.length > 0 && (
+      <Section variant="secondary">
+        <Heading tag="h2" slot="heading">
+          Powiązane artykuły
+        </Heading>
+        <p slot="paragraph">
+          Może zainteresują Cię również te wpisy na podobny temat
+        </p>
+
+        <Grid cols={2}>
+          {relatedPosts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </Grid>
+      </Section>
+    )
+  }
+
+  {/* NAWIGACJA MIĘDZY POSTAMI */}
+  {
+    (prevPost || nextPost) && (
+      <Section>
+        <Heading tag="h2" slot="heading">
+          Inne posty
+        </Heading>
+        <div class="mx-auto my-stack">
+          <ElementNavigation
+            collection="blog"
+            baseSlug="/blog/"
+            prevElement={prevPost}
+            prevText="Poprzedni wpis"
+            nextElement={nextPost}
+            nextText="Następny wpis"
+          />
+          <Button link="/portfolio" class=" btn-outline">
+            Wszystkie posty
+          </Button>
+        </div>
+      </Section>
+    )
+  }
+
+  {/* FINALNE CTA */}
+  <CTA
+    id="kontakt"
+    heading="Masz pytania? Potrzebujesz pomocy?"
+    paragraph="Jeśli artykuł wzbudził Twoje zainteresowanie lub masz pytania – skontaktujsię ze mną."
+    button1={{ link: "/kontakt", text: "Skontaktuj się" }}
+    button2={{ link: "/blog", text: "Wróć na bloga" }}
+    variant="primary"
+  />
+</PageLayout>

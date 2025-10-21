@@ -1,0 +1,168 @@
+---
+import { Image } from "astro:assets";
+
+import config from "@data/consts.json";
+
+export interface Props {
+  img?: ImageMetadata;
+  src?: string;
+  fromPublic?: boolean;
+  alt: string;
+  size?: string;
+  layout?: "object-cover" | "object-contain" | "object-fill";
+  aspect?: string;
+  rounded?: string;
+  shadow?: string;
+  width?: number;
+  height?: number;
+  widths?: number[];
+  sizes?: string;
+  loading?: "eager" | "lazy" | null | undefined;
+  withOverlay?: boolean;
+  customOverlay?: boolean;
+  overlayColor?: string;
+  class?: string;
+}
+
+const {
+  img,
+  src,
+  fromPublic = false,
+  alt,
+  size = "size-full",
+  layout = "object-cover",
+  aspect = "aspect-auto",
+  rounded = "rounded-box",
+  shadow = "shadow-md",
+  width = 0,
+  height = 0,
+  widths = [320, 500, 680, 800],
+  sizes = `(max-width: 480px) 320px, (max-width: 768px) 500px, (max-width: 992px) 680px, 800px`,
+  loading = "lazy",
+  withOverlay = false,
+  customOverlay = false,
+  overlayColor = "bg-gradient-to-t from-slate-950/30 to-slate-700/10",
+  class: className,
+  ...attributes
+} = Astro.props;
+
+// Helper to check if URL is external
+const isExternalUrl = (url: string) => {
+  return url.startsWith("http://") || url.startsWith("https://");
+};
+
+let imageMetadata: ImageMetadata | undefined;
+let imageSrc: string | ImageMetadata | Promise<{ default: ImageMetadata }>;
+let isExternal = false;
+
+// direct transfer
+if (img) {
+  imageSrc = img;
+}
+// given image path
+else if (src) {
+  // Check if it's an external URL
+  if (isExternalUrl(src)) {
+    imageSrc = src;
+    isExternal = true;
+  } else {
+    // Local image
+    let images;
+    let generalPath;
+
+    if (fromPublic) {
+      generalPath = "/public/";
+      images = import.meta.glob<{ default: ImageMetadata }>(
+        "/public/*.{jpeg,jpg,png,gif,webp,avif}"
+      );
+    } else {
+      generalPath = "/src/assets/images/";
+      images = import.meta.glob<{ default: ImageMetadata }>(
+        "/src/assets/images/**/*.{jpeg,JPEG,jpg,JPG,png,PNG,gif,GIF,webp,WEBP,avif,AVIF}"
+      );
+    }
+
+    const imageImport = images[`${generalPath}${src}`]?.();
+    if (imageImport) {
+      imageMetadata = (await imageImport).default;
+      imageSrc = imageMetadata;
+    } else {
+      console.warn(`Image not found: ${generalPath}${src}`);
+      imageSrc = config.site.placeholderImage;
+    }
+  }
+} else {
+  imageSrc = config.site.placeholderImage;
+}
+
+const imageClasses = [size, layout, aspect, rounded, shadow, className];
+---
+
+{
+  withOverlay ? (
+    <div class:list={["relative size-full", rounded]}>
+      {isExternal ? (
+        <img
+          src={imageSrc as string}
+          alt={alt}
+          width={width || 600}
+          height={height || 600}
+          class:list={imageClasses}
+          loading={loading}
+          {...attributes}
+        />
+      ) : (
+        <Image
+          src={imageSrc as ImageMetadata}
+          alt={alt}
+          width={width ? width : !img && !imageMetadata ? 600 : undefined}
+          height={height ? height : !img && !imageMetadata ? 600 : undefined}
+          widths={width ? undefined : widths}
+          sizes={width ? undefined : sizes}
+          class:list={imageClasses}
+          loading={loading}
+          {...attributes}
+        />
+      )}
+      {!customOverlay ? (
+        <div
+          class:list={[
+            "l-0 t-0 absolute inset-0 size-full items-end justify-center pb-2",
+            rounded,
+            overlayColor,
+          ]}
+        >
+          <slot name="overlayItems" />
+        </div>
+      ) : (
+        <slot name="overlay" />
+      )}
+    </div>
+  ) : (
+    <>
+      {isExternal ? (
+        <img
+          src={imageSrc as string}
+          alt={alt}
+          width={width || 600}
+          height={height || 600}
+          class:list={imageClasses}
+          loading={loading}
+          {...attributes}
+        />
+      ) : (
+        <Image
+          src={imageSrc as ImageMetadata}
+          alt={alt}
+          width={width ? width : !img && !imageMetadata ? 600 : undefined}
+          height={height ? height : !img && !imageMetadata ? 600 : undefined}
+          widths={width ? undefined : widths}
+          sizes={width ? undefined : sizes}
+          class:list={imageClasses}
+          loading={loading}
+          {...attributes}
+        />
+      )}
+    </>
+  )
+}

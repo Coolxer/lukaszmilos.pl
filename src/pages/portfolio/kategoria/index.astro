@@ -1,0 +1,20 @@
+---
+import { type Meta } from "@components/core/MySEO.astro";
+import ErrorLayout from "@layouts/ErrorLayout.astro";
+
+const meta: Meta = {
+  title: "404 - Brak strony",
+  description:
+    "Nie ma takiej strony w portfolio. Sprawdź adres lub wróć na stronę główną portfolio.",
+  noindex: true,
+  nofollow: true,
+};
+---
+
+<ErrorLayout
+  pageTitle="Niepoprawny adres w portfolio"
+  pageDescription="Sprawdź adres lub wróć na stronę główną portfolio."
+  href="/portfolio"
+  btnText="Wróć do portfolio"
+  meta={meta}
+/>

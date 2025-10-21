@@ -1,0 +1,449 @@
+# Site configuration
+site_url: "https://lukaszmilos.pl"
+connect-src: "https://api.cloudflare.com"
+
+backend:
+  name: github
+  repo: "coolxer/lm-astro-2025"
+  branch: main
+  skip_ci: true
+  # base_url: https://sveltia-cms-auth.automatyzacja-demo.workers.dev/
+
+media_folder: "src/assets/images"
+public_folder: "/images"
+
+# Image optimization
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2048
+          height: 2048
+        svg:
+          optimize: true
+  stock_assets:
+    providers: []
+
+# Slug configuration
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '-'
+
+# Collections
+collections:
+  # ========== BLOG ==========
+  - name: blog
+    label: Blog
+    label_singular: Post
+    folder: src/content/blog
+    create: true
+    media_folder: /src/assets/images/blog
+    public_folder: /images/blog
+    slug: "{{slug}}"
+    identifier_field: heading   
+    editor:
+      preview: false
+    fields:
+      # Meta SEO Object
+      - label: "Meta (SEO)"
+        name: "meta"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Tytuł SEO"
+            name: "title"
+            widget: "string"
+            required: true
+            pattern: ['^.{1,60}$', 'Tytuł SEO powinien mieć maksymalnie 60 znaków']
+          
+          - label: "Opis SEO"
+            name: "description"
+            widget: "text"
+            required: true
+            pattern: ['^.{1,160}$', 'Opis SEO powinien mieć maksymalnie 160 znaków']
+          
+          - label: "Canonical URL"
+            name: "canonical"
+            widget: "string"
+            required: false
+          
+          - label: "Noindex"
+            name: "noindex"
+            widget: "boolean"
+            required: false
+            default: false
+          
+          - label: "Nofollow"
+            name: "nofollow"
+            widget: "boolean"
+            required: false
+            default: false
+      
+      # Main Blog Fields
+      - label: "Nagłówek"
+        name: "heading"
+        widget: "string"
+        required: true
+      
+      - label: "Podtytuł"
+        name: "subheading"
+        widget: "string"
+        required: true
+      
+      - label: "Lead (wprowadzenie)"
+        name: "leading"
+        widget: "text"
+        required: true
+      
+      - label: "Obraz wyróżniający"
+        name: "image"
+        widget: "object"
+        required: true
+        fields:
+          - { label: "Źródło", name: "src", widget: "image", required: true }
+          - { label: "Opis (alt)", name: "alt", widget: "string", required: true }
+      
+      - label: "Video URL (opcjonalnie)"
+        name: "video"
+        widget: "string"
+        required: false
+        hint: "Link do filmu YouTube, Vimeo, itp."
+      
+      - label: "Kategorie"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        required: true
+        default: ["brak kategorii"]
+        options:
+          - { label: "Brak kategorii", value: "brak kategorii" }
+          - { label: "Biznes", value: "biznes" }
+          - { label: "WWW", value: "www" }
+          - { label: "Cyfryzacja", value: "cyfryzacja" }
+          - { label: "Automatyzacja", value: "automatyzacja" }
+          - { label: "Wskazówki", value: "wskazówki" }
+      
+      - label: "Powiązane posty (max 2)"
+        name: "relatedPosts"
+        widget: "relation"
+        collection: "blog"
+        search_fields: ["heading", "meta.title"]
+        value_field: "{{slug}}"
+        display_fields: ["heading"]
+        multiple: true
+        max: 2 # Zmieniono z 3 na 2, zgodnie ze schematem
+        required: false
+      
+      - label: "Data publikacji"
+        name: "date"
+        widget: "datetime"
+        required: true
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      
+      - label: "Wersja robocza"
+        name: "draft"
+        widget: "boolean"
+        required: false
+        default: false
+      
+      - label: "Treść" # Pole body musi być na końcu, aby reszta pól była widoczna jako frontmatter
+        name: "body"
+        widget: "markdown"
+        required: true
+
+  # ========== PORTFOLIO ==========
+  - name: portfolio
+    label: Portfolio
+    label_singular: Projekt
+    folder: src/content/portfolio
+    create: true
+    media_folder: /src/assets/images/portfolio
+    public_folder: /images/portfolio
+    slug: "{{slug}}"
+    identifier_field: slug
+    editor:
+      preview: false
+    fields:
+      - label: "Kolejność wyświetlania"
+        name: "order"
+        widget: "number"
+        required: true
+        default: 0
+        value_type: "int"
+        hint: "Im niższa liczba, tym wyżej na liście pojawi się projekt."
+
+      - label: "Meta (SEO)"
+        name: "meta"
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Tytuł SEO", name: "title", widget: "string", required: true, pattern: ['^.{1,60}$', 'Max 60 znaków'] }
+          - { label: "Opis SEO", name: "description", widget: "text", required: true, pattern: ['^.{1,160}$', 'Max 160 znaków'] }
+          - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+          - { label: "Noindex", name: "noindex", widget: "boolean", required: false, default: false }
+          - { label: "Nofollow", name: "nofollow", widget: "boolean", required: false, default: false }
+      
+      - label: "Tytuł projektu"
+        name: "title"
+        widget: "string"
+        required: true
+
+      - label: "Obraz główny"
+        name: "image"
+        widget: "object"
+        required: true
+        fields:
+          - { label: "Źródło", name: "src", widget: "image", required: true }
+          - { label: "Opis (alt)", name: "alt", widget: "string", required: true }
+
+      - label: "Problem klienta"
+        name: "problem"
+        widget: "text"
+        required: true
+
+      - label: "Cel projektu"
+        name: "target"
+        widget: "text"
+        required: true
+
+      - label: "Rezultat / Rozwiązanie"
+        name: "result"
+        widget: "text"
+        required: true
+
+      - label: "Metryki Webowe (opcjonalnie)"
+        name: "webMetrics"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Szybkość", name: "speed", widget: "number", value_type: "int", min: 0, max: 100, required: false }
+          - { label: "Dostępność", name: "accessibility", widget: "number", value_type: "int", min: 0, max: 100, required: false }
+          - { label: "Dobre praktyki", name: "technics", widget: "number", value_type: "int", min: 0, max: 100, required: false }
+          - { label: "SEO", name: "seo", widget: "number", value_type: "int", min: 0, max: 100, required: false }
+          - { label: "Wyświetlenia", name: "views", widget: "number", value_type: "int", required: false }
+          - { label: "Kliknięcia", name: "clicks", widget: "number", value_type: "int", required: false }
+      
+      - label: "Link do projektu"
+        name: "link"
+        widget: "string"
+        required: false
+
+      - label: "Galeria (max 10)"
+        name: "gallery"
+        widget: "list"
+        required: false
+        max: 10
+        summary: "{{fields.alt}}"
+        fields:
+          - { label: "Źródło", name: "src", widget: "image", required: true }
+          - { label: "Opis (alt)", name: "alt", widget: "string", required: true }
+      
+      - label: "Wideo (linki)"
+        name: "videos"
+        widget: "list"
+        required: false
+        summary: "{{fields.url}}"
+        fields:
+          - { label: "URL do wideo", name: "url", widget: "string" }
+
+      - label: "Kategoria projektu"
+        name: "category"
+        widget: "select"
+        required: true
+        options:
+          - "www"
+          - "system"
+          - "automatyzacja"
+
+      - label: "Powiązana recenzja (opcjonalnie)"
+        name: "review"
+        widget: "relation"
+        collection: "reviews"
+        search_fields: ["clientName"]
+        value_field: "{{slug}}"
+        display_fields: ["clientName", "date"]
+        required: false
+        multiple: false
+      
+      - label: "Powiązane projekty (max 2)"
+        name: "relatedProjects"
+        widget: "relation"
+        collection: "portfolio"
+        search_fields: ["title", "meta.title"]
+        value_field: "{{slug}}"
+        display_fields: ["title"]
+        multiple: true
+        max: 2
+        required: false
+
+      - label: "Wersja robocza"
+        name: "draft"
+        widget: "boolean"
+        required: false
+        default: false
+
+  # ========== REVIEWS (Recenzje) ==========
+  - name: reviews
+    label: Recenzje
+    label_singular: Recenzja
+    folder: src/content/reviews
+    create: true
+    media_folder: /src/assets/images/reviews
+    public_folder: /images/reviews
+    slug: "{{clientName}}-{{year}}-{{month}}-{{day}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Nazwa klienta"
+        name: "clientName"
+        widget: "string"
+        required: true
+      
+      - label: "Zdjęcie klienta"
+        name: "clientImage"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { label: "Źródło", name: "src", widget: "image", required: false }
+          - { label: "Opis (alt)", name: "alt", widget: "string", required: false }
+      
+      - label: "Ocena (gwiazdki)"
+        name: "rating"
+        widget: "number"
+        required: true
+        default: 5
+        min: 1
+        max: 5
+        value_type: "int"
+        hint: "Ocena od 1 do 5"
+      
+      - label: "Źródło recenzji"
+        name: "source"
+        widget: "select"
+        required: true
+        default: "Inne"
+        options:
+          - 'Google'
+          - 'Facebook'
+          - 'Gowork'
+          - 'TrustMate'
+          - 'Inne'
+      
+      - label: "Link do recenzji"
+        name: "reviewLink"
+        widget: "string"
+        required: false
+        hint: "Pełny URL do recenzji na zewnętrznej platformie"
+
+      - label: "Rodzaj wykonanej usługi"
+        name: "service"
+        widget: "select"
+        multiple: true
+        min: 1
+        required: true
+        options:
+          - "www"
+          - "system"
+          - "automatyzacja"
+        hint: "Wybierz co najmniej jedną kategorię usługi, której dotyczy recenzja."
+
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+        required: true
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      
+      - label: "Wersja robocza"
+        name: "draft"
+        widget: "boolean"
+        required: false
+        default: false
+
+      - label: "Treść recenzji"
+        name: "body"
+        widget: "markdown"
+        required: true
+
+# ========== SINGLETONS ==========
+singletons:
+  - name: "app-settings"
+    label: "Ustawienia Aplikacji"
+    file: "src/data/settings.json"
+    icon: "settings"
+    editor:
+      preview: false
+    fields:
+      - label: "Banner"
+        name: "banner"
+        widget: "object"
+        fields:
+          - label: "Widoczny"
+            name: "visible"
+            widget: "boolean"
+            default: true
+          
+          - label: "Tekst"
+            name: "text"
+            widget: "string"
+            default: "Witaj w aplikacji!"
+          
+          - label: "Kolor tła"
+            name: "bgcolor"
+            widget: "color"
+            default: "#000000"
+            allowInput: true
+          
+          - label: "Kolor tekstu"
+            name: "textcolor"
+            widget: "color"
+            default: "#ffffff"
+            allowInput: true
+      
+      - label: "Kontakt"
+        name: "contact"
+        widget: "object"
+        fields:
+          - label: "Email"
+            name: "email"
+            widget: "string"
+            pattern: ['^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', 'Wprowadź poprawny adres email']
+            default: "kontakt@gmail.com"
+          
+          - label: "Telefon"
+            name: "phone"
+            widget: "string"
+            pattern: ['^\+?[1-9]\d{1,14}$', 'Wprowadź poprawny numer telefonu']
+  - name: "pricing"
+    label: "Cennik"
+    file: "src/content/pricing/pricing.json"
+    editor:
+      preview: false
+    fields:
+      - name: pricing_items
+        label: Pozycje cennika
+        label_singular: Pozycja
+        widget: list
+        summary: "{{fields.title}} - {{fields.price}} PLN/{{fields.unit}}"
+        fields:
+          - { label: "Tytuł usługi", name: "title", widget: "string", required: true }
+          - { label: "Opis", name: "description", widget: "text", required: true }
+          - { label: "Cena (PLN)", name: "price", widget: "number", required: true, min: 0, value_type: "float" }
+          - label: "Jednostka"
+            name: "unit"
+            widget: "select"
+            required: true
+            default: "usługa"
+            options:
+              - { label: "Za godzinę", value: "godzina" }
+              - { label: "Za projekt", value: "projekt" }
+              - { label: "Za miesiąc", value: "miesiąc" }
+              - { label: "Za usługę", value: "usługa" }
+          - { label: "Wyróżniona oferta", name: "isPopular", widget: "boolean", required: false, default: false }

@@ -1,0 +1,485 @@
+---
+import { Icon } from "astro-icon/components";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import PageLayout from "@layouts/PageLayout.astro";
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+import { PORTFOLIO_CATEGORIES } from "~/content/schemas";
+
+import HeroImg from "@assets/images/pages/systemy-i-automatyzacje/systemy-i-automatyzacje.svg";
+
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import FAQ from "@components/ui/FAQ.astro";
+
+import PortfolioCard from "@components/collection/PortfolioCard.astro";
+import ReviewCard from "@components/collection/ReviewCard.astro";
+import CTA from "@components/sections/CTA.astro";
+
+const meta: Meta = {
+  title: "Cyfryzacja i Automatyzacja dla firm",
+  description:
+    "Pomagam uporządkować procesy i wdrożyć proste narzędzia, by Twoja firma działała sprawniej i bez błędów. Odzyskaj kontrolę i czas na rozwój.",
+};
+
+const schema: Schema = {
+  "@context": "https://schema.org",
+  "@type": "WebService",
+  name: "Wdrażanie systemów i automatyzacji dla firm",
+  description:
+    "Pomagam mikro i małym firmom uporządkować procesy oraz wdrożyć proste narzędzia i automatyzacje, które zwiększają efektywność i redukują błędy. Dzięki temu przedsiębiorcy mogą skupić się na rozwoju biznesu, zamiast tracić czas na ręczną pracę.",
+  provider: {
+    "@type": "Person",
+    name: "Łukasz Miłoś",
+  },
+  serviceType: "Wdrażanie systemów i automatyzacji dla firm",
+  areaServed: "PL",
+};
+
+const relatedProjects = (
+  await getCollection("portfolio", ({ data }) => {
+    return (
+      !data.draft &&
+      data.category &&
+      (data.category === PORTFOLIO_CATEGORIES[1] ||
+        data.category === PORTFOLIO_CATEGORIES[2])
+    );
+  })
+).slice(0, 2);
+
+const relatedReviews = (
+  await getCollection("reviews", ({ data }) => {
+    return (
+      !data.draft &&
+      data.service &&
+      (data.service.includes(PORTFOLIO_CATEGORIES[1]) ||
+        data.service.includes(PORTFOLIO_CATEGORIES[2]))
+    );
+  })
+).slice(0, 2);
+---
+
+<PageLayout meta={meta}>
+  <Section
+    headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
+  >
+    <Heading tag="h1" look="h0" slot="heading">
+      Mniej ręcznej roboty, <span class="text-primary"
+        >więcej czasu na to, co ważne.</span
+      >
+    </Heading>
+    <p slot="paragraph">
+      Upraszczam procesy, wdrażam proste narzędzia i automatyzuję zadania, by
+      Twoja firma działała sprawniej, szybciej i bez błędów.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <Button link="#o-co-chodzi" rawLink class="btn-primary"
+        >O co chodzi?</Button
+      >
+      <Button link="/kontakt" class="btn-ghost">Skontaktuj się</Button>
+    </div>
+
+    <div>
+      <HeroImg
+        class="w-full h-auto text-base-content/50"
+        preserveAspectRatio="xMidYMid meet"
+        aria-hidden="true"
+        focusable="false"
+      />
+    </div>
+  </Section>
+
+  <Section id="o-co-chodzi" variant="secondary">
+    <Heading tag="h2" slot="heading">Czy znasz to uczucie?</Heading>
+    <p slot="paragraph">
+      Masz wrażenie, że Twoja firma mogłaby działać znacznie sprawniej, ale...
+    </p>
+    <div class="rounded-box border-2 border-error/30 bg-error/5 p-6 shadow-sm">
+      <IconList
+        iconName="tabler:circle-x"
+        color="text-error"
+        size="text-3xl"
+        items={[
+          "Tracisz czas na powtarzalne, trudne lub nudne zadania.",
+          "Pojawiają się błędy, bo ktoś o czymś zapomniał lub skopiował złe dane.",
+          "Informacje są porozrzucane po notatkach, mailach i różnych plikach.",
+          "Czujesz, że stoisz w miejscu, bo gaszenie pożarów zabiera mnóstwo energii.",
+          "Odpowiedzi na te same pytania wysyłasz po raz setny, redagując od nowa.",
+          "Myślisz o zatrudnieniu kogoś do pomocy, ale to jeszcze zbyt duży koszt.",
+        ]}
+      />
+    </div>
+  </Section>
+
+  <Section>
+    <Heading tag="h2" slot="heading"
+      >A teraz, wyobraź sobie firmę, w której technologia pracuje dla Ciebie</Heading
+    >
+    <p slot="paragraph">
+      To nie magia, a mądre wykorzystanie narzędzi, które często już masz, by
+      dały Ci konkretne korzyści.
+    </p>
+
+    <div class="my-big-stack">
+      {
+        [
+          {
+            icon: "tabler:brain",
+            title: "Odzyskany spokój i porządek",
+            description:
+              "Koniec z zastanawianiem się, czy wszystko zostało zrobione. Procesy działają w tle, dane są w jednym miejscu, a Ty masz pełną kontrolę.",
+          },
+          {
+            icon: "tabler:clock",
+            title: "Więcej czasu na rozwój",
+            description:
+              "Delegujesz zadania algorytmom. Uwolniony czas i energię możesz przeznaczyć na strategię, kontakt z kluczowymi klientami i rozwijanie biznesu.",
+          },
+          {
+            icon: "tabler:pig-money",
+            title: "Realne oszczędności",
+            description:
+              "Mniej błędów to mniej strat. Szybsze działanie to więcej zrealizowanych zleceń. Automatyzacja to często tańsza alternatywa dla nowego etatu.",
+          },
+          {
+            icon: "tabler:chart-line",
+            title: "Skalowalność i powtarzalność",
+            description:
+              "Zautomatyzowane procesy pozwalają obsłużyć więcej klientów z taką samą precyzją, bez zwiększania zespołu. Twoja firma jest gotowa, by się skalować.",
+          },
+        ].map((item) => (
+          <div class="flex items-start gap-8 px-4 py-8 bg-primary/10 rounded-box shadow-sm">
+            <div class="bg-primary/50 p-2 rounded-full">
+              <Icon name={item.icon} class="size-8 text-primary-content" />
+            </div>
+            <div class="my-stack">
+              <Heading tag="h3" look="h4">
+                {item.title}
+              </Heading>
+              <p class="text-base-content/80 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading"
+      >Zacznijmy od fundamentu: Twojej cyfrowej bazy operacyjnej</Heading
+    >
+    <p slot="paragraph">
+      Zanim zaczniemy cokolwiek automatyzować, musimy zapanować nad chaosem. Dla
+      wielu małych firm największą rewolucją jest stworzenie jednego,
+      centralnego miejsca do zarządzania informacjami.
+    </p>
+    <div class="bg-base-100 p-8 rounded-box shadow-md my-stack">
+      <Heading tag="h3" look="h4" class="text-center"
+        >Czym jest taka baza?</Heading
+      >
+      <p class="text-center text-base-content/80">
+        To może być dobrze zorganizowany Arkusz Google, prosta baza w Notion lub
+        Airtable lub dedykowany system CMS. To Twoje centrum dowodzenia, które
+        zastępuje dziesiątki plików, notatek i maili.
+      </p>
+      <div class="divider"></div>
+      <IconList
+        iconName="tabler:circle-check"
+        color="text-success"
+        size="text-2xl"
+        items={[
+          "Wszystkie kluczowe dane (klienci, projekty, zadania) w jednym miejscu.",
+          "Koniec z szukaniem informacji i pytaniem „gdzie to było?”.",
+          "Jasny obraz sytuacji w firmie, co pozwala podejmować lepsze decyzje.",
+          "Fundament, na którym można budować dalsze usprawnienia i automatyzacje.",
+        ]}
+      />
+    </div>
+  </Section>
+
+  <Section id="przykłady">
+    <Heading tag="h2" slot="heading"
+      >Co możemy zbudować na solidnym fundamencie?</Heading
+    >
+    <p slot="paragraph">
+      Gdy mamy już porządek w danych, otwierają się ogromne możliwości
+      automatyzacji. Oto kilka realnych przykładów:
+    </p>
+
+    <div class="my-big-stack">
+      {
+        [
+          {
+            title: "Marketing i Sprzedaż",
+            icon: "tabler:chart-dots",
+            items: [
+              "Automatyczne dodawanie opinii z Google lub Facebooka na Twoją stronę.",
+              "Automatyczne tworzenie bazy e-maili z formularzy kontaktowych.",
+              "Generowanie spersonalizowanych ofert, umów czy certyfikatów na podstawie szablonu.",
+              "Tworzenie grafik na social media z tytułów wpisów blogowych.",
+              "Zamiana postów z bloga na treści do mediów społecznościowych.",
+              "Powiadomienie SMS, gdy na maila wpadnie zapytanie od kluczowego klienta.",
+            ],
+          },
+          {
+            title: "Obsługa Klienta",
+            icon: "tabler:users",
+            items: [
+              "Automatyczne przypomnienia o niezapłaconych fakturach.",
+              "Automatyczne wysyłanie podsumowań i statystyk dla klienta.",
+              "Szybka odpowiedź SMS, gdy nie możesz odebrać telefonu (Dziękuję za kontakt, oddzwonię za chwilę).",
+              "Automatyczne zapisywanie załączników z maili od klientów na dysku Google.",
+            ],
+          },
+          {
+            title: "Zarządzanie i Administracja",
+            icon: "tabler:settings",
+            items: [
+              "Stworzenie dedykowanego kalkulatora w Google Sheets do skomplikowanych obliczeń.",
+              "Wdrożenie wspólnego systemu do planowania zadań dla całego zespołu (np. Trello, Notion).",
+              "Integracja wielu skrzynek e-mail w jednym miejscu, by niczego nie przegapić.",
+              "Automatyczne pobieranie danych o firmie klienta po wpisaniu NIP.",
+              "Automatyczne czyszczenie starych plików z Google Drive, by zwolnić miejsce.",
+            ],
+          },
+        ].map((category) => (
+          <div class="bg-base-200 border-2 border-primary/30 rounded-box px-6 py-10 shadow-md my-stack">
+            <div class="flex items-center gap-3">
+              <div class="bg-primary/50 p-2 rounded-full">
+                <Icon
+                  name={category.icon}
+                  class="size-6 text-primary-content"
+                />
+              </div>
+              <Heading tag="h3" look="h4">
+                {category.title}
+              </Heading>
+            </div>
+            <ul class="list-disc list-outside space-y-2 pl-5 text-base-content/80">
+              {category.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+
+      <div
+        class="bg-success/10 border-2 border-success/30 rounded-box p-6 shadow-md my-stack"
+      >
+        <div class="flex items-center gap-3">
+          <div class="bg-success/50 p-2 rounded-full">
+            <Icon name="tabler:check" class="size-6 text-success-content" />
+          </div>
+          <Heading tag="h3" look="h4">Twój unikalny problem</Heading>
+        </div>
+        <p class="text-base-content/80">
+          Masz inny, specyficzny proces, który zabiera Ci czas? Opowiedz mi o
+          nim. Najciekawsze rozwiązania powstają w odpowiedzi na realne
+          potrzeby.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading"
+      >Jak wygląda współpraca? Prosty proces w 4 krokach.</Heading
+    >
+    <p slot="paragraph">
+      Skupiam się na celu, który chcesz osiągnąć. Bez zbędnej biurokracji i
+      technicznego żargonu.
+    </p>
+    <div class="grid md:grid-cols-2 gap-6 text-center">
+      {
+        [
+          {
+            title: "Rozmowa i Diagnoza",
+            text: "Opowiadasz mi o swoim problemie lub procesie, który chcesz usprawnić. Słucham, zadaję pytania i staram się dogłębnie zrozumieć Twój cel.",
+          },
+          {
+            title: "Propozycja Rozwiązania",
+            text: "Analizuję sytuację i szukam najprostszego rozwiązania. Przedstawiam Ci konkretny plan działania i narzędzia, których użyjemy.",
+          },
+          {
+            title: "Wdrożenie i Testy",
+            text: "Wdrażam ustalone rozwiązanie. Testuję je na realnych przykładach, by upewnić się, że wszystko działa dokładnie tak, jak tego oczekujesz.",
+          },
+          {
+            title: "Przekazanie i Wsparcie",
+            text: "Pokazuję Ci, jak korzystać z nowego narzędzia lub automatyzacji. Odpowiadam na pytania i upewniam się, że czujesz się z nim komfortowo.",
+          },
+        ].map((item, index) => (
+          <div class="p-6 bg-base-200 rounded-box my-stack items-center">
+            <div class="flex items-center justify-center size-12 bg-primary text-primary-content font-bold text-2xl rounded-full">
+              {index + 1}
+            </div>
+            <Heading tag="h3" look="h5">
+              {item.title}
+            </Heading>
+            <p class="text-sm text-base-content/80">{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  {
+    relatedProjects && relatedProjects.length > 0 && (
+      <Section id="realizacje">
+        <Heading tag="h2" slot="heading">
+          Przykładowe realizacje aplikacji i automatyzacji
+        </Heading>
+        <p slot="paragraph">
+          Zobacz konkretne projekty i rezultaty, które udało mi się osiągnąć dla
+          klientów
+        </p>
+
+        <Grid cols={1}>
+          {relatedProjects.map((project) => (
+            <PortfolioCard item={project} />
+          ))}
+        </Grid>
+
+        <div class="flex justify-center mt-8">
+          <Button link="/portfolio/kategoria/automatyzacja" class="btn-primary">
+            Zobacz inne realizacje
+          </Button>
+        </div>
+      </Section>
+    )
+  }
+
+  {
+    /*
+    relatedReviews && relatedReviews.length > 0 && (
+      <Section>
+        <Heading tag="h2" slot="heading">
+          Co mówią zadowoleni klienci?
+        </Heading>
+        <p slot="paragraph">Opinie osób, które zdecydowały się na współpracę</p>
+
+        <Grid cols={2}>
+          {relatedReviews.map((review) => (
+            <ReviewCard item={review} />
+          ))}
+        </Grid>
+
+        <div class="flex justify-center mt-8">
+          <Button link="/opinie/" class="">
+            Zobacz wszystkie opinie
+          </Button>
+        </div>
+      </Section>
+    )
+  } */
+  }
+
+  <Section
+    variant="tetriary"
+    headingAndParagraphClasses="[&_h2]:text-neutral-content [&_p]:text-neutral-content [&_p]:text-lg"
+  >
+    <Heading tag="h2" slot="heading">Ile to kosztuje?</Heading>
+    <div class="text-lg my-big-stack text-neutral-content">
+      <p>
+        Każda firma jest inna, dlatego projekty wyceniam indywidualnie. Stawiam
+        na proste i dostępne rozwiązania, na które mogą sobie pozwolić również
+        mikro i małe firmy.
+      </p>
+      <p class="font-medium text-secondary border-l-4 border-secondary pl-4">
+        Traktuję to jak inwestycję, nie koszt. Często zwraca się ona
+        błyskawicznie – w zaoszczędzonym czasie, zredukowanych wydatkach lub
+        unikniętych błędach.
+      </p>
+      <p>
+        Samo uporządkowanie danych i wdrożenie prostej bazy to często koszt
+        kilkuset złotych. Skontaktuj się, opisz swój problem, a ja przygotuję
+        niezobowiązującą wycenę.
+      </p>
+    </div>
+  </Section>
+
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading"
+      >Czy to rozwiązanie jest dla Ciebie?</Heading
+    >
+    <Grid cols={2}>
+      <div
+        class="rounded-box border-2 border-success/30 bg-success/5 p-6 shadow-sm my-stack"
+      >
+        <Heading tag="h3" look="h4">✅ Tak, jeśli:</Heading>
+        <IconList
+          iconName="tabler:circle-check"
+          color="text-success"
+          size="text-2xl"
+          items={[
+            "Prowadzisz mikro lub małą firmę i czujesz, że tracisz czas na ręczną pracę.",
+            "Jesteś freelancerem lub soloprzedsiębiorcą i chcesz działać wydajniej.",
+            "Widzisz konkretny, powtarzalny proces i myślisz „to musi dać się uprościć!”.",
+            "Chcesz skalować działalność, ale bez konieczności zatrudniania nowych osób.",
+            "Cenisz sobie porządek, prostotę i spokój ducha.",
+          ]}
+        />
+      </div>
+      <div
+        class="rounded-box border-2 border-error/30 bg-error/5 p-6 shadow-sm my-stack"
+      >
+        <Heading tag="h3" look="h4">❌ Raczej nie, jeśli:</Heading>
+        <IconList
+          iconName="tabler:circle-x"
+          color="text-error"
+          size="text-2xl"
+          items={[
+            "Potrzebujesz rozbudowanego, dedykowanego systemu ERP dla dużej korporacji.",
+            "Twój problem jest czysto strategiczny (np. jak zdobyć więcej klientów?), a nie operacyjny.",
+            "Oczekujesz wdrożenia w ciągu jednego dnia bardzo złożonego procesu.",
+          ]}
+        />
+      </div>
+    </Grid>
+  </Section>
+
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading">FAQ - Pytania i odpowiedzi</Heading>
+    <FAQ
+      name="faq-automatyzacja"
+      items={[
+        {
+          question: "Z jakich narzędzi korzystasz?",
+          answer:
+            "Dobieram narzędzia do problemu, a nie odwrotnie. Najczęściej korzystam z platform no-code/low-code jak Make.com, n8n, a także z potęgi Arkuszy Google, Airtable, Notion oraz, w razie potrzeby, piszę proste, dedykowane skrypty. Zawsze szukam najprostszego i najtańszego rozwiązania.",
+        },
+        {
+          question:
+            "Czy muszę znać się na technologii, żeby z Tobą współpracować?",
+          answer:
+            "Absolutnie nie. Ty znasz swój biznes, a ja wiem, jak technologia może go wesprzeć. Rozmawiamy prostym językiem, bez technicznego żargonu. Skupiamy się na Twoim celu, nie na narzędziach.",
+        },
+        {
+          question: "Czy te narzędzia i automatyzacje są bezpieczne?",
+          answer:
+            "Tak. Korzystam wyłącznie ze sprawdzonych, renomowanych narzędzi, które dbają o bezpieczeństwo danych. Nigdy nie poproszę Cię o hasła do Twoich kluczowych usług.",
+        },
+        {
+          question: "Co jeśli w przyszłości mój proces się zmieni?",
+          answer:
+            "To naturalne. Dobre systemy są elastyczne. Można je modyfikować i dostosowywać do nowych potrzeb. Wystarczy, że dasz mi znać, a wspólnie zaktualizujemy proces.",
+        },
+      ]}
+    />
+  </Section>
+
+  <CTA
+    id="kontakt"
+    heading="Gotowy(a), by zapanować nad chaosem?"
+    paragraph="Zacznijmy prosto. Jaka jest ta jedna, powtarzalna czynność, która najbardziej Cię irytuje lub zabiera najwięcej czasu?"
+    button1={{ link: "/kontakt", text: "Opisz swój problem" }}
+    variant="primary"
+  />
+</PageLayout>

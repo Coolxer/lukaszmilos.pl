@@ -1,0 +1,24 @@
+---
+import { type Meta } from "@components/core/MySEO.astro";
+import ErrorLayout from "@layouts/ErrorLayout.astro";
+
+const pageTitle = "Niepoprawny adres na blogu";
+const pageDescription = "Sprawdź adres lub wróć na stronę główną bloga.";
+
+const meta: Meta = {
+  title: "404 - Brak strony",
+  description:
+    "Nie ma takiej strony na blogu. Sprawdź adres lub wróć na stronę główną bloga.",
+  noindex: true,
+  nofollow: true,
+};
+---
+
+<ErrorLayout
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  }
+  href="/blog"
+  btnText="Wróć na bloga"
+  meta={meta}
+/>

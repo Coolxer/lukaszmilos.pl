@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { buildSlug } from "@utils/utils";
+
+export interface Props extends HTMLAttributes<"a"> {
+  link: string;
+  rawLink?: boolean;
+  class?: string;
+}
+
+const {
+  link,
+  rawLink = false,
+  class: className = "btn-primary",
+  ...attributes
+} = Astro.props;
+---
+
+<a
+  href={rawLink ? link : buildSlug(link)}
+  class:list={["btn", className]}
+  {...attributes}
+>
+  <slot />
+</a>

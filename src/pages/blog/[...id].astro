@@ -1,0 +1,104 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import config from "@data/consts.json";
+
+import EntryLayout from "@layouts/blog/EntryLayout.astro";
+import { type Meta, type Schema } from "@components/core/MySEO.astro";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  return posts.map((post, index) => ({
+    params: { id: post.id },
+    props: {
+      post,
+      allPosts: posts,
+      prevPost: posts[index - 1] || null,
+      nextPost: posts[index + 1] || null,
+    },
+  }));
+}
+
+type Props = {
+  post: CollectionEntry<"blog">;
+  allPosts: CollectionEntry<"blog">[];
+  prevPost: CollectionEntry<"blog"> | null;
+  nextPost: CollectionEntry<"blog"> | null;
+};
+
+const { post, allPosts, prevPost, nextPost } = Astro.props;
+
+function getRelatedPosts(
+  currentPost: CollectionEntry<"blog">,
+  posts: CollectionEntry<"blog">[]
+) {
+  const relatedPosts: CollectionEntry<"blog">[] = [];
+  const categories = currentPost.data.categories;
+
+  // Dodaj ręcznie wybrane powiązane posty
+  currentPost.data.relatedPosts?.forEach((related) => {
+    const post = posts.find((p) => p.id === related.id);
+    if (post && !relatedPosts.includes(post)) {
+      relatedPosts.push(post);
+    }
+  });
+
+  // Jeśli potrzeba więcej, dodaj posty z tych samych kategorii
+  if (relatedPosts.length < 2) {
+    const otherPosts = posts.filter(
+      (p) =>
+        p.id !== currentPost.id &&
+        !relatedPosts.includes(p) &&
+        p.data.categories.some((cat) => categories.includes(cat))
+    );
+
+    // Losowo wybierz brakujące
+    while (relatedPosts.length < 2 && otherPosts.length > 0) {
+      const randomIndex = Math.floor(Math.random() * otherPosts.length);
+      relatedPosts.push(otherPosts.splice(randomIndex, 1)[0]);
+    }
+  }
+
+  return relatedPosts.slice(0, 2);
+}
+
+const { Content, headings } = await render(post);
+const relatedPosts = getRelatedPosts(post, allPosts);
+
+const meta: Meta = {
+  ...post.data.meta,
+  article: true,
+};
+
+const schema: Schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.data.meta.title,
+  description: post.data.meta.description,
+  datePublished: post.data.date,
+  dateModified: post.data.date,
+  image: [post.data.image],
+  author: [
+    {
+      "@type": "Person",
+      name: config.company.name,
+      url: config.site.domain,
+      type: "Organization",
+    },
+  ],
+};
+---
+
+<EntryLayout
+  post={post}
+  headings={headings}
+  meta={meta}
+  schema={schema}
+  relatedPosts={relatedPosts}
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  <Content />
+</EntryLayout>

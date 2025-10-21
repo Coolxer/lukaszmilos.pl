@@ -1,0 +1,31 @@
+---
+type Cols = 1 | 2 | 3 | 4;
+type Gap = "small" | "normal" | "large";
+
+export interface Props {
+  cols?: Cols;
+  gap?: Gap;
+  class?: string;
+}
+
+const { cols = 2, gap = "normal", class: className } = Astro.props;
+
+const colsClasses: Record<Cols, string> = {
+  1: "grid-cols-1",
+  2: "grid-cols-1 md:grid-cols-2",
+  3: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+  4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+};
+
+const gapClasses: Record<Gap, string> = {
+  small: "gap-4",
+  normal: "gap-8",
+  large: "gap-12",
+};
+---
+
+<div
+  class:list={["grid w-full", colsClasses[cols], gapClasses[gap], className]}
+>
+  <slot />
+</div>

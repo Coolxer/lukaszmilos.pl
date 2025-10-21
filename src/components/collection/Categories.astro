@@ -1,0 +1,58 @@
+---
+import { buildSlug } from "@utils/utils";
+
+export interface Props {
+  baseSlug: string;
+  categories: string[];
+  h3?: boolean;
+  class?: string;
+}
+
+const { baseSlug, categories, h3 = false, class: className } = Astro.props;
+
+const allLink = Astro.url.pathname.split("/").filter(Boolean).shift() ?? "/";
+const currentCategory = Astro.url.pathname.split("/").filter(Boolean).pop();
+
+console.log(currentCategory);
+---
+
+{
+  categories.length > 0 && (
+    <div
+      class:list={[
+        "no-scrollbar mb-12 ml-[-5vw] flex w-screen gap-x-2 items-center justify-start overflow-scroll pl-[5vw] md:mb-16 md:ml-0 md:w-full md:justify-center md:overflow-hidden md:pl-0",
+        className,
+      ]}
+    >
+      <a
+        href={buildSlug(allLink)}
+        class:list={[
+          "btn",
+          allLink === currentCategory ? "btn-soft" : "btn-dash",
+        ]}
+      >
+        {h3 ? (
+          <h3 class="text-base font-normal">wszystkie</h3>
+        ) : (
+          <p class="text-base font-normal">wszystkie</p>
+        )}
+      </a>
+
+      {categories?.map((category) => (
+        <a
+          href={buildSlug(baseSlug + category)}
+          class:list={[
+            "btn",
+            currentCategory === category ? "btn-soft" : "btn-dash ",
+          ]}
+        >
+          {h3 ? (
+            <h3 class="text-base font-normal">{category}</h3>
+          ) : (
+            <p class="text-base font-normal">{category}</p>
+          )}
+        </a>
+      ))}
+    </div>
+  )
+}

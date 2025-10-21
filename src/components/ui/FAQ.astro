@@ -1,0 +1,37 @@
+---
+import { marked } from "marked";
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export interface Props {
+  name: string;
+  items: FaqItem[];
+}
+
+const { name, items } = Astro.props;
+---
+
+<div>
+  {
+    items?.map((item: FaqItem) => {
+      const isRawHtml = item.answer.trim().startsWith("<");
+
+      return (
+        <div class="collapse collapse-arrow bg-base-300 rounded-box mb-4">
+          <input type="radio" name={name} />
+          <h3 class="collapse-title text-h6 ">{item.question}</h3>
+          <div class="collapse-content">
+            <div class="divider mt-0 mb-1" />
+            <div
+              set:html={isRawHtml ? item.answer : marked.parse(item.answer)}
+              class="prose max-w-none text-base-content/80"
+            />
+          </div>
+        </div>
+      );
+    })
+  }
+</div>

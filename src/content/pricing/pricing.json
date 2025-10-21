@@ -1,0 +1,144 @@
+{
+  "pricing_items": [
+    {
+      "title": "Strona wizytówka",
+      "description": "Jednostronicowa strona firmowa z CMS, responsywna i zoptymalizowana pod SEO.",
+      "price": 3500,
+      "unit": "projekt",
+      "isPopular": true
+    },
+    {
+      "title": "Sklep internetowy (do 100 produktów)",
+      "description": "Kompletny e-commerce z koszykiem, płatnościami i integracją wysyłek.",
+      "price": 9500,
+      "unit": "projekt",
+      "isPopular": true
+    },
+    {
+      "title": "Audyt SEO techniczny",
+      "description": "Analiza techniczna strony, crawl, indeksacja, struktura i zalecenia naprawcze.",
+      "price": 1200,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Optymalizacja szybkości strony",
+      "description": "Poprawa Core Web Vitals, kompresja, lazy-loading i optymalizacja zasobów.",
+      "price": 1400,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Kampania Google Ads — prowadzenie",
+      "description": "Miesięczna obsługa kampanii, optymalizacja stawek i raportowanie wyników.",
+      "price": 1800,
+      "unit": "miesiąc",
+      "isPopular": false
+    },
+    {
+      "title": "Konsultacje UX/UI",
+      "description": "Indywidualne doradztwo w zakresie użyteczności i projektowania interfejsów.",
+      "price": 250,
+      "unit": "godzina",
+      "isPopular": false
+    },
+    {
+      "title": "Pakiet opieki technicznej Standard",
+      "description": "Aktualizacje, kopie zapasowe i monitoring podstawowy strony.",
+      "price": 400,
+      "unit": "miesiąc",
+      "isPopular": false
+    },
+    {
+      "title": "Pakiet opieki technicznej Premium",
+      "description": "Priorytetowe wsparcie, SLA, poprawki i niewielkie zmiany w treści.",
+      "price": 900,
+      "unit": "miesiąc",
+      "isPopular": true
+    },
+    {
+      "title": "Integracja płatności online",
+      "description": "Konfiguracja bramek płatności (np. Przelewy24/Stripe) wraz z testami.",
+      "price": 600,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Migracja strony na nowy hosting",
+      "description": "Przeniesienie plików i bazy, konfiguracja DNS/SSL, testy po migracji.",
+      "price": 800,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Projekt logo",
+      "description": "2–3 propozycje, księga znaku w wersji podstawowej, pliki źródłowe.",
+      "price": 1200,
+      "unit": "projekt",
+      "isPopular": false
+    },
+    {
+      "title": "Identyfikacja wizualna",
+      "description": "System identyfikacji: paleta, typografia, siatka, podstawowe materiały.",
+      "price": 3500,
+      "unit": "projekt",
+      "isPopular": false
+    },
+    {
+      "title": "Copywriting — strona główna",
+      "description": "Strategia komunikacji i treści sekcji hero, oferta, zaufanie i CTA.",
+      "price": 500,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Sesja szkoleniowa CMS",
+      "description": "Szkolenie z obsługi systemu zarządzania treścią dla zespołu.",
+      "price": 180,
+      "unit": "godzina",
+      "isPopular": false
+    },
+    {
+      "title": "Landing page kampanijny",
+      "description": "Jednostronicowy landing pod kampanię performance z analityką.",
+      "price": 2200,
+      "unit": "projekt",
+      "isPopular": true
+    },
+    {
+      "title": "A/B testy i optymalizacja konwersji",
+      "description": "Plan testów, wdrożenie wariantów i raport efektywności.",
+      "price": 1200,
+      "unit": "miesiąc",
+      "isPopular": false
+    },
+    {
+      "title": "Konfiguracja analityki (GA4 + GSC)",
+      "description": "Ustawienie zdarzeń, konwersji i integracja z Google Search Console.",
+      "price": 450,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Wdrożenie RODO / polityki cookies",
+      "description": "Baner cookies, zgody, polityka prywatności i integracja CMP.",
+      "price": 300,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Audyt dostępności WCAG",
+      "description": "Weryfikacja zgodności z WCAG 2.1 AA i rekomendacje zmian.",
+      "price": 1600,
+      "unit": "usługa",
+      "isPopular": false
+    },
+    {
+      "title": "Prototyp klikalny (Figma)",
+      "description": "Interaktywny prototyp wysokiej wierności do walidacji koncepcji.",
+      "price": 1700,
+      "unit": "projekt",
+      "isPopular": false
+    }
+  ]
+}

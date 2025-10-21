@@ -1,0 +1,251 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { Icon } from "astro-icon/components";
+import { type Meta } from "@components/core/MySEO.astro";
+
+// --- WAŻNE: Podmień te ścieżki na prawdziwe pliki z obrazami certyfikatów ---
+import diplomaImg from "@assets/images/placeholder.webp"; // np. @assets/images/certyfikaty/dyplom-inz.webp
+import certificateImg from "@assets/images/placeholder.webp"; // np. @assets/images/certyfikaty/spec-www.webp
+import heroImg from "@assets/images/placeholder.webp"; // Placeholder dla zdjęcia-przerywnika
+
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import IconList from "@components/ui/IconList.astro";
+
+const meta: Meta = {
+  title: "O mnie | Łukasz Miłoś - Inżynier IT i Specjalista od Technologii",
+  description:
+    "Poznaj mnie lepiej. Dowiedz się, kim jestem, jakie mam doświadczenie i jak podchodzę do rozwiązywania problemów za pomocą technologii.",
+};
+
+const certificates = [
+  {
+    img: diplomaImg,
+    alt: "Zdjęcie dyplomu Inżyniera IT Łukasza Miłosia",
+    title: "Dyplom Inżyniera IT (z wyróżnieniem)",
+    description: "Specjalizacja: Systemy i sieci komputerowe.",
+  },
+  {
+    img: certificateImg,
+    alt: "Zdjęcie certyfikatu Specjalisty WWW",
+    title: "Certyfikat Specjalisty WWW",
+    description: "Potwierdzenie kompetencji w zakresie tworzenia stron.",
+  },
+];
+---
+
+<PageLayout meta={meta}>
+  {/* SEKCJA HERO */}
+  <Section
+    headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
+  >
+    <div slot="heading">
+      <Heading tag="h1" look="h0">
+        Cześć, jestem <span class="text-primary">Łukasz Miłoś</span>
+      </Heading>
+
+      <div class="badge badge-soft badge-primary mt-2">
+        Technik i inżynier IT
+      </div>
+    </div>
+    <p slot="paragraph">Rozwiązuję problemy za pomocą technologii.</p>
+
+    <div>
+      <MyImage img={heroImg} alt="" size="size-auto h-96 w-full" />
+    </div>
+  </Section>
+
+  {/* SEKCJA FUNDAMENTY */}
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading">Fundamenty mojego działania</Heading>
+    <p slot="paragraph">
+      Technologia to tylko narzędzie. Najważniejszy jest cel i sposób, w jaki do
+      niego dążymy.
+    </p>
+    <div class="my-big-stack">
+      {
+        [
+          {
+            icon: "tabler:focus-2",
+            title: "Skupienie na problemie",
+            description:
+              "Najpierw dogłębnie analizuję Twój problem i potrzeby, a dopiero potem szukam najlepszego, szytego na miarę rozwiązania.",
+          },
+          {
+            icon: "tabler:flame",
+            title: "Duże zaangażowanie",
+            description:
+              "Mocno angażuję się w każdy projekt, traktując go jak własny. Ambicja nie pozwala mi inaczej.",
+          },
+          {
+            icon: "tabler:puzzle",
+            title: "Rozsądna technologia",
+            description:
+              "Musi być bezpieczna, skuteczna, szybka, prosta, rentowna i dopasowana do skali problemu. Nic mniej, nic więcej.",
+          },
+          {
+            icon: "tabler:message-2-check",
+            title: "Transparentność",
+            description:
+              "Jasno informuję o postępach. Edukuję siebie i Ciebie. Nie obiecuję gruszek na wierzbie. Działam i komunikuję.",
+          },
+        ].map((item) => (
+          <div class="flex items-start gap-8 px-4 py-8 bg-primary/10 rounded-box shadow-sm">
+            <div class="bg-primary/50 p-2 rounded-full">
+              <Icon name={item.icon} class="size-8 text-primary-content" />
+            </div>
+            <div class="my-stack">
+              <h3 class="font-bold text-xl">{item.title}</h3>
+              <p class="text-base-content/80">{item.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  {/* SEKCJA GALERII Z CERTYFIKATAMI */}
+  <Section>
+    <Heading tag="h2" slot="heading">Certyfikaty i Dyplomy</Heading>
+    <Grid cols={2}>
+      {
+        certificates.map((cert) => (
+          <a
+            href={cert.img.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block bg-base-100 rounded-box shadow-md overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1"
+          >
+            <MyImage img={cert.img} alt={cert.alt} />
+            <div class="p-6">
+              <h3 class="font-bold text-lg">{cert.title}</h3>
+              <p class="text-sm text-base-content/80 mt-1">
+                {cert.description}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  {/* SEKCJA HISTORIA - UKŁAD 2x2 */}
+  <Section variant="secondary">
+    <Heading tag="h2" slot="heading"
+      >Moja technologiczna historia w skrócie</Heading
+    >
+    <Grid cols={2}>
+      {
+        [
+          {
+            num: "1",
+            title: "Grafika 3D i C++",
+            text: "Start od grafiki 3D i programowania w C/C++, które dały mi solidne, niskopoziomowe podstawy.",
+          },
+          {
+            num: "2",
+            title: "Elektronika i Embedded",
+            text: "Okres fascynacji systemami wbudowanymi, elektroniką i budową własnej drukarki 3D od zera.",
+          },
+          {
+            num: "3",
+            title: "Świat Web i WordPress",
+            text: "Wejście w technologie webowe – od podstaw, aż po zaawansowane możliwości i pułapki WordPressa.",
+          },
+          {
+            num: "4",
+            title: "Automatyzacja i No-Code",
+            text: "Zgłębianie tematyki automatyzacji (Make, n8n) i nowoczesnych narzędzi (Astro, Webflow), by działać szybciej.",
+          },
+        ].map((item) => (
+          <div class="p-6 bg-base-200 rounded-box my-stack items-center shadow-md">
+            <div class="flex items-center justify-center size-12 bg-primary text-primary-content font-bold text-2xl rounded-full">
+              {item.num}
+            </div>
+            <h3 class="font-bold text-lg">{item.title}</h3>
+            <p class="text-sm text-base-content/80">{item.text}</p>
+          </div>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  {/* SEKCJA WIEDZA I UMIEJĘTNOŚCI */}
+  <Section>
+    <Heading tag="h2" slot="heading">Wiedza i umiejętności</Heading>
+    <Grid cols={2}>
+      {
+        [
+          {
+            title: "Technika",
+            items: [
+              "Wykorzystywanie i konfiguracja narzędzi",
+              "Tworzenie własnych, prostych narzędzi",
+              "Planowanie i budowa stron i aplikacji",
+            ],
+          },
+          {
+            title: "Narzędzia",
+            items: [
+              "Astro (SSG, code)",
+              "WordPress, Webflow",
+              "Make, N8N",
+              "Canva, Airtable, Notion",
+              "Google (GSC, GKP), Simple Analytics",
+            ],
+          },
+          {
+            title: "Programowanie",
+            items: [
+              "HTML, CSS(SCSS), JS(TS), PHP",
+              "C/C++, Python",
+              "Git, npm",
+              "Różne biblioteki i frameworki",
+            ],
+          },
+          {
+            title: "Ogólne",
+            items: [
+              "Wiedza o sieciach i bezpieczeństwie",
+              "Podstawy grafiki i UX",
+              "Szybka nauka i adaptacja",
+              "Korzystanie z własnej i sztucznej inteligencji",
+            ],
+          },
+        ].map((category) => (
+          <div class="bg-base-100 border-2 border-primary/30 rounded-box p-6 shadow-md my-stack">
+            <Heading tag="h3" look="h4">
+              {category.title}
+            </Heading>
+            <ul class="list-disc list-outside space-y-2 pl-5 text-base-content/80">
+              {category.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  {/* SEKCJA FINALNEGO CTA */}
+  <Section
+    innerDivAdditionalClasses="bg-primary text-primary-content rounded-box p-10 md:p-16 shadow-md"
+    headingAndParagraphClasses="[&_p]:text-primary-content [&_p]:text-lg"
+  >
+    <Heading tag="h2" slot="heading">Chcesz podjąć współpracę?</Heading>
+    <p slot="paragraph">
+      Jestem otwarty na realizację konkretnych projektów, ale również na stałą
+      współpracę. Jeśli szukasz kogoś, kto podejdzie do Twojego problemu z pasją
+      i szeroką wiedzą techniczną – porozmawiajmy.
+    </p>
+    <div class="flex flex-wrap justify-center items-center gap-4">
+      <Button link="/kontakt/" class="btn-neutral font-bold">
+        Napisz do mnie
+      </Button>
+    </div>
+  </Section>
+</PageLayout>
