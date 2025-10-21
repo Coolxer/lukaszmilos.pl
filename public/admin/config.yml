@@ -4,7 +4,7 @@ connect-src: "https://api.cloudflare.com"
 
 backend:
   name: github
-  repo: "coolxer/lm-astro-2025"
+  repo: "Coolxer/lukaszmilos.pl"
   branch: main
   skip_ci: true
   base_url: https://lukaszmilospl-cms-auth.lukasz-milos-dev.workers.dev
