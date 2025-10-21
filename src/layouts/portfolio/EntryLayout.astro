@@ -62,14 +62,11 @@ const selectedClasses =
 ---
 
 <PageLayout meta={meta} schema={schema}>
-  {/* HEADER CASE STUDY */}
   <Section>
     <div class="my-big-stack text-center">
       <div class="flex flex-row gap-4 justify-center">
-        {/* case study */}
         <div class="badge badge-lg badge-neutral">case-study</div>
 
-        {/* Kategoria */}
         {
           item.data.category && (
             <div class:list={["badge badge-lg", selectedClasses.badge]}>
@@ -78,13 +75,27 @@ const selectedClasses =
           )
         }
       </div>
-
-      {/* Tytuł */}
       <Heading tag="h1" look="h0">
         {item.data.title}
       </Heading>
 
-      {/* Obrazek wyróżniający */}
+      {
+        item.data.link && (
+          <div class="mt-8">
+            <Button
+              link={item.data.link}
+              rawLink
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary btn-lg"
+            >
+              Zobacz stronę na żywo
+              <Icon name="tabler:external-link" class="size-5 ml-2" />
+            </Button>
+          </div>
+        )
+      }
+
       {
         item.data.image && (
           <div class="mt-12">
@@ -99,7 +110,6 @@ const selectedClasses =
     </div>
   </Section>
 
-  {/* KLUCZOWE INFORMACJE */}
   <Section variant="secondary">
     <div class="">
       <div
@@ -153,10 +163,8 @@ const selectedClasses =
     </div>
   </Section>
 
-  {/* TREŚĆ CASE STUDY */}
   <Section>
     <div class="my-big-stack">
-      {/* Spis treści */}
       {
         headings && headings.length > 0 && (
           <div
@@ -170,7 +178,6 @@ const selectedClasses =
         )
       }
 
-      {/* Treść artykułu */}
       <article
         class="prose prose-lg max-w-none
         prose-headings:font-bold prose-headings:text-base-content
@@ -203,7 +210,6 @@ const selectedClasses =
     )
   }
 
-  {/* PODOBNE PROJEKTY */}
   {
     relatedItems && relatedItems.length > 0 && (
       <Section>
@@ -223,7 +229,6 @@ const selectedClasses =
     )
   }
 
-  {/* NAWIGACJA MIĘDZY PROJEKTAMI */}
   {
     (prevItem || nextItem) && (
       <Section variant="secondary">
