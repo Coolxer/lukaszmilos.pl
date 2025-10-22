@@ -35,9 +35,15 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: (page) =>
-        page !== `${config.site.domain}/stylebook/` &&
-        page !== `${config.site.domain}/polityka-prywatnosci/`,
+      filter: (page) => {
+        const path = new URL(page).pathname;
+
+        return (
+          path !== "/stylebook/" &&
+          path !== "/polityka-prywatnosci/" &&
+          !/^\/blog\/\d+\/?$/.test(path)
+        );
+      },
     }),
     icon({
       iconDir: "src/assets/icons",

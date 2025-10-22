@@ -38,6 +38,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@types/react": "^19.1.13",
     "daisyui": "^5.1.25",
+    "lightningcss": "^1.30.2",
     "react": "^19.1.1"
   }
 }
