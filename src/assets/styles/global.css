@@ -12,10 +12,6 @@
 /* to be able to use dark: selector if needed */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@theme {
-  --font-sans: "Poppins", "sans-serif";
-}
-
 /* ======================================================================== */
 /* Light Theme - Czysty, profesjonalny i nowoczesny                       */
 /* ======================================================================== */
@@ -67,7 +63,14 @@
   --color-accent-content: #0f172a; /* Ciemny tekst dla czytelności */
 }
 
+/* === */
+
+@theme {
+  --font-display: "var(--font-poppins), system-ui, sans-serif";
+}
+
 html {
+  font-family: var(--font-poppins);
   @apply text-[16px] leading-none;
 
   overflow-y: scroll;

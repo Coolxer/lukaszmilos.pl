@@ -1,7 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
-import Container from "@components/layout/Container.astro";
+
 import { buildSlug } from "~/utils/utils";
+import config from "~/data/consts.json";
+
+import Container from "@components/layout/Container.astro";
 
 const currentYear = new Date().getFullYear();
 
@@ -10,38 +13,6 @@ const footerLinks = [
   // { text: "Opinie", slug: "opinie" },
   { text: "Kontakt", slug: "kontakt" },
 ];
-
-const socialLinks = [
-  {
-    icon: "tabler:brand-facebook",
-    href: "https://www.facebook.com/profile.php?id=61556981469608",
-    label: "Facebook",
-  },
-  {
-    icon: "tabler:brand-linkedin",
-    href: "https://www.linkedin.com/in/lukasz-milos/",
-    label: "LinkedIn",
-  },
-  {
-    icon: "tabler:brand-youtube",
-    href: "https://www.youtube.com/@lukaszmilos",
-    label: "YouTube",
-  },
-  {
-    icon: "tabler:brand-github",
-    href: "https://github.com/Coolxer",
-    label: "GitHub",
-  },
-];
-
-const companyInfo = {
-  name: "Moc Cyfryzacji - Łukasz Miłoś",
-  address: "39-305 Borowa, Polska",
-  nip: "8172216931",
-  regon: "529387133",
-  email: "kontakt@lukaszmilos.pl",
-  phone: "+48 123 456 789",
-};
 ---
 
 <footer class="bg-neutral text-neutral-content">
@@ -89,10 +60,10 @@ const companyInfo = {
           <div class="my-stack">
             <p class="font-bold text-neutral-content">Dane firmowe</p>
             <div class="text-neutral-content/80 text-sm flex flex-col gap-1">
-              <p class="font-medium">{companyInfo.name}</p>
-              <p>{companyInfo.address}</p>
-              <p>NIP: {companyInfo.nip}</p>
-              <p>REGON: {companyInfo.regon}</p>
+              <p class="font-medium">{config.company.name}</p>
+              <p>{config.company.address}</p>
+              <p>NIP: {config.company.nip}</p>
+              <p>REGON: {config.company.regon}</p>
             </div>
           </div>
 
@@ -100,13 +71,18 @@ const companyInfo = {
           <div class="my-stack">
             <p class="font-bold text-neutral-content">Kontakt</p>
             <div class="text-neutral-content/80 text-sm flex flex-col gap-2">
-              <a
-                href={`mailto:${companyInfo.email}`}
-                class="hover:text-primary transition-colors flex items-center gap-2"
-              >
-                <Icon name="tabler:mail" class="size-4" />
-                {companyInfo.email}
-              </a>
+              {
+                config.company.email.map((email) => (
+                  <a
+                    href={`mailto:${email}`}
+                    class="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Icon name="tabler:mail" class="size-4" />
+                    {email}
+                  </a>
+                ))
+              }
+
               <!-- <a
                 href={`tel:${companyInfo.phone}`}
                 class="hover:text-primary transition-colors flex items-center gap-2"
@@ -122,7 +98,7 @@ const companyInfo = {
             <p class="font-bold text-neutral-content">Social media</p>
             <div class="flex gap-2">
               {
-                socialLinks.map((social) => (
+                config.socials.map((social) => (
                   <a
                     href={social.href}
                     aria-label={social.label}

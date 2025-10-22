@@ -4,7 +4,7 @@ order: 1
 meta:
   title: Strona internetowa miernika – Sprzedaż + 100%
   description: Skuteczna strona miernika rozwarcia. Optymalizacja SEO, czytelność i zwiększenie sprzedaży o 100%. Zobacz proces.
-title: Strona internetowa miernika, która zwiększyła srzedaż produktu o 100%
+title: Strona internetowa miernika, która zwiększyła sprzedaż produktu o 100%
 problem: Duża konkurencja i ograniczenia prezentacji platform sprzedażowych
 target: Zwiększanie sprzedaży niszowego produktu
 result: Ponad 2500 wyświetleń i zwiększenie sprzedaży o 100%

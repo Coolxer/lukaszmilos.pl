@@ -23,7 +23,7 @@ import FAQ from "@components/ui/FAQ.astro";
 import CTA from "~/components/sections/CTA.astro";
 
 const meta: Meta = {
-  title: "Strony internetowe bez bólu głowy.",
+  title: "Strony internetowe bez bólu głowy",
   description:
     "Buduję strony, które po prostu działają. Bez ciągłych aktualizacji, abonamentów i stresu. Skup się na biznesie – resztą zajmie się Twoja nowa witryna.",
 };
@@ -77,7 +77,7 @@ const relatedReviews = (
       <Button link="#o-co-chodzi" rawLink class="btn-primary">
         Zobacz o co chodzi?
       </Button>
-      <Button link="/kontakt" class="btn-ghost"> Skontaktuj się </Button>
+      <Button link="/kontakt" class="btn-outline"> Skontaktuj się </Button>
     </div>
 
     <div>
@@ -111,9 +111,7 @@ const relatedReviews = (
   </Section>
 
   <Section>
-    <Heading tag="h2" slot="heading"
-      >Może być inaczej! <br /> Co dostajesz u mnie?</Heading
-    >
+    <Heading tag="h2" slot="heading"> Co dostajesz u mnie?</Heading>
     <p slot="paragraph">
       To nowa filozofia tworzenia stron, która daje Ci realne korzyści.
     </p>
@@ -314,9 +312,7 @@ const relatedReviews = (
   }
 
   <Section variant="secondary">
-    <Heading tag="h2" slot="heading"
-      >Moja specjalizacja. <br />W czym Ci pomogę?</Heading
-    >
+    <Heading tag="h2" slot="heading">W czym Ci pomogę?</Heading>
     <p slot="paragraph">
       Aby zapewnić Ci najwyższą jakość, skupiam się w 100% na tym, w czym jestem
       najlepszy.
@@ -538,7 +534,7 @@ const relatedReviews = (
           answer: `
 <p class="mb-4">To doskonałe pytanie, które dotyka sedna problemu "vendor lock-in", czyli uzależnienia od dostawcy – zarówno osoby, jak i platformy. Moje rozwiązanie jest zaprojektowane jako antidotum na ten problem. Rozbijmy to na dwie części:</p>
 
-<h4 class="text-xl font-bold mb-2 mt-6">1. Czy uzależniam się od technologii (Astro)?</h4>
+<p class="text-xl font-bold mb-2 mt-6">1. Czy uzależniam się od technologii (Astro)?</p>
 <p class="mb-3">Absolutnie nie. Wręcz przeciwnie – zyskujesz wolność. Oto dlaczego:</p>
 <ul class="list-disc list-outside space-y-3 pl-5">
   <li><strong>Fundamenty Web Developmentu:</strong> Astro to nie jest zamknięta, magiczna skrzynka. To nowoczesne narzędzie, które ostatecznie generuje czysty HTML, CSS i JavaScript – czyli uniwersalny język internetu. Te technologie są ponadczasowe i nigdzie się nie wybierają.</li>
@@ -546,7 +542,7 @@ const relatedReviews = (
   <li><strong>Brak "Uwięzienia":</strong> Nawet jeśli za 10 lat Astro przestanie istnieć (co jest mało prawdopodobne), Twoja zbudowana strona nadal będzie działać bez zarzutu. Co więcej, kod źródłowy oparty na standardach można łatwo przenieść do innego, podobnego narzędzia. To przeciwieństwo platform takich jak Webflow czy Framer, gdzie jesteś całkowicie zależny(a) od ich istnienia i polityki cenowej.</li>
 </ul>
 
-<h4 class="text-xl font-bold mb-2 mt-8">2. A co z uzależnieniem ode mnie jako wykonawcy?</h4>
+<p class="text-xl font-bold mb-2 mt-8">2. A co z uzależnieniem ode mnie jako wykonawcy?</p>
 <p class="mb-3">Tutaj również dbam o Twoją niezależność:</p>
 <ul class="list-disc list-outside space-y-3 pl-5">
   <li><strong>Uniwersalne i popularne narzędzia:</strong> Używamy Astro i Tailwind CSS – technologii, które zna lub może szybko poznać każdy kompetentny web developer. To nie jest niszowy, autorski system.</li>

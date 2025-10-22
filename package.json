@@ -1,7 +1,7 @@
 {
-  "name": "lm-astro-2025",
+  "name": "lukaszmilos-pl",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -30,6 +30,7 @@
     "marked": "^16.4.0",
     "photoswipe": "^5.4.4",
     "sanitize-html": "^2.17.0",
+    "sharp": "^0.34.4",
     "tailwindcss": "^4.1.13",
     "theme-change": "^2.5.0"
   },

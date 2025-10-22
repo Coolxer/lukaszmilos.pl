@@ -6,12 +6,14 @@ import { buildSlug } from "@utils/utils";
 import MyImage from "@components/ui/MyImage.astro";
 import Button from "@components/ui/Button.astro";
 
+import Heading, { type Tag } from "@components/ui/Heading.astro";
+
 export interface Props {
   post: CollectionEntry<"blog">;
   class?: string;
 }
 
-const { post, class: className } = Astro.props;
+const { post, headingTag = "h3", class: className } = Astro.props;
 
 const link = buildSlug(`/blog/${post.id}/`);
 ---
@@ -33,7 +35,6 @@ const link = buildSlug(`/blog/${post.id}/`);
           height={500}
           rounded="rounded-none"
           class="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="eager"
         />
       </a>
     )
@@ -59,9 +60,9 @@ const link = buildSlug(`/blog/${post.id}/`);
 
     {/* Tytuł */}
     <a href={link} class="group-hover:text-primary transition-colors">
-      <h3 class="text-xl font-bold leading-tight">
+      <Heading tag={headingTag} look="h4">
         {post.data.heading}
-      </h3>
+      </Heading>
     </a>
 
     {/* Podtytuł / opis */}

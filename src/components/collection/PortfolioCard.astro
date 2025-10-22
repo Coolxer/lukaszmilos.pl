@@ -6,14 +6,15 @@ import { buildSlug } from "@utils/utils";
 
 import MyImage from "@components/ui/MyImage.astro";
 import Button from "@components/ui/Button.astro";
-import Heading from "@components/ui/Heading.astro";
+import Heading, { type Tag } from "@components/ui/Heading.astro";
 
 export interface Props {
   item: CollectionEntry<"portfolio">;
+  headingTag?: Tag;
   class?: string;
 }
 
-const { item, class: className } = Astro.props;
+const { item, headingTag = "h3", class: className } = Astro.props;
 
 const color = getPortfolioCategoryColor(item.data.category);
 
@@ -52,7 +53,7 @@ const selectedClasses =
     {item.data.category}
   </div>
 
-  <Heading tag="h3" look="h4">
+  <Heading tag={headingTag} look="h4">
     {item.data.title}
   </Heading>
 

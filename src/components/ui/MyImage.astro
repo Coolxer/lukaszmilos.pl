@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
+import type { HTMLAttributes } from "astro/types";
 
 import config from "@data/consts.json";
 
-export interface Props {
+export interface Props extends HTMLAttributes<"img"> {
   img?: ImageMetadata;
   src?: string;
   fromPublic?: boolean;

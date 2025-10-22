@@ -80,7 +80,7 @@ const relatedReviews = (
       <Button link="#o-co-chodzi" rawLink class="btn-primary"
         >O co chodzi?</Button
       >
-      <Button link="/kontakt" class="btn-ghost">Skontaktuj się</Button>
+      <Button link="/kontakt" class="btn-outline">Skontaktuj się</Button>
     </div>
 
     <div>
@@ -249,7 +249,7 @@ const relatedReviews = (
             ],
           },
         ].map((category) => (
-          <div class="bg-base-200 border-2 border-primary/30 rounded-box px-6 py-10 shadow-md my-stack">
+          <div class="bg-base-200 border-2 border-primary/30 rounded-box p-8 shadow-md my-big-stack">
             <div class="flex items-center gap-3">
               <div class="bg-primary/50 p-2 rounded-full">
                 <Icon
@@ -261,7 +261,7 @@ const relatedReviews = (
                 {category.title}
               </Heading>
             </div>
-            <ul class="list-disc list-outside space-y-2 pl-5 text-base-content/80">
+            <ul class="list-disc list-outside space-y-4 pl-6 text-base-content/80">
               {category.items.map((item) => (
                 <li>{item}</li>
               ))}
@@ -271,7 +271,7 @@ const relatedReviews = (
       }
 
       <div
-        class="bg-success/10 border-2 border-success/30 rounded-box p-6 shadow-md my-stack"
+        class="bg-success/10 border-2 border-success/30 rounded-box p-8 shadow-md my-big-stack"
       >
         <div class="flex items-center gap-3">
           <div class="bg-success/50 p-2 rounded-full">
@@ -392,7 +392,7 @@ const relatedReviews = (
         na proste i dostępne rozwiązania, na które mogą sobie pozwolić również
         mikro i małe firmy.
       </p>
-      <p class="font-medium text-secondary border-l-4 border-secondary pl-4">
+      <p class="font-medium text-accent border-l-4 border-secondary pl-4">
         Traktuję to jak inwestycję, nie koszt. Często zwraca się ona
         błyskawicznie – w zaoszczędzonym czasie, zredukowanych wydatkach lub
         unikniętych błędach.
@@ -405,7 +405,7 @@ const relatedReviews = (
     </div>
   </Section>
 
-  <Section variant="secondary">
+  <Section>
     <Heading tag="h2" slot="heading"
       >Czy to rozwiązanie jest dla Ciebie?</Heading
     >

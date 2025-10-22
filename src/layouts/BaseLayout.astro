@@ -1,5 +1,5 @@
 ---
-import "@fontsource/poppins";
+import { Font } from "astro:assets";
 import "@assets/styles/global.css";
 
 import config from "@data/consts.json";
@@ -18,9 +18,10 @@ type Props = {
 const { meta, schema } = Astro.props;
 ---
 
-<!doctype html>
 <html lang={config.site.language || "pl"}>
   <head>
+    <Font cssVariable="--font-poppins" preload />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 

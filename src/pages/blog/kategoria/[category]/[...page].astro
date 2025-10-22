@@ -48,8 +48,7 @@ interface Props {
 const { category } = Astro.params;
 const { page, categories } = Astro.props;
 
-const pageTitle = `Kategoria: ${category} - Blog`;
-const pageDescription = `Zobacz posty z kategorii ${category}`;
+const pageTitle = `Blog - Kategoria: ${category}`;
 
 const meta: Meta = {
   title: `${category} - Blog`,
@@ -68,7 +67,6 @@ const schema: Schema = {
   page={page}
   categories={categories}
   pageTitle={pageTitle}
-  pageDescription={pageDescription}
   meta={meta}
   schema={schema}
 />

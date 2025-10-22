@@ -54,7 +54,13 @@ const certificates = [
     <p slot="paragraph">Rozwiązuję problemy za pomocą technologii.</p>
 
     <div>
-      <MyImage img={heroImg} alt="" size="size-auto h-96 w-full" />
+      <MyImage
+        img={heroImg}
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+        size="size-auto h-96 w-full"
+      />
     </div>
   </Section>
 

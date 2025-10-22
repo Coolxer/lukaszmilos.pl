@@ -2,9 +2,33 @@
   "company": {
     "name": "Łukasz Miłoś",
     "address": "39-305 Borowa, Polska",
+    "nip": "8172216931",
+    "regon": "529387133",
     "email": ["lukasz.milos.it@gmail.com", "kontakt@lukaszmilos.pl"],
     "phone": ["123 456 789"]
   },
+  "socials": [
+    {
+      "icon": "tabler:brand-facebook",
+      "href": "https://www.facebook.com/profile.php?id=61556981469608",
+      "label": "Facebook"
+    },
+    {
+      "icon": "tabler:brand-linkedin",
+      "href": "https://www.linkedin.com/in/lukasz-milos/",
+      "label": "LinkedIn"
+    },
+    {
+      "icon": "tabler:brand-youtube",
+      "href": "https://www.youtube.com/@lukaszmilos",
+      "label": "YouTube"
+    },
+    {
+      "icon": "tabler:brand-github",
+      "href": "https://github.com/Coolxer",
+      "label": "GitHub"
+    }
+  ],
   "site": {
     "domain": "https://lukaszmilos.pl",
     "name": "lukaszmilos.pl",

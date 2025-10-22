@@ -71,9 +71,9 @@ const { items, categories, pageTitle, pageDescription, meta, schema } =
             </div>
           )}
 
-          <Grid cols={1}>
+          <Grid cols={1} gap="large">
             {items.map((item) => (
-              <PortfolioCard item={item} />
+              <PortfolioCard item={item} headingTag="h2" />
             ))}
           </Grid>
         </div>

@@ -102,6 +102,8 @@ const selectedClasses =
             <MyImage
               src={item.data.image.src}
               alt={item.data.image.alt}
+              loading="eager"
+              fetchpriority="high"
               size="w-full h-auto max-h-[600px] object-cover rounded-box shadow-lg"
             />
           </div>

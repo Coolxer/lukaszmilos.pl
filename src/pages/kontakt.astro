@@ -2,6 +2,8 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import { Icon } from "astro-icon/components";
 
+import config from "~/data/consts.json";
+
 import { type Meta, type Schema } from "@components/core/MySEO.astro";
 
 import Section from "@components/layout/Section.astro";
@@ -12,7 +14,7 @@ import Button from "@components/ui/Button.astro";
 import Form from "@components/widgets/Form.astro";
 
 const meta: Meta = {
-  title: "Kontakt | Rozpocznij współpracę",
+  title: "Kontakt | Zadaj pytanie lub rozpocznij współpracę",
   description:
     "Masz pytanie? Chcesz omówić projekt? Skontaktuj się ze mną – odpowiem na wszystkie pytania i pomogę znaleźć najlepsze rozwiązanie dla Twojej firmy.",
 };
@@ -62,8 +64,8 @@ const schema: Schema = {
           class="bg-base-100 border-2 border-primary/30 rounded-box p-8 my-stack shadow-sm"
         >
           <div class="flex items-center gap-3">
-            <div class="bg-primary/20 p-3 rounded-full">
-              <Icon name="tabler:mail" class="size-6 text-primary" />
+            <div class="bg-primary/50 p-2 rounded-full">
+              <Icon name="tabler:mail" class="size-6 text-primary-content" />
             </div>
             <Heading tag="h3" look="h4">E-mail</Heading>
           </div>
@@ -88,35 +90,21 @@ const schema: Schema = {
           class="bg-base-100 border-2 border-primary/30 rounded-box p-8 my-stack shadow-sm"
         >
           <div class="flex items-center gap-3">
-            <div class="bg-primary/20 p-3 rounded-full">
-              <Icon name="tabler:share-3" class="size-6 text-primary" />
+            <div class="bg-primary/50 p-2 rounded-full">
+              <Icon name="tabler:share-3" class="size-6 text-primary-content" />
             </div>
-            <Heading tag="h3" look="h4">Media społecznościowe</Heading>
+            <Heading tag="h3" look="h4">Linki</Heading>
           </div>
           <div class="divider my-2"></div>
           <div class="flex gap-4">
             {
-              [
-                {
-                  name: "Facebook",
-                  icon: "tabler:brand-facebook",
-                  link: "#",
-                },
-                {
-                  name: "LinkedIn",
-                  icon: "tabler:brand-linkedin",
-                  link: "#",
-                },
-                {
-                  name: "YouTube",
-                  icon: "tabler:brand-youtube",
-                  link: "#",
-                },
-              ].map((social) => (
+              config.socials.map((social) => (
                 <a
-                  href={social.link}
+                  href={social.href}
                   class="btn btn-circle btn-ghost hover:bg-primary/10"
-                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                 >
                   <Icon name={social.icon} class="size-6" />
                 </a>
@@ -131,8 +119,8 @@ const schema: Schema = {
         class="bg-base-100 border-2 border-primary/30 rounded-box p-8 shadow-sm"
       >
         <div class="flex items-center gap-3 mb-4">
-          <div class="bg-primary/20 p-3 rounded-full">
-            <Icon name="tabler:building" class="size-6 text-primary" />
+          <div class="bg-primary/50 p-2 rounded-full">
+            <Icon name="tabler:building" class="size-6 text-primary-content" />
           </div>
           <Heading tag="h3" look="h4">Dane firmy</Heading>
         </div>

@@ -49,7 +49,7 @@ const { page, categories, pageTitle, pageDescription, meta, schema } =
           {/* GRID POSTÓW */}
           <Grid cols={2}>
             {page.data.map((post) => (
-              <PostCard post={post} />
+              <PostCard post={post} headingTag="h2" />
             ))}
           </Grid>
 

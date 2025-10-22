@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
@@ -49,7 +49,7 @@ export default defineConfig({
     favicons({
       name: "Łukasz Miłoś - oficjalna strona",
       short_name: "Łukasz Miłoś",
-    }),
+    }), // partytown(),
     opengraphImages({
       options: {
         fonts: [
@@ -71,8 +71,20 @@ export default defineConfig({
       },
       render: CustomOGTemplate,
     }),
-    partytown(),
   ],
+
+  experimental: {
+    fonts: [
+      {
+        name: "Poppins",
+        cssVariable: "--font-poppins",
+        provider: fontProviders.fontsource(),
+        weights: [400, 600],
+        styles: ["normal"],
+        subsets: ["latin", "latin-ext"],
+      },
+    ],
+  },
 
   server: {
     port: 4321,
@@ -93,6 +105,6 @@ export default defineConfig({
   },
 
   devToolbar: {
-    enabled: false,
+    enabled: true,
   },
 });

@@ -1,37 +1,62 @@
 ---
 import { marked } from "marked";
 
+// Definicja typu pozostaje bez zmian
 export type FaqItem = {
   question: string;
   answer: string;
 };
 
 export interface Props {
-  name: string;
+  // `name` nie jest już potrzebne, bo nie używamy `input type="radio"`
+  // ale możemy je zostawić, jeśli chcesz je wykorzystać np. do ID
+  name?: string;
   items: FaqItem[];
 }
 
-const { name, items } = Astro.props;
+const { items } = Astro.props;
+
+// Przetwarzanie Markdown na serwerze - tak jak poprzednio
+const processedItems = items?.map((item: FaqItem) => {
+  const isRawHtml = item.answer.trim().startsWith("<");
+  return {
+    ...item,
+    htmlAnswer: isRawHtml ? item.answer : marked.parse(item.answer),
+  };
+});
 ---
 
-<div>
+<div class="space-y-4">
   {
-    items?.map((item: FaqItem) => {
-      const isRawHtml = item.answer.trim().startsWith("<");
-
-      return (
-        <div class="collapse collapse-arrow bg-base-300 rounded-box mb-4">
-          <input type="radio" name={name} />
-          <h3 class="collapse-title text-h6 ">{item.question}</h3>
-          <div class="collapse-content">
-            <div class="divider mt-0 mb-1" />
-            <div
-              set:html={isRawHtml ? item.answer : marked.parse(item.answer)}
-              class="prose max-w-none text-base-content/80"
-            />
-          </div>
+    processedItems?.map((item) => (
+      <details class="group rounded-box border border-base-300 bg-base-200">
+        <summary class="flex cursor-pointer list-none items-center justify-between p-4">
+          <h3 class="text-h6 font-medium">{item.question}</h3>
+          <span class="transition group-open:rotate-180">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </span>
+        </summary>
+        <div class="px-4 pb-4">
+          <div class="divider -mt-2 mb-2" />
+          <div
+            set:html={item.htmlAnswer}
+            class="prose max-w-none text-base-content/80"
+          />
         </div>
-      );
-    })
+      </details>
+    ))
   }
 </div>
