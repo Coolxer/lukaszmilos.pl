@@ -30,7 +30,16 @@ export default defineConfig({
     assetsPrefix: "",
   },
 
-  redirects: {},
+  redirects: {
+    "/oferta": "/",
+    "/oferta/automatyzacja-procesow-firmowych/": "/systemy-i-automatyzacje/",
+    "/oferta/inne/": "/",
+    "/oferta/poprawa-strony-www/": "/strony-www/",
+    "/oferta/tworzenie-sklepu-www/": "/strony-www/",
+    "/oferta/tworzenie-strony-www/": "/strony-www/",
+    "/oferta/wdrazanie-narzedzi-cyfrowych/": "/systemy-i-automatyzacje/",
+    "/o-mnie/": "/",
+  },
 
   integrations: [
     mdx(),
