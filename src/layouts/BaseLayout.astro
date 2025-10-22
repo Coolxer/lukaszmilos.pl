@@ -55,14 +55,6 @@ const { meta, schema } = Astro.props;
       href={new URL("rss.xml", Astro.site)}
     />
 
-    {/* GSC */}
-    {
-      /*  <meta
-    name="google-site-verification"
-    content="UKFmXV6Z88v-ubaiozP5juUw0eEc_8AdyeZwphizZX0"
-    /> */
-    }
-
     {/* Theme change - localStorage */}
     <script is:inline define:vars={{ theme: config.site.themes[0] }}>
       if (localStorage.getItem("theme") === null) {
@@ -82,12 +74,10 @@ const { meta, schema } = Astro.props;
   <body>
     <slot />
     {/* 100% privacy-first analytics */}
-    {
-      /*  <script
+    <script
       async
       src="https://scripts.simpleanalyticscdn.com/latest.js"
-      is:inline></script> */
-    }
+      is:inline></script>
   </body>
 </html>
 
