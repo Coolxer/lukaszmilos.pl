@@ -13,7 +13,7 @@ export interface Props {
 const { heading } = Astro.props;
 ---
 
-<li class="list-inside list-disc px-6 py-2 text-base">
+<li class="list-inside list-disc px-6 py-2 text-base hover:text-primary">
   <a href={"#" + heading.slug}>
     {heading.text}
   </a>

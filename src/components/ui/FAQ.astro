@@ -29,8 +29,8 @@ const processedItems = items?.map((item: FaqItem) => {
 <div class="space-y-4">
   {
     processedItems?.map((item) => (
-      <details class="group rounded-box border border-base-300 bg-base-200">
-        <summary class="flex cursor-pointer list-none items-center justify-between p-4">
+      <details class="group rounded-box border border-base-300 bg-base-300">
+        <summary class="flex cursor-pointer list-none items-center justify-between p-4 bg-base-300">
           <h3 class="text-h6 font-medium">{item.question}</h3>
           <span class="transition group-open:rotate-180">
             <svg

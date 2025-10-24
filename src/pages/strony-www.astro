@@ -8,6 +8,8 @@ import { PORTFOLIO_CATEGORIES } from "~/content/schemas";
 import PageLayout from "@layouts/PageLayout.astro";
 
 import HeroImg from "@assets/images/pages/strony-www/strona-www.svg";
+import MobileSpeedImg from "@assets/images/pages/strony-www/mobile.webp";
+import DesktopSpeedImg from "@assets/images/pages/strony-www/desktop.webp";
 
 import Section from "@components/layout/Section.astro";
 import Grid from "@components/layout/Grid.astro";
@@ -59,6 +61,8 @@ const relatedReviews = (
     );
   })
 ).slice(0, 2);
+
+const monthlyFee = 50;
 ---
 
 <PageLayout meta={meta} schema={schema}>
@@ -457,22 +461,29 @@ const relatedReviews = (
         <div class="">
           <div class="badge badge-primary mb-2">5+ podstron</div>
           <p class="text-h3">
-            od 5 970 zł <span class="text-lg font-normal">netto</span>
+            od 6 970 zł <span class="text-lg font-normal">netto</span>
           </p>
         </div>
       </div>
-      <p class="text-base-content/80 mb-6">
-        Płacisz raz i masz. Strona, kod i pełna własność są Twoje.
-      </p>
+
+      <div>
+        <p class="text-base-content/80">
+          Płacisz raz i masz. Strona, kod i pełna własność są Twoje.
+        </p>
+
+        <p class="text-base-content/80 mb-6">
+          A ile dla Ciebie jest wart spokój ducha i rozwiązanie szyte na miarę?
+        </p>
+      </div>
 
       <div class="flex flex-col gap-2">
         <h4 class="font-bold text-base-content">Elementy dodatkowo płatne:</h4>
         <ul class="list-disc list-outside space-y-2 pl-5">
-          <li>Dodatkowa podstrona: od 400 zł</li>
-          <li>Panel CMS (jednorazowo): od 500 zł</li>
-          <li>Wielojęzyczność: od 1 000 zł (bez limitów)</li>
-          <li>Motyw jasny/ciemny: 400 zł</li>
-          <li>Formularze, kalkulatory, kalendarz, itp.: wycena indywidualna</li>
+          <li>Dodatkowa podstrona: od 370 zł</li>
+          <li>Panel CMS (jednorazowo): od 970 zł</li>
+          <li>Wielojęzyczność: od 970 zł (bez limitów)</li>
+          <li>Motyw jasny/ciemny: od 470 zł</li>
+          <li>Formularz, kalkulator, kalendarz, itp.: wycena indywidualna</li>
         </ul>
       </div>
 
@@ -493,13 +504,18 @@ const relatedReviews = (
           od 0 zł <span class="text-lg font-normal">/ miesiąc</span>
         </p>
       </div>
-      <p class="text-base-content/80 mb-6">Hosting jest darmowy.</p>
+      <p class="text-base-content/80 mb-6">
+        Hosting (dla strony i panelu CMS) jest całkowicie darmowy w dużej
+        liczbie przypadków (b. hojne zakresy). Podobnie jest z zarządzaniem
+        domeną. Tylko jeśli masz większe potrzeby, większy biznes, też większe
+        pieniądze, wtedy może być potrzebny płatny plan hostingowy.
+      </p>
 
       <div class="flex flex-col gap-2">
         <h4 class="font-bold text-base-content">Wyjaśnienie:</h4>
         <ul class="list-disc list-outside space-y-2 pl-5">
           <li>Strona bez panelu CMS: 0 zł / miesiąc*</li>
-          <li>Strona z panelem CMS: 50 zł / miesiąc*</li>
+          <li>Strona z panelem CMS: {monthlyFee} zł / miesiąc*</li>
           <li>Wprowadzanie zmian: 100 zł / h</li>
         </ul>
       </div>
@@ -517,6 +533,37 @@ const relatedReviews = (
   </Section>
 
   <Section>
+    <Heading tag="h2" slot="heading">Tak działam (100/100)</Heading>
+    <p slot="paragraph">Przykład pracy i dążenia do perfekcji</p>
+
+    <div>
+      <Heading tag="h3" look="h4">Wyniki testów na telefonie</Heading>
+      <MyImage
+        img={MobileSpeedImg}
+        alt="Wyniki testów szybkości strony na telefonie w Google PageSpeed Insights: 4x 100/100"
+        class="w-full h-auto rounded-box shadow-md"
+      />
+    </div>
+
+    <div>
+      <Heading tag="h3" look="h4">Wyniki testów na komputerze</Heading>
+      <MyImage
+        img={DesktopSpeedImg}
+        alt="Wyniki testów szybkości strony na komputerze w Google PageSpeed Insights: 4x 100/100"
+        class="w-full h-auto rounded-box shadow-md"
+      />
+    </div>
+
+    <div class="text-lg my-stack">
+      <p>Tak, to dwa różne zdjęcia.</p>
+      <p>
+        Tak, to wyniki mojej strony (głównej, ale podobne są na podstronach).
+      </p>
+      <p>Tak, to jest możliwe, nawet na bardziej rozbudowanej stronie.</p>
+    </div>
+  </Section>
+
+  <Section variant="secondary">
     <Heading tag="h2" slot="heading">FAQ</Heading>
     <p slot="paragraph">Pytania i odpowiedzi</p>
     <FAQ
@@ -665,8 +712,7 @@ const relatedReviews = (
         //         },
         {
           question: "Ile tak naprawdę kosztuje utrzymanie strony?",
-          answer:
-            "Płacisz raz za budowę. Samo utrzymanie może kosztować Cię 0 zł rocznie (brak panelu i zmian), ponieważ korzystamy z darmowych hostingów klasy światowej. Jeśli zdecydujesz się na opcjonalny panel CMS do samodzielnej edycji treści, koszt wynosi 50 zł miesięcznie. Jeśli nie stosujemy płatnych zewnętrznych integracji, to są to jedyne koszty.",
+          answer: `Płacisz raz za budowę. Samo utrzymanie może kosztować Cię 0 zł rocznie (brak panelu i zmian), ponieważ korzystamy z darmowych hostingów klasy światowej. Jeśli zdecydujesz się na opcjonalny panel CMS do samodzielnej edycji treści, koszt wynosi ${monthlyFee} zł miesięcznie. Jeśli nie stosujemy płatnych zewnętrznych integracji, to są to jedyne koszty.`,
         },
         {
           question: "Co jeśli za rok będę chciał coś zmienić na stronie?",
