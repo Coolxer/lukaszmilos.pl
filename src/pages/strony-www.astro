@@ -63,9 +63,7 @@ const relatedReviews = (
 
 <PageLayout meta={meta} schema={schema}>
   {/* SEKCJA HERO */}
-  <Section
-    headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
-  >
+  <Section heroSection>
     <Heading tag="h1" look="h0" slot="heading">
       Strona internetowa <span class="text-primary"> bez bólu głowy.</span>
     </Heading>
@@ -73,7 +71,7 @@ const relatedReviews = (
       Bez ciągłych aktualizacji, problemów z działaniem, wysokich kosztów i
       uciążliwych limitów.
     </p>
-    <div class="flex flex-wrap gap-4 justify-center">
+    <div class="flex flex-wrap gap-4 lg:justify-center">
       <Button link="#o-co-chodzi" rawLink class="btn-primary">
         Zobacz o co chodzi?
       </Button>
@@ -449,7 +447,7 @@ const relatedReviews = (
         <Heading tag="h3" look="h4">Budowa strony</Heading>
         <div class="divider"></div>
       </div>
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="">
           <div class="badge badge-primary mb-2">landing</div>
           <p class="text-h3">
@@ -760,7 +758,7 @@ Teraz rozumiesz? Tak jest z większością biznesów. Słowa to klucz.
   <CTA
     id="kontakt"
     heading="Gotowy(a) na stronę, która wreszcie daje spokój?"
-    paragraph="Umów się na krótką, niezobowiązującą rozmowę. Sprawdzimy, czy to rozwiązanie jest dla Ciebie i odpowiem na wszystkie Twoje pytania."
+    paragraph="Śmiało skontaktuj się ze mną, a omówimy szczegóły Twojego projektu."
     button1={{ link: "/kontakt", text: "Skontaktuj się" }}
     variant="primary"
   />

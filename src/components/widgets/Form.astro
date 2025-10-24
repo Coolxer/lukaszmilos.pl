@@ -1,11 +1,5 @@
 ---
-interface Props {
-  buttonTitle?: string;
-}
-
-const { buttonTitle = "Wyślij wiadomość" } = Astro.props;
-
-const formAPIKey = import.meta.env.WEB3FORMS_SECRET_KEY;
+const formAPIKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 ---
 
 <form
@@ -38,7 +32,7 @@ const formAPIKey = import.meta.env.WEB3FORMS_SECRET_KEY;
       />
       <div
         id="email-error"
-        class="label pt-1 text-error opacity-0 transition-opacity duration-200 text-sm"
+        class="label-text-alt pt-1 text-error opacity-0 transition-opacity duration-200"
         data-error="email"
         role="alert"
         aria-live="polite"
@@ -61,7 +55,7 @@ const formAPIKey = import.meta.env.WEB3FORMS_SECRET_KEY;
         aria-describedby="message-error"></textarea>
       <div
         id="message-error"
-        class="label pt-1 text-error opacity-0 transition-opacity duration-200 text-sm"
+        class="label-text-alt pt-1 text-error opacity-0 transition-opacity duration-200"
         data-error="message"
         role="alert"
         aria-live="polite"
@@ -90,7 +84,7 @@ const formAPIKey = import.meta.env.WEB3FORMS_SECRET_KEY;
       </label>
       <div
         id="privacy-error"
-        class="label pt-1 text-error opacity-0 transition-opacity duration-200 text-sm"
+        class="label-text-alt pt-1 text-error opacity-0 transition-opacity duration-200"
         data-error="privacy-consent"
         role="alert"
         aria-live="polite"
@@ -118,161 +112,180 @@ const formAPIKey = import.meta.env.WEB3FORMS_SECRET_KEY;
     {/* Submit Button */}
     <div class="text-center pt-2">
       <button type="submit" class="btn btn-primary btn-wide gap-2">
-        <span class="btn-text">{buttonTitle}</span>
+        <span class="btn-text">Wyślij wiadomość</span>
         <span class="loading loading-spinner loading-sm hidden"></span>
       </button>
     </div>
 
     {/* Result Message */}
-    <div id="result" class="text-center font-semibold empty:hidden"></div>
+    <div
+      id="result"
+      class="text-center font-semibold empty:hidden"
+      role="status"
+      aria-live="assertive"
+    >
+    </div>
   </div>
+</form>
 
-  <script>
-    function initContactForm() {
-      const form = document.getElementById("contact-form") as HTMLFormElement;
-      const result = document.getElementById("result");
-      const submitBtn = form?.querySelector(
-        'button[type="submit"]'
-      ) as HTMLButtonElement;
-      const btnText = submitBtn?.querySelector(".btn-text");
-      const spinner = submitBtn?.querySelector(".loading");
+<script>
+  function initContactForm() {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    if (!form) return;
 
-      if (!form || !result || !submitBtn) return;
+    const result = document.getElementById("result");
+    const submitBtn = form.querySelector(
+      'button[type="submit"]'
+    ) as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector(".btn-text");
+    const spinner = submitBtn?.querySelector(".loading");
 
-      // Funkcja do pokazywania błędów
-      function showError(fieldName: string, show: boolean) {
-        const errorEl = form.querySelector(`[data-error="${fieldName}"]`);
-        const input = form.querySelector(
-          `[name="${fieldName}"]`
-        ) as HTMLInputElement;
+    if (!result || !submitBtn) return;
 
-        if (errorEl && input) {
-          if (show) {
-            errorEl.classList.remove("opacity-0");
-            errorEl.classList.add("opacity-100");
-            input.classList.add("input-error", "border-error");
-          } else {
-            errorEl.classList.add("opacity-0");
-            errorEl.classList.remove("opacity-100");
-            input.classList.remove("input-error", "border-error");
+    // POPRAWKA: Używamy poprawnych nazw pól z atrybutów `name`
+    const fieldsToValidate = ["email", "message", "privacy-consent"];
+
+    // Funkcja do pokazywania/ukrywania błędów
+    function showError(fieldName: string, show: boolean) {
+      const errorEl = form.querySelector(`[data-error="${fieldName}"]`);
+      const input = form.querySelector(`[name="${fieldName}"]`) as HTMLElement;
+
+      if (errorEl && input) {
+        const isCheckbox = input.getAttribute("type") === "checkbox";
+        const fieldContainer = isCheckbox
+          ? input.closest(".form-control")
+          : input;
+
+        if (show) {
+          errorEl.classList.remove("opacity-0");
+          errorEl.classList.add("opacity-100");
+          if (!isCheckbox) {
+            fieldContainer.classList.add("input-error", "border-error");
+          }
+        } else {
+          errorEl.classList.add("opacity-0");
+          errorEl.classList.remove("opacity-100");
+          if (!isCheckbox) {
+            fieldContainer.classList.remove("input-error", "border-error");
           }
         }
       }
+    }
 
-      // Walidacja w czasie rzeczywistym
-      ["name", "email", "message", "terms"].forEach((fieldName) => {
-        const field = form.querySelector(
-          `[name="${fieldName}"]`
-        ) as HTMLInputElement;
+    // Walidacja w czasie rzeczywistym
+    fieldsToValidate.forEach((fieldName) => {
+      const field = form.querySelector(
+        `[name="${fieldName}"]`
+      ) as HTMLInputElement;
 
-        if (field) {
-          field.addEventListener("blur", () => {
-            if (field.value.trim() === "" || !field.checkValidity()) {
-              showError(fieldName, true);
-            } else {
-              showError(fieldName, false);
-            }
-          });
+      if (field) {
+        const eventType = field.type === "checkbox" ? "change" : "blur";
+        field.addEventListener(eventType, () => {
+          if (!field.checkValidity()) {
+            showError(fieldName, true);
+          } else {
+            showError(fieldName, false);
+          }
+        });
 
+        // Dodatkowa walidacja przy wpisywaniu dla pól tekstowych
+        if (field.type !== "checkbox") {
           field.addEventListener("input", () => {
             if (field.checkValidity()) {
               showError(fieldName, false);
             }
           });
         }
+      }
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Walidacja wszystkich pól przed wysłaniem
+      let isValid = true;
+      fieldsToValidate.forEach((fieldName) => {
+        const field = form.querySelector(
+          `[name="${fieldName}"]`
+        ) as HTMLInputElement;
+        // POPRAWKA: Sprawdzamy czy pole istnieje, zanim wywołamy na nim metodę
+        if (field && !field.checkValidity()) {
+          showError(fieldName, true);
+          isValid = false;
+        }
       });
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+      if (!isValid) {
+        const firstInvalid = form.querySelector(
+          "[aria-invalid='true'], .input-error, .checkbox:invalid"
+        ) as HTMLElement;
+        firstInvalid?.focus();
+        return;
+      }
 
-        // Walidacja wszystkich pól
-        let isValid = true;
-        ["name", "email", "message", "terms"].forEach((fieldName) => {
-          const field = form.querySelector(
-            `[name="${fieldName}"]`
-          ) as HTMLInputElement;
-          if (!field.checkValidity()) {
-            showError(fieldName, true);
-            isValid = false;
-          }
+      // Pobierz dane
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      // Zmień stan przycisku
+      const originalText = btnText?.textContent;
+      if (btnText) btnText.textContent = "Wysyłanie...";
+      submitBtn.disabled = true;
+      spinner?.classList.remove("hidden");
+      result.innerHTML = ""; // Wyczyść poprzednie komunikaty
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
         });
 
-        if (!isValid) {
-          const firstInvalid = form.querySelector(
-            ".input-error, .checkbox:invalid"
-          ) as HTMLElement;
-          firstInvalid?.focus();
-          return;
-        }
+        const data = await response.json();
 
-        // Pobierz dane
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
+        if (response.status === 200) {
+          result.classList.remove("text-error");
+          result.classList.add("text-success");
+          result.innerHTML = "✅ Wiadomość została wysłana!";
+          form.reset();
 
-        // Zmień stan przycisku
-        const originalText = btnText?.textContent;
-        if (btnText) btnText.textContent = "Wysyłanie...";
-        submitBtn.disabled = true;
-        spinner?.classList.remove("hidden");
-
-        try {
-          const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: json,
+          // Ukryj wszystkie komunikaty o błędach
+          fieldsToValidate.forEach((fieldName) => {
+            showError(fieldName, false);
           });
-
-          const data = await response.json();
-
-          if (response.status === 200) {
-            result.classList.remove("text-error");
-            result.classList.add("text-success");
-            result.innerHTML = "✅ Wiadomość została wysłana!";
-            form.reset();
-
-            // Ukryj wszystkie błędy
-            ["name", "email", "message", "terms"].forEach((fieldName) => {
-              showError(fieldName, false);
-            });
-          } else {
-            result.classList.remove("text-success");
-            result.classList.add("text-error");
-            result.innerHTML =
-              data.message || "❌ Coś poszło nie tak. Spróbuj ponownie.";
-          }
-        } catch (error) {
-          console.error(error);
+        } else {
           result.classList.remove("text-success");
           result.classList.add("text-error");
           result.innerHTML =
-            "❌ Błąd połączenia. Sprawdź internet i spróbuj ponownie.";
-        } finally {
-          // Przywróć przycisk
-          if (btnText && originalText) btnText.textContent = originalText;
-          submitBtn.disabled = false;
-          spinner?.classList.add("hidden");
-
-          // Ukryj wiadomość po 5 sekundach
-          setTimeout(() => {
-            result.innerHTML = "";
-            result.classList.remove("text-success", "text-error");
-          }, 5000);
+            data.message || "❌ Coś poszło nie tak. Spróbuj ponownie.";
         }
-      });
-    }
+      } catch (error) {
+        console.error("Błąd wysyłania formularza:", error);
+        result.classList.remove("text-success");
+        result.classList.add("text-error");
+        result.innerHTML =
+          "❌ Błąd połączenia. Sprawdź internet i spróbuj ponownie.";
+      } finally {
+        // Przywróć przycisk
+        if (btnText && originalText) btnText.textContent = originalText;
+        submitBtn.disabled = false;
+        spinner?.classList.add("hidden");
 
-    // Inicjalizacja - obsługa zarówno zwykłego ładowania jak i View Transitions
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initContactForm);
-    } else {
-      initContactForm();
-    }
+        // Ukryj wiadomość o statusie po 5 sekundach
+        setTimeout(() => {
+          result.innerHTML = "";
+          result.classList.remove("text-success", "text-error");
+        }, 5000);
+      }
+    });
+  }
 
-    // Dla Astro View Transitions
-    document.addEventListener("astro:page-load", initContactForm);
-  </script>
-</form>
+  // Inicjalizacja - obsługa zarówno zwykłego ładowania, jak i View Transitions
+  document.addEventListener("DOMContentLoaded", initContactForm);
+  // Dla Astro View Transitions
+  document.addEventListener("astro:page-load", initContactForm);
+</script>

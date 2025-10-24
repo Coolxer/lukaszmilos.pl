@@ -40,7 +40,7 @@ const { page, categories, pageTitle, pageDescription, meta, schema } =
         <div class="my-big-stack">
           {/* KATEGORIE */}
           {categories && categories.length > 0 && (
-            <div class="flex flex-col justify-start items-center gap-4">
+            <div class="flex flex-col justify-start items-center gap-4 flex-wrap">
               <p class="font-bold text-lg">Kategorie:</p>
               <Categories baseSlug="/blog/kategoria/" categories={categories} />
             </div>

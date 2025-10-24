@@ -21,9 +21,7 @@ const meta: Meta = {
 ---
 
 <PageLayout meta={meta}>
-  <Section
-    headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
-  >
+  <Section heroSection>
     <Heading tag="h1" look="h0" slot="heading">
       Technologia wsparciem,
       <span class="text-primary">nie problemem.</span>
@@ -36,7 +34,7 @@ const meta: Meta = {
       >
     </p>
 
-    <div class="flex flex-wrap gap-4 justify-center">
+    <div class="flex flex-wrap gap-4 lg:justify-center">
       <Button link="#oferta" rawLink>Zobacz, jak pomagam</Button>
       <Button link="/kontakt" class="btn-outline">Skontaktuj się</Button>
     </div>
@@ -172,14 +170,16 @@ const meta: Meta = {
           Jakie problemy rozwiązałem? W jaki sposób i dlaczego tak, a nie
           inaczej? Czy projekt zakończył się sukcesem?
         </p>
-        <Button link="/portfolio">Zobacz portfolio</Button>
+        <Button link="/portfolio" class="btn-primary self-start"
+          >Zobacz portfolio</Button
+        >
       </div>
     </Grid>
   </Section>
 
   <CTA
     id="kontakt"
-    heading="Porozmawiajmy o Twoim celu lub problemie"
+    heading="Jaki jest Twój problem do rozwiązania?"
     paragraph="Chętnie dowiem się, co chcesz osiągnąć i sprawdzimy, jak mogę Ci w tym pomóc."
     button1={{ link: "/kontakt", text: "Skontaktuj się" }}
     variant="primary"

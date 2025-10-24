@@ -131,7 +131,7 @@ section {
 
 @utility text-h5 {
   font-size: clamp(1.2rem, 1.1283rem + 0.3587vi, 1.4063rem);
-  line-height: 1.3;
+  line-height: 1.4;
   @apply font-medium tracking-[-0.03em];
 }
 

@@ -29,7 +29,8 @@ const { pageTitle, pageDescription, meta, schema } = Astro.props;
             <Section
               padding="md"
               containerSize="md"
-              headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-2xl [&_p]:mt-4"
+              alwaysCenterContent
+              headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-h5 [&_p]:mt-4"
             >
               <Heading tag="h1" look="h0" slot="heading">
                 {pageTitle}
