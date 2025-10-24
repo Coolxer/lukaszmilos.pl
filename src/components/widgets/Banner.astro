@@ -1,0 +1,17 @@
+---
+import settings from "@data/settings.json";
+---
+
+{
+  settings.banner.visible && (
+    <div
+      class="px-5 py-2 text-center"
+      style={{
+        backgroundColor: settings.banner.bgcolor,
+        color: settings.banner.textcolor,
+      }}
+    >
+      {settings.banner.text}
+    </div>
+  )
+}
