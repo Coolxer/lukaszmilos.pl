@@ -178,15 +178,10 @@ const relatedReviews = (
       centralnego miejsca do zarządzania informacjami.
     </p>
     <div class="bg-base-100 p-8 rounded-box shadow-md my-stack">
-      <Heading tag="h3" look="h4" class="text-center"
+      <Heading tag="h3" look="h4" class="lg:text-center mb-4"
         >Czym jest taka baza?</Heading
       >
-      <p class="text-center text-base-content/80">
-        To może być dobrze zorganizowany Arkusz Google, prosta baza w Notion lub
-        Airtable lub dedykowany system CMS. To Twoje centrum dowodzenia, które
-        zastępuje dziesiątki plików, notatek i maili.
-      </p>
-      <div class="divider"></div>
+
       <IconList
         iconName="tabler:circle-check"
         color="text-success"
@@ -294,7 +289,7 @@ const relatedReviews = (
       Skupiam się na celu, który chcesz osiągnąć. Bez zbędnej biurokracji i
       technicznego żargonu.
     </p>
-    <div class="grid md:grid-cols-2 gap-6 text-center">
+    <Grid cols={2}>
       {
         [
           {
@@ -314,7 +309,7 @@ const relatedReviews = (
             text: "Pokazuję Ci, jak korzystać z nowego narzędzia lub automatyzacji. Odpowiadam na pytania i upewniam się, że czujesz się z nim komfortowo.",
           },
         ].map((item, index) => (
-          <div class="p-6 bg-base-200 rounded-box my-stack items-center">
+          <div class="p-6 bg-base-200 rounded-box my-stack max-w-3/4 md:max-w-none lg:items-center">
             <div class="flex items-center justify-center size-12 bg-primary text-primary-content font-bold text-2xl rounded-full">
               {index + 1}
             </div>
@@ -325,7 +320,7 @@ const relatedReviews = (
           </div>
         ))
       }
-    </div>
+    </Grid>
   </Section>
 
   {
