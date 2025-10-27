@@ -26,7 +26,6 @@ const schema: Schema = {
   breadcrumb: "Kontakt",
   mainEntity: {
     "@type": "ContactPoint",
-    telephone: "+48-123-456-789",
     contactType: "customer service",
     areaServed: "PL",
   },
@@ -69,18 +68,16 @@ const schema: Schema = {
           </div>
           <div class="divider my-2"></div>
           <div class="flex flex-col gap-2">
-            <a
-              href="mailto:kontakt@lukaszmilos.pl"
-              class="link link-hover text-base-content/80"
-            >
-              kontakt@lukaszmilos.pl
-            </a>
-            <a
-              href="mailto:lukasz.milos.it@gmail.com"
-              class="link link-hover text-base-content/80"
-            >
-              lukasz.milos.it@gmail.com
-            </a>
+            {
+              config.company.email.map((email) => (
+                <a
+                  href={"mailto:" + { email }}
+                  class="link link-hover text-base-content/80"
+                >
+                  {email}
+                </a>
+              ))
+            }
           </div>
         </div>
 
