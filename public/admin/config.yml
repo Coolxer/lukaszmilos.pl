@@ -406,21 +406,6 @@ singletons:
             widget: "color"
             default: "#ffffff"
             allowInput: true
-      
-      - label: "Kontakt"
-        name: "contact"
-        widget: "object"
-        fields:
-          - label: "Email"
-            name: "email"
-            widget: "string"
-            pattern: ['^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', 'Wprowadź poprawny adres email']
-            default: "kontakt@gmail.com"
-          
-          - label: "Telefon"
-            name: "phone"
-            widget: "string"
-            pattern: ['^\+?[1-9]\d{1,14}$', 'Wprowadź poprawny numer telefonu']
   - name: "pricing"
     label: "Cennik"
     file: "src/content/pricing/pricing.json"
