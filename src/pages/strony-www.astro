@@ -537,29 +537,32 @@ const monthlyFee = 50;
 */
   }
 
-  {
-    /* 
   <Section>
-    <Heading tag="h2" slot="heading">Tak działam (100/100)</Heading>
-    <p slot="paragraph">Przykład pracy i dążenia do perfekcji</p>
+    <Heading tag="h2" slot="heading"
+      >Przykład pracy i dążenia do perfekcji</Heading
+    >
+    <p slot="paragraph">Wyniki popularnych testów page speed insights</p>
 
-    <div>
-      <Heading tag="h3" look="h4">Wyniki testów na telefonie</Heading>
-      <MyImage
-        img={MobileSpeedImg}
-        alt="Wyniki testów szybkości strony na telefonie w Google PageSpeed Insights: 4x 100/100"
-        class="w-full h-auto rounded-box shadow-md"
-      />
-    </div>
+    <Grid cols={2}>
+      <div class="my-stack">
+        <Heading tag="h3" look="h5">na telefonie</Heading>
+        <MyImage
+          img={MobileSpeedImg}
+          alt="Wyniki testów szybkości strony na telefonie w Google PageSpeed Insights: 4x 100/100"
+          class="w-full h-auto rounded-box shadow-md"
+        />
+      </div>
 
-    <div>
-      <Heading tag="h3" look="h4">Wyniki testów na komputerze</Heading>
-      <MyImage
-        img={DesktopSpeedImg}
-        alt="Wyniki testów szybkości strony na komputerze w Google PageSpeed Insights: 4x 100/100"
-        class="w-full h-auto rounded-box shadow-md"
-      />
-    </div>
+      <div class="my-stack">
+        <Heading tag="h3" look="h5">na komputerze</Heading>
+        <MyImage
+          width={600}
+          img={DesktopSpeedImg}
+          alt="Wyniki testów szybkości strony na komputerze w Google PageSpeed Insights: 4x 100/100"
+          class="w-full h-auto rounded-box shadow-md"
+        />
+      </div>
+    </Grid>
 
     <div class="text-lg my-stack">
       <p>Tak, to dwa różne zdjęcia.</p>
@@ -569,8 +572,6 @@ const monthlyFee = 50;
       <p>Tak, to jest możliwe, nawet na bardziej rozbudowanej stronie.</p>
     </div>
   </Section>
-*/
-  }
 
   <Section variant="secondary">
     <Heading tag="h2" slot="heading">FAQ</Heading>
