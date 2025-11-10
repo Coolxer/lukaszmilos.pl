@@ -1,6 +1,5 @@
 ---
 slug: modernizacja-strony-devesol
-order: 3
 meta:
   title: Nowoczesna strona www dla firmy Devesol
   description: Kompleksowa modernizacja strony internetowej firmy Devesol – nowoczesny wygląd, uporządkowany WordPress i łatwa rozbudowa.
@@ -20,6 +19,8 @@ link: https://devesol.pl/
 category: www
 videos:
   - https://www.youtube.com/embed/bVnYRxl1TGk?si=3pJCMcE7yYNAEkyR
+date: 2025-04-02
+review: devesol
 draft: false
 ---
 

@@ -1,6 +1,5 @@
 ---
 slug: symulacja-ramienia-robotycznego
-order: 10
 meta:
   title: Symulacja ramienia robotycznego
   description: Symulacja ramienia robotycznego stworzona w Unity i Blenderze, prezentuje możliwości sterowania i wizualizacji ruchu
@@ -15,6 +14,7 @@ link: https://github.com/Coolxer/Robox
 category: system
 videos:
   - https://www.youtube.com/embed/videoseries?si=SrXpUK51OksxH3ge&amp;list=PL5tp2Ne3qPmbV8q4IK6VXxMdpsV8u97qa
+date: 2023-08-23
 draft: false
 ---
 

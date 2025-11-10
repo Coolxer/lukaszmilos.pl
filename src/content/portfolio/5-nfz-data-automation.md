@@ -1,6 +1,5 @@
 ---
 slug: automatyczne-uzyskanie-danych-z-internetu
-order: 7
 meta:
   title: Automatyczne uzyskanie danych z internetu
   description: Automatyczne pobieranie danych z internetu za pomocą Python, requests i BeautifulSoup – 36 000 rekordów w 5 godzin pracy
@@ -14,6 +13,7 @@ image:
 category: automatyzacja
 videos:
   - https://www.youtube.com/embed/2IXd7NWB7iA?si=dm04M75lVDl3qAKP
+date: 2025-02-23
 draft: false
 ---
 

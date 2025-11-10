@@ -163,6 +163,40 @@ const selectedClasses =
         </Grid>
       </div>
     </div>
+
+    {/* Link do wideo na YouTube (jeśli istnieje) */}
+    {
+      item.data.video && (
+        <a
+          href={item.data.video}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group block rounded-box border-2 border-primary/30 bg-base-100 p-6 shadow-sm no-underline transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:-translate-y-1"
+        >
+          <div class="flex items-center gap-4 sm:gap-6">
+            {/* Ikona YouTube */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-12 w-12 flex-shrink-0 text-red-600 transition-transform duration-300 group-hover:scale-110"
+            >
+              <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+            </svg>
+            <div>
+              <p class="font-bold text-lg text-base-content">
+                Zobacz wideo z case-study
+              </p>
+              <p class="text-sm text-base-content/70">
+                To case-study jest również dostępne w formie wideo.
+              </p>
+            </div>
+          </div>
+        </a>
+      )
+    }
   </Section>
 
   <Section>

@@ -1,6 +1,5 @@
 ---
 slug: strona-internetowa-miernika
-order: 1
 meta:
   title: Strona internetowa miernika – Sprzedaż + 100%
   description: Skuteczna strona miernika rozwarcia. Optymalizacja SEO, czytelność i zwiększenie sprzedaży o 100%. Zobacz proces.
@@ -22,6 +21,7 @@ link: https://miernik-rozwarcia.xce.pl/
 category: www
 videos:
   - https://www.youtube.com/embed/Qt4iBtRPIYI?si=30TQm3jbKH7uLjK8
+date: 2024-01-29
 draft: false
 ---
 

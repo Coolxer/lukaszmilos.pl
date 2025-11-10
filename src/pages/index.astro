@@ -12,6 +12,7 @@ import Button from "@components/ui/Button.astro";
 import MyImage from "@components/ui/MyImage.astro";
 
 import CTA from "@components/sections/CTA.astro";
+import Compliments from "~/components/sections/Compliments.astro";
 
 const meta: Meta = {
   title: "Pomagam firmom lepiej korzystać z technologii",
@@ -159,6 +160,8 @@ const meta: Meta = {
       }
     </div>
   </Section>
+
+  <Compliments />
 
   <Section variant="tetriary" id="portfolio">
     <Grid cols={2}>

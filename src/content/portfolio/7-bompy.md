@@ -1,6 +1,5 @@
 ---
 slug: program-zestawienia-materialowego
-order: 11
 meta:
   title: Aplikacja do prowadzenia zestawienia materiałowego
   description: Aplikacja do zestawienia materiałowego napisana w Pythonie z użyciem Tkinter, ułatwia organizację i zarządzanie zasobami
@@ -13,6 +12,7 @@ image:
   src: portfolio/bompy/bompy-1.webp
 link: https://github.com/Coolxer/BOMPY
 category: system
+date: 2023-07-12
 draft: false
 ---
 

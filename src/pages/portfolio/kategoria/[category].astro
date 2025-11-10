@@ -8,9 +8,9 @@ import ArchiveLayout from "@layouts/portfolio/ArchiveLayout.astro";
 import { type Meta } from "@components/core/MySEO.astro";
 
 export async function getStaticPaths() {
-  const items = (await getCollection("portfolio")).filter(
-    (item) => !item.data.draft
-  );
+  const items = (await getCollection("portfolio"))
+    .filter((item) => !item.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   // Pobierz unikalne kategorie
   const categories = [

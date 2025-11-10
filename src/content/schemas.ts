@@ -136,7 +136,6 @@ export const blogSchema = z.object({
 
 
   export const portfolioSchema = z.object({
-    order: z.number(),
     meta: metaSchema,
 
     title: z.string(),  
@@ -163,12 +162,15 @@ export const blogSchema = z.object({
 
     gallery: z.array(z.object({src: z.string(),
       alt: z.string(),})).max(10).optional(),
-     videos: z.array(z.string()).optional(),
+    
+    video: z.string().optional(),
 
     category: z.enum(PORTFOLIO_CATEGORIES),
     review: reference("reviews").optional(),
 
     relatedProjects: z.array(reference("portfolio")).max(2).optional(),
+
+    date: z.coerce.date(),
 
     draft: z.boolean().optional(),
   })
