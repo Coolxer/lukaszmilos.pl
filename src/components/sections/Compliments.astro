@@ -1,0 +1,85 @@
+---
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+
+export interface Props {
+  variant?: "default" | "secondary" | "tetriary";
+  class?: string;
+}
+
+const { variant = "default", class: className, ...attributes } = Astro.props;
+---
+
+<Section variant={variant}>
+  <Heading tag="h2" slot="heading">
+    Ludzie chwalą mnie nie tylko za pracę, ale za zaangażowanie, szukanie
+    alternatyw i obszerny feedback.
+  </Heading>
+  <div class="my-big-stack">
+    {
+      [
+        {
+          name: "Paweł.K",
+          text: "Dzięki za dokładne wyjaśnienie i Twoje zaangażowanie.",
+        },
+        {
+          name: "SACADA",
+          testimonials: [
+            "Dziękuję za tę inspirację!",
+            "Bardzo dziękuję za tak profesjonalną odpowiedź!",
+          ],
+        },
+        {
+          name: "Krzysztof.M",
+          testimonials: [
+            "Super, że prace idą tak dynamicznie!",
+            "Artykuły wyglądają bardzo dobrze i profesjonalnie – to mi się podoba.",
+            "Generalnie całość wygląda naprawdę dobrze, kierunek jest super.",
+          ],
+        },
+        {
+          name: "Wszystko o biznesie",
+          text: "Witaj, dzięki za treściwego maila i dziękuję za zaangażowanie w nagranie filmu.",
+        },
+        {
+          name: "Fajne konkursy",
+          text: "Dzień dobry Łukaszu, serdecznie dziękuję za Twoje zaangażowanie i sugestie co do rozwoju serwisu.",
+        },
+        {
+          name: "Dominik.C",
+          text: "Cześć Łukasz, dziękuję bardzo, że dzielisz się obserwacjami, bo nie ukrywam, że sam nie bardzo wiem co robię dobrze, a co źle.",
+        },
+        {
+          name: "Dominik.K",
+          text: "Dziękuję za szczerą i obszerną odpowiedź.",
+        },
+        {
+          name: "Dawid.K",
+          text: "Podoba mi się Pański sposób myślenia i podejście.",
+        },
+      ].map((item) => (
+        <div
+          class:list={[
+            "p-6 border-l-4 border-primary rounded-box shadow-sm",
+            variant === "default"
+              ? "bg-base-200"
+              : variant === "secondary"
+                ? "bg-base-100"
+                : "bg-neutral/70",
+          ]}
+        >
+          <div class="my-stack gap-3">
+            {item.text ? (
+              <p class="text-base-content/90 italic">"{item.text}"</p>
+            ) : (
+              item.testimonials?.map((testimonial) => (
+                <p class="text-base-content/90 italic">"{testimonial}"</p>
+              ))
+            )}
+            <p class="font-semibold text-sm text-primary">— {item.name}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Section>

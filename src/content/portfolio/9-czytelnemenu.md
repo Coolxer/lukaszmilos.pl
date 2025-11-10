@@ -1,6 +1,5 @@
 ---
 slug: system-czytelne-menu
-order: 5
 meta:
   title: System menu online dla restauracji i pizzerii
   description: Nowoczesne rozwiązanie dla restauracji - łatwe w obsłudze mini-strony z menu, poprawiające dostępność i jakość obsługi.
@@ -22,6 +21,7 @@ link: https://czytelnemenu.pl/
 category: www
 videos:
   - https://www.youtube.com/embed/U6yQ-UyC3Ys?si=YzfZ3EmtbN3yzfIZ
+date: 2024-12-15
 draft: false
 ---
 

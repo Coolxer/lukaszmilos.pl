@@ -1,6 +1,5 @@
 ---
 slug: szablonowa-grafika
-order: 8
 meta:
   title: System prostego tworzenia szablonowych grafik
   description: System ułatwiający proces  tworzenia szablonowych grafik np. na bloga, youtube, social media.
@@ -15,6 +14,7 @@ link: https://szablonowagrafika.pages.dev/
 category: system
 videos:
   - https://www.youtube.com/embed/amKvUKpbOuQ?si=YaUHUe40JqKs-pFw
+date: 2024-11-26
 draft: false
 ---
 

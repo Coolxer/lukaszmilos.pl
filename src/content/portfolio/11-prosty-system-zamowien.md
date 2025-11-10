@@ -1,6 +1,5 @@
 ---
 slug: prosty-system-zamowien
-order: 9
 meta:
   title: Prosty system zamówień dla producentów
   description: System ułatwiający proces zbierania i przetwarzania zamówień, np. ciast czy wędlin na święta.
@@ -14,6 +13,7 @@ image:
 category: automatyzacja
 videos:
   - https://www.youtube.com/embed/kQpxZUqLsK4
+date: 2025-03-24
 draft: false
 ---
 

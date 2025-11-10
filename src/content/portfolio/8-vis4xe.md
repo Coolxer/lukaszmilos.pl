@@ -1,6 +1,5 @@
 ---
 slug: program-planowania-wyswietlacza-segmentowego
-order: 12
 meta:
   title: Program organizacji pola wyświetlacza segmentowego
   description: Program do organizacji pola wyświetlacza segmentowego dla Arduino, stworzony w Qt Creator i C++, usprawnia planowanie i sterowanie
@@ -13,6 +12,7 @@ image:
   src: portfolio/vis4xe/vis4xe-1.webp
 link: https://github.com/Coolxer/Vis4xe
 category: system
+date: 2023-05-12
 draft: false
 ---
 

@@ -23,6 +23,7 @@ import ReviewCard from "@components/collection/ReviewCard.astro";
 
 import FAQ from "@components/ui/FAQ.astro";
 import CTA from "~/components/sections/CTA.astro";
+import Compliments from "~/components/sections/Compliments.astro";
 
 const meta: Meta = {
   title: "Strony internetowe bez bólu głowy",
@@ -573,7 +574,9 @@ const monthlyFee = 50;
     </div>
   </Section>
 
-  <Section variant="secondary">
+  <Compliments variant="secondary" />
+
+  <Section>
     <Heading tag="h2" slot="heading">FAQ</Heading>
     <p slot="paragraph">Pytania i odpowiedzi</p>
     <FAQ

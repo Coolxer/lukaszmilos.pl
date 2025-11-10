@@ -1,6 +1,5 @@
 ---
 slug: moja-poprzednia-strona-www
-order: 4
 meta:
   title: Moja poprzednia strona www
   description: Poprzednia strona www zbudowana w WordPress z użyciem Kadence – prosta, responsywna witryna do prezentacji projektów i usług
@@ -14,6 +13,7 @@ image:
 category: www
 videos:
   - https://www.youtube.com/embed/9IvBqwJMGvc?si=ULvhLZYmy_3xG9Mc
+date: 2024-10-21
 draft: false
 ---
 

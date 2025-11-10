@@ -1,6 +1,5 @@
 ---
 slug: moja-dotychczasowa-strona-www
-order: 2
 meta:
   title: Profesjonalna własna strona www - kodowana z Astro
   description: Nowoczesna strona www oparta na Astro, wspierająca budowę marki osobistej i prezentację projektów
@@ -22,6 +21,7 @@ link: https://lukaszmilos-pl---old-website.pages.dev/
 category: www
 videos:
   - https://www.youtube.com/embed/Fhb67CdMRYU?si=-r-sCNwBeBpauZy0
+date: 2024-01-15
 draft: false
 ---
 
