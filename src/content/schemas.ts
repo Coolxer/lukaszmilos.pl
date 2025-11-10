@@ -168,8 +168,6 @@ export const blogSchema = z.object({
     category: z.enum(PORTFOLIO_CATEGORIES),
     review: reference("reviews").optional(),
 
-    relatedProjects: z.array(reference("portfolio")).max(2).optional(),
-
     date: z.coerce.date(),
 
     draft: z.boolean().optional(),
