@@ -270,23 +270,17 @@ collections:
         display_fields: ["clientName", "date"]
         required: false
         multiple: false
-      
-      - label: "Powiązane projekty (max 2)"
-        name: "relatedProjects"
-        widget: "relation"
-        collection: "portfolio"
-        search_fields: ["title", "meta.title"]
-        value_field: "{{slug}}"
-        display_fields: ["title"]
-        multiple: true
-        max: 2
-        required: false
 
       - label: "Wersja robocza"
         name: "draft"
         widget: "boolean"
         required: false
         default: false
+
+      - label: "Treść" # Pole body musi być na końcu, aby reszta pól była widoczna jako frontmatter
+        name: "body"
+        widget: "markdown"
+        required: true
 
   # ========== REVIEWS (Recenzje) ==========
   - name: reviews

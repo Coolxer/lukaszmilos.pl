@@ -15,6 +15,8 @@ import opengraphImages, { presets } from "astro-opengraph-images";
 import * as fs from "fs"; // The fs module is required to load fonts
 import { CustomOGTemplate } from "./src/components/core/custom-og-template.tsx";
 
+import rehypeExternalLinks from "rehype-external-links";
+
 export default defineConfig({
   site: config.site.domain,
   base: "",
@@ -87,6 +89,15 @@ export default defineConfig({
       render: CustomOGTemplate,
     }),
   ],
+
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        { target: "_blank", rel: ["noopener", "noreferrer"] },
+      ],
+    ],
+  },
 
   experimental: {
     fonts: [
