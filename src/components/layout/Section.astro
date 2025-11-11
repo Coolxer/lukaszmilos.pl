@@ -20,7 +20,7 @@ const {
   variant = "default",
   padding = "lg",
   containerSize = "md",
-  innerDivClasses = "flex flex-col gap-12",
+  innerDivClasses = "flex flex-col gap-8 lg:gap-12",
   innerDivAdditionalClasses = "",
   headingAndParagraphClasses = "[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-lg",
   alwaysCenterContent = false,
@@ -53,6 +53,9 @@ const headingAndParagraphDefaultClases = heroSection
   class:list={[
     "w-full",
     variantClasses[variant],
+    heroSection
+      ? "pt-16 md:pt-20 lg:pt-24 pb-8 md:pb-10 lg:pb-12"
+      : paddingClasses[padding],
     paddingClasses[padding],
     className,
   ]}

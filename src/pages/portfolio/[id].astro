@@ -5,9 +5,9 @@ import EntryLayout from "@layouts/portfolio/EntryLayout.astro";
 import { type Meta, type Schema } from "@components/core/MySEO.astro";
 
 export async function getStaticPaths() {
-  const items = (await getCollection("portfolio")).filter(
-    (item) => !item.data.draft
-  );
+  const items = (await getCollection("portfolio"))
+    .filter((item) => !item.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return items.map((item, index) => ({
     params: { id: item.id },
