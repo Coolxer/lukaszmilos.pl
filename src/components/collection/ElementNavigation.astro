@@ -32,7 +32,10 @@ const nextElementExists = nextElement && nextElement?.id;
 <div class:list={["join grid grid-cols-2 gap-4", className]}>
   <Button
     link={baseSlug + (prevElementExists && slugify(prevElement.id))}
-    class:list={["join-item btn-outline", !prevElementExists && "btn-disabled"]}
+    class:list={[
+      "join-item btn-outline py-8",
+      !prevElementExists && "btn-disabled py-8",
+    ]}
   >
     <Icon name="tabler:chevron-left" class="size-6" />
     {prevText}
@@ -40,7 +43,10 @@ const nextElementExists = nextElement && nextElement?.id;
 
   <Button
     link={baseSlug + (nextElement && slugify(nextElement.id))}
-    class:list={["join-item btn-outline", !nextElementExists && "btn-disabled"]}
+    class:list={[
+      "join-item btn-outline py-8",
+      !nextElementExists && "btn-disabled py-8",
+    ]}
   >
     {nextText}
     <Icon name="tabler:chevron-right" class="size-6" />
