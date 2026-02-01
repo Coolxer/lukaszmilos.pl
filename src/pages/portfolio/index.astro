@@ -22,7 +22,7 @@ const schema: Schema = {
 };
 
 const items: CollectionEntry<"portfolio">[] = (
-  await getCollection("portfolio")
+  await getCollection("portfolio", ({ data }) => !data.draft)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const categories = [...new Set(items.map((item) => item.data.category).flat())];
