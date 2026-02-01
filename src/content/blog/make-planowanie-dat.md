@@ -8,7 +8,6 @@ leading: W tym wpisie pokażę Ci, jak za pomocą prostego scenariusza w Make.co
 image:
   src: make-planowanie-dat.webp
   alt: make-planowanie-dat
-video: https://www.youtube.com/embed/lV6neXm020E?si=mesHZ_XIeDB65SIC
 categories:
   - automatyzacja
 date: 2025-10-10
