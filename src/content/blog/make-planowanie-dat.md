@@ -12,9 +12,11 @@ video: https://www.youtube.com/embed/lV6neXm020E?si=mesHZ_XIeDB65SIC
 categories:
   - automatyzacja
 date: 2025-10-10
+video: https://youtu.be/lV6neXm020E
 draft: false
 slug: automatyzacja-planowanie-dat-make-com
 ---
+
 ## Moje rozwiązanie: automatyzacja, która planuje za Ciebie
 
 Zaprojektowałem scenariusz, który raz w miesiącu, 20. dnia, automatycznie generuje daty publikacji na kolejny miesiąc. Dzięki temu mam 10 dni na weryfikację i ewentualne poprawki treści, zanim posty zostaną opublikowane od 1. dnia kolejnego miesiąca. To idealny bufor, który daje pełną kontrolę nad procesem, bez presji czasu.

@@ -12,8 +12,6 @@ image:
   src: portfolio/robox.webp
 link: https://github.com/Coolxer/Robox
 category: system
-videos:
-  - https://www.youtube.com/embed/videoseries?si=SrXpUK51OksxH3ge&amp;list=PL5tp2Ne3qPmbV8q4IK6VXxMdpsV8u97qa
 date: 2023-08-23
 draft: false
 ---

@@ -12,7 +12,7 @@ image:
 categories:
   - www
 knowledgeBase: false
-video: https://www.youtube.com/embed/45LhWHgLIhU?si=aXjkjsoaX6Uh7rTP
+video: https://youtu.be/45LhWHgLIhU
 date: 2024-09-17T07:44:13.631Z
 ---
 

@@ -13,7 +13,7 @@ image:
 categories:
   - automatyzacja
 date: 2025-06-28
-video: https://www.youtube.com/embed/OX-PSwMf-yc?si=XiIgDgNElkRpwn2g
+video: https://youtu.be/OX-PSwMf-yc
 ---
 
 ## Koniec z drogimi abonamentami!

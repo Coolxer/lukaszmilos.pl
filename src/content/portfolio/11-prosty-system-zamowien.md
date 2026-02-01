@@ -12,7 +12,7 @@ image:
   src: portfolio/zamowienia/zamowienia-3.jpg
 category: automatyzacja
 videos:
-  - https://www.youtube.com/embed/kQpxZUqLsK4
+  - https://youtu.be/kRqZIziXA7o
 date: 2025-03-24
 draft: false
 ---

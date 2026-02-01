@@ -11,7 +11,7 @@ image:
   alt: Automatyzacja wizualizacji danych na mapach Polski
   src: portfolio/wizualizacja-danych-mapy-python.webp
 category: automatyzacja
-video: https://www.youtube.com/embed/hwUet0zNCWU?si=hrO17r1g0tTDwTgH
+video: https://youtu.be/hwUet0zNCWU
 date: 2026-01-25
 draft: false
 ---

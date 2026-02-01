@@ -12,7 +12,7 @@ image:
 categories:
   - www
 date: 2025-10-05
-video: https://www.youtube.com/embed/gBxOFYVXVGk?si=7y2q9oW8oGQFdgdh
+video: https://youtu.be/r3eevm7hpjA
 draft: false
 ---
 

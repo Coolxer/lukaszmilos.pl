@@ -12,7 +12,7 @@ image:
   src: portfolio/graphics-promotion-system/graphics-promotion-1.webp
 category: automatyzacja
 videos:
-  - https://www.youtube.com/embed/t1LdjKA9w_c?si=zUEoGjJdakhPqyLJ
+  - https://youtu.be/t1LdjKA9w_c
 date: 2024-12-28
 draft: false
 ---

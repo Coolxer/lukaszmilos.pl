@@ -12,7 +12,7 @@ image:
 categories:
   - automatyzacja
 date: 2025-09-17
-video: https://www.youtube.com/embed/9EQ4jrOoKP4?si=1bb89puR121b2CqM
+video: https://youtu.be/9EQ4jrOoKP4
 draft: false
 ---
 
