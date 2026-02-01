@@ -20,7 +20,7 @@ webMetrics:
 link: https://czytelnemenu.pl/
 category: www
 videos:
-  - https://www.youtube.com/embed/U6yQ-UyC3Ys?si=YzfZ3EmtbN3yzfIZ
+  - https://youtu.be/U6yQ-UyC3Ys
 date: 2024-12-15
 draft: false
 ---

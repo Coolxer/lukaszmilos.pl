@@ -18,7 +18,7 @@ webMetrics:
 link: https://devesol.pl/
 category: www
 videos:
-  - https://www.youtube.com/embed/bVnYRxl1TGk?si=3pJCMcE7yYNAEkyR
+  - https://youtu.be/bVnYRxl1TGk
 date: 2025-04-02
 review: devesol
 draft: false

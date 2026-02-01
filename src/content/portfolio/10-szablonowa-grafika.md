@@ -13,7 +13,7 @@ image:
 link: https://szablonowagrafika.pages.dev/
 category: system
 videos:
-  - https://www.youtube.com/embed/amKvUKpbOuQ?si=YaUHUe40JqKs-pFw
+  - https://youtu.be/amKvUKpbOuQ
 date: 2024-11-26
 draft: false
 ---

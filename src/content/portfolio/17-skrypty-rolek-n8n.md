@@ -11,7 +11,7 @@ image:
   alt: Automatyzacja n8n tworzenia skryptów wideo do social media
   src: portfolio/automatyzacja-n8n-skrypty-reels.webp
 category: automatyzacja
-video: https://www.youtube.com/embed/_Sq7ep-rpxw?si=UvHq5po0PqeczqK1
+video: https://youtu.be/_Sq7ep-rpxw
 date: 2026-02-01
 draft: false
 ---

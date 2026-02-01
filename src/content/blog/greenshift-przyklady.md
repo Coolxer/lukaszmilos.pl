@@ -16,7 +16,7 @@ date: 2025-04-10
 relatedPosts:
   - jak-relume-pomaga-w-projektowaniu-stron-www
   - jak-wybrac-technologie-dla-strony-internetowej
-video: https://www.youtube.com/embed/j5xc8DVK6pw?si=2hkK8EiJyVjXQs__
+video: https://youtu.be/j5xc8DVK6pw
 ---
 
 ## 1. System klas – stylowanie z głową

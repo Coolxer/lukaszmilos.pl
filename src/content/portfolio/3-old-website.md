@@ -12,7 +12,7 @@ image:
   src: portfolio/poprzednia-strona-www.webp
 category: www
 videos:
-  - https://www.youtube.com/embed/9IvBqwJMGvc?si=ULvhLZYmy_3xG9Mc
+  - https://youtu.be/9IvBqwJMGvc
 date: 2024-10-21
 draft: false
 ---

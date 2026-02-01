@@ -13,7 +13,7 @@ image:
 categories:
   - wskazówki
 date: 2025-07-10
-video: https://www.youtube.com/embed/r-nwyIgiO5s?si=AUu55Y_s24Rg6nry
+video: https://youtu.be/r-nwyIgiO5s
 draft: false
 ---
 

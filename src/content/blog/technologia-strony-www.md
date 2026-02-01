@@ -7,7 +7,7 @@ meta:
 heading: Jak wybrać technologię do stworzenia strony internetowej?
 subheading: WordPress, Webflow, SaaS czy kod? Oto, co musisz wiedzieć przed wyborem technologii dla swojej strony internetowej.
 leading: Wybór odpowiedniej technologii dla strony internetowej ma kluczowe znaczenie nie tylko dla wyglądu, ale także dla łatwości zarządzania, kosztów utrzymania i skalowalności. WordPress, Webflow i inne rozwiązania SaaS oferują różne możliwości, ale które z nich będzie najlepsze dla Ciebie?
-video: https://www.youtube.com/embed/ggZb8acKpG8?si=W_jB71Y2hzerL_2f
+video: https://youtu.be/ggZb8acKpG8
 categories:
   - www
 image:

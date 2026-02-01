@@ -20,7 +20,7 @@ webMetrics:
 link: https://lukaszmilos-pl---old-website.pages.dev/
 category: www
 videos:
-  - https://www.youtube.com/embed/Fhb67CdMRYU?si=-r-sCNwBeBpauZy0
+  - https://youtu.be/Fhb67CdMRYU
 date: 2024-01-15
 draft: false
 ---

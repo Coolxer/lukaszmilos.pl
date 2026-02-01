@@ -12,7 +12,7 @@ image:
   src: portfolio/nfz-data-automation.webp
 category: automatyzacja
 videos:
-  - https://www.youtube.com/embed/2IXd7NWB7iA?si=dm04M75lVDl3qAKP
+  - https://youtu.be/2IXd7NWB7iA
 date: 2025-02-23
 draft: false
 ---

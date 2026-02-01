@@ -11,7 +11,7 @@ image:
   alt: Automatyzacja tworzenia tematów rolek
   src: portfolio/automatyzacja-n8n-tematy-rolek.webp
 category: automatyzacja
-video: https://www.youtube.com/embed/eMz75siE9Yk?si=9vXCP7pKQhkEeJYQ
+video: https://youtu.be/eMz75siE9Yk
 date: 2026-30-01
 draft: false
 ---

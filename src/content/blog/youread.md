@@ -14,7 +14,7 @@ image:
 categories:
   - automatyzacja
 date: 2025-07-02
-video: https://www.youtube.com/embed/Jci_VceTMJg?si=EJtzkulS91eXag7j
+video: https://youtu.be/Jci_VceTMJg
 draft: false
 ---
 

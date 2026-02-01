@@ -16,7 +16,7 @@ categories:
   - biznes
   - cyfryzacja
 date: 2024-09-21T07:18:45.000Z
-video: https://www.youtube.com/embed/745OJbfcDZU?si=EuhWOJCS6bQInvab
+video: https://youtu.be/745OJbfcDZU
 relatedPosts:
   - jak-relume-pomaga-w-projektowaniu-stron-www
 ---

@@ -20,7 +20,7 @@ webMetrics:
 link: https://miernik-rozwarcia.xce.pl/
 category: www
 videos:
-  - https://www.youtube.com/embed/Qt4iBtRPIYI?si=30TQm3jbKH7uLjK8
+  - https://youtu.be/Qt4iBtRPIYI
 date: 2024-01-29
 draft: false
 ---
