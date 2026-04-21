@@ -1,4 +1,5 @@
-import { z, reference } from "astro:content"
+import { reference } from "astro:content"
+import { z } from "astro/zod"
 
 export const BLOG_CATEGORIES = [
 "brak kategorii", "biznes", "www", "cyfryzacja", "automatyzacja", "wskazówki"
@@ -20,7 +21,7 @@ export type ReviewSource = typeof REVIEW_SOURCES[number];
 export const metaSchema = z.object({
   title: z.string().max(60, "Tytuł SEO powinien mieć max 60 znaków"),
   description: z.string().max(160, "Opis SEO powinien mieć max 160 znaków"),
-  canonical: z.string().url().optional(),
+  canonical: z.url().optional(),
   noindex: z.boolean().optional().default(false),
   nofollow: z.boolean().optional().default(false),
 })
@@ -30,7 +31,7 @@ export const metaSchema = z.object({
 //     title: z.string().max(50),
 //     description: z.string().max(130),
 
-//     canonical: z.string().url().optional(),
+//     canonical: z.url().optional(),
 
 //     noindex: z.boolean().optional(),
 //     nofollow: z.boolean().optional(),
@@ -158,7 +159,7 @@ export const blogSchema = z.object({
     }).optional(),
 
 
-    link: z.string().url().optional(),
+    link: z.url().optional(),
 
     gallery: z.array(z.object({src: z.string(),
       alt: z.string(),})).max(10).optional(),
@@ -175,7 +176,7 @@ export const blogSchema = z.object({
 
   export const reviewSchema = z.object({
 
-    clientName: z.string().min(1, { message: "Nazwa klienta jest wymagana." }),
+    clientName: z.string().min(1, { error: "Nazwa klienta jest wymagana." }),
     
     clientImage: z.object({
       src: z.string(),
@@ -186,7 +187,7 @@ export const blogSchema = z.object({
     
     source: z.enum(REVIEW_SOURCES).default('Inne'),
     
-    reviewLink: z.string().url().nullish(),
+    reviewLink: z.url().nullish(),
 
     service: z.array(z.enum(PORTFOLIO_CATEGORIES)).min(1),
     
@@ -197,9 +198,9 @@ export const blogSchema = z.object({
 
 export const pricingSchema = z.array(
   z.object({
-  title: z.string().min(1, { message: "Tytuł jest wymagany." }),
+  title: z.string().min(1, { error: "Tytuł jest wymagany." }),
   description: z.string(),
-  price: z.number().min(0, { message: "Cena musi być liczbą nieujemną." }),
+  price: z.number().min(0, { error: "Cena musi być liczbą nieujemną." }),
   unit: z.enum(['godzina', 'projekt', 'miesiąc', 'usługa']).default('usługa'),
   isPopular: z.boolean().default(false)})
 )

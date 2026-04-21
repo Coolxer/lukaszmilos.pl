@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content"
-import { blogSchema, portfolioSchema, reviewSchema, pricingSchema } from './schemas';
+import { blogSchema, portfolioSchema, reviewSchema, pricingSchema } from './content/schemas';
 import { glob, file } from 'astro/loaders';
 
 

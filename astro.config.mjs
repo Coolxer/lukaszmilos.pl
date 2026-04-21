@@ -99,18 +99,16 @@ export default defineConfig({
     ],
   },
 
-  experimental: {
-    fonts: [
-      {
-        name: "Poppins",
-        cssVariable: "--font-poppins",
-        provider: fontProviders.fontsource(),
-        weights: [400, 600],
-        styles: ["normal"],
-        subsets: ["latin", "latin-ext"],
-      },
-    ],
-  },
+  fonts: [
+    {
+      name: "Poppins",
+      cssVariable: "--font-poppins",
+      provider: fontProviders.fontsource(),
+      weights: [400, 600],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext"],
+    },
+  ],
 
   server: {
     port: 4321,
