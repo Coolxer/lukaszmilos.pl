@@ -5,7 +5,7 @@ export interface Props {
   id?: string;
   variant?: "default" | "secondary" | "tetriary";
   padding?: "none" | "sm" | "md" | "lg";
-  containerSize?: "sm" | "md" | "lg" | "xl" | "prose" | "full";
+  containerSize?: string;
   innerDivClasses?: string;
   innerDivAdditionalClasses?: string;
   alwaysCenterContent?: boolean;
@@ -19,7 +19,7 @@ const {
   id,
   variant = "default",
   padding = "lg",
-  containerSize = "md",
+  containerSize = "max-w-4xl",
   innerDivClasses = "flex flex-col gap-8 lg:gap-12",
   innerDivAdditionalClasses = "",
   headingAndParagraphClasses = "[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-lg",

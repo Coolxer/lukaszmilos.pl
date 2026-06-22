@@ -108,6 +108,22 @@ export default defineConfig({
       styles: ["normal"],
       subsets: ["latin", "latin-ext"],
     },
+    {
+      name: "Space Grotesk",
+      cssVariable: "--font-space-grotesk",
+      provider: fontProviders.fontsource(),
+      weights: [400, 600],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext"],
+    },
+    {
+      name: "Inter",
+      cssVariable: "--font-inter",
+      provider: fontProviders.fontsource(),
+      weights: [400, 600],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext"],
+    },
   ],
 
   server: {

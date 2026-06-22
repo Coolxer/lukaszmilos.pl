@@ -20,7 +20,8 @@ const { meta, schema } = Astro.props;
 
 <html lang={config.site.language || "pl"}>
   <head>
-    <Font cssVariable="--font-poppins" preload />
+    <Font cssVariable="--font-space-grotesk" preload />
+    <Font cssVariable="--font-inter" preload />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -62,7 +63,7 @@ const { meta, schema } = Astro.props;
       } else
         document.documentElement.setAttribute(
           "data-theme",
-          localStorage.getItem("theme")
+          localStorage.getItem("theme"),
         );
     </script>
 
@@ -95,7 +96,7 @@ const { meta, schema } = Astro.props;
     {
       threshold: 0.05,
       rootMargin: "100px 0px 0px 0px", // Większy margines górny
-    }
+    },
   );
 
   const sections = document.querySelectorAll("section");

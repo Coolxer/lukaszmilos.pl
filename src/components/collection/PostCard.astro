@@ -21,28 +21,28 @@ const link = buildSlug(`/blog/${post.id}/`);
 
 <article
   class:list={[
-    "group bg-base-100 border-2 border-primary/30 rounded-box shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full",
+    "grid grid-cols-3 gap-2 group bg-base-100 border-2 border-primary/30 rounded-box shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-full",
     className,
   ]}
 >
   {/* Obrazek */}
   {
     post.data.image && (
-      <a href={link} class="block overflow-hidden">
+      <a href={link} class="h-full block overflow-hidden">
         <MyImage
           src={"posts/" + post.data.image.src}
           alt={post.data.image.alt}
           width={500}
           height={500}
           rounded="rounded-none"
-          class="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+          class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </a>
     )
   }
 
   {/* Treść */}
-  <div class="flex flex-col flex-grow p-6 my-stack">
+  <div class="flex flex-col flex-grow p-6 my-stack col-span-2">
     {/* Kategorie */}
     {
       post.data.categories && post.data.categories.length > 0 && (

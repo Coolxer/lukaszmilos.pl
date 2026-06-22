@@ -14,7 +14,7 @@ import Nav from "@components/core/Nav.astro";
   id="navbar"
   class="w-full sticky top-0 z-[999] bg-primary text-primary-content border-b border-b-primary/50"
 >
-  <Container size="lg">
+  <Container size="max-w-7xl">
     {/* Główny grid */}
     <div
       class="grid grid-cols-[1fr_auto] lg:grid-cols-[auto_1fr_auto] items-center gap-4 min-h-16 md:min-h-18"
@@ -166,7 +166,7 @@ import Nav from "@components/core/Nav.astro";
 
   // Mobile dropdown
   const dropdownWrapperMobile = document.getElementById(
-    "dropdownWrapperMobile"
+    "dropdownWrapperMobile",
   );
   const dropdownToggleMobile = document.getElementById("dropdownToggleMobile");
 
