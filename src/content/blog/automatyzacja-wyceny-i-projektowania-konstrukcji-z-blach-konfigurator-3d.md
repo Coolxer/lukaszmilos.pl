@@ -2,7 +2,7 @@
 meta:
   title: Konfigurator cięcia i gięcia blachy 3D - Automatyczna wycena
   description: Odkryj konfigurator cięcia i gięcia blachy 3D. Narzędzie automatycznie generuje płaskie rozwinięcia blach, wycenia cięcie laserem i eksportuje pliki DXF.
-  canonical: /konfigurator-ciecia-giecia-blachy-3d
+  canonical: /https://lukaszmilos.pl/blog/konfigurator-ciecia-giecia-blachy-3d/
   noindex: false
   nofollow: false
 heading: 'Automatyzacja wyceny i projektowania konstrukcji z blach: Konfigurator 3D'
@@ -46,7 +46,7 @@ Narzędzie pozwala drastycznie skrócić czas projektowania dzięki wbudowanym s
 
 \*   \*\*Definiowanie linii gięcia:\*\* Użytkownik może dodawać kolejne linie gięcia, określać ich pozycję, kąt (np. 30°, 45°, 90°, a także kąty rozwarte i ostre) oraz kierunek gięcia (w górę / w dół).
 
----
+***
 
 ## Zaawansowana technologia kalkulacji: Od geometrii do wyceny w sekundy
 
@@ -64,7 +64,7 @@ Projektowanie to tylko połowa sukcesu. Prawdziwą wartością biznesową konfig
 
 Na bazie zebranych statystyk algorytm dokonuje błyskawicznej wyceny usługi.
 
----
+***
 
 ## Bezpośredni eksport do produkcji: Generowanie plików DXF i SVG
 
@@ -73,9 +73,7 @@ Ręczne przerysowywanie modeli od klientów to wąskie gardło każdego działu 
 ### Formaty wyjściowe generowane przez konfigurator:
 
 1.  \*\*Zwymiarowany plik SVG:\*\* Idealny jako załącznik do oferty handlowej lub rysunek poglądowy dla operatora prasy krawędziowej (zawiera czytelne linie gięcia oraz kierunki).
-
 2.  \*\*Przemysłowy plik DXF:\*\* W pełni przygotowany wektorowy plik CAD. Zawiera czystą geometrię płaskiego wykroju, gotową do natychmiastowego zaimportowania do oprogramowania CAM wycinarki laserowej, wodnej lub plazmowej.
-
 3.  \*\*Strukturyzowany plik JSON:\*\* Kompletny zapis parametrów geometrycznych, który można zintegrować z wewnętrznymi systemami klasy ERP/MES w celu automatycznego planowania produkcji.
 
 ### Potencjał rozwojowy i wdrożeniowy
@@ -88,4 +86,4 @@ Prezentowane narzędzie to elastyczny prototyp o ogromnym potencjale komercyjnym
 
 \*   Integrację z automatycznym nestingiem (optymalnym układaniem detali na arkuszu blachy w celu minimalizacji odpadu).
 
-Jeśli chcesz skrócić czas wyceny zleceń w swoim zakładzie produkcyjnym o $90\%$ i odciążyć swoich technologów od powtarzalnej pracy – ten konfigurator jest idealną bazą do wdrożenia dedykowanego rozwiązania w Twojej firmie. \*\*Skontaktuj się ze mną\*\*, a wspólnie zaprojektujemy system dopasowany do Twoich potrzeb technologicznych.
+Jeśli chcesz skrócić czas wyceny zleceń w swoim zakładzie produkcyjnym o $90%$ i odciążyć swoich technologów od powtarzalnej pracy – ten konfigurator jest idealną bazą do wdrożenia dedykowanego rozwiązania w Twojej firmie. \*\*Skontaktuj się ze mną\*\*, a wspólnie zaprojektujemy system dopasowany do Twoich potrzeb technologicznych.
