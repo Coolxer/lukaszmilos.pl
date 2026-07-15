@@ -3,9 +3,6 @@ slug: szybki-import-dxf-freecad-cam
 meta:
   title: Szybki import DXF do FreeCAD CAM - Metoda Draft to Sketch
   description: Dowiedz się, jak poprawnie importować pliki DXF do FreeCAD CAM. Wykorzystaj trik Draft to Sketch i przestań ręcznie klikać setki linii!
-  canonical: https://lukaszmilos.pl/blog/szybki-import-dxf-freecad-cam/
-  noindex: false
-  nofollow: false
 heading: Koniec z klikaniem każdej linii! Szybki import DXF do FreeCAD CAM
 subheading: Sprawdzona metoda "Draft to Sketch", która drastycznie skróci Twój czas pracy.
 leading: Przejście od rysunku 2D (np. z darmowego LibreCAD-a) do gotowego kodu G-code bywa we FreeCAD frustrujące – zwłaszcza jeśli musisz ręcznie klikać każdą pojedynczą linię z osobna na ekranie. Na szczęście udało mi się wypracować i zoptymalizować proces, który dzięki sprytnemu przygotowaniu warstw oraz konwersji obiektów drastycznie skraca ten czas. Zobacz, jak zrobić to poprawnie krok po kroku.
