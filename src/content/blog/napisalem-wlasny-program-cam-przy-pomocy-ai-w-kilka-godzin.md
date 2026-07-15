@@ -2,7 +2,7 @@
 meta:
   title: Napisałem własny program CAM przy pomocy AI! (Python)
   description: Zobacz, jak stworzyłem prosty generator G-code z plików DXF w Pythonie z pomocą AI (Claude Code). Zapomnij o ręcznym klikaniu we FreeCAD!
-  canonical: /wlasny-program-cam-python-ai
+  canonical: https://lukaszmilos.pl/blog/wlasny-program-cam-python-ai/
   noindex: false
   nofollow: false
 heading: Napisałem własny program CAM przy pomocy AI w kilka godzin!
