@@ -1,4 +1,5 @@
 ---
+slug: konfigurator-ciecia-giecia-blachy
 meta:
   title: Konfigurator cięcia i gięcia blachy 3D - Automatyczna wycena
   description: Odkryj konfigurator cięcia i gięcia blachy 3D. Narzędzie automatycznie generuje płaskie rozwinięcia blach, wycenia cięcie laserem i eksportuje pliki DXF.
