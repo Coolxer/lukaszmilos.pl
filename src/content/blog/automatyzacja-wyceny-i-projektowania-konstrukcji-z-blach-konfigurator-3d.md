@@ -2,7 +2,7 @@
 meta:
   title: Konfigurator cięcia i gięcia blachy 3D - Automatyczna wycena
   description: Odkryj konfigurator cięcia i gięcia blachy 3D. Narzędzie automatycznie generuje płaskie rozwinięcia blach, wycenia cięcie laserem i eksportuje pliki DXF.
-  canonical: /https://lukaszmilos.pl/blog/konfigurator-ciecia-giecia-blachy-3d/
+  canonical: https://lukaszmilos.pl/blog/konfigurator-ciecia-giecia-blachy-3d/
   noindex: false
   nofollow: false
 heading: 'Automatyzacja wyceny i projektowania konstrukcji z blach: Konfigurator 3D'
