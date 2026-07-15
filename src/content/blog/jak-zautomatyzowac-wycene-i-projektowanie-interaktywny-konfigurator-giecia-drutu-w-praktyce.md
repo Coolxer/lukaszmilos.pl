@@ -2,7 +2,7 @@
 meta:
   title: Interaktywny konfigurator gięcia drutu - Wycena i pliki DXF
   description: 'Zautomatyzuj proces wyceny w produkcji. Zobacz, jak działa konfigurator gięcia drutu online: generuje pliki DXF, SVG i wycenia projekt na żywo.'
-  canonical: /konfigurator-giecia-drutu-automatyzacja-wyceny
+  canonical: https://lukaszmilos.pl/blog/konfigurator-giecia-drutu-automatyzacja-wyceny/
   noindex: false
   nofollow: false
 heading: Jak zautomatyzować wycenę i projektowanie? Interaktywny konfigurator gięcia drutu w praktyce
@@ -43,7 +43,7 @@ Konfigurator nie jest tylko prostym narzędziem graficznym – pod maską kryje 
 
 \*   \*\*Geometria promienia gięcia:\*\* Użytkownik może zdecydować, czy promień gięcia ma być odnoszony do osi drutu, czy do jego wewnętrznej bądź zewnętrznej krawędzi. To kluczowa funkcja pozwalająca uniknąć błędów wymiarowych podczas fizycznej produkcji.
 
----
+***
 
 ## Automatyczna wycena produkcji (Estymacja kosztów w czasie rzeczywistym)
 
@@ -61,7 +61,7 @@ Algorytm bierze pod uwagę kilka składowych, które właściciel warsztatu moż
 
 > \*\*Wskazówka biznesowa:\*\* System pozwala na pełną elastyczność. Jeśli nie chcesz pokazywać cen bezpośrednio klientom detalicznym, możesz łatwo ukryć moduł wyceny na stronie głównej. Wtedy klient widzi jedynie podsumowanie techniczne, a kalkulacja trafia bezpośrednio na skrzynkę e-mail Twojego działu handlowego jako gotowy lead.
 
----
+***
 
 ## Generowanie plików produkcyjnych: SVG oraz DXF na jedno kliknięcie
 
@@ -70,9 +70,7 @@ Największą zaletą konfiguratora jest eliminacja pracy rysownika. Narzędzie g
 ### Formaty eksportu obsługiwane przez narzędzie:
 
 1.  \*\*Plik SVG:\*\* Idealny do błyskawicznego podglądu, prezentacji na stronach www lub generowania dokumentacji technicznej dla klienta (zawiera opcję eksportu z naniesionymi wymiarami).
-
 2.  \*\*Format DXF:\*\* Standard przemysłowy CAD. Wygenerowany plik DXF jest w pełni zwymiarowany i gotowy do bezpośredniego importu do programów sterujących pracą giętarek CNC lub maszyn tnących.
-
 3.  \*\*Surowy kod JSON:\*\* Pozwala na zapisanie konfiguracji projektu w bazie danych i jego późniejszą edycję lub przesłanie danych do zewnętrznych systemów ERP/CRM.
 
 ### Wizja rozwoju: Bezpośredni generator kodu G-Code / NC
