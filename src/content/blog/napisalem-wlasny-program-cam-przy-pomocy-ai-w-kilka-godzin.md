@@ -3,9 +3,6 @@ slug: wlasny-program-cam-do-grawerowania
 meta:
   title: Napisałem własny program CAM przy pomocy AI! (Python)
   description: Zobacz, jak stworzyłem prosty generator G-code z plików DXF w Pythonie z pomocą AI (Claude Code). Zapomnij o ręcznym klikaniu we FreeCAD!
-  canonical: https://lukaszmilos.pl/blog/wlasny-program-cam-python-ai/
-  noindex: false
-  nofollow: false
 heading: Napisałem własny program CAM przy pomocy AI w kilka godzin!
 subheading: Jak ułatwiłem sobie tworzenie  plików na grawerkę CNC pod skale aluminiowe?
 leading: 'Kto ma frezarkę CNC, ten wie, jak wygląda rzeczywistość: kupujesz maszynę (w moim przypadku hobbystyczne CNC 3018 MAX), chcesz szybko wygrawerować prostą tabliczkę z aluminium, a logistyka oprogramowania zjada Ci pół wieczoru. Zamiast męczyć się ze skomplikowanymi, powolnymi programami, postanowiłem stworzyć własny, minimalistyczny generator G-code w Pythonie z pomocą AI. Oto jak działa i dlaczego oszczędza mi masę czasu.'
