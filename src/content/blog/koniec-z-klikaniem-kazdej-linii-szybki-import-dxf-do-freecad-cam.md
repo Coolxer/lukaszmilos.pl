@@ -1,4 +1,5 @@
 ---
+slug: szybki-import-dxf-freecad-cam
 meta:
   title: Szybki import DXF do FreeCAD CAM - Metoda Draft to Sketch
   description: Dowiedz się, jak poprawnie importować pliki DXF do FreeCAD CAM. Wykorzystaj trik Draft to Sketch i przestań ręcznie klikać setki linii!
@@ -9,7 +10,7 @@ heading: Koniec z klikaniem każdej linii! Szybki import DXF do FreeCAD CAM
 subheading: Sprawdzona metoda "Draft to Sketch", która drastycznie skróci Twój czas pracy.
 leading: Przejście od rysunku 2D (np. z darmowego LibreCAD-a) do gotowego kodu G-code bywa we FreeCAD frustrujące – zwłaszcza jeśli musisz ręcznie klikać każdą pojedynczą linię z osobna na ekranie. Na szczęście udało mi się wypracować i zoptymalizować proces, który dzięki sprytnemu przygotowaniu warstw oraz konwersji obiektów drastycznie skraca ten czas. Zobacz, jak zrobić to poprawnie krok po kroku.
 image:
-  src: /images/blog/ChatGPT Image 9 lip 2026, 15_57_30.webp
+  src: freecad-cam.webp
   alt: Freecad, import dxf
 video: ''
 categories:
@@ -19,7 +20,6 @@ date: 2026-07-13
 draft: false
 ---
 
-```plain
 ## Krok 1: Prawidłowe przygotowanie DXF w programie CAD (np. LibreCAD)
 
 Cały sekret udanej pracy we FreeCAD tkwi w tym, co zrobisz z plikiem jeszcze przed jego importem. Pracując w programie 2D CAD (ja używam darmowego LibreCAD-a), musisz zadbać o cztery kluczowe rzeczy:
@@ -76,5 +76,4 @@ Na koniec zaznacz otwory (trzymając klawisz Ctrl) i stwórz dla nich operację 
 
 Gdy wszystkie ścieżki na podglądzie 3D wyglądają prawidłowo, zaznacz całe zadanie (Job) i kliknij przycisk **Post Process** (Postprocesor). FreeCAD wygeneruje czysty plik `.nc` (kod G-code), który możesz bezpośrednio załadować do swojej grawerki CNC.
 
-Dzięki temu procesowi nie tylko oszczędzasz mnóstwo czasu, ale też masz pewność, że wszystkie operacje są spójne, a ryzyko pominięcia jakiejś linii podczas ręcznego klikania spada do zera. 
-```
+Dzięki temu procesowi nie tylko oszczędzasz mnóstwo czasu, ale też masz pewność, że wszystkie operacje są spójne, a ryzyko pominięcia jakiejś linii podczas ręcznego klikania spada do zera.
