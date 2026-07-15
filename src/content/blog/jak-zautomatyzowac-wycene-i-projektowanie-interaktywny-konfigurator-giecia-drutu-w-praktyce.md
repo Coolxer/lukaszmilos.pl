@@ -3,9 +3,6 @@ slug: konfigurator-giecia-drutu
 meta:
   title: Interaktywny konfigurator gięcia drutu - Wycena i pliki DXF
   description: 'Zautomatyzuj proces wyceny w produkcji. Zobacz, jak działa konfigurator gięcia drutu online: generuje pliki DXF, SVG i wycenia projekt na żywo.'
-  canonical: https://lukaszmilos.pl/blog/konfigurator-giecia-drutu-automatyzacja-wyceny/
-  noindex: false
-  nofollow: false
 heading: Jak zautomatyzować wycenę i projektowanie? Interaktywny konfigurator gięcia drutu w praktyce
 subheading: Narzędzie online, które natychmiast wycenia detale i generuje gotowe pliki produkcyjne (DXF/SVG) dla maszyn CNC i nie tylko.
 leading: W dzisiejszym świecie produkcji czas to pieniądz – zarówno dla Ciebie, jak i dla Twojego klienta. Tradycyjny proces, w którym klient wysyła zapytanie, Ty ręcznie rysujesz model, obliczasz długość rozwinięcia drutu i odpisujesz z wyceną po kilku dniach, powoli odchodzi do lamusa. Co by było, gdyby klient mógł samodzielnie zaprojektować element na Twojej stronie, od razu poznać cenę i jednym kliknięciem wygenerować plik DXF gotowy na produkcję?
