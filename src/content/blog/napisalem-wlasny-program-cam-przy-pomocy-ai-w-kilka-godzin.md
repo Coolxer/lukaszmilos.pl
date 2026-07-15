@@ -1,4 +1,5 @@
 ---
+slug: wlasny-program-cam-do-grawerowania
 meta:
   title: Napisałem własny program CAM przy pomocy AI! (Python)
   description: Zobacz, jak stworzyłem prosty generator G-code z plików DXF w Pythonie z pomocą AI (Claude Code). Zapomnij o ręcznym klikaniu we FreeCAD!
@@ -9,7 +10,7 @@ heading: Napisałem własny program CAM przy pomocy AI w kilka godzin!
 subheading: Jak ułatwiłem sobie tworzenie  plików na grawerkę CNC pod skale aluminiowe?
 leading: 'Kto ma frezarkę CNC, ten wie, jak wygląda rzeczywistość: kupujesz maszynę (w moim przypadku hobbystyczne CNC 3018 MAX), chcesz szybko wygrawerować prostą tabliczkę z aluminium, a logistyka oprogramowania zjada Ci pół wieczoru. Zamiast męczyć się ze skomplikowanymi, powolnymi programami, postanowiłem stworzyć własny, minimalistyczny generator G-code w Pythonie z pomocą AI. Oto jak działa i dlaczego oszczędza mi masę czasu.'
 image:
-  src: /images/blog/12.09.2025 miniatury.webp
+  src: wlasny-cam.webp
   alt: Własny program CAM do grawerowania skal aluminiowych i nie tylko na cnc 3018 max
 video: ''
 categories:
@@ -22,10 +23,9 @@ date: 2026-07-13
 draft: false
 ---
 
-```markdown
 ## Dlaczego zrezygnowałem z gotowych programów CAM?
 
-Szukając prostego generatora ścieżek, przetestowałem wiele rozwiązań dostępnych w sieci. Programy komercyjne są drogie i przekombinowane do prostych prac hobbystycznych. Oprogramowanie dedykowane do projektowania płytek PCB również mi nie leżało, a sieciowy *OpenBuilds CAM* miał wieczne problemy z poprawnym interpretowaniem moich plików DXF. 
+Szukając prostego generatora ścieżek, przetestowałem wiele rozwiązań dostępnych w sieci. Programy komercyjne są drogie i przekombinowane do prostych prac hobbystycznych. Oprogramowanie dedykowane do projektowania płytek PCB również mi nie leżało, a sieciowy *OpenBuilds CAM* miał wieczne problemy z poprawnym interpretowaniem moich plików DXF.
 
 Potrzebowałem narzędzia, które będzie robić tylko to, czego od niego wymagam, ale za to w ekspresowym tempie. Postawiłem na pełną automatyzację najnudniejszych procesów.
 
@@ -56,11 +56,10 @@ Program posiada również **pełny profil maszyny**. System pilnuje limitów osi
 
 ## Live debugging, czyli uroki szybkiego kodowania
 
-Żeby nie było zbyt pięknie – program pisałem i modyfikowałem dosłownie chwilę przed nagraniem filmu prezentującego jego działanie. Podczas eksportu testowego pliku aplikacja wypluła błąd pozycjonowania i wyjścia poza bezpieczny obrys (wjechała na wartości ujemne na osi $Z$). 
+Żeby nie było zbyt pięknie – program pisałem i modyfikowałem dosłownie chwilę przed nagraniem filmu prezentującego jego działanie. Podczas eksportu testowego pliku aplikacja wypluła błąd pozycjonowania i wyjścia poza bezpieczny obrys (wjechała na wartości ujemne na osi $Z$).
 
 Czy to porażka? Skąd! To urok projektów tworzonych na własne potrzeby w kilka godzin. Szybka zmiana w ustawieniach pozycjonowania aplikacji, drobna korekta przesunięcia bazy i plik `.nc` finalnie wylądował w kontrolerze, działając bez zarzutu. Kod jest spakowany do wygodnego pliku `.exe` i działa w 100% lokalnie na moim komputerze bez potrzeby połączenia z internetem.
 
 ---
 
 *A jak to wygląda u Was? Męczycie się w wielkich kombajnach CAM do prostych robót, czy też szukacie prostszych alternatyw na własne potrzeby? Dajcie znać w komentarzach pod artykułem!*
-```
