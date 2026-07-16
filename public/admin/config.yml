@@ -41,8 +41,8 @@ collections:
     label_singular: Post
     folder: src/content/blog
     create: true
-    media_folder: /src/assets/images/blog
-    public_folder: /images/blog
+    media_folder: /src/assets/images/posts
+    public_folder: /images/posts
     slug: "{{slug}}"
     identifier_field: heading   
     editor:
@@ -66,24 +66,25 @@ collections:
             required: true
             pattern: ['^.{1,160}$', 'Opis SEO powinien mieć maksymalnie 160 znaków']
           
-          - label: "Canonical URL"
-            name: "canonical"
-            widget: "string"
-            required: false
-          
           - label: "Noindex"
             name: "noindex"
             widget: "boolean"
             required: false
             default: false
-          
+
           - label: "Nofollow"
             name: "nofollow"
             widget: "boolean"
             required: false
             default: false
-      
+
       # Main Blog Fields
+      - label: "Slug (URL)"
+        name: "slug"
+        widget: "string"
+        required: false
+        hint: "Opcjonalny. Jeśli puste, slug generowany automatycznie z nagłówka."
+
       - label: "Nagłówek"
         name: "heading"
         widget: "string"
@@ -184,7 +185,6 @@ collections:
         fields:
           - { label: "Tytuł SEO", name: "title", widget: "string", required: true, pattern: ['^.{1,60}$', 'Max 60 znaków'] }
           - { label: "Opis SEO", name: "description", widget: "text", required: true, pattern: ['^.{1,160}$', 'Max 160 znaków'] }
-          - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
           - { label: "Noindex", name: "noindex", widget: "boolean", required: false, default: false }
           - { label: "Nofollow", name: "nofollow", widget: "boolean", required: false, default: false }
       

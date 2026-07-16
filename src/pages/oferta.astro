@@ -9,6 +9,7 @@ import Button from "@components/ui/Button.astro";
 import IconList from "@components/ui/IconList.astro";
 import Steps from "@components/ui/Steps.astro";
 import Prose from "@components/ui/Prose.astro";
+import Compliments from "@components/sections/Compliments.astro";
 
 const meta = {
   title: "Oferta — cyfrowe wsparcie dla małych firm",
@@ -125,7 +126,7 @@ const meta = {
                 Dbam o to, by była błyskawicznie szybka, idealnie czytelna na
                 telefonach i jasno komunikowała Twoją ofertę.
               </p>
-              <Button link="oferta/strony-www" class="btn-outline btn-sm"
+              <Button link="strony-www" class="btn-outline btn-sm"
                 >Dowiedz się więcej</Button
               >
             </div>
@@ -140,9 +141,8 @@ const meta = {
                 Kalkulatory wycen, generatory dokumentów, automatyczny obieg
                 informacji — cel to oszczędność czasu i minimalizacja błędów.
               </p>
-              <Button
-                link="oferta/systemy-i-automatyzacje"
-                class="btn-outline btn-sm">Dowiedz się więcej</Button
+              <Button link="systemy-i-automatyzacje" class="btn-outline btn-sm"
+                >Dowiedz się więcej</Button
               >
             </div>
           </div>
@@ -275,6 +275,9 @@ const meta = {
             }
           </div>
         </Section>
+
+        {/* ── OPINIE ────────────────────────────────────────────── */}
+        <Compliments variant="secondary" />
 
         {/* ── CTA ───────────────────────────────────────────────── */}
         <Section class="border-t border-base-content/8">

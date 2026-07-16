@@ -9,6 +9,7 @@ import Button from "@components/ui/Button.astro";
 import Prose from "@components/ui/Prose.astro";
 import MyImage from "@components/ui/MyImage.astro";
 import heroImg from "@assets/images/pages/lukasz-milos.webp";
+import Compliments from "@components/sections/Compliments.astro";
 
 const meta = {
   title: "Łukasz Miłoś | Strony internetowe i automatyzacje",
@@ -238,6 +239,9 @@ const meta = {
             }
           </ul>
         </Section>
+
+        {/* ── OPINIE ────────────────────────────────────────────── */}
+        <Compliments variant="secondary" />
 
         {/* ── KONTAKT ───────────────────────────────────────────── */}
         <Section class="border-t border-base-content/8">

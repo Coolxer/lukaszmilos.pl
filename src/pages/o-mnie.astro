@@ -21,26 +21,28 @@ const meta = {
     <div class="flex flex-col min-h-screen justify-between w-full">
       <Navbar />
       <main class="w-full block">
-
         {/* ── HERO ──────────────────────────────────────────────── */}
         <Section heroSection>
           <div class="flex flex-col gap-8 animate-reveal">
-            <Heading tag="h1" look="h0">
-              Łukasz Miłoś — IT i warsztat
-            </Heading>
-            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
-              Inżynier IT, który pracuje też ręcznie. Działam na styku oprogramowania, elektroniki i obróbki.
-              Robię strony, narzędzia i automatyzacje dla firm, które coś wytwarzają.
+            <Heading tag="h1" look="h0"> Łukasz Miłoś — IT i warsztat </Heading>
+            <p
+              class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl"
+            >
+              Inżynier IT, który pracuje też ręcznie. Działam na styku
+              oprogramowania, elektroniki i obróbki. Robię strony, narzędzia i
+              automatyzacje dla firm, które coś wytwarzają.
             </p>
             <div class="flex flex-wrap gap-3">
               <Button link="kontakt" class="btn-primary">Porozmawiajmy</Button>
-              <Button link="oferta" class="btn-ghost btn-outline">Zobacz ofertę</Button>
+              <Button link="oferta" class="btn-ghost btn-outline"
+                >Zobacz ofertę</Button
+              >
             </div>
           </div>
         </Section>
 
         {/* ── HISTORIA ──────────────────────────────────────────── */}
-        <Section          preLabel="Historia"
+        <!-- <Section          preLabel="Historia"
           class="border-t border-base-content/8"        >
           <Heading tag="h2" look="h2" slot="heading">Skąd się wziąłem</Heading>
           <Prose>
@@ -63,12 +65,13 @@ const meta = {
               Mówię ich językiem — bo znam go z praktyki.
             </p>
           </Prose>
-        </Section>
+        </Section> -->
 
         {/* ── PROJEKTY ──────────────────────────────────────────── */}
-        <Section          preLabel="Projekty"
-          class="border-t border-base-content/8"        >
-          <Heading tag="h2" look="h2" slot="heading">Projekty, które pokazują jak myślę</Heading>
+        <Section preLabel="Projekty" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading"
+            >Projekty, które pokazują jak myślę</Heading
+          >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
             {
               [
@@ -90,8 +93,12 @@ const meta = {
                 },
               ].map((p) => (
                 <div class="border-t border-base-content/10 py-6">
-                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{p.heading}</h3>
-                  <p class="text-base-content/60 font-light leading-relaxed text-base">{p.text}</p>
+                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">
+                    {p.heading}
+                  </h3>
+                  <p class="text-base-content/60 font-light leading-relaxed text-base">
+                    {p.text}
+                  </p>
                 </div>
               ))
             }
@@ -99,9 +106,10 @@ const meta = {
         </Section>
 
         {/* ── METODOLOGIA ───────────────────────────────────────── */}
-        <Section          preLabel="Metodologia"
-          class="border-t border-base-content/8"        >
-          <Heading tag="h2" look="h2" slot="heading">Jak podchodzę do pracy</Heading>
+        <Section preLabel="Metodologia" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading"
+            >Jak podchodzę do pracy</Heading
+          >
           <div class="flex flex-col gap-6">
             {
               [
@@ -122,7 +130,9 @@ const meta = {
                   <span class="font-mono text-xs text-base-content/40 font-medium tracking-widest uppercase select-none block mb-3">
                     {item.label}
                   </span>
-                  <p class="text-base-content/60 font-light leading-relaxed">{item.text}</p>
+                  <p class="text-base-content/60 font-light leading-relaxed">
+                    {item.text}
+                  </p>
                 </div>
               ))
             }
@@ -130,15 +140,16 @@ const meta = {
         </Section>
 
         {/* ── ZASADY ────────────────────────────────────────────── */}
-        <Section          preLabel="Zasady"
-          class="border-t border-base-content/8"        >
-          <Heading tag="h2" look="h2" slot="heading">Wartości, które widać w pracy</Heading>
+        <Section preLabel="Zasady" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading"
+            >Wartości, które widać w pracy</Heading
+          >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
             {
               [
                 {
                   heading: "Precyzja",
-                  text: "Nie akceptuję \"mniej więcej\" ani \"jakoś będzie\". Każdy detal ma wymiar i tolerancję.",
+                  text: 'Nie akceptuję "mniej więcej" ani "jakoś będzie". Każdy detal ma wymiar i tolerancję.',
                 },
                 {
                   heading: "Szczerość",
@@ -154,8 +165,12 @@ const meta = {
                 },
               ].map((v) => (
                 <div class="border-t border-base-content/10 py-6">
-                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{v.heading}</h3>
-                  <p class="text-base-content/60 font-light leading-relaxed text-base">{v.text}</p>
+                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">
+                    {v.heading}
+                  </h3>
+                  <p class="text-base-content/60 font-light leading-relaxed text-base">
+                    {v.text}
+                  </p>
                 </div>
               ))
             }
@@ -164,19 +179,26 @@ const meta = {
 
         {/* ── CTA ───────────────────────────────────────────────── */}
         <Section class="border-t border-base-content/8">
-          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+          <div
+            class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6"
+          >
             <Heading tag="h2" look="h2">Chcesz pogadać o projekcie?</Heading>
-            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+            <p
+              class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg"
+            >
               Powiedz mi, czym zajmuje się Twoja firma i co chcesz osiągnąć.
               Odpiszę konkretnie — bez ogólników.
             </p>
             <div class="flex flex-wrap gap-3">
-              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
-              <Button link="oferta" class="btn-ghost btn-outline">Zobacz ofertę</Button>
+              <Button link="kontakt" class="btn-primary rounded-full px-8"
+                >Napisz do mnie</Button
+              >
+              <Button link="oferta" class="btn-ghost btn-outline"
+                >Zobacz ofertę</Button
+              >
             </div>
           </div>
         </Section>
-
       </main>
       <Footer />
     </div>

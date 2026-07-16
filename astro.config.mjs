@@ -39,7 +39,6 @@ export default defineConfig({
     "/oferta/tworzenie-sklepu-www/": "/strony-www/",
     "/oferta/tworzenie-strony-www/": "/strony-www/",
     "/oferta/wdrazanie-narzedzi-cyfrowych/": "/systemy-i-automatyzacje/",
-    "/o-mnie/": "/",
   },
 
   integrations: [

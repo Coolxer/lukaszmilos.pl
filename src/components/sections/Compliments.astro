@@ -10,7 +10,7 @@ export interface Props {
 const { variant = "default", class: className, ...attributes } = Astro.props;
 ---
 
-<Section variant={variant}>
+<Section variant={variant} class={className}>
   <Heading tag="h2" slot="heading">
     Ludzie chwalą mnie nie tylko za pracę, ale za zaangażowanie, szukanie
     alternatyw i obszerny feedback.
