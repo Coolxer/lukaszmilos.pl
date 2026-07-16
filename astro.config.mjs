@@ -33,7 +33,6 @@ export default defineConfig({
   },
 
   redirects: {
-    "/oferta": "/",
     "/oferta/automatyzacja-procesow-firmowych/": "/systemy-i-automatyzacje/",
     "/oferta/inne/": "/",
     "/oferta/poprawa-strony-www/": "/strony-www/",

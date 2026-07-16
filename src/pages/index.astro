@@ -1,717 +1,265 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
 import Section from "@components/layout/Section.astro";
 import Heading from "@components/ui/Heading.astro";
 import Button from "@components/ui/Button.astro";
+import Prose from "@components/ui/Prose.astro";
 import MyImage from "@components/ui/MyImage.astro";
-import { Icon } from "astro-icon/components";
+import heroImg from "@assets/images/pages/lukasz-milos.webp";
 
 const meta = {
-  title: "Cyfrowe wsparcie dla małych firm | Inżynier Informatyki",
+  title: "Łukasz Miłoś | Strony internetowe i automatyzacje",
   description:
-    "Pomagam małym firmom rozwijać strony internetowe, radzić sobie z problemami IT, wdrażać narzędzia i automatyzować powtarzalne procesy.",
-  keywords:
-    "wsparcie it, strony internetowe, wizytówki firmowe, automatyzacja procesów, usługi it dla rzemiosła, it dla przemysłu",
-};
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Inżynier Informatyki - Wsparcie IT",
-  description:
-    "Cyfrowe wsparcie, strony internetowe i automatyzacje dla małych firm produkcyjnych i rzemieślniczych.",
-  url: "https://twojadomena.pl",
+    "Inżynier IT, który rozumie warsztat. Tworzę szybkie strony WWW i automatyzacje procesów dla małych firm oraz rzemiosła. Sprawdź, jak mogę Ci pomóc.",
 };
 ---
 
-<PageLayout meta={meta} schema={schema}>
-  <!-- [SEKCJA HERO] -->
-  <section class="max-w-4xl mx-auto px-6 pt-20 pb-24 md:pt-28 md:pb-32">
-    <div class="max-w-3xl">
-     
-
-      <h1
-        class="text-4xl md:text-6xl font-bold text-slate-900 leading-[1.1] mb-6"
-      >
-        Cyfrowe wsparcie dla małych firm
-      </h1>
-
-      <p
-        class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mb-10"
-      >
-        Pomagam małym firmom rozwijać strony internetowe, radzić sobie z
-        problemami IT, wdrażać narzędzia i <span
-          class="text-slate-900 font-medium bg-amber-500/10 px-1.5 py-0.5 rounded"
-          >automatyzować powtarzalne procesy</span
-        >.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a
-          href="#kontakt"
-          class="inline-flex justify-center items-center px-6 py-3.5 bg-slate-900 text-white font-medium rounded hover:bg-slate-800 transition-colors shadow-sm group"
-        >
-          Opisz swój problem
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4 ml-2 text-amber-400 group-hover:translate-x-0.5 transition-transform"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-              d="M5 12l14 0"></path><path d="M13 18l6 -6"></path><path
-              d="M13 6l6 6"></path></svg
-          >
-        </a>
-        <a
-          href="#oferta"
-          class="inline-flex justify-center items-center px-6 py-3.5 bg-white text-slate-700 font-medium rounded border border-slate-200 hover:bg-slate-50 transition-colors"
-        >
-          Zobacz ofertę
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- [SEKCJA: O MNIE / PODEJŚCIE] -->
-  <section class="bg-white border-y border-slate-200/60 py-24 md:py-32">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-          Inżynierskie podejście do IT
-        </h2>
-
-        <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-12">
-          Z wykształcenia jestem inżynierem informatyki <span
-            class="text-slate-900 font-medium">(dyplom z wyróżnieniem)</span
-          >, ale z natury – praktykiem, który lubi widzieć realne efekty swojej
-          pracy. Nie oferuję skomplikowanych systemów tam, gdzie wystarczy
-          proste rozwiązanie. Dobieram technologię do Twojego problemu dokładnie
-          tak, jak dobiera się odpowiednie narzędzie do zadania: z myślą o
-          trwałości, kosztach i niezawodności.
-        </p>
-
-        <!-- Dwie kolumny podejścia -->
-        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-          <div class="space-y-3">
-            <div class="flex items-center gap-3">
-              <div
-                class="w-8 h-8 rounded bg-amber-500/10 flex items-center justify-center text-amber-600"
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-10 animate-reveal">
+            <div class="flex flex-col gap-4">
+              <h1
+                class="text-h0-hero text-base-content font-black"
+                style="font-family: var(--font-space-grotesk), system-ui, sans-serif;"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  stroke-width="2.5"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  ><path stroke="none" d="M0 0h24v240H0z" fill="none"
-                  ></path><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0z"></path></svg
-                >
-              </div>
-              <h3 class="text-lg font-bold text-slate-900">
-                Rzetelna diagnoza
-              </h3>
+                Cześć,
+              </h1>
+              <p
+                class="text-2xl md:text-3xl text-base-content/60 font-light leading-relaxed tracking-tight max-w-3xl"
+              >
+                Nazywam się <span class="text-base-content font-semibold"
+                  >Łukasz Miłoś</span
+                >. Działam na styku wytwarzania, technologii, stron
+                internetowych i automatyzacji.
+              </p>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-              Każdy projekt zaczynam od analizy sytuacji. Jeśli coś działa
-              dobrze, nie namawiam na zmiany. Jeśli generuje straty lub błędy – <span
-                class="text-slate-900 font-medium">powiem o tym wprost</span
-              >.
-            </p>
-          </div>
 
-          <div class="space-y-3">
-            <div class="flex items-center gap-3">
-              <div
-                class="w-8 h-8 rounded bg-amber-500/10 flex items-center justify-center text-amber-600"
+            <div class="flex flex-wrap gap-3">
+              <Button link="oferta" class="btn-primary">Zobacz ofertę</Button>
+              <Button link="kontakt" class="btn-ghost btn-outline"
+                >Skontaktuj się</Button
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  stroke-width="2.5"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  ><path stroke="none" d="M0 0h24v240H0z" fill="none"
-                  ></path><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"
-                  ></path><path d="M12 7v5l3 3"></path></svg
-                >
-              </div>
-              <h3 class="text-lg font-bold text-slate-900">
-                Technologia bez chaosu
-              </h3>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-              Niezależnie od tego, czy konfiguruję firmową pocztę, czy piszę
-              skrypt automatyzujący dane, dbam o to, by zaplecze techniczne było
-              uporządkowane i bezpieczne.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- [SEKCJA: Z KIM WSPÓŁPRACUJĘ?] -->
-  <section class="max-w-4xl mx-auto px-6 py-24 md:py-32">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-        Partner dla małych i średnich firm
-      </h2>
-
-      <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-10">
-        Moje korzenie, pasja i główne doświadczenie zawodowe są mocno związane z
-        sektorem technicznym, produkcyjnym oraz rzemiosłem. To tam spędzam
-        mnóstwo czasu i <span class="text-slate-900 font-medium"
-          >doskonale rozumiem specyfikę pracy z fizycznym produktem</span
-        > lub zaawansowaną usługą.
-      </p>
-
-      <p
-        class="text-sm font-semibold tracking-wider text-slate-400 uppercase mb-4"
-      >
-        Najczęściej wspieram firmy z branż takich jak:
-      </p>
-
-      <!-- Siatka branż z ikonami Tabler -->
-      <div class="grid sm:grid-cols-2 gap-4 mb-12">
-        <div
-          class="flex items-start gap-3 p-4 bg-white border border-slate-200/70 rounded"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-              d="M7 10c.667 -3.333 2.333 -5 5 -5s4.333 1.667 5 5"></path><path
-              d="M5 10m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v7a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"
-            ></path></svg
-          >
-          <span class="text-slate-700 font-medium text-sm md:text-base"
-            >Warsztaty CNC i obróbka metali (frezowanie, toczenie, cięcie
-            laserem/plazmą)</span
-          >
-        </div>
-        <div
-          class="flex items-start gap-3 p-4 bg-white border border-slate-200/70 rounded"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-              d="M6 13l6 6l6 -6"></path><path d="M6 9l6 -6l6 6"></path></svg
-          >
-          <span class="text-slate-700 font-medium text-sm md:text-base"
-            >Szlifiernie i ostrzarnie</span
-          >
-        </div>
-        <div
-          class="flex items-start gap-3 p-4 bg-white border border-slate-200/70 rounded"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-              d="M7 10h10v4a5 5 0 0 1 -10 0v-4z"></path><path d="M5 6h14"
-            ></path><path d="M12 6v4"></path></svg
-          >
-          <span class="text-slate-700 font-medium text-sm md:text-base"
-            >Producenci maszyn, urządzeń i przyrządów</span
-          >
-        </div>
-        <div
-          class="flex items-start gap-3 p-4 bg-white border border-slate-200/70 rounded"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-              d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"
-            ></path><path d="M4 12h16"></path><path d="M12 4v16"></path></svg
-          >
-          <span class="text-slate-700 font-medium text-sm md:text-base"
-            >Konstrukcje stalowe, budowlane i systemy ogrodzeniowe</span
-          >
-        </div>
-        <div
-          class="flex items-start gap-3 p-4 bg-white border border-slate-200/70 rounded"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-              d="M14 10h1v1a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1z"
-            ></path><path d="M3 12h18"></path><path d="M12 3v18"></path></svg
-          >
-          <span class="text-slate-700 font-medium text-sm md:text-base"
-            >Stolarnie i zakłady rzemieślnicze</span
-          >
-        </div>
-        <div
-          class="flex items-start gap-3 p-4 bg-white border border-slate-200/70 rounded"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-              d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9z"></path><path
-              d="M12 12l8 -4.5"></path><path d="M12 12l0 9"></path><path
-              d="M12 12l-8 -4.5"></path></svg
-          >
-          <span class="text-slate-700 font-medium text-sm md:text-base"
-            >Modelarnie i firmy prototypowe (druk 3D)</span
-          >
-        </div>
-      </div>
-
-      <!-- Box dla innych branż -->
-      <div class="p-6 bg-slate-100 border border-slate-200/80 rounded-lg">
-        <p class="text-base text-slate-700 leading-relaxed">
-          <strong class="text-slate-900 block mb-1"
-            >Jesteś z innej branży?</strong
-          >
-          Obsługuję również firmy usługowe, sektor finansowy, agencje oraz startupy.
-          Jeśli tworzysz realną wartość, zależy Ci na profesjonalnej obecności w
-          sieci, porządku w dokumentach i nadajemy na podobnych falach – z przyjemnością
-          Ci pomogę.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- [SEKCJA: W CZYM POMAGAM?] -->
-  <section
-    id="oferta"
-    class="bg-white border-y border-slate-200/60 py-24 md:py-32"
-  >
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12">
-          Rozwiązania na styku biznesu i technologii
-        </h2>
-
-        <div class="space-y-16">
-          <!-- Usługa 1 -->
-          <div
-            class="relative pl-0 md:pl-8 border-l-2 border-slate-100 focus-within:border-amber-500 transition-colors"
-          >
-            <span
-              class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-2"
-              >01 / Prezentacja i Sprzedaż</span
+            <div
+              class="rounded-2xl overflow-hidden bg-base-200 border border-base-content/8 aspect-video sm:aspect-[21/9] group animate-reveal-delay"
             >
-            <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-3">
-              1. Strony internetowe i wizytówki firmowe
-            </h3>
-            <p class="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
-              Twoja strona internetowa to często pierwsze narzędzie sprzedaży.
-              Dbam o to, by była błyskawicznie szybka, idealnie czytelna na
-              telefonach komórkowych i jasno komunikowała Twoją ofertę.
-              Naprawiam i modernizuję istniejące witryny lub projektuję
-              nowoczesne rozwiązania od zera.
-            </p>
-            <a
-              href="#kontakt"
-              class="inline-flex items-center text-sm font-semibold text-slate-900 hover:text-amber-600 transition-colors group"
-            >
-              Dowiedz się więcej o stronach
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                  d="M5 12l14 0"></path><path d="M13 18l6 -6"></path><path
-                  d="M13 6l6 6"></path></svg
-              >
-            </a>
-          </div>
-
-          <!-- Usługa 2 -->
-          <div
-            class="relative pl-0 md:pl-8 border-l-2 border-slate-100 focus-within:border-amber-500 transition-colors"
-          >
-            <span
-              class="text-xs font-bold uppercase tracking-widest text-amber-600 block mb-2"
-              >02 / Optymalizacja i Czas</span
-            >
-            <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-3">
-              2. Narzędzia cyfrowe i automatyzacje procesów
-            </h3>
-            <p class="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
-              Zajmuję się tym, co dzieje się na zapleczu Twojej firmy. Pomagam
-              wyelimować ręczne, powtarzalne przepisywanie danych, tworzę
-              dedykowane kalkulatory wycen dla klientów oraz generatory
-              dokumentów. Celem m.in. oszczędność czasu i minimalizacja błędów.
-            </p>
-            <a
-              href="#kontakt"
-              class="inline-flex items-center text-sm font-semibold text-slate-900 hover:text-amber-600 transition-colors group"
-            >
-              Dowiedz się więcej o automatyzacjach
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                  d="M5 12l14 0"></path><path d="M13 18l6 -6"></path><path
-                  d="M13 6l6 6"></path></svg
-              >
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- [SEKCJA: ZASADY WSPÓŁPRACY] -->
-  <section class="max-w-4xl mx-auto px-6 py-24 md:py-32">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-        Jak działam?
-      </h2>
-      <p class="text-slate-600 mb-12 text-base md:text-lg">
-        W moich projektach – od prostych stron po złożone automatyzacje –
-        trzymam się zasad, które obowiązują na porządnej produkcji:
-      </p>
-
-      <div class="space-y-8">
-        <!-- Zasada 1 -->
-        <div class="flex gap-4">
-          <div class="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-2.5"></div>
-          <div>
-            <h3 class="text-lg font-bold text-slate-900 mb-1">
-              Mierzalne efekty
-            </h3>
-            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-              Nie obiecuję, że będzie "lepiej". Skracam czas ładowania o 60%,
-              redukuję liczbę ręcznych kliknięć w procesie wyceny o połowę lub
-              buduję stronę, która jasno komunikuje Twoje moce przerobowe.
-            </p>
-          </div>
-        </div>
-        <!-- Zasada 2 -->
-        <div class="flex gap-4">
-          <div class="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-2.5"></div>
-          <div>
-            <h3 class="text-lg font-bold text-slate-900 mb-1">
-              Precyzja, bezawaryjność, niezawodność
-            </h3>
-            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-              Kod i narzędzia traktuję jak oprzyrządowanie technologiczne. Muszą
-              być sztywne, powtarzalne i odporne na błędy. Jeśli buduję
-              automatyzację, to po to, byś nie musiał jej pilnować.
-            </p>
-          </div>
-        </div>
-        <!-- Zasada 3 -->
-        <div class="flex gap-4">
-          <div class="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-2.5"></div>
-          <div>
-            <h3 class="text-lg font-bold text-slate-900 mb-1">
-              Efektywność kosztowa
-            </h3>
-            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-              Dobieram rozwiązania do realnych potrzeb. Jeśli obecne narzędzia
-              spełniają swoje zadanie, skupiam się na ich usprawnieniu i
-              integracji. Nowe systemy wdrażam tylko tam, gdzie realnie skracają
-              czas pracy lub zwiększają zysk.
-            </p>
-          </div>
-        </div>
-        <!-- Zasada 4 -->
-        <div class="flex gap-4">
-          <div class="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-2.5"></div>
-          <div>
-            <h3 class="text-lg font-bold text-slate-900 mb-1">Terminowość</h3>
-            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-              Projekt to zlecenie produkcyjne. Ma swój harmonogram, etapy i datę
-              odbioru. Bez lania wody i bez opóźnień, które blokują Twój biznes.
-            </p>
-          </div>
-        </div>
-        <!-- Zasada 5 -->
-        <div class="flex gap-4">
-          <div class="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-2.5"></div>
-          <div>
-            <h3 class="text-lg font-bold text-slate-900 mb-1">
-              Uczciwa komunikacja
-            </h3>
-            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-              Jeśli czegoś nie da się zrobić w Twoim budżecie lub w danym
-              terminie — powiem wprost. Jeśli problem wymaga kogoś innego —
-              powiem, gdzie szukać.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- [SEKCJA: CO ZYSKUJESZ] -->
-  <section class="bg-slate-900 text-white py-24 md:py-32">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">
-          Co zyskujesz?
-        </h2>
-
-        <div class="grid sm:grid-cols-2 gap-6">
-          <!-- Korzyść 1 -->
-          <div
-            class="flex gap-3 items-start p-4 rounded bg-slate-800/50 border border-slate-800"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                d="M5 12l5 5l10 -10"></path></svg
-            >
-            <span class="text-slate-300 text-sm md:text-base"
-              ><strong class="text-white font-medium"
-                >Lepszą prezentację oferty</strong
-              > — klient szybciej rozumie, co robisz i czy jesteś dla niego właściwym
-              wykonawcą.</span
-            >
-          </div>
-          <!-- Korzyść 2 -->
-          <div
-            class="flex gap-3 items-start p-4 rounded bg-slate-800/50 border border-slate-800"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                d="M5 12l5 5l10 -10"></path></svg
-            >
-            <span class="text-slate-300 text-sm md:text-base"
-              ><strong class="text-white font-medium"
-                >Mniej pustych zapytań</strong
-              > — zamiast maili „ile to kosztuje?” bez danych.</span
-            >
-          </div>
-          <!-- Korzyść 3 -->
-          <div
-            class="flex gap-3 items-start p-4 rounded bg-slate-800/50 border border-slate-800"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                d="M5 12l5 5l10 -10"></path></svg
-            >
-            <span class="text-slate-300 text-sm md:text-base"
-              ><strong class="text-white font-medium"
-                >Mniej ręcznej pracy</strong
-              > — tam, gdzie proces da się uprościć.</span
-            >
-          </div>
-          <!-- Korzyść 4 -->
-          <div
-            class="flex gap-3 items-start p-4 rounded bg-slate-800/50 border border-slate-800"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                d="M5 12l5 5l10 -10"></path></svg
-            >
-            <span class="text-slate-300 text-sm md:text-base"
-              ><strong class="text-white font-medium"
-                >Porządek techniczny</strong
-              > — z hostingiem, pocztą, dostępami i stroną.</span
-            >
-          </div>
-          <!-- Korzyść 5 -->
-          <div
-            class="flex gap-3 items-start p-4 rounded bg-slate-800/50 border border-slate-800"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                d="M5 12l5 5l10 -10"></path></svg
-            >
-            <span class="text-slate-300 text-sm md:text-base"
-              ><strong class="text-white font-medium"
-                >Rozwiązania bez nadmiaru</strong
-              > — proste, szybkie i przewidywalne w działaniu.</span
-            >
-          </div>
-          <!-- Korzyść 6 -->
-          <div
-            class="flex gap-3 items-start p-4 rounded bg-slate-800/50 border border-slate-800"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path stroke="none" d="M0 0h24v240H0z" fill="none"></path><path
-                d="M5 12l5 5l10 -10"></path></svg
-            >
-            <span class="text-slate-300 text-sm md:text-base"
-              ><strong class="text-white font-medium"
-                >Spełnienie Twoich celów</strong
-              > i założeń biznesowych.</span
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- [SEKCJA: CTA KOŃCOWE / KONTAKT] -->
-  <section id="kontakt" class="max-w-4xl mx-auto px-6 py-24 md:py-32">
-    <div class="max-w-3xl">
-      <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-        Masz temat, który od dawna odkładasz?
-      </h3>
-
-      <p class="text-slate-600 text-base md:text-lg mb-8 leading-relaxed">
-        Strona internetowa wymaga odświeżenia? Formularz kontaktowy gubi
-        wiadomości? A może czujesz, że zbyt dużo czasu marnujesz na ręczne
-        liczenie ofert i układanie dokumentów?
-      </p>
-
-      <div
-        class="bg-white border border-slate-200 p-6 md:p-8 rounded-lg shadow-sm"
-      >
-        <p class="text-sm text-slate-500 mb-6 font-medium">
-          Opisz krótko swoją sytuację. Przeanalizuję problem i odpowiem
-          szczerze, jak mogę Ci pomóc oraz ile to będzie kosztować.
-        </p>
-
-        <!-- Profesjonalny i czysty formularz kontaktowy -->
-        <form
-          action="#"
-          method="POST"
-          class="space-y-4"
-          onsubmit="event.preventDefault();"
-        >
-          <div>
-            <label
-              for="message"
-              class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2"
-              >Twoja wiadomość / opis problemu</label
-            >
-            <textarea
-              id="message"
-              rows="4"
-              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-all text-sm resize-none"
-              placeholder="Np. Prowadzę warsztat CNC. Moja strona słabo wyświetla się na telefonach, a wyceny liczę ręcznie w Excelu i schodzi mi na to zbyt wiele czasu..."
-            ></textarea>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label
-                for="email"
-                class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2"
-                >Adres e-mail</label
-              >
-              <input
-                type="email"
-                id="email"
-                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-all text-sm"
-                placeholder="twoj@email.pl"
+              <MyImage
+                img={heroImg}
+                alt="Łukasz Miłoś — inżynier IT"
+                loading="eager"
+                size="w-full h-full"
+                aspect="aspect-auto"
+                rounded="rounded-none"
+                shadow=""
+                class="object-cover object-[20%_20%] grayscale-[15%] group-hover:scale-[1.01] transition-transform duration-700"
               />
             </div>
-            <div class="flex items-end">
-              <button
-                type="submit"
-                class="w-full inline-flex justify-center items-center px-6 py-3 bg-slate-900 text-white font-medium rounded hover:bg-slate-800 transition-colors shadow-sm cursor-pointer"
+          </div>
+        </Section>
+
+        {/* ── KIM JESTEM ────────────────────────────────────────── */}
+        <Section
+          id="o-mnie"
+          preLabel="O mnie"
+          class="border-t border-base-content/8"
+        >
+          <Heading tag="h2" look="h2" slot="heading"
+            >Inżynier IT, który rozumie warsztat</Heading
+          >
+          <Prose>
+            <p>
+              Skończyłem studia informatyczne z wyróżnieniem, ale
+              <strong>nie jestem tylko typowym informatykiem</strong>.
+            </p>
+            <p>
+              Pracuję też ręcznie — w warsztacie, z narzędziami. Zbudowałem
+              własną drukarkę 3D, zaprojektowałem i stworzyłem sterowanie do
+              ostrzarki narzędzi CNC.
+            </p>
+            <p>
+              To daje mi perspektywę, której brakuje większości osób w branży.
+              Doceniam ludzi, którzy coś wytwarzają (części, maszyny,
+              konstrukcje).
+            </p>
+          </Prose>
+        </Section>
+
+        {/* ── CO ROBIĘ ──────────────────────────────────────────── */}
+        <Section
+          id="zakres"
+          preLabel="Zakres"
+          class="border-t border-base-content/8"
+        >
+          <Heading tag="h2" look="h2" slot="heading">Co robię?</Heading>
+          <div class="flex flex-col gap-8">
+            <ul
+              class="flex flex-col gap-5 text-xl text-base-content/60 font-light leading-relaxed"
+            >
+              <li>
+                <span class="font-semibold text-base-content"
+                  >W świecie cyfrowym:</span
+                >{" "}
+                Usprawniam lub buduję strony internetowe, piszę skrypty, automatyzacje,
+                proste programy CAM, rysunki CAD, przygotowuję instrukcje i proste
+                grafiki.
+              </li>
+              <li>
+                <span class="font-semibold text-base-content"
+                  >W świecie fizycznym:</span
+                >{" "}
+                Naprawiam, tnę, szlifuję, wiercę, gwintuję, skręcam i podpinam przewody.
+              </li>
+            </ul>
+
+            <!-- <div class="border-t border-base-content/8 pt-8">
+              <p
+                class="text-sm font-mono uppercase tracking-[0.2em] text-base-content/40 mb-5"
               >
-                Napisz do mnie
-              </button>
+                Przykłady projektów
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <Button link="portfolio" class="btn-outline btn-sm"
+                  >Sterowanie CNC</Button
+                >
+                <Button link="portfolio" class="btn-outline btn-sm"
+                  >Dedykowany kalkulator</Button
+                >
+                <Button link="portfolio" class="btn-outline btn-sm"
+                  >Druk 3D</Button
+                >
+              </div>
+            </div> -->
+          </div>
+        </Section>
+
+        {/* ── OFERTA ────────────────────────────────────────────── */}
+        <Section
+          id="wspolpraca"
+          preLabel="Współpraca"
+          class="border-t border-base-content/8"
+        >
+          <Heading tag="h2" look="h2" slot="heading"
+            >Czy mogę Ci jakoś pomóc?</Heading
+          >
+
+          <p
+            class="text-xl text-base-content/60 font-light leading-relaxed tracking-tight max-w-2xl"
+          >
+            Pomagam uporządkować i rozwinąć technologiczną stronę Twojego
+            biznesu. Moje usługi kieruję do małych firm,{" "}
+            <span class="text-base-content font-medium"
+              >ze szczególnym uwzględnieniem branż technicznych i rzemiosła</span
+            >.
+          </p>
+
+          <ul
+            class="flex flex-col gap-4 text-xl text-base-content/60 font-light leading-relaxed"
+          >
+            <li>
+              <span class="font-semibold text-base-content">Strony WWW</span>{
+                " "
+              }
+              — proste, szybkie, czytelne dla Twoich klientów.
+            </li>
+            <li>
+              <span class="font-semibold text-base-content">Automatyzacje</span
+              >{" "}
+              — uwalnianie czasu z powtarzalnych zadań, wycen i dokumentów.
+            </li>
+          </ul>
+
+          <!-- <div
+            class="bg-base-200 border border-base-content/8 p-8 md:p-10 rounded-2xl flex flex-col gap-5"
+          >
+            <p class="text-base-content text-lg font-light leading-relaxed">
+              <strong
+                >Dla niektórych branż mam specjalne, gotowe rozwiązania!</strong
+              >{" "}
+              Jeśli działasz w obróbce metalu lub robisz ogrodzenia, sprawdź dedykowane
+              systemy wycen, które stworzyłem:
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="oferta/cnc" class="btn-outline btn-sm"
+                >Zobacz rozwiązania dla CNC</Button
+              >
+              <Button link="oferta/ogrodzenia" class="btn-outline btn-sm"
+                >Zobacz rozwiązania dla Ogrodzeń</Button
+              >
+            </div>
+          </div> -->
+        </Section>
+
+        {/* ── JAK PRACUJĘ ───────────────────────────────────────── */}
+        <Section preLabel="Metodologia" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading">Jak pracuję?</Heading>
+          <ul class="flex flex-col">
+            {
+              [
+                {
+                  title: "Słucham i analizuję",
+                  description:
+                    "Zanim cokolwiek zaproponuję, dokładnie rozumiem Twoją sytuację i potrzeby.",
+                },
+                {
+                  title: "Wybieram najprostsze skuteczne rozwiązanie",
+                  description:
+                    "Nie najdroższe, nie najmodniejsze — po prostu to, które działa i ma sens.",
+                },
+                {
+                  title: "Komunikuję jasno",
+                  description:
+                    "Mówię, co robię, ile to zajmie i co może pójść nie tak.",
+                },
+                {
+                  title: "Nie obiecuję rzeczy, których nie mogę dostarczyć",
+                  description:
+                    "Jeśli czegoś nie da się zrobić w Twoim budżecie lub terminie — powiem wprost.",
+                },
+              ].map((p) => (
+                <li class="flex flex-col gap-1 border-t border-base-content/10 py-5">
+                  <span class="font-semibold text-base-content text-lg">
+                    {p.title}
+                  </span>
+                  <span class="text-base-content/60 font-light leading-relaxed">
+                    {p.description}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </Section>
+
+        {/* ── KONTAKT ───────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div
+            class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6"
+          >
+            <Heading tag="h2" look="h2">Kontakt</Heading>
+            <p
+              class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg"
+            >
+              Jeśli coś w Twojej firmie nie działa, chcesz coś wdrożyć,
+              usprawnić lub po prostu pogadać o projekcie — napisz do mnie.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8"
+                >Napisz do mnie</Button
+              >
             </div>
           </div>
-        </form>
-      </div>
+        </Section>
+      </main>
+      <Footer />
     </div>
-  </section>
-</PageLayout>
+  </div>
+</BaseLayout>

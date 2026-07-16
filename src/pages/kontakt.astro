@@ -32,16 +32,12 @@ const schema: Schema = {
 };
 ---
 
-<PageLayout meta={meta} schema={schema}>
-  {/* SEKCJA HERO */}
-  <Section heroSection>
-    <Heading tag="h1" look="h0" slot="heading"> Skontaktuj się </Heading>
-    <p slot="paragraph">
-      Rozwiąż swój problem i osiągnij cel. Zadaj pytanie, poproś o radę lub
-      rozpocznij współpracę.
-    </p>
-  </Section>
-
+<PageLayout
+  meta={meta}
+  schema={schema}
+  pageTitle="Skontaktuj się"
+  pageDescription="Rozwiąż swój problem i osiągnij cel. Zadaj pytanie, poproś o radę lub rozpocznij współpracę."
+>
   {/* SEKCJA FORMULARZ */}
   <Section variant="secondary">
     <Heading tag="h2" slot="heading">Napisz wiadomość</Heading>

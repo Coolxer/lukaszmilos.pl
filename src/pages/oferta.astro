@@ -1,0 +1,304 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import Steps from "@components/ui/Steps.astro";
+import Prose from "@components/ui/Prose.astro";
+
+const meta = {
+  title: "Oferta — cyfrowe wsparcie dla małych firm",
+  description:
+    "Inżynierskie podejście do IT. Strony internetowe i automatyzacje dla małych firm technicznych, warsztatów i rzemiosła.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Cyfrowe wsparcie dla małych firm
+            </Heading>
+            <p
+              class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl"
+            >
+              Pomagam małym firmom rozwijać strony internetowe, radzić sobie z
+              problemami IT, wdrażać narzędzia i automatyzować powtarzalne
+              procesy.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary"
+                >Opisz swój problem</Button
+              >
+              <Button link="#uslugi" class="btn-ghost btn-outline" rawLink
+                >Zobacz usługi</Button
+              >
+            </div>
+          </div>
+        </Section>
+
+        {/* ── FILOZOFIA ─────────────────────────────────────────── */}
+        <!-- <Section          preLabel="Filozofia"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Inżynierskie podejście do IT</Heading>
+          <Prose>
+            <p>
+              Z wykształcenia jestem inżynierem informatyki (dyplom z wyróżnieniem), ale z natury —
+              <strong>praktykiem, który lubi widzieć realne efekty swojej pracy</strong>.
+              Nie oferuję skomplikowanych systemów tam, gdzie wystarczy proste rozwiązanie.
+            </p>
+            <p>
+              Dobieram technologię do Twojego problemu dokładnie tak, jak dobiera się odpowiednie narzędzie do zadania:
+              z myślą o trwałości, kosztach i niezawodności.
+            </p>
+            <ul>
+              <li>
+                <strong>Rzetelna diagnoza:</strong> Każdy projekt zaczynam od analizy sytuacji.
+                Jeśli coś działa dobrze, nie namawiam na zmiany. Jeśli generuje straty — powiem o tym wprost.
+              </li>
+              <li>
+                <strong>Technologia bez chaosu:</strong> Dbam o to, by zaplecze techniczne było uporządkowane
+                i bezpieczne — niezależnie od zakresu prac.
+              </li>
+            </ul>
+          </Prose>
+        </Section> -->
+
+        {/* ── BRANŻE ────────────────────────────────────────────── */}
+        <Section preLabel="Branże" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading"
+            >Z kim współpracuję?</Heading
+          >
+          <p class="text-base-content/60 font-light leading-relaxed">
+            Moje korzenie, pasja i główne doświadczenie zawodowe są mocno
+            związane z sektorem technicznym, produkcyjnym oraz rzemiosłem.
+            Najczęściej wspieram firmy z branż takich jak:
+          </p>
+          <IconList
+            items={[
+              "Warsztaty CNC i obróbka metali (frezowanie, toczenie, cięcie laserem/plazmą)",
+              "Szlifiernie i ostrzarnie",
+              "Producenci maszyn, urządzeń i przyrządów",
+              "Konstrukcje stalowe, budowlane i systemy ogrodzeniowe",
+              "Stolarnie i zakłady rzemieślnicze",
+              "Modelarnie i firmy prototypowe (druk 3D)",
+            ]}
+            iconName="tabler:chevron-right"
+            color="text-primary"
+          />
+          <p class="text-base-content/60 font-light leading-relaxed">
+            <strong class="text-base-content">Jesteś z innej branży?</strong>{
+              " "
+            }
+            Obsługuję również firmy usługowe, sektor finansowy, agencje oraz startupy.
+            Jeśli tworzysz realną wartość i zależy Ci na profesjonalnej obecności
+            w sieci — z przyjemnością Ci pomogę.
+          </p>
+        </Section>
+
+        {/* ── USŁUGI ────────────────────────────────────────────── */}
+        <Section
+          id="uslugi"
+          preLabel="Usługi"
+          class="border-t border-base-content/8"
+        >
+          <Heading tag="h2" look="h2" slot="heading">W czym pomagam?</Heading>
+          <div class="flex flex-col gap-0">
+            <div class="border-t border-base-content/10 py-8">
+              <h3
+                class="text-2xl font-bold text-base-content mb-3 tracking-tight"
+              >
+                Strony internetowe i wizytówki firmowe
+              </h3>
+              <p class="text-base-content/60 font-light leading-relaxed mb-5">
+                Twoja strona internetowa to często pierwsze narzędzie sprzedaży.
+                Dbam o to, by była błyskawicznie szybka, idealnie czytelna na
+                telefonach i jasno komunikowała Twoją ofertę.
+              </p>
+              <Button link="oferta/strony-www" class="btn-outline btn-sm"
+                >Dowiedz się więcej</Button
+              >
+            </div>
+            <div class="border-t border-base-content/10 py-8">
+              <h3
+                class="text-2xl font-bold text-base-content mb-3 tracking-tight"
+              >
+                Narzędzia cyfrowe i automatyzacje
+              </h3>
+              <p class="text-base-content/60 font-light leading-relaxed mb-5">
+                Zajmuję się tym, co dzieje się na zapleczu Twojej firmy.
+                Kalkulatory wycen, generatory dokumentów, automatyczny obieg
+                informacji — cel to oszczędność czasu i minimalizacja błędów.
+              </p>
+              <Button
+                link="oferta/systemy-i-automatyzacje"
+                class="btn-outline btn-sm">Dowiedz się więcej</Button
+              >
+            </div>
+          </div>
+        </Section>
+
+        {/* ── SPECJALIZACJA ─────────────────────────────────────── */}
+        <!-- <Section
+          preLabel="Specjalizacja"
+          class="border-t border-base-content/8"
+        >
+          <Heading tag="h2" look="h2" slot="heading"
+            >Głęboka nisza — rozwiązania branżowe</Heading
+          >
+          <p class="text-base-content/60 font-light leading-relaxed">
+            Dla niektórych branż mam gotowe, wyspecjalizowane rozwiązania —
+            strony, narzędzia i kalkulatory zbudowane pod konkretny proces i
+            konkretne potrzeby.
+          </p>
+          <div class="flex flex-col gap-0">
+            <div class="border-t border-base-content/10 py-8">
+              <h3
+                class="text-2xl font-bold text-base-content mb-3 tracking-tight"
+              >
+                Zakłady CNC i obróbka metalu
+              </h3>
+              <p class="text-base-content/60 font-light leading-relaxed mb-5">
+                Strona z parkiem maszynowym, formularz przyjmujący DXF,
+                kalkulator wyceny detalu.
+              </p>
+              <Button link="oferta/cnc" class="btn-outline btn-sm"
+                >Zobacz ofertę CNC</Button
+              >
+            </div>
+            <div class="border-t border-base-content/10 py-8">
+              <h3
+                class="text-2xl font-bold text-base-content mb-3 tracking-tight"
+              >
+                Firmy ogrodzeniowe
+              </h3>
+              <p class="text-base-content/60 font-light leading-relaxed mb-5">
+                Galeria realizacji, inteligentny formularz wyceny — koniec z
+                pytaniami bez parametrów.
+              </p>
+              <Button link="oferta/ogrodzenia" class="btn-outline btn-sm"
+                >Zobacz ofertę dla ogrodzeń</Button
+              >
+            </div>
+          </div>
+        </Section> -->
+
+        {/* ── METODOLOGIA ───────────────────────────────────────── */}
+        <Section preLabel="Metodologia" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading">Jak działam?</Heading>
+          <p class="text-base-content/60 font-light leading-relaxed">
+            W moich projektach — od prostych stron po złożone automatyzacje —
+            trzymam się zasad, które obowiązują na porządnej produkcji.
+          </p>
+          <Steps
+            items={[
+              {
+                title: "Mierzalne efekty",
+                description:
+                  "Nie obiecuję, że bedzie lepiej. Skracam czas ladowania o 60%, redukuje liczbe recznych klikniec w procesie wyceny o polowe lub buduje strone, ktora jasno komunikuje Twoje moce przerobowe.",
+              },
+              {
+                title: "Precyzja i niezawodność",
+                description:
+                  "Kod i narzędzia traktuję jak oprzyrządowanie technologiczne. Muszą być sztywne, powtarzalne i odporne na błędy.",
+              },
+              {
+                title: "Efektywność kosztowa",
+                description:
+                  "Dobieram rozwiązania do realnych potrzeb. Nowe systemy wdrażam tylko tam, gdzie realnie skracają czas pracy lub zwiększają zysk.",
+              },
+              {
+                title: "Terminowość",
+                description:
+                  "Projekt to zlecenie produkcyjne — ma swój harmonogram, etapy i datę odbioru.",
+              },
+              {
+                title: "Uczciwa komunikacja",
+                description:
+                  "Jeśli czegoś nie da się zrobić w Twoim budżecie lub terminie — powiem wprost. Jeśli problem wymaga kogoś innego — powiem, gdzie szukać.",
+              },
+            ]}
+            variant="circles"
+          />
+        </Section>
+
+        {/* ── KORZYŚCI ──────────────────────────────────────────── */}
+        <Section preLabel="Korzyści" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading">Co zyskujesz?</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {
+              [
+                {
+                  heading: "Lepsza prezentacja oferty",
+                  text: "Klient szybciej rozumie, co robisz i czy jesteś dla niego właściwym wykonawcą.",
+                },
+                {
+                  heading: "Mniej pustych zapytań",
+                  text: "Zamiast maili bez danych — dostajesz sensowne zapytania.",
+                },
+                {
+                  heading: "Mniej ręcznej pracy",
+                  text: "Tam, gdzie proces da się uprościć, oszczędzasz realny czas każdego dnia.",
+                },
+                {
+                  heading: "Porządek techniczny",
+                  text: "Z hostingiem, pocztą, dostępami i stroną — bez chaosu i niespodzianek.",
+                },
+                {
+                  heading: "Rozwiązania bez nadmiaru",
+                  text: "Proste, szybkie i przewidywalne w działaniu — bez niepotrzebnych zależności.",
+                },
+                {
+                  heading: "Spełnienie Twoich celów",
+                  text: "Praca dopasowana do Twoich założeń, nie do modnych trendów.",
+                },
+              ].map((b) => (
+                <div class="border-t border-base-content/10 py-6">
+                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">
+                    {b.heading}
+                  </h3>
+                  <p class="text-base-content/60 font-light leading-relaxed text-base">
+                    {b.text}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </Section>
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div
+            class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6"
+          >
+            <Heading tag="h2" look="h2"
+              >Masz temat, który od dawna odkładasz?</Heading
+            >
+            <p
+              class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg"
+            >
+              Opisz krótko swoją sytuację. Przeanalizuję problem i odpowiem
+              szczerze, jak mogę Ci pomóc oraz ile to będzie kosztować.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8"
+                >Napisz do mnie</Button
+              >
+            </div>
+          </div>
+        </Section>
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

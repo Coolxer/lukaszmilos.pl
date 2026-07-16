@@ -1,0 +1,184 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import Prose from "@components/ui/Prose.astro";
+
+const meta = {
+  title: "O mnie — Łukasz Miłoś, inżynier IT i rzemiosło",
+  description:
+    "Inżynier IT, który rozumie warsztat. Skończyłem studia z wyróżnieniem, zbudowałem własną drukarkę 3D i zaprojektowałem sterowanie CNC od zera. Dla firm technicznych.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Łukasz Miłoś — IT i warsztat
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Inżynier IT, który pracuje też ręcznie. Działam na styku oprogramowania, elektroniki i obróbki.
+              Robię strony, narzędzia i automatyzacje dla firm, które coś wytwarzają.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary">Porozmawiajmy</Button>
+              <Button link="oferta" class="btn-ghost btn-outline">Zobacz ofertę</Button>
+            </div>
+          </div>
+        </Section>
+
+        {/* ── HISTORIA ──────────────────────────────────────────── */}
+        <Section          preLabel="Historia"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Skąd się wziąłem</Heading>
+          <Prose>
+            <p>
+              Skończyłem studia informatyczne z wyróżnieniem.
+              Ale szybko zorientowałem się, że to, czego mi brakowało w &bdquo;czystym IT&rdquo;,
+              to <strong>kontakt z realnym światem</strong> — z rzeczami, które można dotknąć,
+              zmierzyć i naprawić.
+            </p>
+            <p>
+              Zacząłem pracować ręcznie. Naprawiać, składać, projektować.
+              Zbudowałem własną drukarkę 3D — nie dlatego, że tak było tanio,
+              ale żeby zrozumieć, jak naprawdę działa maszyna, zanim użyję jej w projekcie.
+              Zaprojektowałem od zera sterowanie do ostrzarki CNC — hardware, firmware, sekwencer.
+            </p>
+            <p>
+              Teraz działam na styku tych dwóch światów.
+              Tworzę strony i narzędzia dla firm, które rozumiem od środka:
+              zakładów obróbki metalu, firm z sektora ogrodzeń, stolarni, ślusarni.
+              Mówię ich językiem — bo znam go z praktyki.
+            </p>
+          </Prose>
+        </Section>
+
+        {/* ── PROJEKTY ──────────────────────────────────────────── */}
+        <Section          preLabel="Projekty"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Projekty, które pokazują jak myślę</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {
+              [
+                {
+                  heading: "Sterowanie ostrzarki CNC",
+                  text: "Zaprojektowałem i oprogramowałem od zera kompletny sterownik dla maszyny do ostrzenia narzędzi. Hardware, firmware w C++, sekwencer osiowy — wszystko własne.",
+                },
+                {
+                  heading: "Drukarka 3D z własnej konstrukcji",
+                  text: "Zbudowałem drukarkę 3D od zera — projekt mechaniczny, elektronika, kalibracja. Cel: zrozumieć maszynę, zanim użyję jej w projekcie dla klienta.",
+                },
+                {
+                  heading: "Generator rysunków DXF",
+                  text: "Skrypt Python generujący parametryczne pliki DXF dla cięcia laserowego. Wejście: wymiary w formularzu. Wyjście: gotowy rysunek techniczny do maszyny.",
+                },
+                {
+                  heading: "Strony dla firm technicznych",
+                  text: "Strony internetowe, kalkulatory wycen, formularze zbierające dane — dla zakładów CNC, firm ogrodzeniowych i małego rzemiosła.",
+                },
+              ].map((p) => (
+                <div class="border-t border-base-content/10 py-6">
+                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{p.heading}</h3>
+                  <p class="text-base-content/60 font-light leading-relaxed text-base">{p.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </Section>
+
+        {/* ── METODOLOGIA ───────────────────────────────────────── */}
+        <Section          preLabel="Metodologia"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Jak podchodzę do pracy</Heading>
+          <div class="flex flex-col gap-6">
+            {
+              [
+                {
+                  label: "Diagnoza przed receptą",
+                  text: "Zanim cokolwiek zaproponuję, słucham i analizuję. Nie zakładam rozwiązania przed zrozumieniem problemu. Każda firma jest inna — nawet jeśli problem wygląda znajomo.",
+                },
+                {
+                  label: "Prostota ponad kompleksowość",
+                  text: "Proste rozwiązania są łatwiejsze w utrzymaniu, tańsze w obsłudze i rzadziej się psują. Szukam najmniej skomplikowanego podejścia, które naprawdę rozwiązuje problem.",
+                },
+                {
+                  label: "Szczerość o limitach",
+                  text: "Jeśli czegoś nie da się zrobić w Twoim budżecie lub terminie — mówię to na początku. Jeśli rozwiązanie nie ma sensu dla Twojej firmy — też powiem wprost.",
+                },
+              ].map((item) => (
+                <div class="border-t border-base-content/10 pt-6">
+                  <span class="font-mono text-xs text-base-content/40 font-medium tracking-widest uppercase select-none block mb-3">
+                    {item.label}
+                  </span>
+                  <p class="text-base-content/60 font-light leading-relaxed">{item.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </Section>
+
+        {/* ── ZASADY ────────────────────────────────────────────── */}
+        <Section          preLabel="Zasady"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Wartości, które widać w pracy</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {
+              [
+                {
+                  heading: "Precyzja",
+                  text: "Nie akceptuję \"mniej więcej\" ani \"jakoś będzie\". Każdy detal ma wymiar i tolerancję.",
+                },
+                {
+                  heading: "Szczerość",
+                  text: "Jeśli czegoś nie da się zrobić — mówię wprost. Jeśli coś ma sens tylko w teorii — mówię to też.",
+                },
+                {
+                  heading: "Praktyczność",
+                  text: "Rozwiązanie ma działać w praktyce, nie tylko w prezentacji. Testuję to, co buduję.",
+                },
+                {
+                  heading: "Prostota",
+                  text: "Proste i stabilne jest lepsze od złożonego i imponującego. Zawsze dobieram najprostsze skuteczne rozwiązanie.",
+                },
+              ].map((v) => (
+                <div class="border-t border-base-content/10 py-6">
+                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{v.heading}</h3>
+                  <p class="text-base-content/60 font-light leading-relaxed text-base">{v.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </Section>
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Chcesz pogadać o projekcie?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Powiedz mi, czym zajmuje się Twoja firma i co chcesz osiągnąć.
+              Odpiszę konkretnie — bez ogólników.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+              <Button link="oferta" class="btn-ghost btn-outline">Zobacz ofertę</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

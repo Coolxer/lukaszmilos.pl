@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  variant?: "info" | "tip" | "accent" | "dark";
+  icon?: string;
+  class?: string;
+}
+
+const { variant = "info", icon, class: className } = Astro.props;
+
+const variantClasses = {
+  info: "bg-primary/6 border border-primary/20 text-base-content",
+  tip: "bg-accent/8 border border-accent/30 text-base-content",
+  accent: "bg-primary/8 border border-primary/30 text-base-content",
+  dark: "bg-base-content text-base-100 border-0",
+};
+
+const iconColorClasses = {
+  info: "text-primary",
+  tip: "text-accent",
+  accent: "text-primary",
+  dark: "text-base-100/70",
+};
+
+const defaultIcons = {
+  info: "tabler:info-circle",
+  tip: "tabler:bulb",
+  accent: "tabler:star",
+  dark: "tabler:bulb",
+};
+
+const iconName = icon ?? defaultIcons[variant];
+---
+
+<div class:list={["rounded-md p-5 flex gap-4 items-start", variantClasses[variant], className]}>
+  <Icon name={iconName} class:list={["size-5 shrink-0 mt-0.5", iconColorClasses[variant]]} />
+  <div class:list={["leading-relaxed", variant === "dark" ? "text-base-100/80 [&_strong]:text-base-100" : "text-base-content/80"]}>
+    <slot />
+  </div>
+</div>

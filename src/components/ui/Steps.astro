@@ -1,0 +1,44 @@
+---
+export interface StepItem {
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  items: StepItem[];
+  variant?: "circles" | "lines";
+  class?: string;
+}
+
+const { items, variant = "circles", class: className } = Astro.props;
+---
+
+<ol class:list={["flex flex-col gap-8", className]}>
+  {items.map((item, index) => (
+    <li class="flex gap-5">
+      {variant === "circles" ? (
+        <div class="flex flex-col items-center gap-2 shrink-0">
+          <div class="flex size-8 items-center justify-center border border-primary text-primary font-mono text-[11px] font-semibold shrink-0">
+            {String(index + 1).padStart(2, "0")}
+          </div>
+          {index < items.length - 1 && (
+            <div class="w-px flex-1 bg-primary/15 min-h-8" />
+          )}
+        </div>
+      ) : (
+        <div class="flex flex-col items-center gap-0 shrink-0">
+          <div class="text-primary font-mono font-semibold text-sm w-8 text-center leading-8">
+            {String(index + 1).padStart(2, "0")}
+          </div>
+          {index < items.length - 1 && (
+            <div class="w-px flex-1 bg-primary/15 min-h-8" />
+          )}
+        </div>
+      )}
+      <div class="flex flex-col gap-1 pb-2">
+        <h3 class="text-h5 text-base-content font-semibold">{item.title}</h3>
+        <p class="text-base-content/70 leading-relaxed">{item.description}</p>
+      </div>
+    </li>
+  ))}
+</ol>

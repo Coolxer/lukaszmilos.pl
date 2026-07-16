@@ -1,0 +1,276 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import IconList from "@components/ui/IconList.astro";
+
+const meta = {
+  title: "Inteligentny formularz wyceny ogrodzenia — dla firm ogrodzeniowych",
+  description:
+    "Narzędzie, które automatycznie zbiera od Twoich klientów kompletne dane do wyceny ogrodzenia. Koniec z 'ile za płot?' bez podania wymiarów.",
+};
+
+const benefits = [
+  { icon: "tabler:message-off", heading: "Koniec z chaosem na OLX", text: "Klient nie napisze do Ciebie bez podania długości, wysokości, rodzaju i lokalizacji. Formularz wymusza podanie kluczowych danych." },
+  { icon: "tabler:device-mobile", heading: "Działa na telefonie", text: "Klienci pytają z budowy, z auta, z placu. Formularz wygląda i działa perfekcyjnie na każdym smartfonie." },
+  { icon: "tabler:clock", heading: "Oszczędność czasu", text: "Zamiast wymieniać 10 wiadomości, dostajesz gotowe dane do wyceny w jednym e-mailu. Specyfikacja zamiast chaosu." },
+];
+
+const useCases = [
+  "Link w ogłoszeniu na OLX zamiast telefonu — klient sam wypełnia dane",
+  "Osadzenie formularza na Twojej obecnej stronie lub Facebooku",
+  "Osobna strona jako wizytówka cyfrowa z formularzem wyceny",
+  "Link w Google Moja Firma zamiast rozmów telefonicznych",
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full shadow-primary">
+      <Navbar />
+      <main class="w-full block">
+
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Inteligentny formularz wyceny dla firm ogrodzeniowych
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Narzędzie, które automatycznie zbiera od Twoich klientów kompletne dane do wyceny.
+              Rodzaj, długość, wysokość, podmurówka, brama — wszystko w jednym miejscu,
+              zanim odpiszesz pierwsze słowo.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="#demo" class="btn-primary" rawLink>Przetestuj demo</Button>
+              <Button link="kontakt" class="btn-outline">Chcę to dla swojej firmy</Button>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="demo" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Przetestuj demo — tak wygląda formularz Twoich klientów</Heading>
+          <p class="text-base-content/70 -mt-2">
+            Poniżej widzisz gotowy formularz zbierający dane do wyceny ogrodzenia panelowego.
+            Wypełnij go jak klient i kliknij "Wyślij" — zobaczysz, jak wygląda e-mail, który dostajesz.
+          </p>
+
+          <div class="border border-base-300 rounded-xl p-6 bg-base-100 shadow-sm">
+            <form id="fence-form" class="flex flex-col gap-5" novalidate>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="fence-type">
+                    Rodzaj ogrodzenia <span class="text-error">*</span>
+                  </label>
+                  <select id="fence-type" name="type" required
+                    class="select select-bordered w-full">
+                    <option value="">Wybierz...</option>
+                    <option>Panelowe (drut spawany)</option>
+                    <option>Siatkowe (siatka z rolki)</option>
+                    <option>Ażurowe (panele ozdobne)</option>
+                    <option>Systemy aluminiowe</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="fence-length">
+                    Długość ogrodzenia <span class="text-error">*</span>
+                  </label>
+                  <div class="relative">
+                    <input id="fence-length" name="length" type="number" min="1" max="9999" required
+                      placeholder="np. 80"
+                      class="input input-bordered w-full pr-10" />
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-base-content/50 pointer-events-none">mb</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="fence-height">
+                    Wysokość paneli <span class="text-error">*</span>
+                  </label>
+                  <select id="fence-height" name="height" required
+                    class="select select-bordered w-full">
+                    <option value="">Wybierz...</option>
+                    <option>100 cm</option>
+                    <option>123 cm</option>
+                    <option>153 cm</option>
+                    <option>183 cm</option>
+                    <option>203 cm</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="wire-gauge">
+                    Grubość drutu
+                  </label>
+                  <select id="wire-gauge" name="wire" class="select select-bordered w-full">
+                    <option>fi 3 mm (standard)</option>
+                    <option>fi 4 mm (wzmocniony)</option>
+                    <option>fi 5 mm (premium)</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="base">
+                    Podmurówka
+                  </label>
+                  <select id="base" name="base" class="select select-bordered w-full">
+                    <option>Brak podmurówki</option>
+                    <option>Prefabrykowana (gotowe elementy)</option>
+                    <option>Betonowana na mokro</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="gate">
+                    Brama przesuwna
+                  </label>
+                  <select id="gate" name="gate" class="select select-bordered w-full">
+                    <option>Brak bramy</option>
+                    <option>Brama 4m — ręczna</option>
+                    <option>Brama 4m — automatyczna</option>
+                    <option>Brama 6m — ręczna</option>
+                    <option>Brama 6m — automatyczna</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="wicket">
+                    Furtka
+                  </label>
+                  <select id="wicket" name="wicket" class="select select-bordered w-full">
+                    <option>Brak furtki</option>
+                    <option>Furtka 1.0 m</option>
+                    <option>Furtka 1.2 m</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="email-demo">
+                    Twój adres e-mail
+                  </label>
+                  <input id="email-demo" name="email" type="email"
+                    placeholder="np. jan@example.com"
+                    class="input input-bordered w-full" />
+                  <p class="text-xs text-primary/80">
+                    Wpisz swój e-mail, by zobaczyć jak wygląda wiadomość z podsumowaniem zapytania.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-medium text-base-content" for="notes">
+                  Lokalizacja i uwagi
+                </label>
+                <textarea id="notes" name="notes" rows="3"
+                  placeholder="Miasto, ewentualne utrudnienia w terenie, dodatkowe wymagania..."
+                  class="textarea textarea-bordered w-full resize-none"></textarea>
+              </div>
+
+              <div class="flex flex-wrap gap-3 pt-1">
+                <button type="submit" class="btn btn-primary">
+                  Wyślij zapytanie o wycenę
+                </button>
+                <button type="reset" class="btn btn-ghost btn-sm self-center">
+                  Wyczyść formularz
+                </button>
+              </div>
+
+            </form>
+
+            <div id="demo-result" class="hidden mt-8 border-t border-base-300 pt-6">
+              <p class="text-xs font-mono text-base-content/40 uppercase tracking-wider mb-4">Podgląd e-maila z podsumowaniem</p>
+              <div class="bg-base-200 rounded-lg p-5 font-mono text-sm leading-relaxed space-y-1 text-base-content/80">
+                <p class="font-semibold text-base-content">Nowe zapytanie o wycenę ogrodzenia</p>
+                <p class="text-xs text-base-content/50 mb-3">od: klient@example.com</p>
+                <p id="summary-type"></p>
+                <p id="summary-length"></p>
+                <p id="summary-height"></p>
+                <p id="summary-wire"></p>
+                <p id="summary-base"></p>
+                <p id="summary-gate"></p>
+                <p id="summary-wicket"></p>
+                <p id="summary-notes" class="mt-2 text-base-content/60 italic"></p>
+              </div>
+              <p class="mt-4 text-sm text-success flex items-center gap-2">
+                <span>✓</span>
+                Widzisz? Kompletna specyfikacja — bez 10 pytań przez Messengera.
+              </p>
+              <div class="mt-4">
+                <Button link="kontakt" class="btn-primary btn-sm">Chcę taki formularz dla swojej firmy</Button>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Co zyskujesz?</Heading>
+          <Grid cols={2} gap="normal">
+            {benefits.map((b) => (
+              <Card icon={b.icon} heading={b.heading} variant="bordered">{b.text}</Card>
+            ))}
+          </Grid>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Gdzie używać formularza?</Heading>
+          <IconList items={useCases} iconName="tabler:arrow-right" color="text-primary" />
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Chcesz taki formularz dla swojej firmy ogrodzeniowej?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Napisz, skąd teraz przychodzą zapytania i co zajmuje Ci najwięcej czasu przy każdej wycenie.
+              Postawię Ci gotowe narzędzie w 2–3 tygodnie.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('fence-form') as HTMLFormElement;
+  const result = document.getElementById('demo-result') as HTMLElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    const get = (key: string) => (data.get(key) as string)?.trim() || '';
+
+    const setLine = (id: string, label: string, value: string) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value ? `${label}: ${value}` : '';
+    };
+
+    setLine('summary-type',   'Rodzaj ogrodzenia', get('type'));
+    setLine('summary-length', 'Długość',           get('length') ? `${get('length')} mb` : '');
+    setLine('summary-height', 'Wysokość paneli',   get('height'));
+    setLine('summary-wire',   'Grubość drutu',     get('wire'));
+    setLine('summary-base',   'Podmurówka',        get('base'));
+    setLine('summary-gate',   'Brama',             get('gate'));
+    setLine('summary-wicket', 'Furtka',            get('wicket'));
+
+    const notes = get('notes');
+    const notesEl = document.getElementById('summary-notes');
+    if (notesEl) notesEl.textContent = notes ? `Uwagi: ${notes}` : '';
+
+    result.classList.remove('hidden');
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>

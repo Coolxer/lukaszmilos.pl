@@ -1,0 +1,255 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import Steps from "@components/ui/Steps.astro";
+import FAQ from "@components/ui/FAQ.astro";
+
+const meta = {
+  title: "Automatyzacje i wsparcie IT dla małych firm — Łukasz Miłoś",
+  description:
+    "Kalkulatory wycen, generatory dokumentów, automatyzacje procesów i wsparcie IT dla małych firm technicznych i warsztatów.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Narzędzia cyfrowe dla firm technicznych
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Pomagam uporządkować to, co dzieje się wokół strony, maili, wycen, dokumentów
+              i codziennej pracy z danymi. Od prostych napraw po narzędzia, które skracają czas pracy.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary">Opisz swój problem</Button>
+              <Button link="#narzedzia" class="btn-ghost btn-outline" rawLink>Co mogę zbudować?</Button>
+            </div>
+          </div>
+        </Section>
+
+        {/* ── PROBLEMY ──────────────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Problemy wielu małych firm technicznych</Heading>
+          <p class="text-base-content/60 font-light leading-relaxed">
+            Wiele codziennych problemów w firmie nie wynika z braku drogich systemów,
+            ale z chaosu w tych narzędziach, które już posiadasz.
+          </p>
+          <IconList
+            items={[
+              "Poczta firmowa działa niestabilnie albo wpada do spamu",
+              "Nie reagujesz wystarczająco szybko na e-maile od klientów",
+              "Zapytania przychodzą bez kompletu danych potrzebnych do wyceny",
+              "Wyceny są liczone ręcznie i zajmują za dużo czasu",
+              "Dokumenty powstają metodą kopiuj-wklej",
+              "Nikt nie ma dostępu do hostingu, domeny albo starej strony",
+              "Pliki są porozrzucane po komputerach, mailach i pendrive'ach",
+              "Wiele rzeczy robisz manualnie, choć można to zautomatyzować",
+              "Coś działa, ale tylko dopóki się nie zepsuje",
+            ]}
+            iconName="tabler:alert-circle"
+            color="text-warning"
+          />
+        </Section>
+
+        {/* ── WSPARCIE IT ───────────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Wsparcie IT i porządki techniczne</Heading>
+          <p class="text-base-content/60 font-light leading-relaxed">
+            W wielu firmach największym problemem nie jest brak nowego systemu,
+            tylko bałagan w tym, co już istnieje.
+          </p>
+          <IconList
+            items={[
+              "Konfiguracja i naprawa poczty e-mail",
+              "Problemy z dostarczalnością wiadomości",
+              "Uporządkowanie hostingu, domeny i dostępów",
+              "Odzyskanie kontroli nad stroną lub usługami",
+              "Formularze, które nie wysyłają wiadomości",
+              "Kopie zapasowe i podstawowe bezpieczeństwo",
+            ]}
+            iconName="tabler:check"
+            color="text-primary"
+          />
+        </Section>
+
+        {/* ── CO MOGĘ ZBUDOWAĆ ──────────────────────────────────── */}
+        <Section
+          id="narzedzia"          preLabel="Narzędzia"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Co mogę zbudować?</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {[
+              {
+                heading: "Formularz zbierający komplet danych",
+                text: "Zamiast maili bez wymiarów, materiału i ilości — klient wypełnia formularz, który od razu zbiera to, co potrzebne do wstępnej oceny.",
+              },
+              {
+                heading: "Kalkulator wyceny",
+                text: "Wylicza zakres, pokazuje cenę orientacyjną od razu lub zbiera komplet danych do dalszej wyceny — tam, gdzie ma to sens.",
+              },
+              {
+                heading: "Generator dokumentów",
+                text: "Oferty, potwierdzenia, protokoły, etykiety, proste PDF-y — generowane z danych zamiast składane ręcznie za każdym razem.",
+              },
+              {
+                heading: "Generator rysunków parametrycznych",
+                text: "Skrypty generujące pliki DXF pod laser, plazmę lub frezarkę na podstawie podanych wymiarów. Bez rysowania każdego wariantu osobno.",
+              },
+              {
+                heading: "Dokumentacja i instrukcje online",
+                text: "Instrukcje obsługi, karty maszyn, specyfikacje — dostępne przez przeglądarkę, z telefonu, zawsze aktualne.",
+              },
+              {
+                heading: "Panel statusów zleceń",
+                text: "Jedno miejsce, w którym wiadomo, co jest przyjęte, co w realizacji i co gotowe — bez Excela i bez telefonów z pytaniami.",
+              },
+              {
+                heading: "Integracje i przepływ danych",
+                text: "Jeśli dane są dziś przepisywane ręcznie między mailem, arkuszem i innym programem — często da się to uprościć automatyzacją.",
+              },
+              {
+                heading: "Narzędzie na Twój konkretny problem",
+                text: "Coś klikasz, wpisujesz, wyliczasz lub generujesz w kółko? Powiedz mi o tym — sprawdzę, czy da się to skrócić prostym narzędziem.",
+              },
+            ].map((tool) => (
+              <div class="border-t border-base-content/10 py-6">
+                <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{tool.heading}</h3>
+                <p class="text-base-content/60 font-light leading-relaxed text-base">{tool.text}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ── KORZYŚCI ──────────────────────────────────────────── */}
+        <Section          preLabel="Korzyści"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Co zyskujesz?</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {[
+              {
+                heading: "Mniej chaosu",
+                text: "Zamiast trzymać wszystko w mailach albo na prywatnych komputerach, masz większy porządek i kontrolę.",
+              },
+              {
+                heading: "Mniej ręcznej pracy",
+                text: "Tam, gdzie dziś coś robisz ręcznie i w kółko, można często skrócić ten proces albo częściowo go zautomatyzować.",
+              },
+              {
+                heading: "Mniej pomyłek",
+                text: "Im mniej przepisywania danych i improwizacji, tym mniejsze ryzyko błędów w dokumentach i wycenach.",
+              },
+              {
+                heading: "Szybsza obsługa zapytań",
+                text: "Klient szybciej dostaje odpowiedź, a Ty pracujesz na pełniejszych i bardziej precyzyjnych danych.",
+              },
+              {
+                heading: "Stabilniejsze zaplecze techniczne",
+                text: "Poczta, formularze, dostęp do strony, domena, backupy — te rzeczy mają po prostu działać.",
+              },
+            ].map((b) => (
+              <div class="border-t border-base-content/10 py-6">
+                <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{b.heading}</h3>
+                <p class="text-base-content/60 font-light leading-relaxed text-base">{b.text}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ── WSPÓŁPRACA ────────────────────────────────────────── */}
+        <Section          preLabel="Jak to działa"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Jak wygląda współpraca?</Heading>
+          <Steps
+            items={[
+              {
+                title: "Opisujesz problem",
+                description: "Napisz krótko: czym zajmuje się Twoja firma, co dziś nie działa, co zabiera najwięcej czasu. Nie musisz wiedzieć, jak powinno wyglądać rozwiązanie.",
+              },
+              {
+                title: "Sprawdzam obecną sytuację",
+                description: "Patrzę, z czego dziś korzystasz i gdzie naprawdę jest problem. Czasem potrzebne jest nowe narzędzie, czasem wystarczy poprawić to, co masz.",
+              },
+              {
+                title: "Dostajesz konkretną propozycję",
+                description: "Mówię wprost: co warto zrobić, w jakiej kolejności, ile to zajmie i ile będzie kosztować.",
+              },
+              {
+                title: "Wdrażam i testuję",
+                description: "Realizuję rozwiązanie i sprawdzam, czy faktycznie działa w praktyce — nie tylko w teorii.",
+              },
+              {
+                title: "Oddaję gotowy rezultat",
+                description: "Dostajesz działające narzędzie, naprawiony problem albo uporządkowane techniczne zaplecze.",
+              },
+            ]}
+            variant="circles"
+          />
+        </Section>
+
+        {/* ── FAQ ───────────────────────────────────────────────── */}
+        <Section          preLabel="FAQ"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Często zadawane pytania</Heading>
+          <FAQ
+            items={[
+              {
+                question: "Ile to kosztuje?",
+                answer: "Zależy od złożoności — tak jak cena detalu zależy od liczby operacji i tolerancji. Z pewnością dojdziemy do porozumienia, tak aby obie strony były zadowolone.",
+              },
+              {
+                question: "Czy trzeba od razu robić jakiś duży system?",
+                answer: "Nie. W wielu przypadkach wystarczy prosty formularz, kalkulator, generator dokumentów albo uporządkowanie obecnych narzędzi.",
+              },
+              {
+                question: "Czy możesz pomóc też wtedy, gdy problem dotyczy obecnej strony?",
+                answer: "Tak. Jeśli formularz nie działa, wiadomości nie dochodzą albo coś na stronie wymaga technicznego uporządkowania, mogę się tym zająć.",
+              },
+              {
+                question: "Czy takie narzędzia muszą być częścią strony internetowej?",
+                answer: "Nie zawsze. Mogą działać na stronie, obok strony albo całkowicie osobno — zależnie od potrzeb.",
+              },
+              {
+                question: "Czy pracujesz tylko z CNC?",
+                answer: "Nie. Najbliżej mi do firm technicznych, warsztatów i producentów, ale pomagam też stolarniom, ślusarniom, zakładom usługowym i innym małym firmom.",
+              },
+              {
+                question: "Czy najpierw można po prostu skonsultować problem?",
+                answer: "Tak. Najlepiej zacząć od krótkiego opisu sytuacji. Na tej podstawie powiem, czy temat ma sens i jaka droga byłaby najrozsądniejsza.",
+              },
+            ]}
+          />
+        </Section>
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Masz proces albo bałagan techniczny, który od dawna odkładasz?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Napisz, przed jakim wyzwaniem technicznym stoisz lub co w codziennej pracy
+              cyfrowej irytuje Cię najbardziej. Niezobowiązująco przeanalizuję temat i podpowiem optymalne rozwiązanie.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Skontaktuj się</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

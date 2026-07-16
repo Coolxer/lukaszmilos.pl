@@ -1,0 +1,11 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<span class:list={["underline decoration-2 decoration-primary/40 underline-offset-[5px]", className]}>
+  <slot />
+</span>

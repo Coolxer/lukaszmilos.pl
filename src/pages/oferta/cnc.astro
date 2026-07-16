@@ -1,0 +1,124 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import Callout from "@components/ui/Callout.astro";
+
+const meta = {
+  title: "Strony i narzędzia dla zakładów CNC — Łukasz Miłoś",
+  description:
+    "Strony internetowe i cyfrowe narzędzia dla zakładów obróbki skrawaniem. Frezowanie, toczenie, cięcie laserem i plazmą — rozumiem Twój park maszynowy.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Strony i narzędzia dla zakładów CNC
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Tworzę strony internetowe i cyfrowe narzędzia specjalnie dla zakładów obróbki skrawaniem.
+              Frezowanie, toczenie, cięcie laserem i plazmą — rozumiem Twój park maszynowy
+              i mówię językiem Twoich klientów.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary">Porozmawiajmy</Button>
+              <Button link="oferta/cnc/kalkulator" class="btn-ghost btn-outline">Kalkulator wycen CNC</Button>
+            </div>
+          </div>
+        </Section>
+
+        {/* ── PROBLEMY ──────────────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Problemy, które znam z zakładów CNC</Heading>
+          <IconList
+            items={[
+              "Strona (jeśli istnieje) nie pokazuje parku maszynowego z parametrami i zakresami",
+              "Zapytania przychodzą bez pliku DXF, bez gabarytów, bez materiału i ilości",
+              "PDF-y z ofertą nie działają na telefonie — ani na hali, ani u klienta",
+              "Google nie wie, że istnieje Twój zakład — bo brakuje treści pod frazy techniczne",
+              "Brak miejsca na galerie realizacji z opisami technicznymi",
+              "Każda wycena zaczyna się od tego samego ciągu pytań przez e-mail",
+            ]}
+            iconName="tabler:alert-circle"
+            color="text-warning"
+          />
+        </Section>
+
+        {/* ── CO MOŻESZ ZYSKAĆ ──────────────────────────────────── */}
+        <Section          preLabel="Rozwiązania"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Co możesz zyskać</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {[
+              {
+                heading: "Park maszynowy na stronie",
+                text: "Z parametrami, zakresami obróbki i tolerancjami — tak żeby inżynier szukający podwykonawcy sam znalazł odpowiedź bez dzwonienia.",
+              },
+              {
+                heading: "Formularz przyjmujący DXF / STEP / PDF",
+                text: "Klient wprost z telefonu lub laptopa wgrywa plik i wypełnia kluczowe dane: materiał, ilość, termin. Ty dostajesz kompletne zapytanie.",
+              },
+              {
+                heading: "Galeria realizacji z opisami technicznymi",
+                text: "Zdjęcia detali z informacją o materiale, tolerancji czy technologii. Zamiast ogólnego opisu — konkrety, które przekonują.",
+              },
+              {
+                heading: "SEO pod frazy techniczne",
+                text: "Frezowanie 5-osiowe, toczenie CNC, cięcie laserem [miasto] — strukturyzuję treści tak, żeby Google wiedział, co i gdzie robisz.",
+              },
+            ].map((s) => (
+              <div class="border-t border-base-content/10 py-6">
+                <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{s.heading}</h3>
+                <p class="text-base-content/60 font-light leading-relaxed text-base">{s.text}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ── SPECJALNE NARZĘDZIE ───────────────────────────────── */}
+        <Section          preLabel="Narzędzie specjalne"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Specjalne narzędzie dla CNC</Heading>
+          <Callout variant="accent" icon="tabler:calculator">
+            <strong>Kalkulator wyceny na podstawie parametrów detalu.</strong>
+            {" "}Narzędzie online, które zbiera od klienta materiał, gabaryty, ilość i wymagane tolerancje —
+            zanim wyślesz pierwszą wiadomość zwrotną.
+          </Callout>
+          <div>
+            <Button link="oferta/cnc/kalkulator" class="btn-primary">Zobacz kalkulator wycen CNC</Button>
+          </div>
+        </Section>
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Masz zakład CNC i chcesz go lepiej pokazać w sieci?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Opisz mi, czym się zajmujesz — jakie masz maszyny, jakie zamówienia obsługujesz.
+              Powiem Ci konkretnie, co możemy zrobić i ile to zajmie.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

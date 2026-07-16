@@ -1,0 +1,125 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import Callout from "@components/ui/Callout.astro";
+
+const meta = {
+  title: "Strony i narzędzia dla firm ogrodzeniowych — Łukasz Miłoś",
+  description:
+    "Koniec z chaosem na OLX i Messengerze. Tworzę strony i formularze wycen dla firm ogrodzeniowych — zbierające kompletne dane zanim odpiszesz.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Strony i narzędzia dla firm ogrodzeniowych
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Chaos na OLX? Klienci piszą &bdquo;ile za płot?&rdquo; bez żadnych parametrów?
+              Zbuduję Ci stronę i formularz, który zbierze kompletne dane zanim
+              odpiszesz pierwszą wiadomość.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary">Porozmawiajmy</Button>
+              <Button link="oferta/ogrodzenia/kalkulator" class="btn-ghost btn-outline">Formularz wyceny ogrodzenia</Button>
+            </div>
+          </div>
+        </Section>
+
+        {/* ── PROBLEMY ──────────────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Problemy, które znasz z OLX i Messengera</Heading>
+          <IconList
+            items={[
+              "Ile za płot? — bez długości, wysokości, rodzaju i lokalizacji",
+              "Odpowiadasz na dziesiątki pytań zanim wyślesz pierwszą wycenę",
+              "Klienci nie rozróżniają panelu 153 od 183 — wybierają najtańsze, bo nikt im nie wyjaśnił",
+              "Zdjęcia realizacji masz na telefonie, ale nie ma ich w jednym miejscu",
+              "Brak strony = brak widoczności poza OLX i Facebookiem",
+              "Każde ogłoszenie wymaga wklejania tych samych 10 pytań w komentarzach",
+            ]}
+            iconName="tabler:alert-circle"
+            color="text-warning"
+          />
+        </Section>
+
+        {/* ── CO ZBUDUJĘ ────────────────────────────────────────── */}
+        <Section          preLabel="Rozwiązania"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Co zbuduję dla Twojej firmy</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {[
+              {
+                heading: "Galeria realizacji",
+                text: "Ogrodzenia panelowe, siatka, ażur, systemy aluminiowe — w jednym miejscu, z opisami i parametrami. Klient widzi Twoje możliwości zanim zadzwoni.",
+              },
+              {
+                heading: "Formularz zbierający komplet danych",
+                text: "Długość, wysokość, rodzaj panelu, podmurówka, brama, furtka — klient podaje wszystko w jednym miejscu. Ty dostajesz gotowe dane do wyceny.",
+              },
+              {
+                heading: "Lokalnie widoczna strona",
+                text: "Podstawy SEO pod frazy: ogrodzenia panelowe [miasto], montaż ogrodzeń [region]. Klienci z Google zamiast tylko z OLX.",
+              },
+              {
+                heading: "Działa na budowie",
+                text: "Twoi klienci pytają o ogrodzenia z poziomu smartfona — na budowie, w samochodzie. Strona musi działać idealnie na małym ekranie.",
+              },
+            ].map((s) => (
+              <div class="border-t border-base-content/10 py-6">
+                <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{s.heading}</h3>
+                <p class="text-base-content/60 font-light leading-relaxed text-base">{s.text}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ── SPECJALNE NARZĘDZIE ───────────────────────────────── */}
+        <Section          preLabel="Narzędzie specjalne"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Specjalne narzędzie: formularz wyceny ogrodzenia</Heading>
+          <Callout variant="accent" icon="tabler:forms">
+            <strong>Inteligentny formularz, który zbiera kompletne dane od klientów.</strong>
+            {" "}Rodzaj ogrodzenia, długość, wysokość paneli, podmurówka, brama,
+            furtka — wszystko w jednym miejscu. Klient nie wyśle zapytania bez kluczowych informacji.
+          </Callout>
+          <div class="flex flex-wrap gap-3">
+            <Button link="oferta/ogrodzenia/kalkulator" class="btn-primary">Zobacz formularz wyceny</Button>
+            <Button link="kontakt" class="btn-ghost btn-outline">Zapytaj o wdrożenie</Button>
+          </div>
+        </Section>
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Masz firmę ogrodzeniową i chcesz mniej chaosu?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Napisz mi, skąd teraz przychodzą zapytania i co zajmuje Ci
+              najwięcej czasu przy każdej wycenie. Zaproponuję konkretne rozwiązanie.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

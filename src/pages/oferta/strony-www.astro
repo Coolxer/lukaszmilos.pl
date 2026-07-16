@@ -1,0 +1,201 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import Prose from "@components/ui/Prose.astro";
+import FAQ from "@components/ui/FAQ.astro";
+
+const meta = {
+  title: "Strony internetowe dla małych firm — Łukasz Miłoś",
+  description:
+    "Szybkie, czytelne strony WWW dla małych firm technicznych i produkcyjnych. Modernizuję istniejące witryny lub buduję nowe od zera.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Strony internetowe dla małych firm
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Szybkie, czytelne i dobrze działające na telefonie. Poprawiam istniejące strony
+              albo buduję nowe — tak, żeby Twój klient od razu wiedział, co robisz i jak się
+              z Tobą skontaktować.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary">Napisz do mnie</Button>
+              <Button link="#co-dostajesz" class="btn-ghost btn-outline" rawLink>Co dostajesz?</Button>
+            </div>
+          </div>
+        </Section>
+
+        {/* ── PROBLEMY ──────────────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Co najczęściej nie działa na stronie?</Heading>
+          <p class="text-base-content/60 font-light leading-relaxed">
+            Wiele stron firm technicznych ma podobne problemy. Efekt jest prosty: klient trafia
+            na stronę, nie znajduje potrzebnych informacji i przechodzi dalej.
+          </p>
+          <IconList
+            items={[
+              "Wolno się ładują, szczególnie na telefonach",
+              "Słabo działają na urządzeniach mobilnych",
+              "Pokazują za mało konkretów — klient nie wie, co oferujesz",
+              "Nie prezentują dobrze usług, realizacji i swoich możliwości",
+              "Nie zbierają sensownych zapytań od klientów",
+              "Są trudne do aktualizacji, każda zmiana coś psuje",
+              "Nikt nie wie, gdzie jest hosting, domena i kto ma dostęp",
+            ]}
+            iconName="tabler:x"
+            color="text-error"
+          />
+        </Section>
+
+        {/* ── ROZWIĄZANIA ───────────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Jak mogę pomóc?</Heading>
+          <IconList
+            items={[
+              "Modernizacja i uporządkowanie obecnej strony",
+              "Poprawa szybkości ładowania i wersji mobilnej",
+              "Uporządkowanie treści i struktury informacji",
+              "Wdrożenie podstaw technicznego SEO",
+              "Dodanie właściwych sekcji usług, realizacji i branżowych elementów",
+              "Formularz zapytania ofertowego z możliwością załączników",
+              "Wersje językowe (jeśli potrzebujesz)",
+              "Katalog produktów lub model zapytaj-o-produkt",
+              "CMS do samodzielnej edycji albo wersja bez obsługi",
+            ]}
+            iconName="tabler:check"
+            color="text-primary"
+          />
+        </Section>
+
+        {/* ── CO DOSTAJESZ ──────────────────────────────────────── */}
+        <Section
+          id="co-dostajesz"          preLabel="Co dostajesz"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Co dostajesz?</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {[
+              {
+                heading: "Szybsza i stabilniejsza strona",
+                text: "Strona ma działać sprawnie i przewidywalnie — nie irytować użytkownika ładowaniem, nie wyświetlać błędów, nie znikać raz na tydzień.",
+              },
+              {
+                heading: "Działająca wersja mobilna",
+                text: "Twój klient bardzo często trafia na stronę z telefonu — na hali, w aucie, między spotkaniami. Strona musi działać dobrze na małym ekranie.",
+              },
+              {
+                heading: "Porządne fundamenty pod SEO",
+                text: "Szybkość, struktura nagłówków, meta tagi, sensowna architektura treści — to wszystko wpływa na widoczność w Google.",
+              },
+              {
+                heading: "Jasna prezentacja Twojej oferty",
+                text: "Twoja strona ma konkretnie pokazywać: co robisz, dla kogo, z jakimi parametrami i jak się z Tobą skontaktować.",
+              },
+              {
+                heading: "Łatwiejszy rozwój",
+                text: "Zamiast strony, w której każda zmiana coś psuje, dostajesz uporządkowaną bazę — wygodną do edycji lub lekką i niewymagającą obsługi.",
+              },
+              {
+                heading: "Elementy dopasowane do branży",
+                text: "W przypadku CNC to np. park maszynowy ze specyfikacjami, galeria realizacji, katalog produktów, rozbudowany formularz ofertowy.",
+              },
+            ].map((d) => (
+              <div class="border-t border-base-content/10 py-6">
+                <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">{d.heading}</h3>
+                <p class="text-base-content/60 font-light leading-relaxed text-base">{d.text}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ── PORTFOLIO ─────────────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Zobacz przykłady realizacji</Heading>
+          <p class="text-base-content/60 font-light leading-relaxed">
+            Projekty stron dla firm technicznych, produkcyjnych i usługowych.
+          </p>
+          <div>
+            <Button link="portfolio" class="btn-outline">Przejdź do portfolio</Button>
+          </div>
+        </Section>
+
+        {/* ── CZEGO NIE ROBIĘ ───────────────────────────────────── */}
+        <Section          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Czego nie robię</Heading>
+          <Prose>
+            <p>
+              Nie prowadzę kampanii reklamowych. Nie robię pełnego marketingu.
+              Nie obiecuję pozycji numer 1 w Google. Nie jestem też grafikiem od
+              rozbudowanych identyfikacji wizualnych.
+            </p>
+            <p>
+              Moją działką jest <strong>solidna, technicznie dopracowana strona</strong>,
+              którą da się rozwijać bez chaosu.
+            </p>
+          </Prose>
+        </Section>
+
+        {/* ── FAQ ───────────────────────────────────────────────── */}
+        <Section          preLabel="FAQ"
+          class="border-t border-base-content/8"        >
+          <Heading tag="h2" look="h2" slot="heading">Często zadawane pytania</Heading>
+          <FAQ
+            items={[
+              {
+                question: "Czy zawsze trzeba robić nową stronę?",
+                answer: "Nie. Najpierw warto sprawdzić, czy obecna nadaje się do poprawy i rozbudowy. Często modernizacja jest tańszą i szybszą opcją.",
+              },
+              {
+                question: "Czy będę mógł sam edytować treści?",
+                answer: "Tak, jeśli tego potrzebujesz. Zakres edycji można dopasować do projektu — od pełnego CMS po lekkie rozwiązanie wymagające minimalnej obsługi.",
+              },
+              {
+                question: "Na czym budujesz strony?",
+                answer: "Dobieram technologię do sytuacji. Stawiam na lekkie i stabilne rozwiązania, bez niepotrzebnego ciężaru dodatkowych wtyczek i zależności.",
+              },
+              {
+                question: "Czy pomożesz też z hostingiem, domeną i pocztą?",
+                answer: "Tak — jeśli to część problemu, mogę to uporządkować razem ze stroną.",
+              },
+              {
+                question: "Ile to kosztuje?",
+                answer: "Cena zależy od zakresu prac, podobnie jak w przypadku detalu w warsztacie — od liczby operacji i tolerancji. Napisz, co potrzebujesz, a przedstawię konkretną wycenę.",
+              },
+            ]}
+          />
+        </Section>
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Masz stronę, która nie działa tak jak powinna?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Powiem Ci konkretnie, która droga ma sens — i ile to będzie kosztować.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

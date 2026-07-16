@@ -1,0 +1,21 @@
+---
+export interface Props {
+  variant?: "primary" | "accent" | "outline" | "dark" | "default" | "label";
+  class?: string;
+}
+
+const { variant = "primary", class: className } = Astro.props;
+
+const variantClasses = {
+  primary: "badge badge-lg badge-primary font-medium tracking-wide",
+  accent: "badge badge-lg badge-accent font-medium tracking-wide",
+  outline: "badge badge-lg badge-outline font-medium tracking-wide",
+  dark: "badge badge-lg badge-neutral font-medium tracking-wide",
+  default: "badge badge-lg badge-ghost font-medium tracking-wide",
+  label: "font-mono text-xs uppercase tracking-[0.22em] text-base-content/40 font-medium",
+};
+---
+
+<span class:list={[variantClasses[variant], className]}>
+  <slot />
+</span>

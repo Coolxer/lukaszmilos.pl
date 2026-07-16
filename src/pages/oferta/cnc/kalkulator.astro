@@ -1,0 +1,127 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import Card from "@components/ui/Card.astro";
+import Callout from "@components/ui/Callout.astro";
+import Prose from "@components/ui/Prose.astro";
+
+const meta = {
+  title: "Kalkulator wyceny CNC — narzędzie dla zakładów obróbki skrawaniem",
+  description:
+    "Narzędzie online zbierające parametry detalu (plik DXF, material, ilość, tolerancje) i generujące wstępną wycenę lub kompletne zapytanie ofertowe.",
+};
+
+const collectedParams = [
+  "Plik DXF, STEP lub PDF z dokumentacją techniczną",
+  "Materiał (rodzaj, gatunek, obróbka cieplna)",
+  "Wymiary gabarytowe i masa orientacyjna",
+  "Wymagane tolerancje i chropowatość powierzchni",
+  "Liczba sztuk i pożądany termin realizacji",
+  "Dodatkowe wymagania (certyfikaty, atesty, odbiór)",
+];
+
+const benefits = [
+  { icon: "tabler:file-check", heading: "Kompletne zapytania od razu", text: "Zamiast 3 rund pytań przez e-mail — klient podaje wszystko w jednym kroku. Ty oceniasz na podstawie pełnych danych." },
+  { icon: "tabler:clock", heading: "Szybsza wstępna wycena", text: "Narzędzie może od razu wyliczyć orientacyjny czas maszynowy i koszt materiału — dla standardowych przypadków." },
+  { icon: "tabler:brand-python", heading: "Integracja z plikami DXF", text: "Skrypt (Python / ezdxf) analizuje przesłany rysunek: odczytuje gabaryty, zlicza otwory, wydziela warstwami operacje obróbcze." },
+  { icon: "tabler:mail-forward", heading: "Automatyczne powiadomienie", text: "Po wypełnieniu formularza przez klienta — dostajesz e-mail z kompletnym zestawieniem danych, gotowym do oceny." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full shadow-primary">
+      <Navbar />
+      <main class="w-full block">
+
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Kalkulator wyceny dla zakładów CNC
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Narzędzie online, które zbiera od klienta wszystko, czego potrzebujesz do wyceny:
+              plik DXF lub STEP, materiał, ilość, tolerancje — zanim wyślesz pierwszą wiadomość.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary">Zamów to narzędzie</Button>
+              <Button link="oferta/cnc" class="btn-outline">Wróć do oferty CNC</Button>
+            </div>
+          </div>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Co zbiera formularz od klienta?</Heading>
+          <IconList items={collectedParams} iconName="tabler:check" color="text-primary" />
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Jak to działa?</Heading>
+          <Prose>
+            <p>
+              Klient trafia na formularz (na stronie, z OLX lub z wizytówki Google).
+              Wgrywa plik rysunkowy i wypełnia parametry zamówienia. Formularz nie pozwoli
+              mu wysłać zapytania bez wymaganych informacji.
+            </p>
+            <p>
+              Skrypt backendowy (Python / ezdxf) może automatycznie odczytać wymiary z DXF —
+              długość konturów, liczbę otworów, powierzchnię materiału. Na tej podstawie
+              wylicza orientacyjny czas maszynowy i koszt materiału dla wybranych gatunków.
+            </p>
+            <p>
+              Ty dostajesz e-mail z gotowym zestawieniem. Klient widzi ekran potwierdzenia
+              ze słowem „dziękujemy i odezwiemy się w ciągu X godzin".
+            </p>
+          </Prose>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Co zyskujesz?</Heading>
+          <Grid cols={2} gap="normal">
+            {benefits.map((b) => (
+              <Card icon={b.icon} heading={b.heading} variant="bordered">{b.text}</Card>
+            ))}
+          </Grid>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">To narzędzie szyte na miarę</Heading>
+          <Callout variant="info" icon="tabler:info-circle">
+            <strong>Kalkulator CNC to rozwiązanie niestandardowe.</strong>
+            {" "}Każdy zakład ma swój park maszynowy, cennik i parametry obróbki.
+            Narzędzie jest budowane pod Twój konkretny proces — po krótkim wywiadzie
+            o tym, jak dziś wygląda przyjmowanie zamówień.
+          </Callout>
+          <p class="text-base-content/70">
+            Czas realizacji: 2–4 tygodnie. Gotowe narzędzie działa niezależnie lub
+            jako część strony zakładu.
+          </p>
+          <Button link="kontakt" class="btn-primary">Porozmawiajmy o szczegółach</Button>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Zainteresowany kalkulatorem dla Twojego zakładu?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Opisz mi, jak dziś wygląda przyjmowanie zapytań i wycena w Twoim zakładzie.
+              Powiem Ci, czy i jak szybko możemy to usprawnić.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

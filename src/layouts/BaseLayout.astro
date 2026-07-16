@@ -68,11 +68,25 @@ const { meta, schema } = Astro.props;
     </script>
 
     <script>
-      import { themeChange } from "theme-change";
-      themeChange();
+      document.querySelectorAll("[data-toggle-theme]").forEach((el) => {
+        const input = el as HTMLInputElement;
+        const themes = (input.dataset.toggleTheme ?? "").split(",");
+        if (input.type === "checkbox") {
+          input.checked =
+            document.documentElement.getAttribute("data-theme") === themes[1];
+        }
+        input.addEventListener("change", () => {
+          const current =
+            document.documentElement.getAttribute("data-theme") ?? themes[0];
+          const next = current === themes[0] ? themes[1] : themes[0];
+          document.documentElement.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        });
+      });
     </script>
+
   </head>
-  <body>
+  <body class="bg-base-100 text-base-content">
     <slot />
     {/* 100% privacy-first analytics */}
     <script

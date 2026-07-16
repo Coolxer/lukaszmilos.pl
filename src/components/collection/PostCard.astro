@@ -1,11 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-
 import { buildSlug } from "@utils/utils";
-
-import MyImage from "@components/ui/MyImage.astro";
-import Button from "@components/ui/Button.astro";
-
 import Heading, { type Tag } from "@components/ui/Heading.astro";
 
 export interface Props {
@@ -19,68 +14,28 @@ const { post, headingTag = "h3", class: className } = Astro.props;
 const link = buildSlug(`/blog/${post.id}/`);
 ---
 
-<article
-  class:list={[
-    "grid grid-cols-3 gap-2 group bg-base-100 border-2 border-primary/30 rounded-box shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-full",
-    className,
-  ]}
->
-  {/* Obrazek */}
-  {
-    post.data.image && (
-      <a href={link} class="h-full block overflow-hidden">
-        <MyImage
-          src={"posts/" + post.data.image.src}
-          alt={post.data.image.alt}
-          width={500}
-          height={500}
-          rounded="rounded-none"
-          class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-      </a>
-    )
-  }
-
-  {/* Treść */}
-  <div class="flex flex-col flex-grow p-6 my-stack col-span-2">
-    {/* Kategorie */}
+<article class:list={["border-t border-base-content/10 py-6", className]}>
+  <a href={link} class="group flex flex-col gap-2">
     {
       post.data.categories && post.data.categories.length > 0 && (
-        <div class="flex flex-wrap gap-2">
-          {post.data.categories.map((category) => (
-            <a
-              href={buildSlug("/blog/kategoria/" + category)}
-              class="badge badge-primary badge-sm hover:badge-primary-focus transition-colors"
-            >
-              {category}
-            </a>
+        <div class="flex flex-wrap gap-3">
+          {post.data.categories.map((cat) => (
+            <span class="font-mono text-xs uppercase tracking-[0.15em] text-base-content/40">
+              {cat}
+            </span>
           ))}
         </div>
       )
     }
-
-    {/* Tytuł */}
-    <a href={link} class="group-hover:text-primary transition-colors">
-      <Heading tag={headingTag} look="h4">
-        {post.data.heading}
-      </Heading>
-    </a>
-
-    {/* Podtytuł / opis */}
+    <Heading tag={headingTag} look="h4" class="group-hover:text-primary transition-colors">
+      {post.data.heading}
+    </Heading>
     {
       post.data.subheading && (
-        <p class="text-base-content/80 line-clamp-3 leading-relaxed">
+        <p class="text-base-content/60 font-light leading-relaxed line-clamp-2">
           {post.data.subheading}
         </p>
       )
     }
-
-    <div class="flex-grow"></div>
-
-    <div class="mt-4">
-      <Button link={link} class="btn-primary btn-sm w-full">
-        Czytaj więcej
-      </Button>
-    </div>
-  </div>
+  </a>
 </article>

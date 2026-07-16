@@ -3,7 +3,7 @@ import Container from "@components/layout/Container.astro";
 
 export interface Props {
   id?: string;
-  variant?: "default" | "secondary" | "tetriary";
+  variant?: "default" | "secondary" | "tetriary" | "tinted" | "dark";
   padding?: "none" | "sm" | "md" | "lg";
   containerSize?: string;
   innerDivClasses?: string;
@@ -12,20 +12,23 @@ export interface Props {
   alwaysLeftContent?: boolean;
   headingAndParagraphClasses?: string;
   heroSection?: boolean;
+  preLabel?: string;
   class?: string;
+  style?: string;
 }
 
 const {
   id,
   variant = "default",
   padding = "lg",
-  containerSize = "max-w-4xl",
+  containerSize = "max-w-3xl",
   innerDivClasses = "flex flex-col gap-8 lg:gap-12",
   innerDivAdditionalClasses = "",
   headingAndParagraphClasses = "[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-lg",
   alwaysCenterContent = false,
   alwaysLeftContent = false,
   heroSection = false,
+  preLabel,
   class: className,
   ...rest
 } = Astro.props;
@@ -34,13 +37,15 @@ const variantClasses = {
   default: "",
   secondary: "bg-base-200",
   tetriary: "bg-neutral",
+  tinted: "bg-primary/4",
+  dark: "bg-neutral text-neutral-content [&_p]:text-neutral-content/80 [&_h2]:text-neutral-content [&_h3]:text-neutral-content",
 };
 
 const paddingClasses = {
   none: "",
   sm: "py-6 md:py-8",
   md: "py-8 md:py-10 lg:py-12",
-  lg: "py-12 md:py-14 lg:py-16",
+  lg: "py-16 md:py-20 lg:py-24",
 };
 
 const headingAndParagraphDefaultClases = heroSection
@@ -54,9 +59,8 @@ const headingAndParagraphDefaultClases = heroSection
     "w-full",
     variantClasses[variant],
     heroSection
-      ? "pt-16 md:pt-20 lg:pt-24 pb-8 md:pb-10 lg:pb-12"
+      ? "relative pt-24 md:pt-36 lg:pt-44 pb-16 md:pb-24 lg:pb-28"
       : paddingClasses[padding],
-    paddingClasses[padding],
     className,
   ]}
   {...rest}
@@ -86,6 +90,11 @@ const headingAndParagraphDefaultClases = heroSection
                     : "text-left lg:text-center",
               ]}
             >
+              {preLabel && (
+                <p class="font-mono text-xs uppercase tracking-[0.2em] text-base-content/40 font-medium -mb-2">
+                  {preLabel}
+                </p>
+              )}
               <slot name="heading" />
               <slot name="paragraph" />
             </div>

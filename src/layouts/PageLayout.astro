@@ -29,17 +29,16 @@ const { pageTitle, pageDescription, meta, schema } = Astro.props;
       <main class="w-full block">
         {
           pageTitle && (
-            <Section
-              padding="md"
-              containerSize="max-w-4xl"
-              alwaysCenterContent
-              headingAndParagraphClasses="[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-h5 [&_p]:mt-4"
-            >
-              <Heading tag="h1" look="h0" slot="heading">
-                {pageTitle}
-              </Heading>
-              {pageDescription && <p slot="paragraph">{pageDescription}</p>}
-              <slot name="header" />
+            <Section heroSection>
+              <div class="flex flex-col gap-8 animate-reveal">
+                <Heading tag="h1" look="h0">{pageTitle}</Heading>
+                {pageDescription && (
+                  <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+                    {pageDescription}
+                  </p>
+                )}
+                <slot name="header" />
+              </div>
             </Section>
           )
         }

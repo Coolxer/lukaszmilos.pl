@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+import Heading from "@components/ui/Heading.astro";
+
+export interface Props {
+  icon?: string;
+  heading: string;
+  variant?: "default" | "bordered" | "filled" | "minimal";
+  class?: string;
+}
+
+const { icon, heading, variant = "default", class: className } = Astro.props;
+
+const variantClasses = {
+  default: "bg-base-100 p-6 rounded-md",
+  bordered: "bg-base-100 border border-primary/15 p-6 rounded-md",
+  filled: "bg-base-200 p-6 rounded-md",
+  minimal: "border-l-2 border-base-content/15 pl-5",
+};
+---
+
+<div class:list={["flex flex-col gap-4", variantClasses[variant], className]}>
+  {icon && (
+    <div class="text-primary">
+      <Icon name={icon} class="size-7" />
+    </div>
+  )}
+  <Heading tag="h3" look="h5">{heading}</Heading>
+  <div class="text-base-content/70 leading-relaxed">
+    <slot />
+  </div>
+</div>
