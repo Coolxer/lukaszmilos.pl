@@ -10,7 +10,7 @@ import IconList from "@components/ui/IconList.astro";
 import Callout from "@components/ui/Callout.astro";
 
 const meta = {
-  title: "Strony i narzędzia dla firm ogrodzeniowych — Łukasz Miłoś",
+  title: "Strony i narzędzia dla firm ogrodzeniowych",
   description:
     "Koniec z chaosem na OLX i Messengerze. Tworzę strony i formularze wycen dla firm ogrodzeniowych — zbierające kompletne dane zanim odpiszesz.",
 };
@@ -48,7 +48,7 @@ const meta = {
             items={[
               "Ile za płot? — bez długości, wysokości, rodzaju i lokalizacji",
               "Odpowiadasz na dziesiątki pytań zanim wyślesz pierwszą wycenę",
-              "Klienci nie rozróżniają panelu 153 od 183 — wybierają najtańsze, bo nikt im nie wyjaśnił",
+              "Klient pyta \"ile za metr\", nie podając wysokości panelu — a 153 cm i 183 cm to zupełnie inna wycena",
               "Zdjęcia realizacji masz na telefonie, ale nie ma ich w jednym miejscu",
               "Brak strony = brak widoczności poza OLX i Facebookiem",
               "Każde ogłoszenie wymaga wklejania tych samych 10 pytań w komentarzach",
@@ -74,11 +74,15 @@ const meta = {
               },
               {
                 heading: "Lokalnie widoczna strona",
-                text: "Podstawy SEO pod frazy: ogrodzenia panelowe [miasto], montaż ogrodzeń [region]. Klienci z Google zamiast tylko z OLX.",
+                text: "Treść opisująca to, co robisz i gdzie działasz — ogrodzenia panelowe [miasto], montaż ogrodzeń [region]. Fundament pod to, żeby klienci trafiali też z Google, nie tylko z OLX.",
               },
               {
                 heading: "Działa na budowie",
                 text: "Twoi klienci pytają o ogrodzenia z poziomu smartfona — na budowie, w samochodzie. Strona musi działać idealnie na małym ekranie.",
+              },
+              {
+                heading: "Klient wie, na jakim jest etapie",
+                text: "Automatyczne powiadomienie e-mailem lub SMS-em o zmianie statusu montażu (przyjęte → w realizacji → zakończone) — zamiast telefonów z pytaniem \"na kiedy ekipa?\".",
               },
             ].map((s) => (
               <div class="border-t border-base-content/10 py-6">

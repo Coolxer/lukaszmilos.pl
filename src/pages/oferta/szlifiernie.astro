@@ -1,0 +1,206 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import IconList from "@components/ui/IconList.astro";
+import Callout from "@components/ui/Callout.astro";
+import Steps from "@components/ui/Steps.astro";
+
+const meta = {
+  title: "Strony i narzędzia dla szlifierni i ostrzarni",
+  description:
+    "Strony internetowe i cyfrowe narzędzia dla zakładów szlifierskich i ostrzarskich. Szlifowanie płaskie, kształtowe, ostrzenie narzędzi i pił — rozumiem Twój proces.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full">
+      <Navbar />
+      <main class="w-full block">
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Strony i narzędzia dla szlifierni i ostrzarni
+            </Heading>
+            <p
+              class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl"
+            >
+              Tworzę strony internetowe i cyfrowe narzędzia specjalnie dla
+              zakładów szlifierskich i ostrzarskich. Szlifowanie płaskie i
+              kształtowe, ostrzenie narzędzi przemysłowych i pił — rozumiem Twój
+              proces i mówię językiem Twoich klientów.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="kontakt" class="btn-primary">Porozmawiajmy</Button>
+              <Button
+                link="oferta/szlifiernie/kalkulator"
+                class="btn-ghost btn-outline">Formularz zgłoszenia</Button
+              >
+            </div>
+          </div>
+        </Section>
+
+        {/* ── PROBLEMY ──────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading"
+            >Problemy, które znam ze szlifierni i ostrzarni</Heading
+          >
+          <IconList
+            items={[
+              "Strona (jeśli istnieje) nie pokazuje zakresu usług — rodzajów szlifowania, maksymalnych gabarytów, tolerancji",
+              "Zgłoszenia przychodzą bez materiału, twardości, wymiarów czy rysunku detalu",
+              "Żeby ocenić zakres pracy, często trzeba zobaczyć narzędzie na żywo — a klient dzwoni z pytaniem, zamiast po prostu przesłać zdjęcie",
+              "Każde zlecenie trzeba zgłosić telefonicznie albo osobiście — nie ma prostszej ścieżki, żeby po prostu zamówić online",
+              'Na stronie brakuje treści, która opisuje zakres usług — więc trudno Cię znaleźć w wyszukiwarce po frazach typu "ostrzenie pił [miasto]"',
+              "Klient dzwoni w połowie tygodnia z pytaniem, czy zlecenie jest już gotowe do odbioru",
+              "Każde zgłoszenie zaczyna się od tego samego ciągu pytań przez telefon",
+            ]}
+            iconName="tabler:alert-circle"
+            color="text-warning"
+          />
+        </Section>
+
+        {/* ── CO MOŻESZ ZYSKAĆ ──────────────────────────────────── */}
+        <Section preLabel="Rozwiązania" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h2" slot="heading">Co możesz zyskać</Heading>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+            {
+              [
+                {
+                  heading: "Zakres usług na stronie",
+                  text: "Rodzaje szlifowania, ostrzenia, maksymalne gabaryty i osiągane tolerancje — tak żeby klient sam znalazł odpowiedź bez dzwonienia.",
+                },
+                {
+                  heading: "Formularz zgłoszenia detalu",
+                  text: "Klient podaje rodzaj narzędzia lub detalu, materiał, ilość, termin i zdjęcie narzędzia — od razu widzisz stan i zakres pracy, zamiast doprecyzowywać to telefonicznie.",
+                },
+                {
+                  heading: "Treść pod realne frazy wyszukiwania",
+                  text: "Szlifowanie płaskie [miasto], ostrzenie pił tarczowych [region] — układam treść strony tak, żeby dobrze opisywała to, co robisz. To fundament widoczności, nie obietnica pierwszego miejsca w Google.",
+                },
+                {
+                  heading: "Klient wie, na jakim jest etapie",
+                  text: 'Automatyczne powiadomienie e-mailem lub SMS-em o zmianie statusu zlecenia serwisowego (przyjęte → w realizacji → gotowe do odbioru) — zamiast telefonów z pytaniem "na kiedy będzie gotowe?".',
+                },
+              ].map((s) => (
+                <div class="border-t border-base-content/10 py-6">
+                  <h3 class="text-xl font-semibold text-base-content mb-2 tracking-tight">
+                    {s.heading}
+                  </h3>
+                  <p class="text-base-content/60 font-light leading-relaxed text-base">
+                    {s.text}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </Section>
+
+        {/* ── SPECJALNE NARZĘDZIE ───────────────────────────────── */}
+        <Section
+          preLabel="Narzędzie specjalne"
+          class="border-t border-base-content/8"
+        >
+          <Heading tag="h2" look="h2" slot="heading"
+            >Specjalne narzędzie dla szlifierni i ostrzarni</Heading
+          >
+          <Callout variant="accent" icon="tabler:forms">
+            <strong
+              >Formularz zgłoszenia z automatycznym statusem zlecenia.</strong
+            >
+            {" "}Narzędzie online, które zbiera od klienta rodzaj usługi,
+            materiał, ilość i termin — a po przyjęciu zlecenia informuje go
+            e-mailem lub SMS-em, gdy jest gotowe do odbioru.
+          </Callout>
+          <div>
+            <Button link="oferta/szlifiernie/kalkulator" class="btn-primary"
+              >Zobacz formularz zgłoszenia</Button
+            >
+          </div>
+        </Section>
+
+        {/* ── MODEL WYSYŁKOWY ───────────────────────────────────── */}
+        <Section
+          preLabel="Model wysyłkowy"
+          class="border-t border-base-content/8"
+        >
+          <Heading tag="h2" look="h2" slot="heading"
+            >Wyślij — naostrzymy — odeślemy</Heading
+          >
+          <p class="text-base-content/60 font-light leading-relaxed">
+            Wielu klientów szlifierni i ostrzarni nie mieszka za rogiem. Cały
+            proces — od zgłoszenia po odbiór gotowego narzędzia — może iść przez
+            kuriera, bez konieczności przyjazdu do zakładu.
+          </p>
+          <p class="text-base-content/60 font-light leading-relaxed">
+            Jak to dziś wygląda u Ciebie? Umawianie kuriera w obie strony,
+            pilnowanie, gdzie akurat jest przesyłka, przypominanie klientowi o
+            statusie — to potrafi zająć więcej czasu niż samo szlifowanie. Da
+            się to uprościć i zautomatyzować, żeby cały proces był w ryzach, a
+            nie rozjeżdżał się po mailach, SMS-ach i notatkach na kartce.
+          </p>
+          <Steps
+            items={[
+              {
+                title: "Zgłoszenie online ze zdjęciem",
+                description:
+                  "Klient wypełnia formularz i dołącza zdjęcie narzędzia — widzisz stan i zakres pracy, zanim je odbierzesz.",
+              },
+              {
+                title: "Kurier odbiera przesyłkę",
+                description:
+                  "Spod adresu wskazanego przez klienta, bez konieczności przyjazdu do zakładu.",
+              },
+              {
+                title: "Szlifowanie / ostrzenie",
+                description: "Zgodnie z tym, co klient podał w zgłoszeniu.",
+              },
+              {
+                title: "Płatność online",
+                description:
+                  "Rozliczenie po wykonaniu usługi, przed odesłaniem narzędzia.",
+              },
+              {
+                title: "Kurier odsyła gotowe narzędzie",
+                description:
+                  "Klient na bieżąco widzi status zlecenia — bez dzwonienia z pytaniem, czy już gotowe.",
+              },
+            ]}
+            variant="circles"
+          />
+        </Section>
+
+        {/* ── CTA ───────────────────────────────────────────────── */}
+        <Section class="border-t border-base-content/8">
+          <div
+            class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6"
+          >
+            <Heading tag="h2" look="h2"
+              >Masz szlifiernię lub ostrzarnię i chcesz mniej telefonów?</Heading
+            >
+            <p
+              class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg"
+            >
+              Opisz mi, czym się zajmujesz — jakie masz maszyny, jakie zlecenia
+              najczęściej obsługujesz. Powiem Ci konkretnie, co możemy zrobić i
+              ile to zajmie.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8"
+                >Napisz do mnie</Button
+              >
+            </div>
+          </div>
+        </Section>
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>

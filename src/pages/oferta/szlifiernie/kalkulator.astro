@@ -1,0 +1,265 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Grid from "@components/layout/Grid.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import IconList from "@components/ui/IconList.astro";
+
+const meta = {
+  title: "Formularz zgłoszenia i status zlecenia — dla szlifierni i ostrzarni",
+  description:
+    "Narzędzie, które zbiera od klientów kompletne dane do zlecenia szlifierskiego lub ostrzarskiego i automatycznie informuje ich o statusie realizacji.",
+};
+
+const benefits = [
+  { icon: "tabler:phone-off", heading: "Koniec z telefonami po dane", text: "Klient nie zgłosi zlecenia bez podania rodzaju usługi, materiału i ilości. Formularz wymusza podanie kluczowych danych." },
+  { icon: "tabler:bell-ringing", heading: "Automatyczny status zlecenia", text: "Klient dostaje e-mail lub SMS przy każdej zmianie statusu: przyjęte → w realizacji → gotowe do odbioru. Bez telefonów z pytaniem \"na kiedy?\"." },
+  { icon: "tabler:clock", heading: "Oszczędność czasu", text: "Zamiast notować zgłoszenia na kartce lub przez telefon, dostajesz gotowe dane do wyceny i harmonogramu w jednym miejscu." },
+  { icon: "tabler:truck-delivery", heading: "Zamawiasz bez wychodzenia z zakładu", text: "Klient zgłasza zlecenie ze zdjęciem, kurier odbiera i odsyła narzędzie — cały proces bez przyjazdu na miejsce." },
+];
+
+const useCases = [
+  "Formularz na stronie zakładu zamiast wypełniania karty zlecenia ręcznie",
+  "Link wysyłany stałym klientom (serwisy pił, stolarnie) do samodzielnego zgłaszania zleceń",
+  "Osadzenie formularza na Facebooku lub w Google Moja Firma",
+  "Powiadomienia SMS/e-mail o statusie jako alternatywa dla telefonu do klienta",
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="w-full flex justify-center">
+    <div class="flex flex-col min-h-screen justify-between w-full shadow-primary">
+      <Navbar />
+      <main class="w-full block">
+
+        <Section heroSection>
+          <div class="flex flex-col gap-8 animate-reveal">
+            <Heading tag="h1" look="h0">
+              Formularz zgłoszenia dla szlifierni i ostrzarni
+            </Heading>
+            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
+              Narzędzie online, które zbiera od klienta wszystko, czego potrzebujesz do przyjęcia zlecenia:
+              rodzaj usługi, materiał, ilość, termin — a potem informuje go automatycznie o statusie realizacji.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button link="#demo" class="btn-primary" rawLink>Przetestuj demo</Button>
+              <Button link="oferta/szlifiernie" class="btn-outline">Wróć do oferty</Button>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="demo" class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Przetestuj demo — tak wygląda formularz Twoich klientów</Heading>
+          <p class="text-base-content/70 -mt-2">
+            Poniżej widzisz formularz zbierający dane do zlecenia szlifierskiego lub ostrzarskiego.
+            Wypełnij go jak klient i kliknij "Wyślij" — zobaczysz, jak wygląda potwierdzenie zgłoszenia ze statusem.
+          </p>
+
+          <div class="border border-base-300 rounded-xl p-6 bg-base-100 shadow-sm">
+            <form id="sharpen-form" class="flex flex-col gap-5" novalidate>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="service-type">
+                    Rodzaj usługi <span class="text-error">*</span>
+                  </label>
+                  <select id="service-type" name="type" required
+                    class="select select-bordered w-full">
+                    <option value="">Wybierz...</option>
+                    <option>Szlifowanie płaskie</option>
+                    <option>Szlifowanie kształtowe</option>
+                    <option>Ostrzenie narzędzi przemysłowych</option>
+                    <option>Ostrzenie pił tarczowych / taśmowych</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="material">
+                    Materiał
+                  </label>
+                  <select id="material" name="material" class="select select-bordered w-full">
+                    <option>Stal narzędziowa</option>
+                    <option>Stal nierdzewna</option>
+                    <option>Węglik spiekany</option>
+                    <option>Nie wiem / proszę doradzić</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="quantity">
+                    Ilość sztuk <span class="text-error">*</span>
+                  </label>
+                  <input id="quantity" name="quantity" type="number" min="1" max="9999" required
+                    placeholder="np. 5"
+                    class="input input-bordered w-full" />
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="deadline">
+                    Oczekiwany termin
+                  </label>
+                  <select id="deadline" name="deadline" class="select select-bordered w-full">
+                    <option>Bez pośpiechu</option>
+                    <option>W ciągu tygodnia</option>
+                    <option>Na już / ekspres</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="delivery">
+                    Sposób dostarczenia
+                  </label>
+                  <select id="delivery" name="delivery" class="select select-bordered w-full">
+                    <option>Osobiście w zakładzie</option>
+                    <option>Kurier — odbiór i odesłanie</option>
+                    <option>Kurier — tylko odbiór (odbiorę osobiście)</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-sm font-medium text-base-content" for="email-demo">
+                    Twój adres e-mail
+                  </label>
+                  <input id="email-demo" name="email" type="email"
+                    placeholder="np. jan@example.com"
+                    class="input input-bordered w-full" />
+                  <p class="text-xs text-primary/80">
+                    Wpisz swój e-mail, by zobaczyć jak wygląda powiadomienie o statusie zlecenia.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-medium text-base-content" for="notes">
+                  Opis detalu / uwagi
+                </label>
+                <textarea id="notes" name="notes" rows="3"
+                  placeholder="Rodzaj narzędzia, wymiary, ewentualne uszkodzenia, dodatkowe wymagania..."
+                  class="textarea textarea-bordered w-full resize-none"></textarea>
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-sm font-medium text-base-content" for="photo">
+                  Zdjęcie narzędzia
+                </label>
+                <input id="photo" name="photo" type="file" accept="image/*"
+                  class="file-input file-input-bordered w-full" />
+                <p class="text-xs text-base-content/50">
+                  Opcjonalnie — pomaga ocenić stan i zakres pracy bez oglądania narzędzia na żywo.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-3 pt-1">
+                <button type="submit" class="btn btn-primary">
+                  Wyślij zgłoszenie
+                </button>
+                <button type="reset" class="btn btn-ghost btn-sm self-center">
+                  Wyczyść formularz
+                </button>
+              </div>
+
+            </form>
+
+            <div id="demo-result" class="hidden mt-8 border-t border-base-300 pt-6">
+              <p class="text-xs font-mono text-base-content/40 uppercase tracking-wider mb-4">Podgląd potwierdzenia zgłoszenia</p>
+              <div class="bg-base-200 rounded-lg p-5 font-mono text-sm leading-relaxed space-y-1 text-base-content/80">
+                <p class="font-semibold text-base-content">Zlecenie <span id="order-number"></span> przyjęte</p>
+                <p class="text-xs text-base-content/50 mb-3">status: <span class="text-warning">w realizacji</span></p>
+                <p id="summary-type"></p>
+                <p id="summary-material"></p>
+                <p id="summary-quantity"></p>
+                <p id="summary-deadline"></p>
+                <p id="summary-delivery"></p>
+                <p id="summary-photo"></p>
+                <p id="summary-notes" class="mt-2 text-base-content/60 italic"></p>
+              </div>
+              <p class="mt-4 text-sm text-base-content/60">
+                Płatność online zostanie wysłana po wykonaniu usługi, przed odesłaniem narzędzia.
+              </p>
+              <p class="mt-2 text-sm text-success flex items-center gap-2">
+                <span>✓</span>
+                Klient dostanie e-mail lub SMS, gdy status zmieni się na "gotowe do odbioru".
+              </p>
+              <div class="mt-4">
+                <Button link="kontakt" class="btn-primary btn-sm">Chcę taki formularz dla swojego zakładu</Button>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Co zyskujesz?</Heading>
+          <Grid cols={2} gap="normal">
+            {benefits.map((b) => (
+              <Card icon={b.icon} heading={b.heading} variant="bordered">{b.text}</Card>
+            ))}
+          </Grid>
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <Heading tag="h2" look="h3" slot="heading">Gdzie używać formularza?</Heading>
+          <IconList items={useCases} iconName="tabler:arrow-right" color="text-primary" />
+        </Section>
+
+        <Section class="border-t border-base-content/8">
+          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+            <Heading tag="h2" look="h2">Chcesz taki formularz dla swojej szlifierni lub ostrzarni?</Heading>
+            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
+              Napisz, jak dziś przyjmujesz zlecenia i informujesz klientów o postępie prac.
+              Postawię Ci gotowe narzędzie w 2–3 tygodnie.
+            </p>
+            <div>
+              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+            </div>
+          </div>
+        </Section>
+
+      </main>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('sharpen-form') as HTMLFormElement;
+  const result = document.getElementById('demo-result') as HTMLElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    const get = (key: string) => (data.get(key) as string)?.trim() || '';
+
+    const setLine = (id: string, label: string, value: string) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value ? `${label}: ${value}` : '';
+    };
+
+    const orderNumber = `#SZ-${Math.floor(1000 + Math.random() * 9000)}`;
+    const orderEl = document.getElementById('order-number');
+    if (orderEl) orderEl.textContent = orderNumber;
+
+    setLine('summary-type',     'Rodzaj usługi', get('type'));
+    setLine('summary-material', 'Materiał',      get('material'));
+    setLine('summary-quantity', 'Ilość',         get('quantity') ? `${get('quantity')} szt.` : '');
+    setLine('summary-deadline', 'Termin',        get('deadline'));
+    setLine('summary-delivery', 'Dostarczenie',  get('delivery'));
+
+    const photoInput = document.getElementById('photo') as HTMLInputElement;
+    const photoEl = document.getElementById('summary-photo');
+    if (photoEl) photoEl.textContent = photoInput?.files?.length ? 'Zdjęcie: dołączone' : '';
+
+    const notes = get('notes');
+    const notesEl = document.getElementById('summary-notes');
+    if (notesEl) notesEl.textContent = notes ? `Uwagi: ${notes}` : '';
+
+    result.classList.remove('hidden');
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
