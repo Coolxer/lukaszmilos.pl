@@ -34,7 +34,7 @@ const { pageTitle, pageDescription, meta, schema, heroImage, heroImageAlt = "" }
         {
           pageTitle && (
             <Section heroSection containerSize="max-w-7xl">
-              <div class:list={["animate-reveal", heroImage ? "grid gap-10 lg:grid-cols-[1fr_.7fr] lg:items-center lg:gap-16" : "flex flex-col gap-8"]}>
+              <div class={heroImage ? "grid gap-10 lg:grid-cols-[1fr_.7fr] lg:items-center lg:gap-16" : "flex flex-col gap-8"}>
                 <div class="flex flex-col gap-8">
                 <Heading tag="h1" look="h0">{pageTitle}</Heading>
                 {pageDescription && (
@@ -44,7 +44,7 @@ const { pageTitle, pageDescription, meta, schema, heroImage, heroImageAlt = "" }
                 )}
                 <slot name="header" />
                 </div>
-                {heroImage && <div class="hero-illustration" aria-hidden="true"><MyImage img={heroImage} alt={heroImageAlt} size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" /></div>}
+                {heroImage && <div class="hero-illustration" aria-hidden="true"><MyImage img={heroImage} loading="eager" fetchpriority="high" alt={heroImageAlt} size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" /></div>}
               </div>
             </Section>
           )

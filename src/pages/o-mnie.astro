@@ -46,7 +46,7 @@ const principles = [
         containerSize="max-w-7xl"
         innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.76fr] lg:items-end lg:gap-16"
       >
-        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+        <div class="flex max-w-3xl flex-col items-start gap-7">
           <p class="text-sm font-semibold text-primary">O mnie</p>
           <Heading tag="h1" look="h0"
             >Lubię, gdy technologia pomaga w rzeczywistej pracy.</Heading
@@ -66,9 +66,11 @@ const principles = [
             >
           </div>
         </div>
-        <div class="animate-reveal-delay portrait-panel max-w-md lg:ml-auto">
+        <div class="portrait-panel max-w-md lg:ml-auto">
           <MyImage
             img={heroImg}
+            loading="eager"
+            fetchpriority="high"
             alt="Łukasz Miłoś"
             size="h-full w-full"
             aspect="aspect-[4/5]"

@@ -76,6 +76,8 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
           <MyImage
             src={"posts/" + post.data.image.src}
             alt={post.data.heading}
+            loading="eager"
+            fetchpriority="high"
             layout="object-contain"
             size="w-full h-auto max-h-[680px]"
             widths={[640, 960, 1280, 1600]}

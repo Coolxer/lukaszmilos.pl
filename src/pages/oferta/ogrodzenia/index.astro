@@ -30,7 +30,7 @@ const meta = {
         containerSize="max-w-7xl"
         innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16"
       >
-        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+        <div class="flex max-w-3xl flex-col items-start gap-7">
           <p class="text-sm font-semibold text-primary">
             Dla firm ogrodzeniowych
           </p>
@@ -56,9 +56,11 @@ const meta = {
             >
           </div>
         </div>
-        <div class="animate-reveal-delay hero-illustration">
+        <div class="hero-illustration">
           <MyImage
             img={heroImg}
+            loading="eager"
+            fetchpriority="high"
             alt="Ilustracja samochodu montażowego przy domu i kalendarza"
             size="h-full w-full"
             layout="object-contain"

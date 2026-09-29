@@ -92,7 +92,7 @@ const faqItems = [
         containerSize="max-w-7xl"
         innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.76fr] lg:items-end lg:gap-16"
       >
-        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+        <div class="flex max-w-3xl flex-col items-start gap-7">
           <p class="text-sm font-semibold text-primary">
             Narzędzia i automatyzacje
           </p><Heading tag="h1" look="h0"
@@ -112,9 +112,11 @@ const faqItems = [
             >
           </div>
         </div>
-        <div class="animate-reveal-delay hero-illustration">
+        <div class="hero-illustration">
           <MyImage
             img={processFlowImg}
+            loading="eager"
+            fetchpriority="high"
             alt="Ilustracja uporządkowanego przepływu danych i dokumentów"
             size="h-full w-full"
             layout="object-contain"

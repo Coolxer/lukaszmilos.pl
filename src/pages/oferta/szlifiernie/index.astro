@@ -110,7 +110,7 @@ const questions = [
         containerSize="max-w-7xl"
         innerDivClasses="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-16"
       >
-        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+        <div class="flex max-w-3xl flex-col items-start gap-7">
           <p class="text-sm font-semibold text-primary">
             Dla ostrzarni i serwisów narzędzi
           </p>
@@ -137,9 +137,9 @@ const questions = [
             >
           </div>
         </div>
-        <div class="hero-illustration animate-reveal-delay">
+        <div class="hero-illustration">
           <MyImage
-            img={image}
+            img={image} loading="eager" fetchpriority="high"
             alt="Rysunkowa ilustracja ostrzenia narzędzi"
             size="h-full w-full"
             layout="object-contain"

@@ -70,7 +70,7 @@ const faqItems = [
         containerSize="max-w-7xl"
         innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.76fr] lg:items-end lg:gap-16"
       >
-        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+        <div class="flex max-w-3xl flex-col items-start gap-7">
           <p class="text-sm font-semibold text-primary">Oferta</p><Heading
             tag="h1"
             look="h0">Usprawnienia dla strony i pracy firmy.</Heading
@@ -84,9 +84,11 @@ const faqItems = [
             >Opisz swój temat</Button
           >
         </div>
-        <div class="animate-reveal-delay hero-illustration">
+        <div class="hero-illustration">
           <MyImage
             img={solutionMapImg}
+            loading="eager"
+            fetchpriority="high"
             alt="Od problemu przez plan do strony i narzędzia cyfrowego"
             size="h-full w-full"
             layout="object-contain"

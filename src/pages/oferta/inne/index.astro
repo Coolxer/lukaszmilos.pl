@@ -24,7 +24,7 @@ const meta = {
     <Navbar />
     <main>
       <Section heroSection containerSize="max-w-7xl" innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16">
-        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+        <div class="flex max-w-3xl flex-col items-start gap-7">
           <p class="text-sm font-semibold text-primary">Inne pomysły i działalności</p>
           <Heading tag="h1" look="h0">Zacznijmy od tego, co chcesz zrobić.</Heading>
           <p class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl">Pracuję też z osobami i firmami spoza wymienionych branż. Mogę pomóc przygotować czytelną stronę lub uprościć konkretny fragment codziennej pracy.</p>
@@ -32,8 +32,8 @@ const meta = {
             <Button link="kontakt" class="btn-primary px-7">Napisz, czego potrzebujesz</Button>
           </div>
         </div>
-        <div class="animate-reveal-delay hero-illustration">
-          <MyImage img={heroImg} alt="Ilustracja rozmowy o pomyśle" size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" />
+        <div class="hero-illustration">
+          <MyImage img={heroImg} loading="eager" fetchpriority="high" alt="Ilustracja rozmowy o pomyśle" size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" />
         </div>
       </Section>
 
