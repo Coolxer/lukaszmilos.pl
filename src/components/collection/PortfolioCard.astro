@@ -1,11 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getPortfolioCategoryColor } from "@utils/utils";
-
+import { Icon } from "astro-icon/components";
 import { buildSlug } from "@utils/utils";
-
 import MyImage from "@components/ui/MyImage.astro";
-import Button from "@components/ui/Button.astro";
 import Heading, { type Tag } from "@components/ui/Heading.astro";
 
 export interface Props {
@@ -15,62 +12,19 @@ export interface Props {
 }
 
 const { item, headingTag = "h3", class: className } = Astro.props;
-
-const color = getPortfolioCategoryColor(item.data.category);
-
 const link = buildSlug(`/portfolio/${item.id}/`);
-
-const colorClasses = {
-  primary: {
-    background: "bg-primary/5",
-    border: "border-primary/30",
-    badge: "badge-primary",
-  },
-  secondary: {
-    background: "bg-secondary/5",
-    border: "border-secondary/30",
-    badge: "badge-secondary",
-  },
-  accent: {
-    background: "bg-accent/5",
-    border: "border-accent/30",
-    badge: "badge-accent",
-  },
-};
-
-const selectedClasses =
-  colorClasses[color as keyof typeof colorClasses] || colorClasses.primary;
 ---
 
-<article
-  class:list={[
-    "p-6 md:p-8 border-2 rounded-box my-stack shadow-md",
-    selectedClasses.background,
-    selectedClasses.border,
-  ]}
->
-  <div class:list={["badge badge-xl badge-soft", selectedClasses.badge]}>
-    {item.data.category}
-  </div>
-
-  <Heading tag={headingTag} look="h4">
-    {item.data.title}
-  </Heading>
-
-  <ul class="my-stack text-base-content/80 my-4">
-    <li>
-      <span class="font-bold uppercase tracking-wide">Problem</span>
-      <p>{item.data.problem}</p>
-    </li>
-    <li>
-      <span class="font-bold uppercase tracking-wide">Cel</span>
-      <p>{item.data.target}</p>
-    </li>
-    <li>
-      <span class="font-bold uppercase tracking-wide">Wynik</span>
-      <p>{item.data.result}</p>
-    </li>
-  </ul>
-
-  <Button link={link}>Zobacz opis projektu (case study)</Button>
+<article class:list={["portfolio-card group overflow-hidden border border-base-content/10 bg-base-100 transition-shadow hover:shadow-2xl hover:shadow-primary/10", className]}>
+  <a href={link} class="grid h-full md:grid-cols-[.9fr_1.1fr] lg:grid-cols-[1.05fr_.95fr]">
+    <div class="relative aspect-[4/3] overflow-hidden bg-base-200 md:aspect-auto md:min-h-full">
+      <MyImage src={item.data.image.src} alt={item.data.image.alt} size="h-full w-full" layout="object-contain" aspect="aspect-auto" rounded="rounded-none" shadow="" widths={[500, 800, 1200, 1600]} sizes="(max-width: 767px) 90vw, 52vw" class="h-full w-full p-3 transition-transform duration-500 group-hover:scale-[1.015]" />
+    </div>
+    <div class="flex flex-col p-6 lg:p-9">
+      <p class="text-sm font-semibold text-primary">{item.data.category}</p>
+      <Heading tag={headingTag} look="h3" class="mt-4 transition-colors group-hover:text-primary">{item.data.title}</Heading>
+      <p class="mt-5 grow leading-7 text-base-content/65">{item.data.result}</p>
+      <span class="mt-8 flex items-center gap-2 border-t border-base-content/10 pt-5 text-sm font-semibold">Zobacz projekt <Icon name="tabler:arrow-up-right" class="size-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></span>
+    </div>
+  </a>
 </article>

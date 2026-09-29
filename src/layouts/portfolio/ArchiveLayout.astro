@@ -12,6 +12,8 @@ import Grid from "~/components/layout/Grid.astro";
 import Categories from "~/components/collection/Categories.astro";
 import CTA from "~/components/sections/CTA.astro";
 import Compliments from "@components/sections/Compliments.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import archiveImage from "@assets/images/pages/solution-map-v1.png";
 
 export interface Props {
   items: CollectionEntry<"portfolio">[];
@@ -27,8 +29,9 @@ const { items, categories, pageTitle, pageDescription, meta, schema } =
 ---
 
 <PageLayout meta={meta} schema={schema}>
-  <Section padding="none" class="pt-24 md:pt-36 lg:pt-44 pb-8 md:pb-10">
-    <div class="flex flex-col gap-8 animate-reveal">
+  <Section padding="none" class="archive-hero pt-16 pb-10 md:pt-20 md:pb-12 lg:pt-24 lg:pb-16">
+    <div class="grid gap-10 lg:grid-cols-[1fr_.72fr] lg:items-center lg:gap-16">
+      <div class="flex flex-col gap-8">
       {pageTitle && <Heading tag="h1" look="h0">{pageTitle}</Heading>}
       {
         pageDescription && (
@@ -47,6 +50,8 @@ const { items, categories, pageTitle, pageDescription, meta, schema } =
           </div>
         )
       }
+      </div>
+      <div class="archive-hero-art hero-illustration" aria-hidden="true"><MyImage img={archiveImage} alt="" size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" /></div>
     </div>
   </Section>
 
@@ -71,22 +76,11 @@ const { items, categories, pageTitle, pageDescription, meta, schema } =
 
   <Compliments variant="secondary" />
 
-  <Section variant="secondary">
-    <Heading tag="h2" slot="heading">Zobacz więcej moich prac</Heading>
-    <p slot="paragraph">
-      Kod, prototypy i mniejsze projekty publikuję również na GitHubie.
-    </p>
-    <div class="flex flex-wrap gap-4 lg:justify-center">
-      <Button link="#" class="btn-primary">Przejdź na GitHub</Button>
-      <Button link="/kontakt/" class="btn-ghost">Skontaktuj się</Button>
-    </div>
-  </Section>
-
   <CTA
     id="kontakt"
-    heading="Chcesz podjąć współpracę?"
-    paragraph={`“Może można zarzucić mi brak doświadczenia, ale nie brak wiedzy, umiejętności i zaangażowania”. Jestem otwarty na realizację konkretnych projektów oraz stałą współpracę.`}
-    button1={{ link: "/kontakt", text: "Skontaktuj się" }}
+    heading="Masz problem do rozwiązania?"
+    paragraph="Opisz go po ludzku. Wspólnie sprawdzimy, czy potrzebna jest strona, narzędzie czy mały test konkretnego rozwiązania."
+    button1={{ link: "/kontakt", text: "Napisz do mnie" }}
     variant="primary"
   />
 </PageLayout>

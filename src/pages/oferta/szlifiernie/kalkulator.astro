@@ -1,0 +1,289 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import FAQ from "@components/ui/FAQ.astro";
+
+const meta = {
+  title: "Przykład zgłoszenia do ostrzarni",
+  description:
+    "Interaktywny przykład formularza zgłoszenia narzędzi do ostrzenia. Podgląd działa lokalnie i nie wysyła danych.",
+};
+
+const benefits = [
+  { heading: "Pola pod Twoje usługi", text: "Można dodać średnicę, liczbę zębów, stan narzędzia lub zdjęcia, a usunąć pytania, które nie pomagają w ocenie zgłoszenia." },
+  { heading: "Zapis w rejestrze", text: "W gotowym wdrożeniu dane i załączniki mogą trafiać do rejestru partii lub systemu, z którego już korzystasz. Ten podgląd niczego nie zapisuje." },
+  { heading: "Dalsza obsługa", text: "Po otrzymaniu zgłoszenia można nadać mu status, przypisać osobę i wysłać potwierdzenie albo informację o gotowości." },
+  { heading: "Pomoc w kalkulacji", text: "Dla powtarzalnych usług da się rozważyć orientacyjną cenę według ustalonych reguł. Naprawy i uszkodzenia wymagają oceny po oględzinach." },
+];
+
+const useCases = [
+  "Na obecnej stronie zakładu, jeśli pozwala na osadzenie formularza",
+  "Pod linkiem wysyłanym stałym klientom do zgłoszenia partii narzędzi",
+  "Jako pierwszy krok do rejestru przyjęć i potwierdzeń",
+  "Obok telefonu i e-maila, gdy klienci wolą opisać narzędzia przed rozmową",
+];
+const faqItems = [
+  { question: "Czy podgląd wysyła zgłoszenie do ostrzarni?", answer: "Nie. Dane i zdjęcie pozostają w przeglądarce. W gotowej wersji ustalimy, gdzie trafia zgłoszenie i kto odpowiada klientowi." },
+  { question: "Czy zdjęcie wystarczy do ustalenia ceny naprawy?", answer: "Może pomóc we wstępnej ocenie, ale stan uszkodzonego narzędzia i ostateczny koszt często wymagają oględzin w zakładzie." },
+  { question: "Czy można dodać inne rodzaje narzędzi i pytania?", answer: "Tak. Lista usług i pola formularza są przykładowe. Dobierzemy je do narzędzi, które naprawdę przyjmujesz, oraz informacji potrzebnych przed rozpoczęciem pracy." },
+  { question: "Czy można automatycznie wyliczać cenę ostrzenia?", answer: "Dla usług o przewidywalnym zakresie można rozważyć orientacyjną kalkulację. Przy regeneracji i nietypowych uszkodzeniach decyzja powinna zostać po stronie fachowca." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="flex max-w-3xl flex-col items-start gap-7"
+      >
+        <p class="text-sm font-semibold text-primary">Przykład dla ostrzarni</p>
+        <Heading tag="h1" look="h0">Formularz zgłoszenia narzędzi do ostrzenia.</Heading>
+        <p class="text-lg leading-8 text-base-content/68 md:text-xl">
+          Sprawdź, jak klient może opisać narzędzia przed dostarczeniem ich do
+          zakładu. To demonstracja: dane i zdjęcie nie są wysyłane ani zapisywane.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button link="#demo" rawLink class="btn-primary px-7">Wypróbuj formularz</Button>
+          <Button link="/oferta/szlifiernie/" rawLink class="btn-outline px-7">Wróć do oferty</Button>
+        </div>
+      </Section>
+
+      <Section
+        id="demo"
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-start lg:gap-16"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Przetestuj przykładowe zgłoszenie.</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Wypełnij pola i zobacz podsumowanie. Pytania w gotowym formularzu
+            dopasujemy do narzędzi i usług, które rzeczywiście przyjmujesz.
+          </p>
+        </div>
+        <div class="contact-form-panel max-w-none">
+          <form id="sharpen-form" class="grid gap-6" onsubmit="return false">
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="service-type">
+                    Rodzaj usługi <span class="text-primary">*</span>
+                  </label>
+                  <select id="service-type" name="type" required
+                    class="select select-bordered w-full">
+                    <option value="">Wybierz...</option>
+                    <option>Ostrzenie piły tarczowej</option>
+                    <option>Ostrzenie piły taśmowej</option>
+                    <option>Ostrzenie frezu</option>
+                    <option>Ostrzenie noża przemysłowego</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="material">
+                    Materiał
+                  </label>
+                  <select id="material" name="material" class="select select-bordered w-full">
+                    <option>Stal narzędziowa</option>
+                    <option>Stal nierdzewna</option>
+                    <option>Węglik spiekany</option>
+                    <option>Nie wiem / proszę doradzić</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="quantity">
+                    Liczba sztuk <span class="text-primary">*</span>
+                  </label>
+                  <input id="quantity" name="quantity" type="number" min="1" max="9999" required
+                    placeholder="np. 5"
+                    class="input input-bordered w-full" />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="deadline">
+                    Oczekiwany termin
+                  </label>
+                  <select id="deadline" name="deadline" class="select select-bordered w-full">
+                    <option>Bez pośpiechu</option>
+                    <option>W ciągu tygodnia</option>
+                    <option>Na już / ekspres</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="delivery">
+                    Sposób dostarczenia
+                  </label>
+                  <select id="delivery" name="delivery" class="select select-bordered w-full">
+                    <option>Osobiście w zakładzie</option>
+                    <option>Kurier — odbiór i odesłanie</option>
+                    <option>Kurier — tylko odbiór (odbiorę osobiście)</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="email-demo">
+                    Adres e-mail (opcjonalnie)
+                  </label>
+                  <input id="email-demo" name="email" type="email"
+                    placeholder="np. jan@example.com"
+                    class="input input-bordered w-full" />
+                  <p class="text-sm text-base-content/65">
+                    Podgląd nie wysyła wiadomości. Możesz zostawić to pole puste.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <label class="font-medium" for="notes">
+                  Opis narzędzi i uwagi
+                </label>
+                <textarea id="notes" name="notes" rows="3"
+                  placeholder="Rodzaj narzędzia, wymiary, ewentualne uszkodzenia, dodatkowe wymagania..."
+                  class="textarea textarea-bordered w-full"></textarea>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <label class="font-medium" for="photo">
+                  Zdjęcie narzędzia
+                </label>
+                <input id="photo" name="photo" type="file" accept="image/*"
+                  class="file-input file-input-bordered w-full" />
+                <p class="text-sm text-base-content/65">
+                  Opcjonalnie — pomaga we wstępnej ocenie, ale nie zastępuje oględzin narzędzia.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <button type="submit" class="btn btn-primary">
+                  Pokaż podsumowanie
+                </button>
+                <button type="reset" class="btn btn-ghost">
+                  Wyczyść formularz
+                </button>
+              </div>
+
+            </form>
+
+          <div id="demo-result" class="mt-8 hidden border-t border-base-content/15 pt-7" role="status" aria-live="polite">
+            <p class="text-sm font-semibold text-primary">Podgląd zgłoszenia</p>
+            <h3 class="mt-2 text-h4">Tak mogłyby wyglądać zebrane informacje.</h3>
+            <div class="mt-5 rounded-xl bg-base-200 p-5 leading-7">
+              <p id="summary-type"></p>
+              <p id="summary-material"></p>
+              <p id="summary-quantity"></p>
+              <p id="summary-deadline"></p>
+              <p id="summary-delivery"></p>
+              <p id="summary-email"></p>
+              <p id="summary-photo"></p>
+              <p id="summary-notes"></p>
+            </div>
+            <p class="mt-4 text-sm text-base-content/65">To tylko podgląd. Zgłoszenie nie zostało wysłane, a cena i termin wymagają potwierdzenia przez zakład.</p>
+          </div>
+        </div>
+      </Section>
+
+      <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10">
+        <div class="max-w-3xl">
+          <Heading tag="h2" look="h2">Formularz może być początkiem procesu.</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            To przykład kilku pytań. Gotowe rozwiązanie można dopasować do usług
+            zakładu i połączyć z dalszą obsługą zgłoszeń.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          {benefits.map((item) => (
+            <article class="process-card p-7">
+              <h3 class="text-h4">{item.heading}</h3>
+              <p class="mt-4 leading-7 text-base-content/68">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:gap-16"
+      >
+        <Heading tag="h2" look="h2">Gdzie może działać formularz?</Heading>
+        <ul class="grid gap-4 sm:grid-cols-2">
+          {useCases.map((useCase) => (
+            <li class="process-card flex items-start gap-4 p-6 leading-7">
+              <Icon name="tabler:arrow-up-right" class="mt-1 size-5 shrink-0 text-primary" />
+              <span>{useCase}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania o formularz.</Heading>
+        <FAQ items={faqItems} />
+      </Section>
+
+      <Section containerSize="max-w-7xl">
+        <div class="contact-panel grid gap-8 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div class="max-w-3xl">
+            <Heading tag="h2" look="h2">Chcesz taki formularz dla swojej ostrzarni?</Heading>
+            <p class="mt-5 text-lg leading-8 text-white/84">
+              Pokaż, jak dziś przyjmujesz narzędzia i informujesz klientów o postępie prac.
+              Ustalimy zakres, cenę i termin pierwszego etapu.
+            </p>
+          </div>
+          <Button link="kontakt" class="btn border-0 bg-white px-7 text-primary hover:bg-base-100">Napisz do mnie</Button>
+        </div>
+      </Section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('sharpen-form') as HTMLFormElement;
+  const result = document.getElementById('demo-result') as HTMLElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+
+    const get = (key: string) => (data.get(key) as string)?.trim() || '';
+
+    const setLine = (id: string, label: string, value: string) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value ? `${label}: ${value}` : '';
+    };
+
+    setLine('summary-type',     'Rodzaj usługi', get('type'));
+    setLine('summary-material', 'Materiał',      get('material'));
+    setLine('summary-quantity', 'Liczba sztuk',  get('quantity'));
+    setLine('summary-deadline', 'Termin',        get('deadline'));
+    setLine('summary-delivery', 'Dostarczenie',  get('delivery'));
+    setLine('summary-email',    'E-mail',        get('email'));
+
+    const photoInput = document.getElementById('photo') as HTMLInputElement;
+    const photoEl = document.getElementById('summary-photo');
+    if (photoEl) photoEl.textContent = photoInput?.files?.length ? `Zdjęcie: ${photoInput.files[0].name}` : '';
+
+    const notes = get('notes');
+    const notesEl = document.getElementById('summary-notes');
+    if (notesEl) notesEl.textContent = notes ? `Uwagi: ${notes}` : '';
+
+    result.classList.remove('hidden');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  form?.addEventListener('reset', () => result?.classList.add('hidden'));
+</script>

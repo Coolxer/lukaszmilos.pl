@@ -1,0 +1,285 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import FAQ from "@components/ui/FAQ.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import processFlowImg from "@assets/images/pages/process-flow-v1.png";
+import caseImg from "@assets/images/portfolio/zamowienia/zamowienia-3.jpg";
+
+const meta = {
+  title: "Narzędzia i automatyzacje",
+  description:
+    "Usprawnienia codziennej pracy: dokumenty, dane, zapytania i przygotowanie treści. Małe narzędzia oraz automatyzacje dopasowane do firmy.",
+};
+const examples = [
+  {
+    icon: "tabler:file-invoice",
+    title: "Dokumenty i praca biurowa",
+    text: "Dane z faktur, zamówień lub formularzy można zebrać w jednym miejscu i przekazać dalej bez ponownego przepisywania. Przed zatwierdzeniem pozostaje miejsce na kontrolę.",
+    link: "/kontakt/",
+    label: "Opisz zadanie",
+  },
+  {
+    icon: "tabler:file-text",
+    title: "Treści i publikacja",
+    text: "Szkice wpisów, opisy produktów czy aktualizacje mogą powstawać z przygotowanych materiałów i trafiać do systemu jako wersje do sprawdzenia.",
+    link: "/kontakt/",
+    label: "Opisz zadanie",
+  },
+  {
+    icon: "tabler:database",
+    title: "Dane i zestawienia",
+    text: "Informacje z arkuszy, formularzy albo publicznych źródeł można połączyć i przygotować z nich zestawienie lub plik do dalszej pracy.",
+    link: "/kontakt/",
+    label: "Opisz zadanie",
+  },
+  {
+    icon: "tabler:forms",
+    title: "Zapytania i powtarzalne zadania",
+    text: "Formularz może zebrać potrzebne informacje, przypisać sprawę i przygotować podstawę do odpowiedzi. Przy prostych przypadkach pomaga też kalkulator lub szablon dokumentu.",
+    link: "/kontakt/",
+    label: "Opisz zadanie",
+  },
+];
+const recurringProblems = [
+  "Dane z faktur, zamówień i formularzy trzeba ręcznie przepisywać",
+  "Podobne zapytania wymagają za każdym razem tych samych czynności",
+  "Przygotowanie wpisów i innych treści zaczyna się od kopiowania między narzędziami",
+  "Zebranie danych do zestawienia wymaga przeszukania kilku plików i programów",
+];
+const faqItems = [
+  {
+    question: "Czy automatyzacja musi być dużym systemem?",
+    answer:
+      "Nie. Czasem wystarczy formularz, generator albo połączenie dwóch używanych już narzędzi.",
+  },
+  {
+    question: "Czy można wykorzystać narzędzia, które firma już ma?",
+    answer:
+      "Tak. Najpierw sprawdzamy obecny sposób pracy. Nie ma sensu zmieniać wszystkiego, jeśli wystarczy dobrze połączyć istniejące elementy.",
+  },
+  {
+    question: "Czy system może być widoczny dla klienta?",
+    answer:
+      "Tak. Może to być formularz, kalkulator, konfigurator lub prosty sposób sprawdzenia statusu sprawy.",
+  },
+  {
+    question:
+      "Czy przed wysłaniem dokumentu lub publikacją wpisu można sprawdzić wynik?",
+    answer:
+      "Tak. Automatyzacja może przygotować dane albo szkic, a człowiek sprawdza i zatwierdza efekt przed wysłaniem lub publikacją.",
+  },
+  {
+    question: "Czy po wdrożeniu można dodać kolejne elementy?",
+    answer:
+      "Tak, ale dopiero kiedy pierwszy krok sprawdzi się w codziennym użyciu.",
+  },
+];
+---
+
+<BaseLayout meta={meta}
+  ><Banner /><div class="flex min-h-screen w-full flex-col">
+    <Navbar /><main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.76fr] lg:items-end lg:gap-16"
+      >
+        <div class="flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">
+            Narzędzia i automatyzacje
+          </p><Heading tag="h1" look="h0"
+            >Proste narzędzia do zadań, które ciągle wracają.</Heading
+          ><p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Usprawniam powtarzalną pracę: od dokumentów i danych, przez
+            zapytania, po przygotowanie treści. Łączę używane już programy albo
+            tworzę małe narzędzie, gdy jest potrzebne.
+          </p><div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7"
+              >Opisz problem</Button
+            ><Button
+              link="portfolio/kategoria/automatyzacja"
+              class="btn-outline px-7">Zobacz realizacje</Button
+            >
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <MyImage
+            img={processFlowImg}
+            loading="eager"
+            fetchpriority="high"
+            alt="Ilustracja uporządkowanego przepływu danych i dokumentów"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            sizes="(max-width: 1024px) 90vw, 34vw"
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10"
+        ><div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Gdzie ginie czas i informacja?</Heading><p
+            class="mt-5 text-lg leading-8 text-base-content/68"
+          >
+            Powtarzalne czynności zabierają czas w biurze, przy obsłudze
+            klientów i podczas przygotowania treści.
+          </p>
+        </div>
+        <ol class="problem-list problem-list--two-col" role="list">
+          {
+            recurringProblems.map((problem, index) => (
+              <li class="problem-list__item">
+                <span class="problem-list__number" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span class="problem-list__text">{problem}</span>
+              </li>
+            ))
+          }
+        </ol></Section
+      >
+
+      <Section
+        id="przyklady"
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+        ><div class="max-w-3xl">
+          <Heading tag="h2" look="h2">Co m.in. można uprościć?</Heading>
+          <p class="mt-5 text-lg leading-8 text-base-content/68">
+            To przykłady z różnych części firmy. Pierwszy krok zależy od tego,
+            jak dziś przebiega praca i z jakich programów już korzystasz.
+          </p>
+        </div><div class="grid gap-5 md:grid-cols-2">
+          {
+            examples.map((example) => (
+              <a
+                href={example.link}
+                class="service-tile group flex flex-col justify-between p-7 lg:p-9"
+              >
+                <>
+                  <Icon name={example.icon} class="size-7 text-primary" />
+                  <div class="mt-12">
+                    <>
+                      <h3 class="text-h3">{example.title}</h3>
+                      <p class="mt-4 leading-7 text-base-content/65">
+                        {example.text}
+                      </p>
+                    </>
+                  </div>
+                  <span class="mt-9 flex items-center gap-2 text-sm font-semibold text-primary">
+                    {example.label}{" "}
+                    <Icon name="tabler:arrow-up-right" class="size-5" />
+                  </span>
+                </>
+              </a>
+            ))
+          }
+        </div></Section
+      >
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:gap-16"
+        ><Heading tag="h2" look="h2">Mały pierwszy etap.</Heading><p
+          class="text-lg leading-8 text-base-content/68"
+        >
+          Pokaż mi dwa lub trzy zadania, które regularnie zabierają czas.
+          Sprawdzimy, co da się uprościć w używanych już programach, a gdzie
+          przyda się coś własnego. Wybierzemy pierwszy krok i przetestujemy go
+          na typowej pracy.
+        </p></Section
+      >
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-16"
+        ><div class="home-case">
+          <MyImage
+            img={caseImg}
+            alt="Widok prototypu systemu obsługi zamówień"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-auto"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-4"
+          />
+        </div><div class="max-w-xl">
+          <p class="mb-4 text-sm font-semibold text-primary">
+            Projekt własny · prototyp
+          </p><Heading tag="h2" look="h2"
+            >Jeden uporządkowany punkt zamiast kilku kanałów.</Heading
+          ><p class="mt-5 text-lg leading-8 text-base-content/68">
+            Zbudowałem prototyp łączący formularz i bazę danych, by pokazać
+            możliwy przebieg obsługi zamówienia. Nie przedstawiam go jako
+            wdrożenia z potwierdzonym wynikiem u klienta.
+          </p><div class="mt-8">
+            <Button
+              link="/portfolio/prosty-system-zamowien/"
+              rawLink
+              class="btn-outline px-6">Zobacz prototyp</Button
+            >
+          </div>
+          <div class="mt-8 border-t border-base-content/15 pt-6">
+            <p class="leading-7 text-base-content/68">
+              Inny przykład: dla sklepu internetowego przygotowałem proces,
+              który tworzy szkic wpisu i zapisuje go w WordPressie do
+              sprawdzenia.
+            </p>
+            <a
+              href="/portfolio/automatyzacja-tworzenia-wpisow-blog-wordpress/"
+              class="mt-3 inline-flex min-h-11 items-center gap-2 font-semibold text-primary hover:underline"
+            >
+              Zobacz automatyzację wpisów <Icon
+                name="tabler:arrow-up-right"
+                class="size-5"
+              />
+            </a>
+          </div>
+        </div></Section
+      >
+      <Compliments variant="secondary" compact />
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-16"
+        ><div>
+          <Heading tag="h2" look="h2"
+            >Pytania o narzędzia i automatyzacje.</Heading
+          >
+        </div><FAQ items={faqItems} /></Section
+      >
+      <Section containerSize="max-w-7xl"
+        ><div
+          class="contact-panel grid gap-8 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end"
+        >
+          <div class="max-w-3xl">
+            <Heading tag="h2" look="h2"
+              >Masz proces, który od dawna odkładasz?</Heading
+            ><p class="mt-5 text-lg leading-8 text-white/84">
+              Napisz, co dziś robisz ręcznie, gdzie giną informacje albo co
+              najczęściej trzeba tłumaczyć klientom.
+            </p>
+          </div><Button
+            link="kontakt"
+            class="btn border-0 bg-white px-7 text-primary hover:bg-base-100"
+            >Napisz do mnie</Button
+          >
+        </div></Section
+      >
+    </main><Footer />
+  </div></BaseLayout
+>

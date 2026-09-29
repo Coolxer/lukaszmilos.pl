@@ -1,0 +1,239 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import CTA from "@components/sections/CTA.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import IndustryOpenProblem from "@components/sections/IndustryOpenProblem.astro";
+import heroImg from "@assets/images/pages/industry-prototyping-v1.png";
+
+const meta = {
+  title: "Strona i narzędzia dla modelarni oraz firm prototypowych",
+  description:
+    "Strony, zapytania i małe narzędzia dla modelarni oraz firm zajmujących się drukiem 3D i prototypowaniem.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16"
+      >
+        <div class="flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Dla Twojej branży</p>
+          <Heading tag="h1" look="h0"
+            >Strona i narzędzia dla modelarni oraz firm prototypowych</Heading
+          >
+          <p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Pomagam pokazać możliwości modelowania i druku 3D, zebrać pliki oraz
+            wymagania do pierwszej oceny i uporządkować kolejne wersje
+            prototypu.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7"
+              >Opisz, co chcesz uprościć</Button
+            >
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <MyImage
+            img={heroImg}
+            loading="eager"
+            fetchpriority="high"
+            alt="Ilustracja drukarki 3D i prototypu"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2"
+            >Od możliwości pracowni do uzgodnionej wersji.</Heading
+          >
+          <p class="mt-5 leading-7 text-base-content/68">
+            Przy prototypach liczy się nie tylko plik, lecz także przeznaczenie
+            części, wymagania i ustalenie, która wersja ma trafić do wykonania.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Możliwości i realizacje
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Na stronie widać sprzęt, lecz nie zastosowania i zakres pracy.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Można pokazać typy prototypów, materiały, orientacyjne
+              ograniczenia oraz przykłady z krótkim opisem zastosowania. Klient
+              łatwiej oceni, czy trafił we właściwe miejsce.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Zapytanie z plikiem
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Zapytanie przychodzi bez pliku, liczby sztuk lub informacji o
+              użyciu części.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Formularz może zebrać model lub rysunek, wymiary, liczbę sztuk,
+              przeznaczenie i termin. Gdy klient nie ma gotowego modelu, może
+              opisać pomysł i dołączyć szkic.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Wersje i ustalenia
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Poprawki modeli i decyzje o wersji są rozproszone po
+              wiadomościach.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Prosty rejestr może łączyć plik, uwagi, wersję, materiał i zgodę
+              na wykonanie. Zakres kontroli oraz parametry techniczne pozostają
+              po stronie wykonawcy.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <IndustryOpenProblem />
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-9"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak ustalamy pierwszy etap?</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Zaczynamy od obecnej strony, typowych zapytań albo przykładów pracy
+            z wersjami prototypu. Przed pracą poznasz zakres, cenę, termin i
+            ewentualne koszty utrzymania.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="mt-7 text-h3">Pokaż przykłady</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Oglądam kilka rzeczywistych zapytań, zleceń lub fragmentów obecnej
+              pracy.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="mt-7 text-h3">Wybierzmy zakres</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Sprawdzam obecne narzędzia i proponuję jeden sensowny krok, koszt
+              oraz termin.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="mt-7 text-h3">Sprawdźmy działanie</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Testujemy rozwiązanie na typowej pracy i poprawiamy to, co wymaga
+              dopracowania.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania przed rozpoczęciem.</Heading>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy klient musi mieć gotowy model 3D?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie zawsze. Formularz można dopasować także do zgłoszeń ze
+                szkicem, zdjęciem lub opisem pomysłu.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy strona obliczy cenę wydruku?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Czasem można podać orientacyjny koszt, ale złożone prototypy i
+                wymagania techniczne mogą wymagać oceny wykonawcy.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Jak pokazać klientowi możliwości i ograniczenia pracowni?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Na stronie można opisać technologie, materiały, orientacyjne gabaryty i przykładowe realizacje. Przy konkretnym modelu możliwość wykonania potwierdza pracownia.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy formularz może przyjmować pliki i kolejne wersje projektu?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Można ustalić dopuszczalne formaty i zapisywać pliki przy jednej sprawie z oznaczeniem wersji, żeby było jasne, który model jest aktualny.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy trzeba zmieniać obecne programy do projektowania?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Zwykle nie. Najpierw sprawdzę, jak dziś przyjmujesz pliki i przekazujesz uwagi. Usprawnienie może dotyczyć tylko obiegu informacji wokół używanych programów.</p></div>
+          </details>
+        </div>
+      </Section>
+
+      <CTA
+        heading="Co chcesz uprościć w pracy z prototypami?"
+        paragraph="Pokaż przykładowe zapytanie, sposób prezentowania możliwości lub obieg wersji projektu. Zaproponuję pierwszy krok, jeśli będzie miał sens."
+        button1={{ link: "/kontakt", text: "Opisz swój przypadek" }}
+        variant="primary"
+      />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,24 +1,18 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro";
 import { Icon } from "astro-icon/components";
-
 import config from "~/data/consts.json";
-
 import { type Meta, type Schema } from "@components/core/MySEO.astro";
-
 import Section from "@components/layout/Section.astro";
-import Grid from "@components/layout/Grid.astro";
 import Heading from "@components/ui/Heading.astro";
-import Button from "@components/ui/Button.astro";
-
 import Form from "@components/widgets/Form.astro";
+import heroImage from "@assets/images/pages/industry-b2b-v1.png";
 
 const meta: Meta = {
-  title: "Kontakt | Zadaj pytanie lub rozpocznij współpracę",
+  title: "Kontakt",
   description:
-    "Masz pytanie? Chcesz omówić projekt? Skontaktuj się ze mną – odpowiem na wszystkie pytania i pomogę znaleźć najlepsze rozwiązanie dla Twojej firmy.",
+    "Opisz temat, który chcesz uporządkować. Odpowiem i pomogę ustalić sensowny pierwszy krok.",
 };
-
 const schema: Schema = {
   "@context": "http://schema.org",
   "@type": "ContactPage",
@@ -35,118 +29,92 @@ const schema: Schema = {
 <PageLayout
   meta={meta}
   schema={schema}
-  pageTitle="Skontaktuj się"
-  pageDescription="Rozwiąż swój problem i osiągnij cel. Zadaj pytanie, poproś o radę lub rozpocznij współpracę."
+  {heroImage}
+  heroImageAlt="Ilustracja wspólnego omawiania pomysłu"
+  pageTitle="Opowiedz mi, co chcesz poprawić."
+  pageDescription="Nie potrzebujesz specyfikacji. Napisz, czym zajmuje się firma, jak wygląda obecny sposób pracy i co regularnie sprawia kłopot. Możesz dodać link do strony lub przykład bez danych klientów."
 >
-  {/* SEKCJA FORMULARZ */}
-  <Section variant="secondary">
-    <Heading tag="h2" slot="heading">Napisz wiadomość</Heading>
-
-    <div class="">
-      <Form />
+  <Section
+    variant="secondary"
+    containerSize="max-w-7xl"
+    innerDivClasses="grid gap-10 lg:grid-cols-[.78fr_1.22fr] lg:items-start lg:gap-16"
+  >
+    <div class="max-w-md">
+      <p class="mb-4 text-sm font-semibold text-primary">Kontakt</p><Heading
+        tag="h2"
+        look="h2">Wiadomość wystarczy na początek.</Heading
+      ><p class="mt-5 leading-8 text-base-content/68">
+        Po otrzymaniu wiadomości odpowiem, czy to temat, w którym mogę pomóc, i
+        o co trzeba dopytać przed propozycją zakresu. Koszt i termin etapu
+        ustalimy przed rozpoczęciem pracy.
+      </p>
     </div>
+    <div class="contact-form-panel"><Form /></div>
   </Section>
 
-  {/* SEKCJA INNE FORMY KONTAKTU I DANE FIRMY */}
-  <Section>
-    <Heading tag="h2" slot="heading">Inne formy kontaktu</Heading>
-
-    <div class="my-big-stack">
-      <Grid cols={2}>
-        <div
-          class="bg-base-100 border-2 border-primary/30 rounded-box p-8 my-stack shadow-sm"
+  <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10">
+    <div class="max-w-2xl">
+      <Heading tag="h2" look="h2">Możesz też napisać bezpośrednio.</Heading>
+    </div>
+    <div class="contact-details-grid">
+      <article class="contact-detail-card">
+        <div class="contact-detail-icon">
+          <Icon name="tabler:mail" class="size-6" />
+        </div><h3 class="mt-7 text-h4">E-mail</h3><div
+          class="mt-4 flex flex-col gap-2"
         >
-          <div class="flex items-center gap-3">
-            <div class="bg-primary/50 p-2 rounded-full">
-              <Icon name="tabler:mail" class="size-6 text-primary-content" />
-            </div>
-            <Heading tag="h3" look="h4">E-mail</Heading>
-          </div>
-          <div class="divider my-2"></div>
-          <div class="flex flex-col gap-2">
-            {
-              config.company.email.map((email) => (
-                <a
-                  href={"mailto:" + { email }}
-                  class="link link-hover text-base-content/80"
-                >
-                  {email}
-                </a>
-              ))
-            }
-          </div>
+          {
+            config.company.email.map((email) => (
+              <a
+                href={`mailto:${email}`}
+                class="inline-flex min-h-11 items-center font-medium text-primary hover:underline"
+              >
+                {email}
+              </a>
+            ))
+          }
         </div>
-
-        <div
-          class="bg-base-100 border-2 border-primary/30 rounded-box p-8 my-stack shadow-sm"
+      </article>
+      <article class="contact-detail-card">
+        <div class="contact-detail-icon">
+          <Icon name="tabler:brand-linkedin" class="size-6" />
+        </div><h3 class="mt-7 text-h4">Znajdziesz mnie też tutaj</h3><div
+          class="mt-5 flex flex-wrap gap-2"
         >
-          <div class="flex items-center gap-3">
-            <div class="bg-primary/50 p-2 rounded-full">
-              <Icon name="tabler:share-3" class="size-6 text-primary-content" />
-            </div>
-            <Heading tag="h3" look="h4">Linki</Heading>
-          </div>
-          <div class="divider my-2"></div>
-          <div class="flex gap-4">
-            {
-              config.socials.map((social) => (
-                <a
-                  href={social.href}
-                  class="btn btn-circle btn-ghost hover:bg-primary/10"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                >
-                  <Icon name={social.icon} class="size-6" />
-                </a>
-              ))
-            }
-          </div>
+          {
+            config.socials.map((social) => (
+              <a
+                href={social.href}
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+              >
+                <Icon name={social.icon} class="size-5" />
+              </a>
+            ))
+          }
         </div>
-      </Grid>
-
-      <div
-        class="bg-base-100 border-2 border-primary/30 rounded-box my-stack p-8 shadow-sm"
-      >
-        <div class="flex items-center gap-3">
-          <div class="bg-primary/50 p-2 rounded-full">
-            <Icon name="tabler:building" class="size-6 text-primary-content" />
-          </div>
-          <Heading tag="h3" look="h4">Dane firmy</Heading>
+      </article>
+      <article class="contact-detail-card contact-detail-card--company">
+        <div class="contact-detail-icon">
+          <Icon name="tabler:building" class="size-6" />
+        </div><h3 class="mt-7 text-h4">Dane firmy</h3><p
+          class="mt-4 font-semibold"
+        >
+          {config.company.name}
+        </p><p class="mt-1 text-base-content/65">
+          {config.company.address}
+        </p><div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <p>
+            <span class="block text-sm text-base-content/70">NIP</span><span
+              class="font-medium">{config.company.nip}</span>
+          </p><p>
+            <span class="block text-sm text-base-content/70">REGON</span><span
+              class="font-medium">{config.company.regon}</span>
+          </p>
         </div>
-        <div class="divider my-2"></div>
-
-        <div class="my-stack">
-          <div>
-            <p class="font-bold text-lg">Moc Cyfryzacji - Łukasz Miłoś</p>
-            <p class="text-base-content/80">39-305 Borowa, Polska</p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="flex items-start gap-2">
-              <Icon
-                name="tabler:id"
-                class="size-5 text-primary mt-0.5 shrink-0"
-              />
-              <div>
-                <p class="font-medium">NIP</p>
-                <p class="text-base-content/80">8172216931</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-2">
-              <Icon
-                name="tabler:file-text"
-                class="size-5 text-primary mt-0.5 shrink-0"
-              />
-              <div>
-                <p class="font-medium">REGON</p>
-                <p class="text-base-content/80">529387133</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
   </Section>
 </PageLayout>

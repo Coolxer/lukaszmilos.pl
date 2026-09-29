@@ -1,0 +1,296 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import FAQ from "@components/ui/FAQ.astro";
+
+const meta = {
+  title: "Formularz zapytania o ogrodzenie",
+  description:
+    "Interaktywny przykład formularza zapytania o ogrodzenie. Podgląd działa w przeglądarce i nie wysyła danych.",
+};
+
+const benefits = [
+  { heading: "Pola pod ofertę firmy", text: "Można dodać rodzaj terenu, szerokość bramy lub pytania zależne od wybranej usługi. Zbędne pola można usunąć." },
+  { heading: "Zgłoszenie w systemie", text: "W gotowej wersji dane i zdjęcia mogą trafić do skrzynki, rejestru lub programu, w którym prowadzisz zapytania. Ten podgląd ich nie wysyła." },
+  { heading: "Dalsza obsługa", text: "Po wysłaniu można nadać sprawie status, przygotować odpowiedź i zapisać ustalenia z pomiaru w jednym miejscu." },
+  { heading: "Orientacyjna kalkulacja", text: "Jeśli masz powtarzalne warianty i jasne reguły cenowe, formularz może pomóc oszacować koszt. Ostateczna oferta wymaga potwierdzenia wymiarów i warunków montażu." },
+];
+
+const faqItems = [
+  { question: "Czy ten formularz oblicza cenę ogrodzenia?", answer: "Nie. To podgląd zbierania danych do pierwszej rozmowy. W gotowym rozwiązaniu można rozważyć orientacyjną kalkulację, jeśli firma ma ustalone warianty i reguły cenowe." },
+  { question: "Czy klient musi znać dokładne wymiary?", answer: "Nie. Do wstępnego zapytania mogą wystarczyć przybliżona długość, wysokość i lokalizacja. Wymiary oraz warunki montażu potwierdza się później." },
+  { question: "Czy można dołączyć zdjęcie działki?", answer: "W tym podglądzie można wybrać zdjęcie i zobaczyć jego nazwę w podsumowaniu. Plik nie jest wysyłany. W gotowym formularzu ustalimy sposób przyjmowania zdjęć." },
+  { question: "Gdzie trafi zapytanie w gotowym rozwiązaniu?", answer: "Może trafić do wskazanej skrzynki lub rejestru spraw. Sposób przekazania danych i dalsze kroki ustalimy według tego, jak firma dziś obsługuje zapytania." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="flex max-w-3xl flex-col items-start gap-7"
+      >
+        <p class="text-sm font-semibold text-primary">Przykład dla firm ogrodzeniowych</p>
+        <Heading tag="h1" look="h0">Formularz zapytania o ogrodzenie.</Heading>
+        <p class="text-lg leading-8 text-base-content/68 md:text-xl">
+          Sprawdź, jak klient może przekazać podstawy do pierwszej rozmowy:
+          zakres prac, orientacyjne wymiary i informacje o działce. To
+          demonstracja — dane i zdjęcie nie są wysyłane ani zapisywane.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button link="#demo" rawLink class="btn-primary px-7">Wypróbuj formularz</Button>
+          <Button link="/oferta/ogrodzenia/" rawLink class="btn-outline px-7">Wróć do oferty</Button>
+        </div>
+      </Section>
+
+      <Section
+        id="demo"
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-start lg:gap-16"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Przetestuj przykładowe zgłoszenie.</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Wypełnij znane Ci pola i zobacz podsumowanie. W gotowej wersji
+            pytania dopasujemy do ogrodzeń i usług, które firma faktycznie oferuje.
+          </p>
+        </div>
+        <div class="contact-form-panel max-w-none">
+          <form id="fence-form" class="grid gap-6" onsubmit="return false">
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="fence-scope">
+                    Czego dotyczy zapytanie? <span class="text-primary">*</span>
+                  </label>
+                  <select id="fence-scope" name="scope" required class="select select-bordered w-full">
+                    <option value="">Wybierz zakres</option>
+                    <option>Ogrodzenie z montażem</option>
+                    <option>Ogrodzenie bez montażu</option>
+                    <option>Brama lub furtka</option>
+                    <option>Sam montaż</option>
+                    <option>Jeszcze nie wiem</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="fence-type">
+                    Rodzaj ogrodzenia
+                  </label>
+                  <select id="fence-type" name="type"
+                    class="select select-bordered w-full">
+                    <option value="">Wybierz...</option>
+                    <option>Panelowe (drut spawany)</option>
+                    <option>Siatkowe (siatka z rolki)</option>
+                    <option>Ażurowe (panele ozdobne)</option>
+                    <option>Systemy aluminiowe</option>
+                    <option>Inne</option>
+                    <option>Jeszcze nie wiem</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="fence-length">
+                    Przybliżona długość ogrodzenia
+                  </label>
+                  <div class="relative">
+                    <input id="fence-length" name="length" type="number" min="0.1" max="9999" step="0.1"
+                      placeholder="np. 80"
+                      class="input input-bordered w-full pr-10" />
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-base-content/70 pointer-events-none">mb</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="fence-height">
+                    Przybliżona wysokość
+                  </label>
+                  <div class="relative">
+                    <input id="fence-height" name="height" type="number" min="1" max="500"
+                      placeholder="np. 150"
+                      class="input input-bordered w-full pr-10" />
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-base-content/70 pointer-events-none">cm</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="base">
+                    Podmurówka
+                  </label>
+                  <select id="base" name="base" class="select select-bordered w-full">
+                    <option>Do ustalenia</option>
+                    <option>Brak podmurówki</option>
+                    <option>Prefabrykowana (gotowe elementy)</option>
+                    <option>Betonowana na mokro</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="gate">
+                    Brama
+                  </label>
+                  <select id="gate" name="gate" class="select select-bordered w-full">
+                    <option>Do ustalenia</option>
+                    <option>Nie potrzebuję bramy</option>
+                    <option>Brama przesuwna</option>
+                    <option>Brama skrzydłowa</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="wicket">
+                    Furtka
+                  </label>
+                  <select id="wicket" name="wicket" class="select select-bordered w-full">
+                    <option>Do ustalenia</option>
+                    <option>Nie potrzebuję furtki</option>
+                    <option>Potrzebuję furtki</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <label class="font-medium" for="location">
+                    Miejscowość realizacji lub dostawy
+                  </label>
+                  <input id="location" name="location" type="text"
+                    placeholder="np. okolice Krakowa"
+                    class="input input-bordered w-full" />
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <label class="font-medium" for="notes">
+                  Teren i dodatkowe uwagi
+                </label>
+                <textarea id="notes" name="notes" rows="3"
+                  placeholder="Np. spadek terenu, nietypowy wjazd, pytania do omówienia..."
+                  class="textarea textarea-bordered w-full"></textarea>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <label class="font-medium" for="fence-photo">Zdjęcie działki (opcjonalnie)</label>
+                <input id="fence-photo" name="photo" type="file" accept="image/*" class="file-input file-input-bordered w-full" />
+                <p class="text-sm text-base-content/65">Możesz wybrać zdjęcie do podglądu. Ta wersja go nie przesyła.</p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <button type="submit" class="btn btn-primary">
+                  Pokaż podsumowanie
+                </button>
+                <button type="reset" class="btn btn-ghost">
+                  Wyczyść formularz
+                </button>
+              </div>
+
+            </form>
+
+          <div id="demo-result" class="mt-8 hidden border-t border-base-content/15 pt-7" role="status" aria-live="polite">
+            <p class="text-sm font-semibold text-primary">Podgląd zgłoszenia</p>
+            <h3 class="mt-2 text-h4">Tak mogłyby wyglądać zebrane informacje.</h3>
+            <div class="mt-5 rounded-xl bg-base-200 p-5 leading-7">
+              <p id="summary-scope"></p>
+              <p id="summary-type"></p>
+              <p id="summary-length"></p>
+              <p id="summary-height"></p>
+              <p id="summary-base"></p>
+              <p id="summary-gate"></p>
+              <p id="summary-wicket"></p>
+              <p id="summary-location"></p>
+              <p id="summary-photo"></p>
+              <p id="summary-notes"></p>
+            </div>
+            <p class="mt-4 text-sm text-base-content/65">To tylko podgląd. Zapytanie nie zostało wysłane, a cena i zakres prac wymagają potwierdzenia po ocenie miejsca montażu.</p>
+          </div>
+        </div>
+      </Section>
+
+      <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10">
+        <div class="max-w-3xl">
+          <Heading tag="h2" look="h2">Formularz może być początkiem procesu.</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Ten podgląd pokazuje tylko zebranie danych. W gotowej wersji można
+            zmienić pytania i ustalić, co dzieje się po wysłaniu zapytania.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          {benefits.map((item) => (
+            <article class="process-card p-7">
+              <h3 class="text-h4">{item.heading}</h3>
+              <p class="mt-4 leading-7 text-base-content/68">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania o formularz.</Heading>
+        <FAQ items={faqItems} />
+      </Section>
+
+      <Section containerSize="max-w-7xl">
+        <div class="contact-panel grid gap-8 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div class="max-w-3xl">
+            <Heading tag="h2" look="h2">Chcesz taki formularz dla swojej firmy ogrodzeniowej?</Heading>
+            <p class="mt-5 text-lg leading-8 text-white/84">
+              Pokaż, skąd dziś przychodzą zapytania i jakie dane są potrzebne
+              przed odpowiedzią. Dobierzemy pytania do oferty i ustalimy zakres
+              pierwszego etapu.
+            </p>
+          </div>
+          <Button link="kontakt" class="btn border-0 bg-white px-7 text-primary hover:bg-base-100">Napisz do mnie</Button>
+        </div>
+      </Section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('fence-form') as HTMLFormElement;
+  const result = document.getElementById('demo-result') as HTMLElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+
+    const get = (key: string) => (data.get(key) as string)?.trim() || '';
+
+    const setLine = (id: string, label: string, value: string) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value ? `${label}: ${value}` : '';
+    };
+
+    setLine('summary-scope',  'Zakres',            get('scope'));
+    setLine('summary-type',   'Rodzaj ogrodzenia', get('type'));
+    setLine('summary-length', 'Długość',           get('length') ? `${get('length')} m` : '');
+    setLine('summary-height', 'Wysokość',          get('height') ? `${get('height')} cm` : '');
+    setLine('summary-base',   'Podmurówka',        get('base'));
+    setLine('summary-gate',   'Brama',             get('gate'));
+    setLine('summary-wicket', 'Furtka',            get('wicket'));
+    setLine('summary-location', 'Miejscowość',      get('location'));
+
+    const photoInput = document.getElementById('fence-photo') as HTMLInputElement;
+    const photoEl = document.getElementById('summary-photo');
+    if (photoEl) photoEl.textContent = photoInput?.files?.length ? `Zdjęcie: ${photoInput.files[0].name}` : '';
+
+    const notes = get('notes');
+    const notesEl = document.getElementById('summary-notes');
+    if (notesEl) notesEl.textContent = notes ? `Uwagi: ${notes}` : '';
+
+    result.classList.remove('hidden');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  form?.addEventListener('reset', () => result?.classList.add('hidden'));
+</script>

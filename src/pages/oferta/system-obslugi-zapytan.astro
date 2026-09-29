@@ -1,0 +1,80 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import FAQ from "@components/ui/FAQ.astro";
+import Compliments from "@components/sections/Compliments.astro";
+
+const meta = {
+  title: "System obsługi zapytań ofertowych",
+  description: "Rozwiązanie dla firm, które chcą otrzymywać kompletne zapytania, uporządkować pliki i sprawniej odpowiadać klientom.",
+};
+
+const elements = [
+  ["tabler:forms", "Ustalamy potrzebne dane", "Dla wybranej usługi sprawdzamy, jakie informacje są potrzebne i czego klient może jeszcze nie wiedzieć."],
+  ["tabler:folders", "Przygotowuję krótki formularz", "Pytania i opcjonalne zdjęcia lub pliki pomagają przekazać to, co klient wie, a firmie szybko zauważyć braki."],
+  ["tabler:progress-check", "Sprawdzamy na przykładach", "Jeśli trzeba, później dodajemy rejestr, przypisanie sprawy lub potwierdzenie. Cena nadal może wymagać rozmowy albo analizy."],
+];
+const faqItems = [
+  { question: "Czy każde pole musi być obowiązkowe?", answer: "Nie. Formularz ma pomóc przekazać to, co klient wie, a nie zatrzymać go na pytaniu, na które jeszcze nie zna odpowiedzi." },
+  { question: "Czy formularz poda ostateczną cenę?", answer: "Nie zawsze. Wycena może wymagać oględzin, rozmowy albo analizy rysunku. Na początku warto zebrać dane potrzebne do oceny." },
+  { question: "Czy można dodać zdjęcia albo pliki od klienta?", answer: "Tak, jeśli pomagają ocenić zapytanie. Ustalimy potrzebne formaty i limity oraz to, kto w firmie ma mieć dostęp do załączników." },
+  { question: "Czy trzeba przebudowywać obecną stronę?", answer: "Niekoniecznie. Najpierw sprawdzę, czy formularz można dodać do obecnej strony i jak przekazać dane do używanych narzędzi." },
+  { question: "Gdzie trafi zapytanie po wysłaniu?", answer: "To ustalimy podczas projektowania. Może trafiać na wskazany adres e-mail lub do rejestru spraw; potwierdzenia i statusy są osobnymi elementami rozwiązania." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col justify-between">
+    <Navbar />
+    <main>
+      <Section heroSection containerSize="max-w-7xl" innerDivClasses="grid gap-12 lg:grid-cols-[1fr_.85fr] lg:items-end">
+        <div class="flex flex-col items-start gap-7">
+          <p class="eyebrow">Rozwiązanie specjalistyczne</p>
+          <Heading tag="h1" look="h0">Gdy do wyceny ciągle brakuje tych samych danych.</Heading>
+          <p class="max-w-2xl text-xl font-light leading-relaxed text-base-content/65 md:text-2xl">Zapytanie może zebrać potrzebne informacje przed pierwszą odpowiedzią: rodzaj pracy, ilość, termin, zdjęcie lub plik. To dobry początek do uporządkowania dalszej obsługi.</p>
+          <div class="flex flex-wrap gap-3"><Button link="kontakt" class="btn-primary rounded-full px-7">Sprawdź, czy ma sens</Button><Button link="#jak-dziala" rawLink class="btn-outline rounded-full px-7">Jak to działa</Button></div>
+        </div>
+        <div class="solution-preview rounded-[1.75rem] bg-base-200 p-5 sm:p-7">
+          <p class="font-mono text-xs uppercase tracking-[.15em] text-base-content/70">Zamiast mailowego ping-ponga</p>
+          <div class="mt-6 flex flex-col gap-3">
+            <div class="solution-preview-row solution-preview-row-light"><Icon name="tabler:send" class="size-5 text-primary" /><div><strong>Klient wysyła zapytanie</strong><span>Usługa, termin, ilość, pliki.</span></div><span>01</span></div>
+            <div class="solution-preview-row solution-preview-row-light"><Icon name="tabler:database" class="size-5 text-primary" /><div><strong>Firma widzi komplet danych</strong><span>Bez przepisywania i szukania załączników.</span></div><span>02</span></div>
+            <div class="solution-preview-row solution-preview-row-light"><Icon name="tabler:message-check" class="size-5 text-primary" /><div><strong>Można przejść do odpowiedzi</strong><span>Wiadomo, co dalej i kto za to odpowiada.</span></div><span>03</span></div>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="jak-dziala" containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10" class="border-y border-base-content/10 bg-base-200">
+        <div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p class="eyebrow mb-4">Pierwszy etap</p><Heading tag="h2" look="h2">Jak może wyglądać początek?</Heading></div><p class="max-w-xl text-lg font-light leading-relaxed text-base-content/65">Zaczynamy od krótkiego formularza i czytelnego podsumowania dla osoby, która odpowiada na zapytania.</p></div>
+        <div class="grid gap-5 lg:grid-cols-3">
+          {elements.map(([icon, title, text], index) => (
+            <article class="rounded-[1.5rem] border border-base-content/10 bg-base-100 p-7"><span class="card-number">0{index + 1}</span><Icon name={icon} class="mt-8 size-7 text-primary" /><h3 class="mt-5 text-2xl font-semibold tracking-tight">{title}</h3><p class="mt-3 leading-7 text-base-content/65">{text}</p></article>
+          ))}
+        </div>
+      </Section>
+
+      <Section containerSize="max-w-7xl" innerDivClasses="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+        <div><p class="eyebrow mb-4">Dla kogo</p><Heading tag="h2" look="h2">Gdy zapytanie musi zawierać coś więcej niż imię i numer telefonu.</Heading></div>
+        <div class="divide-y divide-base-content/10 border-y border-base-content/10 text-lg">
+          <p class="py-5">CNC, obróbka metalu, produkcja na zamówienie — gdy potrzebny jest rysunek, materiał, ilość i termin.</p>
+          <p class="py-5">Szlifiernie, ostrzarnie, serwis — gdy zdjęcie oraz stan narzędzia mają znaczenie przed przyjęciem zlecenia.</p>
+          <p class="py-5">Firmy usługowe — gdy klient powinien najpierw opisać problem, lokalizację lub zakres pracy.</p>
+        </div>
+      </Section>
+
+      <Section variant="dark" containerSize="max-w-7xl" innerDivClasses="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center"><div><p class="eyebrow eyebrow-dark mb-4">Ważne</p><Heading tag="h2" look="h2">To nie musi być automatyczna wycena.</Heading></div><p class="text-lg font-light leading-relaxed text-neutral-content/65">W wielu firmach cena zależy od wyjątków, tolerancji, materiału, terminu albo oceny człowieka. Wtedy lepiej stworzyć dobry system zebrania danych i przygotowania wyceny niż udawać, że każde zlecenie da się policzyć jednym wzorem.</p></Section>
+
+      <Compliments variant="secondary" compact />
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8"><Heading tag="h2" look="h2">Pytania o formularz.</Heading><FAQ items={faqItems} /></Section>
+      <Section containerSize="max-w-4xl"><div class="rounded-[2rem] bg-primary p-8 text-primary-content md:p-12"><p class="eyebrow text-primary-content/90">Pierwszy krok</p><Heading tag="h2" look="h2">Masz zapytanie, po którym musiałeś dopytywać?</Heading><p class="mt-5 max-w-2xl text-lg font-light leading-relaxed text-primary-content/90">Możesz przesłać opis bez danych klienta. Sprawdzimy, jakie pytania powinny paść wcześniej.</p><div class="mt-7"><Button link="kontakt" class="btn border-0 bg-white text-[#075fce] hover:bg-[#e6f1ff] rounded-full px-7">Pokaż mi przykład</Button></div></div></Section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

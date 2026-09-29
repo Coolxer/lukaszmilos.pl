@@ -12,6 +12,8 @@ import Button from "@components/ui/Button.astro";
 import PostCard from "@components/collection/PostCard.astro";
 import PagePagination from "@components/collection/PagePagination.astro";
 import Categories from "@components/collection/Categories.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import archiveImage from "@assets/images/pages/process-flow-v1.png";
 
 export interface Props {
   page: Page;
@@ -27,8 +29,9 @@ const { page, categories, pageTitle, pageDescription, meta, schema } =
 ---
 
 <PageLayout meta={meta} schema={schema}>
-  <Section padding="none" class="pt-24 md:pt-36 lg:pt-44 pb-8 md:pb-10">
-    <div class="flex flex-col gap-8 animate-reveal">
+  <Section padding="none" class="archive-hero pt-16 pb-10 md:pt-20 md:pb-12 lg:pt-24 lg:pb-16">
+    <div class="grid gap-10 lg:grid-cols-[1fr_.72fr] lg:items-center lg:gap-16">
+      <div class="flex flex-col gap-8">
       {pageTitle && <Heading tag="h1" look="h0">{pageTitle}</Heading>}
       {
         pageDescription && (
@@ -44,6 +47,8 @@ const { page, categories, pageTitle, pageDescription, meta, schema } =
           </div>
         )
       }
+      </div>
+      <div class="archive-hero-art hero-illustration" aria-hidden="true"><MyImage img={archiveImage} alt="" size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" /></div>
     </div>
   </Section>
 

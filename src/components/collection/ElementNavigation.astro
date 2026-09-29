@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry, CollectionKey } from "astro:content";
-
 import { slugify } from "@utils/utils";
 import Button from "@components/ui/Button.astro";
 
@@ -12,43 +11,32 @@ export interface Props<C extends CollectionKey = CollectionKey> {
   prevText?: string;
   nextElement: CollectionEntry<C> | null;
   nextText?: string;
+  archiveLink?: string;
+  archiveText?: string;
   class?: string;
 }
 
-const {
-  collection,
-  baseSlug,
-  prevElement,
-  prevText = "poprzedni",
-  nextElement,
-  nextText = "następny",
-  class: className,
-} = Astro.props;
-
-const prevElementExists = prevElement && prevElement?.id;
-const nextElementExists = nextElement && nextElement?.id;
+const { collection, baseSlug, prevElement, prevText = "Poprzedni", nextElement, nextText = "Następny", archiveLink, archiveText, class: className } = Astro.props;
+const prevHref = prevElement?.id ? baseSlug + slugify(prevElement.id) : undefined;
+const nextHref = nextElement?.id ? baseSlug + slugify(nextElement.id) : undefined;
 ---
 
-<div class:list={["join grid grid-cols-2 gap-4", className]}>
-  <Button
-    link={baseSlug + (prevElementExists && slugify(prevElement.id))}
-    class:list={[
-      "join-item btn-outline py-8",
-      !prevElementExists && "btn-disabled py-8",
-    ]}
-  >
-    <Icon name="tabler:chevron-left" class="size-6" />
-    {prevText}
-  </Button>
-
-  <Button
-    link={baseSlug + (nextElement && slugify(nextElement.id))}
-    class:list={[
-      "join-item btn-outline py-8",
-      !nextElementExists && "btn-disabled py-8",
-    ]}
-  >
-    {nextText}
-    <Icon name="tabler:chevron-right" class="size-6" />
-  </Button>
-</div>
+<nav class:list={["detail-navigation", className]} aria-label={`Nawigacja: ${collection}`}>
+  {
+    prevHref && (
+      <a href={prevHref} class="detail-navigation-link btn btn-outline">
+        <Icon name="tabler:arrow-left" class="size-4" />
+        <span>{prevText}</span>
+      </a>
+    )
+  }
+  {archiveLink && archiveText && <Button link={archiveLink} class="btn-primary detail-navigation-archive">{archiveText}</Button>}
+  {
+    nextHref && (
+      <a href={nextHref} class="detail-navigation-link detail-navigation-link--next btn btn-outline">
+        <span>{nextText}</span>
+        <Icon name="tabler:arrow-right" class="size-4" />
+      </a>
+    )
+  }
+</nav>

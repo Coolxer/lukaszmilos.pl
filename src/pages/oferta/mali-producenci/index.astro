@@ -1,0 +1,299 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import CTA from "@components/sections/CTA.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import IndustryOpenProblem from "@components/sections/IndustryOpenProblem.astro";
+import heroImg from "@assets/images/pages/industry-custom-v1.png";
+import machineryImg from "@assets/images/pages/industry-machinery-v1.png";
+
+const meta = {
+  title: "Strona i prostsze procesy dla nowego producenta",
+  description:
+    "Strony, zapytania i proste narzędzia dla małych producentów, także maszyn, urządzeń i przyrządów.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16"
+      >
+        <div class="flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Dla Twojej branży</p>
+          <Heading tag="h1" look="h0"
+            >Strona i prostsze procesy dla nowego producenta</Heading
+          >
+          <p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Pomagam pokazać ofertę produktów oraz uprościć wybrane czynności
+            związane z wariantami, materiałami, zamówieniami lub dokumentami.
+            Dotyczy to także producentów maszyn, urządzeń i przyrządów.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7"
+              >Opisz, co chcesz uprościć</Button
+            >
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <MyImage
+            img={heroImg}
+            loading="eager"
+            fetchpriority="high"
+            alt="Ilustracja małej produkcji"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2"
+            >Od oferty produktu po powtarzalną pracę.</Heading
+          >
+          <p class="mt-5 leading-7 text-base-content/68">
+            Nie każdy mały producent potrzebuje sklepu lub dużego systemu. Te
+            obszary można rozwijać osobno, zależnie od tego, co dziś utrudnia
+            pracę.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Karta produktu lub wariantu
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Klient nie zna wariantów ani ograniczeń produktu.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Na stronie pokazujemy, co można zamówić, w jakiej wersji, z jakich
+              materiałów i co trzeba uzgodnić osobno.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Zgłoszenie zamówienia
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Zamówienia docierają bez ilości, terminu lub potrzebnych plików.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Wariant, ilość, termin i potrzebne pliki zebrane razem, z miejscem
+              na nietypowe przypadki.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Praca wewnętrzna
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Zespół powtarza podobne dokumenty i ręcznie sprawdza dane.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Prosta lista spraw, pomocniczy generator dokumentów lub alert o
+              niskim stanie materiału — zależnie od tego, co dziś powtarza
+              zespół i jakie dane są dostępne.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:gap-14"
+      >
+        <div class="flex flex-col gap-5">
+          <p class="text-sm font-semibold text-primary">Jeden z przykładów</p>
+          <Heading tag="h2" look="h2"
+            >Produkujesz maszyny, urządzenia lub przyrządy?</Heading
+          >
+          <p class="leading-7 text-base-content/68">
+            W takim przypadku klient zwykle potrzebuje więcej niż nazwy
+            produktu. Strona może pokazać zastosowania, zakres parametrów,
+            dostępne warianty i przykłady wdrożeń — w takim zakresie, jaki
+            chcesz ujawnić.
+          </p>
+          <MyImage
+            img={machineryImg}
+            alt="Ilustracja maszyny i wykonanego elementu"
+            size="w-full"
+            layout="object-contain"
+            aspect="aspect-[3/2]"
+            rounded="rounded-none"
+            shadow=""
+            class="max-w-sm"
+          />
+        </div>
+        <div
+          class="industry-example-card rounded-3xl border border-primary/15 bg-primary/5 p-7 md:p-9"
+        >
+          <h3 class="text-h3">Co warto rozważyć w pierwszym etapie?</h3>
+          <div class="mt-7 divide-y divide-base-content/10">
+            <div class="py-5 first:pt-0">
+              <p class="font-semibold text-base-content">
+                Zapytanie techniczne
+              </p>
+              <p class="mt-2 leading-7 text-base-content/68">
+                Pytania o zadanie, wymaganą wydajność, warunki pracy, termin i
+                dostępne pliki. Klient może też wskazać, czego jeszcze nie wie.
+              </p>
+            </div>
+            <div class="py-5">
+              <p class="font-semibold text-base-content">
+                Warianty i dokumentacja
+              </p>
+              <p class="mt-2 leading-7 text-base-content/68">
+                Przy powtarzalnych wariantach można sprawdzić szablon
+                zestawienia, instrukcji lub rysunku. Treść techniczną zatwierdza
+                osoba odpowiedzialna za projekt.
+              </p>
+            </div>
+            <div class="pt-5">
+              <p class="font-semibold text-base-content">Poufne informacje</p>
+              <p class="mt-2 leading-7 text-base-content/68">
+                Nie wszystkie parametry muszą być publiczne. Zakres danych na
+                stronie ustalimy zgodnie ze sposobem sprzedaży i poufnością
+                projektu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <IndustryOpenProblem />
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-9"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak ustalamy pierwszy etap?</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Zaczynamy od oferty produktów, kilku zapytań albo przykładu
+            powtarzalnej czynności. Przed pracą poznasz zakres, cenę, termin i
+            ewentualne koszty utrzymania.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="mt-7 text-h3">Pokaż przykłady</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Oglądam kilka rzeczywistych zapytań, zleceń lub fragmentów obecnej
+              strony.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="mt-7 text-h3">Wybierzmy zakres</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Sprawdzam obecne narzędzia i proponuję jeden sensowny krok, koszt
+              oraz termin.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="mt-7 text-h3">Sprawdźmy działanie</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Testujemy rozwiązanie na typowej pracy i poprawiamy to, co wymaga
+              dopracowania.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania przed rozpoczęciem.</Heading>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy trzeba od razu budować sklep internetowy?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie. Często wystarczy czytelny katalog produktów i dobre
+                zapytanie o wybrany wariant.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy można zacząć od jednej czynności?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Tak. Wybierzemy konkretny przykład i sprawdzimy, czy
+                uproszczenie ma sens.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy można pokazać warianty produktów bez sklepu internetowego?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Katalog może pokazywać dostępne warianty i prowadzić do zapytania o konkretny produkt. Sposób wyboru opcji zależy od tego, jak dziś przygotowujesz ofertę.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy można szybciej przygotowywać podobne oferty i dokumenty?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Jeśli zmieniają się głównie parametry, warto sprawdzić szablon lub generator. Przed wysłaniem ktoś z firmy nadal powinien zweryfikować dane i warunki.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy potrzebny jest nowy program do obsługi zamówień?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Nie zakładam tego z góry. Najpierw sprawdzimy, gdzie dziś zapisujesz zamówienia i co konkretnie trudno w tym procesie znaleźć lub przekazać dalej.</p></div>
+          </details>
+        </div>
+      </Section>
+
+      <CTA
+        heading="Co chcesz uprościć w ofercie lub zamówieniach?"
+        paragraph="Pokaż, jak dziś prezentujesz produkty, zbierasz zamówienia albo przygotowujesz dokumenty. Zaproponuję pierwszy krok, jeśli będzie miał sens."
+        button1={{ link: "/kontakt", text: "Opisz swój przypadek" }}
+        variant="primary"
+      />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

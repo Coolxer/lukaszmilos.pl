@@ -6,10 +6,10 @@ import { type Meta, type Schema } from "@components/core/MySEO.astro";
 
 import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/layout/Section.astro";
-import Grid from "@components/layout/Grid.astro";
 import Heading from "@components/ui/Heading.astro";
 import Button from "@components/ui/Button.astro";
 import MyImage from "@components/ui/MyImage.astro";
+import { Icon } from "astro-icon/components";
 
 import Toc from "@components/blog/Toc.astro";
 import ElementNavigation from "@components/collection/ElementNavigation.astro";
@@ -32,21 +32,21 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
 
 <PageLayout meta={meta} schema={schema}>
   {/* HEADER POSTA */}
-  <Section>
-    <div class="my-stack lg:my-big-stack text-center">
+  <Section containerSize="max-w-7xl" class="detail-hero-section">
+    <div class="detail-hero my-stack lg:my-big-stack">
       {/* Kategorie */}
       {
         post.data.categories && post.data.categories.length > 0 && (
           <div class="flex flex-wrap gap-2 justify-center">
             {post.data.categories.map((category) => (
-              <div class="badge badge-primary badge-lg">{category}</div>
+              <div class="detail-tag detail-tag--accent">{category}</div>
             ))}
           </div>
         )
       }
 
       {/* Tytuł */}
-      <Heading tag="h1">
+      <Heading tag="h1" look="h0">
         {post.data.heading}
       </Heading>
 
@@ -72,11 +72,16 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
     {/* Obrazek wyróżniający */}
     {
       post.data.image && (
-        <div class="mt-8">
+        <div class="mt-10 overflow-hidden rounded-[20px] bg-base-200">
           <MyImage
             src={"posts/" + post.data.image.src}
             alt={post.data.heading}
-            size="w-full h-auto max-h-[600px] object-cover rounded-box shadow-lg"
+            loading="eager"
+            fetchpriority="high"
+            layout="object-contain"
+            size="w-full h-auto max-h-[680px]"
+            widths={[640, 960, 1280, 1600]}
+            sizes="(max-width: 1024px) 90vw, 80vw"
           />
         </div>
       )
@@ -84,8 +89,8 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
   </Section>
 
   {/* TREŚĆ POSTA */}
-  <Section variant="secondary">
-    <div class="mx-auto my-big-stack">
+  <Section variant="secondary" containerSize="max-w-5xl">
+    <div class="detail-reading mx-auto my-big-stack">
       {/* Link do wideo na YouTube (jeśli istnieje) */}
       {
         post.data.video && (
@@ -93,20 +98,13 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
             href={post.data.video}
             target="_blank"
             rel="noopener noreferrer"
-            class="group block rounded-box border-2 border-primary/30 bg-base-100 p-6 shadow-sm no-underline transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:-translate-y-1"
+            class="detail-video-link group"
           >
             <div class="flex items-center gap-4 sm:gap-6">
-              {/* Ikona YouTube */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="h-12 w-12 flex-shrink-0 text-red-600 transition-transform duration-300 group-hover:scale-110"
-              >
-                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
-              </svg>
+              <Icon
+                name="tabler:brand-youtube"
+                class="h-11 w-11 flex-shrink-0 text-red-600 transition-transform duration-300 group-hover:scale-110"
+              />
               <div>
                 <p class="font-bold text-lg text-base-content">
                   Wolisz oglądać? Zobacz na YouTube!
@@ -123,7 +121,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
       {/* Spis treści */}
       {
         headings && headings.length > 0 && (
-          <div class="bg-base-100 border-2 border-primary/30 rounded-box p-6 shadow-sm">
+          <div class="bg-base-100 border border-base-content/10 rounded-[20px] p-6 mt-4">
             <Toc headings={headings} />
           </div>
         )
@@ -155,7 +153,7 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
   {/* POWIĄZANE POSTY */}
   {
     relatedPosts && relatedPosts.length > 0 && (
-      <Section variant="secondary">
+      <Section variant="secondary" containerSize="max-w-7xl">
         <Heading tag="h2" slot="heading">
           Powiązane artykuły
         </Heading>
@@ -163,11 +161,11 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
           Może zainteresują Cię również te wpisy na podobny temat
         </p>
 
-        <Grid cols={1}>
+        <div class="grid gap-5 lg:grid-cols-2">
           {relatedPosts.map((post) => (
-            <PostCard post={post} />
+            <PostCard post={post} related />
           ))}
-        </Grid>
+        </div>
       </Section>
     )
   }
@@ -175,11 +173,11 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
   {/* NAWIGACJA MIĘDZY POSTAMI */}
   {
     (prevPost || nextPost) && (
-      <Section>
+      <Section containerSize="max-w-7xl">
         <Heading tag="h2" slot="heading">
           Inne posty
         </Heading>
-        <div class="mx-auto my-stack">
+        <div class="my-stack">
           <ElementNavigation
             collection="blog"
             baseSlug="/blog/"
@@ -187,10 +185,9 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
             prevText="Poprzedni wpis"
             nextElement={nextPost}
             nextText="Następny wpis"
+            archiveLink="/blog/"
+            archiveText="Wszystkie wpisy"
           />
-          <Button link="/portfolio" class=" btn-outline">
-            Wszystkie posty
-          </Button>
         </div>
       </Section>
     )
@@ -199,10 +196,10 @@ const { post, headings, meta, schema, relatedPosts, prevPost, nextPost } =
   {/* FINALNE CTA */}
   <CTA
     id="kontakt"
-    heading="Masz pytania? Potrzebujesz pomocy?"
-    paragraph="Jeśli artykuł wzbudził Twoje zainteresowanie lub masz pytania – skontaktujsię ze mną."
+    heading="Masz temat, który warto uporządkować?"
+    paragraph="Jeśli wpis dotyczy podobnej sytuacji w Twojej firmie, napisz kilka zdań o punkcie wyjścia."
     button1={{ link: "/kontakt", text: "Skontaktuj się" }}
-    button2={{ link: "/blog", text: "Wróć na bloga" }}
+    button2={{ link: "/blog", text: "Wszystkie wpisy" }}
     variant="primary"
   />
 </PageLayout>

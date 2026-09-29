@@ -1,0 +1,343 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import FAQ from "@components/ui/FAQ.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import websiteClarityImg from "@assets/images/pages/website-clarity-v1.png";
+import processFlowImg from "@assets/images/pages/process-flow-v1.png";
+import solutionMapImg from "@assets/images/pages/solution-map-v1.png";
+import caseImg from "@assets/images/portfolio/devesol/devesol-pokaz.webp";
+import { industries } from "@data/industries";
+
+const meta = {
+  title: "Oferta | strony, narzędzia i automatyzacje",
+  description:
+    "Praktyczne wsparcie przy stronach internetowych, narzędziach cyfrowych i automatyzacji codziennej pracy.",
+};
+const services = [
+  {
+    title: "Strony internetowe",
+    text: "Nowe strony, modernizacje i uporządkowanie treści. Klient ma szybko zrozumieć ofertę i wiedzieć, co zrobić dalej.",
+    link: "/oferta/strony-www/",
+    image: websiteClarityImg,
+    alt: "Ilustracja strony internetowej",
+  },
+  {
+    title: "Narzędzia i automatyzacje",
+    text: "Uproszczenie pracy z dokumentami, danymi, zapytaniami i treściami. Zakres zależy od zadania i programów, z których już korzystasz.",
+    link: "/oferta/systemy-i-automatyzacje/",
+    image: processFlowImg,
+    alt: "Ilustracja przepływu danych",
+  },
+];
+const faqItems = [
+  {
+    question: "Od czego zaczyna się współpraca?",
+    answer:
+      "Od krótkiej rozmowy o firmie, celu i punkcie wyjścia. Nie potrzebujesz gotowej specyfikacji.",
+  },
+  {
+    question: "Czy można połączyć stronę z narzędziem dla firmy?",
+    answer:
+      "Tak. Strona może zbierać lepsze zapytania, prowadzić do kalkulatora albo przekazywać dane do wewnętrznego procesu.",
+  },
+  {
+    question: "Czy realizujesz małe projekty?",
+    answer:
+      "Tak. Dobry, ograniczony zakres często jest lepszym startem niż duży projekt bez wyraźnego priorytetu.",
+  },
+  {
+    question: "Czy masz gotowe cenniki i pakiety?",
+    answer:
+      "Zakres zależy od problemu. Po rozmowie proponuję prosty, zrozumiały plan oraz sposób rozliczenia.",
+  },
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar /><main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.76fr] lg:items-end lg:gap-16"
+      >
+        <div class="flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Oferta</p><Heading
+            tag="h1"
+            look="h0">Usprawnienia dla strony i pracy firmy.</Heading
+          ><p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Zaczynam od konkretnego miejsca, w którym giną informacje, powtarza
+            się ręczna praca albo klient nie wie, jak zamówić usługę. Zakres
+            dobieram po poznaniu sytuacji.
+          </p><Button link="kontakt" class="btn-primary px-7"
+            >Opisz swój temat</Button
+          >
+        </div>
+        <div class="hero-illustration">
+          <MyImage
+            img={solutionMapImg}
+            loading="eager"
+            fetchpriority="high"
+            alt="Od problemu przez plan do strony i narzędzia cyfrowego"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        id="uslugi"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+        ><div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Co mogę zrobić?</Heading>
+        </div><div class="grid gap-5 lg:grid-cols-2">
+          {
+            services.map((service, index) => (
+              <a
+                href={service.link}
+                class:list={[
+                  "service-tile group overflow-hidden",
+                  index === 0 && "service-tile--feature",
+                ]}
+              >
+                <>
+                  <div class="service-illustration">
+                    <MyImage
+                      img={service.image}
+                      alt={service.alt}
+                      size="h-full w-full"
+                      layout="object-contain"
+                      aspect="aspect-auto"
+                      rounded="rounded-none"
+                      shadow=""
+                      class="h-full w-full p-7"
+                    />
+                  </div>
+                  <div class="flex h-full flex-col justify-between p-7 lg:p-9">
+                    <>
+                      <div>
+                        <>
+                          <h3 class="text-h3">{service.title}</h3>
+                          <p class="mt-4 max-w-xl leading-7 text-base-content/65">
+                            {service.text}
+                          </p>
+                        </>
+                      </div>
+                      <span class="mt-9 flex items-center gap-2 font-semibold text-primary">
+                        Dowiedz się więcej{" "}
+                        <Icon name="tabler:arrow-up-right" class="size-5" />
+                      </span>
+                    </>
+                  </div>
+                </>
+              </a>
+            ))
+          }
+        </div></Section
+      >
+
+      <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-9">
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Potencjalne korzyści.</Heading>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card p-7">
+            <Icon name="tabler:browser" class="size-7 text-primary" /><h3
+              class="mt-7 text-h3"
+            >
+              Lepsza prezentacja oferty
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Klient szybciej rozumie, co robisz i czy jesteś dla niego
+              właściwym wykonawcą.
+            </p>
+          </article>
+          <article class="process-card p-7">
+            <Icon name="tabler:forms" class="size-7 text-primary" /><h3
+              class="mt-7 text-h3"
+            >
+              Mniej pustych zapytań
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Zamiast wiadomości bez danych dostajesz pytania z potrzebnym
+              kontekstem.
+            </p>
+          </article>
+          <article class="process-card p-7">
+            <Icon name="tabler:clock" class="size-7 text-primary" /><h3
+              class="mt-7 text-h3"
+            >
+              Mniej ręcznej pracy
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Tam, gdzie proces da się uprościć, oszczędzasz czas w codziennych
+              zadaniach.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Section
+        id="branze"
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+        ><div class="max-w-2xl">
+          <p class="mb-4 text-sm font-semibold text-primary">Branże</p><Heading
+            tag="h2"
+            look="h2"
+            >Szczególnie interesują mnie firmy, które coś tworzą, wykonują lub
+            naprawiają.</Heading
+          ><p class="mt-5 text-lg leading-8 text-base-content/68">
+            Nie widzisz tu swojej branży? Możesz opisać własny temat. Każda
+            firma ma inny sposób pracy, więc zaczynam od poznania jej sytuacji.
+          </p>
+        </div><div class="industry-grid">
+          {
+            industries.map((industry, index) => (
+              <article
+                class:list={[
+                  "industry-card",
+                  industry.link && "industry-card--linked",
+                  index === 0 && "industry-card--feature",
+                ]}
+              >
+                <>
+                  <div class="industry-card-media">
+                    <MyImage
+                      img={industry.image}
+                      alt={industry.alt}
+                      size="h-full w-full"
+                      layout="object-contain"
+                      aspect="aspect-auto"
+                      rounded="rounded-none"
+                      shadow=""
+                      class="h-full w-full p-5"
+                    />
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-h3">{industry.title}</h3>
+                    <p class="mt-3 leading-7 text-base-content/65">
+                      {industry.text}
+                    </p>
+                    {industry.link && (
+                      <a
+                        href={industry.link}
+                        aria-label={`Zobacz ofertę dla branży: ${industry.title}`}
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                      >
+                        Zobacz stronę branżową{" "}
+                        <Icon name="tabler:arrow-up-right" class="size-4" />
+                      </a>
+                    )}
+                  </div>
+                </>
+              </article>
+            ))
+          }
+        </div></Section
+      >
+
+      <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10"
+        ><div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak wygląda proces współpracy?</Heading>
+        </div><div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card numbered-step-card p-7 lg:p-8">
+            <span class="card-number">01</span><h3 class="mt-7 text-h3">
+              Opisujesz sytuację
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Co dziś nie działa, co zajmuje czas i jaki efekt ma przynieść
+              zmiana.
+            </p>
+          </article><article class="process-card numbered-step-card p-7 lg:p-8">
+            <span class="card-number">02</span><h3 class="mt-7 text-h3">
+              Wybieramy kierunek
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Ustalamy najmniejszy zakres, który realnie może poprawić sytuację.
+            </p>
+          </article><article class="process-card numbered-step-card p-7 lg:p-8">
+            <span class="card-number">03</span><h3 class="mt-7 text-h3">
+              Wdrażamy i sprawdzamy
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Rozwiązanie ma działać w praktyce, a nie tylko dobrze wyglądać w
+              opisie.
+            </p>
+          </article>
+        </div></Section
+      >
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.88fr] lg:items-center lg:gap-16"
+        ><div class="max-w-xl">
+          <p class="mb-4 text-sm font-semibold text-primary">
+            Case study
+          </p><Heading tag="h2" look="h2"
+            >Modernizacja istniejącej strony może być najlepszym początkiem.</Heading
+          ><p class="mt-5 text-lg leading-8 text-base-content/68">
+            W Devesol pracowałem na istniejącym WordPressie. Zmieniłem układ i
+            treści, by oferta firmy była łatwiejsza do zrozumienia — bez wymiany
+            technologii tylko dla samej wymiany.
+          </p><div class="mt-8">
+            <Button
+              link="/portfolio/modernizacja-strony-devesol/"
+              rawLink
+              class="btn-outline px-6">Zobacz realizację</Button
+            >
+          </div>
+        </div><div class="home-case">
+          <MyImage
+            img={caseImg}
+            alt="Strona firmy Devesol po modernizacji"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-auto"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-4"
+          />
+        </div></Section
+      >
+      <Compliments variant="secondary" compact />
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-16"
+        ><div>
+          <Heading tag="h2" look="h2">Pytania przed startem.</Heading>
+        </div><FAQ items={faqItems} /></Section
+      >
+      <Section containerSize="max-w-7xl"
+        ><div
+          class="contact-panel grid gap-8 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end"
+        >
+          <div class="max-w-3xl">
+            <Heading tag="h2" look="h2"
+              >Nie widzisz tu swojego problemu?</Heading
+            ><p class="mt-5 text-lg leading-8 text-white/84">
+              To tylko przykłady. Jeśli powtarzasz jakąś czynność, szukasz
+              danych w kilku miejscach albo masz pomysł na małe usprawnienie,
+              opisz mi sytuację.
+            </p>
+          </div><Button
+            link="kontakt"
+            class="btn border-0 bg-white px-7 text-primary hover:bg-base-100"
+            >Napisz do mnie</Button
+          >
+        </div></Section
+      >
+    </main><Footer />
+  </div>
+</BaseLayout>

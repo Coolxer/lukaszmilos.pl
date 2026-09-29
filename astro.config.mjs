@@ -33,12 +33,15 @@ export default defineConfig({
   },
 
   redirects: {
-    "/oferta/automatyzacja-procesow-firmowych/": "/systemy-i-automatyzacje/",
-    "/oferta/inne/": "/",
-    "/oferta/poprawa-strony-www/": "/strony-www/",
-    "/oferta/tworzenie-sklepu-www/": "/strony-www/",
-    "/oferta/tworzenie-strony-www/": "/strony-www/",
-    "/oferta/wdrazanie-narzedzi-cyfrowych/": "/systemy-i-automatyzacje/",
+    "/strony-www/": "/oferta/strony-www/",
+    "/systemy-i-automatyzacje/": "/oferta/systemy-i-automatyzacje/",
+    "/oferta/automatyzacja-procesow-firmowych/": "/oferta/systemy-i-automatyzacje/",
+    "/oferta/poprawa-strony-www/": "/oferta/strony-www/",
+    "/oferta/tworzenie-sklepu-www/": "/oferta/strony-www/",
+    "/oferta/tworzenie-strony-www/": "/oferta/strony-www/",
+    "/oferta/wdrazanie-narzedzi-cyfrowych/": "/oferta/systemy-i-automatyzacje/",
+    "/oferta/meble-na-wymiar/": "/oferta/stolarnie/",
+    "/oferta/producenci-maszyn/": "/oferta/mali-producenci/",
   },
 
   integrations: [

@@ -6,6 +6,8 @@ import Navbar from "@components/layout/Navbar.astro";
 import Footer from "@components/layout/Footer.astro";
 import Section from "~/components/layout/Section.astro";
 import Heading from "@components/ui/Heading.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import type { ImageMetadata } from "astro";
 
 import Banner from "~/components/widgets/Banner.astro";
 
@@ -14,9 +16,11 @@ type Props = {
   pageDescription?: string;
   meta: Meta;
   schema?: Schema;
+  heroImage?: ImageMetadata;
+  heroImageAlt?: string;
 };
 
-const { pageTitle, pageDescription, meta, schema } = Astro.props;
+const { pageTitle, pageDescription, meta, schema, heroImage, heroImageAlt = "" } = Astro.props;
 ---
 
 <BaseLayout meta={meta} schema={schema}>
@@ -29,8 +33,9 @@ const { pageTitle, pageDescription, meta, schema } = Astro.props;
       <main class="w-full block">
         {
           pageTitle && (
-            <Section heroSection>
-              <div class="flex flex-col gap-8 animate-reveal">
+            <Section heroSection containerSize="max-w-7xl">
+              <div class={heroImage ? "grid gap-10 lg:grid-cols-[1fr_.7fr] lg:items-center lg:gap-16" : "flex flex-col gap-8"}>
+                <div class="flex flex-col gap-8">
                 <Heading tag="h1" look="h0">{pageTitle}</Heading>
                 {pageDescription && (
                   <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
@@ -38,6 +43,8 @@ const { pageTitle, pageDescription, meta, schema } = Astro.props;
                   </p>
                 )}
                 <slot name="header" />
+                </div>
+                {heroImage && <div class="hero-illustration" aria-hidden="true"><MyImage img={heroImage} loading="eager" fetchpriority="high" alt={heroImageAlt} size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" /></div>}
               </div>
             </Section>
           )

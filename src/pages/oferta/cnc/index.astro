@@ -1,0 +1,280 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import CTA from "@components/sections/CTA.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import heroImg from "@assets/images/pages/industry-cnc-v2.png";
+
+const meta = {
+  title: "Strona i narzędzia dopasowane do pracy zakładu CNC",
+  description:
+    "Strony, obsługa zapytań i małe narzędzia dla zakładów CNC i obróbki.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16"
+      >
+        <div class="flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Dla Twojej branży</p>
+          <Heading tag="h1" look="h0"
+            >Strona i narzędzia dopasowane do pracy zakładu CNC</Heading
+          >
+          <p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Pomagam firmom CNC i obróbki lepiej pokazać możliwości na stronie
+            oraz uprościć wybrane zadania przy zapytaniach i pracy wewnętrznej.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7"
+              >Opisz, co chcesz uprościć</Button
+            >
+            <Button link="/oferta/cnc/kalkulator/" class="btn-outline px-7"
+              >Zobacz przykład formularza</Button
+            >
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <MyImage
+            img={heroImg}
+            loading="eager"
+            fetchpriority="high"
+            alt="Ilustracja pracy zakładu CNC"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2"
+            >Co m.in. można poprawić na stronie i w codziennej pracy?</Heading
+          >
+          <p class="mt-5 leading-7 text-base-content/68">
+            Od pokazania możliwości zakładu po pracę z zapytaniami i plikami.
+            Zakres wybierzemy na podstawie tego, co rzeczywiście robisz.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Strona i realizacje
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Klient nie wie, czy zakład może podjąć jego temat.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Procesy, materiały, gabaryty i ograniczenia pokazane tak, żeby
+              klient mógł ocenić dopasowanie. Mogę ułatwić dodawanie realizacji
+              albo pomóc opracować je z dostarczonych zdjęć i informacji.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Zapytania i dalsza obsługa
+            </h3>
+            <p class="industry-scenario-card__situation">
+              W zapytaniu brakuje rysunku, materiału lub liczby sztuk.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Formularz może zebrać rysunek, materiał, ilość, termin i uwagi
+              odpowiednie dla danej usługi. Przy większej liczbie spraw można
+              rozważyć rejestr i sposób przygotowania odpowiedzi.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Powtarzalna praca z plikami
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Podobne pliki i dokumenty są przygotowywane od początku.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Gdy rysunki lub dokumenty różnią się tylko wymiarami i wariantami,
+              sprawdzę szablon albo prosty generator. Podobnie z powtarzalnymi
+              czynnościami w CAD/CAM. Możliwości zależą od oprogramowania,
+              formatu i koniecznej kontroli wyników.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-9"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak ustalamy pierwszy etap?</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Zaczynamy od obecnej strony, typowych zapytań lub przykładu
+            powtarzalnej pracy. Przed pracą poznasz zakres, cenę, termin i
+            ewentualne koszty utrzymania.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="mt-7 text-h3">Pokaż przykłady</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Oglądam kilka rzeczywistych zapytań, zleceń lub fragmentów obecnej
+              pracy.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="mt-7 text-h3">Wybierzmy zakres</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Sprawdzam obecne narzędzia i proponuję jeden sensowny krok, koszt
+              oraz termin.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="mt-7 text-h3">Sprawdźmy działanie</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Testujemy rozwiązanie na typowej pracy i poprawiamy to, co wymaga
+              dopracowania.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania przed rozpoczęciem.</Heading>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy formularz automatycznie wyceni detal?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie musi. Najpierw zbiera dane do oceny. Cenę i termin może
+                nadal ustalać osoba analizująca rysunek.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy da się uprościć pracę z CAD/CAM?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                To zależy od używanego programu, formatu i rodzaju powtarzalnej
+                pracy. Ocenimy to na kilku przykładach, a wynik programu
+                sprawdzi fachowiec.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Ile kosztuje strona lub narzędzie dla zakładu CNC?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Cena zależy od zakresu: poprawa jednej podstrony, formularz
+                zapytania i narzędzie do pracy z plikami to różne zadania. Po
+                obejrzeniu przykładów określę zakres, cenę, termin oraz
+                ewentualne koszty utrzymania przed rozpoczęciem prac.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy trzeba zmieniać obecną stronę lub programy w zakładzie?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Niekoniecznie. Najpierw sprawdzę, co już działa i jakie są
+                możliwości obecnej strony oraz używanego oprogramowania. Czasem
+                wystarczy poprawić jeden fragment albo połączyć istniejące
+                narzędzia.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Co przygotować do pierwszej rozmowy?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Wystarczą dwa lub trzy typowe przykłady: zapytanie od klienta,
+                plik, dokument albo czynność, którą często powtarzasz. Przyda
+                się też informacja, z jakich programów korzystasz. Materiały
+                możesz na początek zanonimizować.
+              </p>
+            </div>
+          </details>
+        </div>
+      </Section>
+
+      <CTA
+        heading="Co chcesz uprościć w pracy zakładu CNC?"
+        paragraph="Pokaż obecny sposób zbierania zapytań, pracy z plikami albo prezentowania możliwości. Zaproponuję pierwszy krok, jeśli będzie miał sens."
+        button1={{ link: "/kontakt", text: "Opisz swój przypadek" }}
+        variant="primary"
+      />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

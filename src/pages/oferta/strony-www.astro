@@ -1,0 +1,293 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import FAQ from "@components/ui/FAQ.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import websiteClarityImg from "@assets/images/pages/website-clarity-v1.png";
+
+const meta = {
+  title: "Strony internetowe",
+  description:
+    "Projektuję szybkie, czytelne strony firmowe, które pomagają klientowi zrozumieć ofertę i zrobić kolejny krok.",
+};
+
+const outcomes = [
+  {
+    icon: "tabler:focus-2",
+    title: "Jasna oferta",
+    text: "Klient szybko rozumie, czym zajmuje się firma, dla kogo pracuje i co ją wyróżnia.",
+  },
+  {
+    icon: "tabler:forms",
+    title: "Dobry następny krok",
+    text: "Klient łatwo znajduje kontakt, formularz lub produkt, gdy chce zrobić kolejny krok.",
+  },
+  {
+    icon: "tabler:bolt",
+    title: "Solidne podstawy",
+    text: "Strona działa sprawnie na telefonie, szybko się ładuje i ma techniczne podstawy widoczności w wyszukiwarkach.",
+  },
+];
+const issues = [
+  "Strona wolno się ładuje lub słabo działa na telefonie",
+  "Klient nie widzi zakresu usług, realizacji i możliwości firmy",
+  "Zapytania przychodzą bez informacji potrzebnych do odpowiedzi",
+  "Aktualizacja treści jest trudna, a dostępy do domeny i hostingu niejasne",
+];
+const improvements = [
+  "Modernizacja i uporządkowanie obecnej strony",
+  "Poprawa szybkości ładowania i wersji mobilnej",
+  "Uporządkowanie treści i struktury informacji",
+  "Podstawy technicznego SEO",
+  "Sekcje usług, realizacji i elementy branżowe",
+  "Formularz zapytania z możliwością dodania plików",
+  "Wersje językowe, jeśli są potrzebne",
+  "Katalog produktów lub model „zapytaj o produkt”",
+  "CMS do samodzielnej edycji albo prostsza wersja bez obsługi",
+];
+const faqItems = [
+  {
+    question: "Czy trzeba budować nową stronę?",
+    answer:
+      "Nie zawsze. Mogę poprawić jedną sekcję, podstronę usługi lub zmodernizować istniejący serwis. Nowa strona ma sens, gdy obecna naprawdę przeszkadza.",
+  },
+  {
+    question: "Czy będę mógł samodzielnie zmieniać treści?",
+    answer:
+      "Ustalimy to na początku. Mogę przygotować CMS do edycji albo prostszą wersję, jeśli nie planujesz regularnych zmian.",
+  },
+  {
+    question: "Czy możesz dodać formularz z załącznikami?",
+    answer:
+      "Tak, jeśli pasuje do sposobu obsługi zapytań. Ustalimy, jakie pytania i pliki są rzeczywiście potrzebne.",
+  },
+  {
+    question: "Kiedy poznam koszt przygotowania lub poprawy strony?",
+    answer:
+      "Po przejrzeniu obecnej strony lub ustaleniu zakresu nowej. Przed pracą poznasz cenę i termin wybranego etapu oraz ewentualne koszty domeny, hostingu czy zewnętrznych usług.",
+  },
+  {
+    question: "Co, jeśli nie wiem, kto ma dostęp do domeny i hostingu?",
+    answer:
+      "Zaczniemy od ustalenia, gdzie są wykupione i kto ma do nich dostęp. To pomaga ocenić, co można bezpiecznie zmienić na obecnej stronie.",
+  },
+];
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.76fr] lg:items-end lg:gap-16"
+      >
+        <div class="flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Strony internetowe</p>
+          <Heading tag="h1" look="h0"
+            >Strona, która ułatwia pracę Tobie i Twoim klientom.</Heading
+          >
+          <p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Strona powinna jasno pokazywać, co robisz, jakie prace przyjmujesz i
+            co klient ma przygotować przed kontaktem. Pomagam poprawić
+            istniejącą stronę albo stworzyć nową, jeśli to uzasadnione.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7"
+              >Porozmawiajmy</Button
+            ><Button link="portfolio/kategoria/www" class="btn-outline px-7"
+              >Zobacz realizacje</Button
+            >
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <MyImage
+            img={websiteClarityImg}
+            loading="eager"
+            fetchpriority="high"
+            alt="Ilustracja czytelnej strony internetowej"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            sizes="(max-width: 1024px) 90vw, 34vw"
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:gap-20"
+      >
+        <div>
+          <Heading tag="h2" look="h2"
+            >Co najczęściej nie działa na stronie?</Heading
+          >
+        </div>
+        <div>
+          <p class="max-w-2xl text-lg leading-8 text-base-content/68">
+            Klient trafia na stronę, nie znajduje potrzebnych informacji i
+            przechodzi dalej. Często da się to poprawić bez budowania
+            wszystkiego od początku.
+          </p>
+          <ol class="problem-list mt-6" role="list">
+            {
+              issues.map((issue, index) => (
+                <li class="problem-list__item">
+                  <span class="problem-list__number" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span class="problem-list__text">{issue}</span>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Co powinna ułatwiać dobra strona?</Heading>
+        </div>
+        <div class="grid gap-5 lg:grid-cols-12">
+          {
+            outcomes.map((outcome, index) => (
+              <article
+                class:list={[
+                  "service-tile p-7 lg:p-9",
+                  index === 0
+                    ? "lg:col-span-6 service-tile--feature"
+                    : "lg:col-span-3",
+                ]}
+              >
+                <>
+                  <Icon name={outcome.icon} class="size-7 text-primary" />
+                  <h3 class="mt-10 text-h3">{outcome.title}</h3>
+                  <p class="mt-4 leading-7 text-base-content/65">
+                    {outcome.text}
+                  </p>
+                </>
+              </article>
+            ))
+          }
+        </div>
+      </Section>
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:gap-20"
+      >
+        <div>
+          <p class="mb-4 text-sm font-semibold text-primary">Zakres</p><Heading
+            tag="h2"
+            look="h2">Nowa strona to nie zawsze jedyna odpowiedź.</Heading
+          >
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="process-card p-7">
+            <h3 class="text-h4">Od zera</h3><p
+              class="mt-3 leading-7 text-base-content/65"
+            >
+              Gdy firma potrzebuje nowego miejsca do przedstawienia oferty,
+              realizacji i kontaktu.
+            </p>
+          </div><div class="process-card p-7">
+            <h3 class="text-h4">Modernizacja</h3><p
+              class="mt-3 leading-7 text-base-content/65"
+            >
+              Gdy obecna strona istnieje, ale nie komunikuje dobrze firmy. Można
+              zachować obecną technologię, jeśli to ma sens.
+            </p>
+          </div><div class="process-card p-7 sm:col-span-2">
+            <h3 class="text-h4">Konkretna poprawa</h3><p
+              class="mt-3 max-w-2xl leading-7 text-base-content/65"
+            >
+              Czasem wystarczy uporządkować ofertę, dodać formularz, poprawić
+              wydajność lub odzyskać kontrolę nad domeną i dostępami.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10">
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak wygląda początek współpracy?</Heading
+          ><p class="mt-5 leading-7 text-base-content/68">
+            Pokażesz mi obecną stronę lub opowiesz o nowej. Ustalimy, co
+            odbiorca powinien zrozumieć, jakie treści i zdjęcia już masz oraz
+            kto będzie później aktualizować serwis. Zaproponuję zakres, cenę i
+            termin.
+          </p>
+        </div>
+        <ol class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <li class="process-card numbered-step-card p-7 lg:p-8">
+            <span class="card-number">01</span><h3 class="mt-7 text-h3">
+              Rozmowa o sytuacji
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Sprawdzamy, co firma chce wyjaśnić klientom i co dziś blokuje
+              kontakt.
+            </p>
+          </li><li class="process-card numbered-step-card p-7 lg:p-8">
+            <span class="card-number">02</span><h3 class="mt-7 text-h3">
+              Układ informacji
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Budujemy prostą strukturę: oferta, dowody pracy i właściwy kolejny
+              krok.
+            </p>
+          </li><li class="process-card numbered-step-card p-7 lg:p-8">
+            <span class="card-number">03</span><h3 class="mt-7 text-h3">
+              Projekt i wdrożenie
+            </h3><p class="mt-4 leading-7 text-base-content/65">
+              Powstaje szybka strona, którą można później spokojnie rozwijać.
+            </p>
+          </li>
+        </ol>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-16"
+        ><Heading tag="h2" look="h2">Pytania o stronę.</Heading><FAQ
+          items={faqItems}
+        /></Section
+      >
+      <Section containerSize="max-w-7xl"
+        ><div
+          class="contact-panel grid gap-8 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end"
+        >
+          <div class="max-w-3xl">
+            <Heading tag="h2" look="h2">Pokaż mi swoją stronę.</Heading><p
+              class="mt-5 text-lg leading-8 text-white/84"
+            >
+              Napisz, czego na niej brakuje albo co utrudnia klientom kontakt.
+              Sprawdzimy, od czego warto zacząć.
+            </p>
+          </div><Button
+            link="kontakt"
+            class="btn border-0 bg-white px-7 text-primary hover:bg-base-100"
+            >Porozmawiajmy</Button
+          >
+        </div></Section
+      >
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

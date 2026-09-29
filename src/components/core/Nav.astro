@@ -2,7 +2,8 @@
 import { buildSlug } from "~/utils/utils";
 
 export type NavLink = {
-  slug: string;
+  slug?: string;
+  href?: string;
   label: string;
 };
 
@@ -14,18 +15,9 @@ export interface Props {
 
 const {
   items = [
-    {
-      slug: "oferta",
-      label: "Oferta",
-    },
-    {
-      slug: "portfolio",
-      label: "Portfolio",
-    },
-    {
-      slug: "blog",
-      label: "Blog",
-    },
+    { slug: "oferta", label: "Usługi" },
+    { slug: "portfolio", label: "Realizacje" },
+    { slug: "o-mnie", label: "O mnie" },
   ],
   additionalItems = [],
   class: className,
@@ -34,10 +26,4 @@ const {
 const links = [...items, ...additionalItems];
 ---
 
-{
-  links.map((link) => (
-    <a href={buildSlug(link.slug)} class={className}>
-      {link.label}
-    </a>
-  ))
-}
+{links.map((link) => <a href={link.href || buildSlug(link.slug || "")} class={className}>{link.label}</a>)}

@@ -62,20 +62,20 @@ const selectedClasses =
 ---
 
 <PageLayout meta={meta} schema={schema}>
-  <Section>
-    <div class="my-stack lg:my-big-stack text-center">
-      <div class="flex flex-row gap-4 justify-center">
-        <div class="badge badge-lg badge-neutral">case-study</div>
+  <Section containerSize="max-w-7xl" class="detail-hero-section">
+    <div class="detail-hero my-stack lg:my-big-stack">
+      <div class="flex flex-row flex-wrap gap-2 justify-center">
+        <div class="detail-tag">Case study</div>
 
         {
           item.data.category && (
-            <div class:list={["badge badge-lg", selectedClasses.badge]}>
+            <div class="detail-tag detail-tag--accent">
               {item.data.category}
             </div>
           )
         }
       </div>
-      <Heading tag="h1">
+      <Heading tag="h1" look="h0">
         {item.data.title}
       </Heading>
 
@@ -98,13 +98,16 @@ const selectedClasses =
 
       {
         item.data.image && (
-          <div class="mt-12">
+          <div class="mt-12 overflow-hidden rounded-[20px] bg-base-200">
             <MyImage
               src={item.data.image.src}
               alt={item.data.image.alt}
+              layout="object-contain"
               loading="eager"
               fetchpriority="high"
-              size="w-full h-auto max-h-[600px] object-cover rounded-box shadow-lg"
+              size="w-full h-auto max-h-[720px]"
+              widths={[640, 960, 1280, 1600]}
+              sizes="(max-width: 1024px) 90vw, 84vw"
             />
           </div>
         )
@@ -112,15 +115,10 @@ const selectedClasses =
     </div>
   </Section>
 
-  <Section variant="secondary">
-    <div class="">
-      <div
-        class:list={[
-          "bg-base-100 border-2 rounded-box p-8 shadow-md",
-          selectedClasses.border,
-        ]}
-      >
-        <Grid cols={1}>
+  <Section variant="secondary" containerSize="max-w-7xl">
+    <div class="max-w-6xl">
+      <p class="mb-5 text-sm font-semibold text-primary">W skrócie</p>
+      <Grid cols={3} gap="normal" class="detail-summary-grid">
           {
             [
               {
@@ -139,7 +137,7 @@ const selectedClasses =
                 content: item.data.result,
               },
             ].map((section) => (
-              <div class="flex items-start gap-4">
+              <div class:list={["detail-summary-card flex items-start gap-4", selectedClasses.border]}>
                 <div
                   class:list={[
                     "p-3 rounded-full shrink-0",
@@ -160,8 +158,7 @@ const selectedClasses =
               </div>
             ))
           }
-        </Grid>
-      </div>
+      </Grid>
     </div>
 
     {/* Link do wideo na YouTube (jeśli istnieje) */}
@@ -171,20 +168,10 @@ const selectedClasses =
           href={item.data.video}
           target="_blank"
           rel="noopener noreferrer"
-          class="group block rounded-box border-2 border-primary/30 bg-base-100 p-6 shadow-sm no-underline transition-all duration-300 ease-in-out hover:border-primary hover:shadow-lg hover:-translate-y-1"
+          class="detail-video-link group"
         >
           <div class="flex items-center gap-4 sm:gap-6">
-            {/* Ikona YouTube */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="h-12 w-12 flex-shrink-0 text-red-600 transition-transform duration-300 group-hover:scale-110"
-            >
-              <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
-            </svg>
+            <Icon name="tabler:brand-youtube" class="h-11 w-11 flex-shrink-0 text-red-600 transition-transform duration-300 group-hover:scale-110" />
             <div>
               <p class="font-bold text-lg text-base-content">
                 Zobacz wideo z case-study
@@ -199,13 +186,13 @@ const selectedClasses =
     }
   </Section>
 
-  <Section>
-    <div class="my-big-stack">
+  <Section containerSize="max-w-5xl">
+    <div class="detail-reading my-big-stack">
       {
         headings && headings.length > 0 && (
           <div
             class:list={[
-              "bg-base-100 border-2  rounded-box p-6 shadow-sm",
+              "bg-base-100 border border-base-content/10 rounded-[20px] p-6",
               selectedClasses.border,
             ]}
           >
@@ -237,7 +224,7 @@ const selectedClasses =
 
   {
     review && (
-      <Section>
+      <Section containerSize="max-w-7xl">
         <Heading tag="h2" slot="heading">
           Opinia klienta
         </Heading>
@@ -248,7 +235,7 @@ const selectedClasses =
 
   {
     relatedItems && relatedItems.length > 0 && (
-      <Section>
+      <Section containerSize="max-w-7xl">
         <Heading tag="h2" slot="heading">
           Podobne projekty
         </Heading>
@@ -256,7 +243,7 @@ const selectedClasses =
           Zobacz również inne realizacje z mojego portfolio
         </p>
 
-        <Grid cols={1}>
+        <Grid cols={2} gap="normal">
           {relatedItems.map((item) => (
             <PortfolioCard item={item} />
           ))}
@@ -267,11 +254,11 @@ const selectedClasses =
 
   {
     (prevItem || nextItem) && (
-      <Section variant="secondary">
+      <Section variant="secondary" containerSize="max-w-7xl">
         <Heading tag="h2" slot="heading">
           Inne projekty
         </Heading>
-        <div class="max-w-3xl mx-auto my-stack">
+        <div class="my-stack">
           <ElementNavigation
             collection="portfolio"
             baseSlug="/portfolio/"
@@ -279,10 +266,9 @@ const selectedClasses =
             prevText="Poprzedni projekt"
             nextElement={nextItem}
             nextText="Następny projekt"
+            archiveLink="/portfolio/"
+            archiveText="Wszystkie projekty"
           />
-          <Button link="/portfolio" class=" btn-outline">
-            Wszystkie projekty
-          </Button>
         </div>
       </Section>
     )
@@ -290,10 +276,10 @@ const selectedClasses =
 
   <CTA
     id="kontakt"
-    heading="Zainteresował Cię ten projekt?"
-    paragraph=" Mogę pomóc Ci rozwiązać podobny problem. Porozmawiajmy o Twoich potrzebach i znajdźmy najlepsze rozwiązanie."
+    heading="Masz podobny temat?"
+    paragraph="Opisz punkt wyjścia. Sprawdzimy, czy podobne rozwiązanie ma sens w Twojej firmie."
     button1={{ link: "/kontakt", text: "Skontaktuj się" }}
-    button2={{ link: "/portfolio", text: "Zobacz więcej projektów" }}
+    button2={{ link: "/portfolio", text: "Wszystkie projekty" }}
     variant="primary"
   />
 </PageLayout>
