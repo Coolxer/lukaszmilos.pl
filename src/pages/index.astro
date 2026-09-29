@@ -1,269 +1,362 @@
 ---
+import { Icon } from "astro-icon/components";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Navbar from "@components/layout/Navbar.astro";
 import Footer from "@components/layout/Footer.astro";
 import Banner from "@components/widgets/Banner.astro";
+import Container from "@components/layout/Container.astro";
 import Section from "@components/layout/Section.astro";
 import Heading from "@components/ui/Heading.astro";
 import Button from "@components/ui/Button.astro";
-import Prose from "@components/ui/Prose.astro";
 import MyImage from "@components/ui/MyImage.astro";
-import heroImg from "@assets/images/pages/lukasz-milos.webp";
+import FAQ from "@components/ui/FAQ.astro";
 import Compliments from "@components/sections/Compliments.astro";
+import heroImg from "@assets/images/pages/lukasz-milos.webp";
+import websiteClarityImg from "@assets/images/pages/website-clarity-v1.png";
+import processFlowImg from "@assets/images/pages/process-flow-v1.png";
+import { industries } from "@data/industries";
+import caseImg from "@assets/images/portfolio/devesol/devesol-pokaz.webp";
 
 const meta = {
-  title: "Strony internetowe i automatyzacje dla mikro i małych firm",
+  title: "Strony i narzędzia dla małych firm technicznych",
   description:
-    "Inżynier IT, który rozumie warsztat. Tworzę szybkie strony WWW i automatyzacje procesów dla małych firm oraz rzemiosła. Sprawdź, jak mogę Ci pomóc.",
+    "Pomagam małym firmom tworzyć czytelne strony oraz praktyczne narzędzia, które usprawniają codzienną pracę.",
 };
+
+const faqItems = [
+  {
+    question: "Czy muszę mieć gotowy pomysł na projekt?",
+    answer:
+      "Nie. Wystarczy opisać firmę, cel i to, co dziś przeszkadza. Wspólnie ustalimy, czy potrzebna jest strona, narzędzie czy po prostu mała poprawa procesu.",
+  },
+  {
+    question: "Czy pracujesz tylko z firmami technicznymi?",
+    answer:
+      "Nie. To środowisko jest mi szczególnie bliskie, ale pracuję wszędzie tam, gdzie przydaje się jasna komunikacja i praktyczne podejście do technologii.",
+  },
+  {
+    question: "Czy da się zacząć od małego zakresu?",
+    answer:
+      "Tak. Często najlepszym początkiem jest pojedyncza strona, formularz albo test rozwiązania zamiast rozbudowanego systemu.",
+  },
+  {
+    question: "Czy po wdrożeniu można rozwijać rozwiązanie?",
+    answer:
+      "Tak, jeśli kolejne kroki mają uzasadnienie. Nie dokładam funkcji dla samego dokładania.",
+  },
+];
 ---
 
 <BaseLayout meta={meta}>
   <Banner />
-  <div class="w-full flex justify-center">
-    <div class="flex flex-col min-h-screen justify-between w-full">
-      <Navbar />
-      <main class="w-full block">
-        {/* ── HERO ──────────────────────────────────────────────── */}
-        <Section heroSection>
-          <div class="flex flex-col gap-10 animate-reveal">
-            <div class="flex flex-col gap-4">
-              <h1
-                class="text-h0-hero text-base-content font-black"
-                style="font-family: var(--font-space-grotesk), system-ui, sans-serif;"
-              >
-                Cześć,
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <section
+        class="home-hero pt-8 pb-12 md:pt-12 md:pb-16 lg:min-h-[calc(100dvh-4rem)] lg:pt-16"
+      >
+        <Container size="max-w-7xl">
+          <div
+            class="grid gap-8 md:gap-10 lg:grid-cols-[1fr_.82fr] lg:items-center lg:gap-16"
+          >
+            <div
+              class="animate-reveal flex max-w-2xl flex-col items-start gap-6 md:gap-7"
+            >
+              <p class="hero-welcome">
+                <Icon name="tabler:hand-finger" class="size-4" /> Cześć, jestem Łukasz
+                Miłoś.
+              </p>
+              <h1 class="home-hero-title font-semibold">
+                Wdrażam technologie. Upraszczam codzienną pracę.
               </h1>
               <p
-                class="text-2xl md:text-3xl text-base-content/60 font-light leading-relaxed tracking-tight max-w-3xl"
+                class="max-w-xl text-lg leading-8 text-base-content/68 md:text-xl"
               >
-                Nazywam się <span class="text-base-content font-semibold"
-                  >Łukasz Miłoś</span
-                >. Działam na styku wytwarzania, technologii, stron
-                internetowych i automatyzacji.
+                Interesuje mnie to, jak technologia pomaga małej firmie pokazać
+                swoją pracę i poradzić sobie z powtarzalnymi zadaniami.
+                Szczególnie bliskie są mi firmy, które coś wykonują, produkują
+                lub naprawiają.
               </p>
+              <div class="flex flex-wrap gap-3">
+                <Button link="kontakt" class="btn-primary px-6"
+                  >Opisz, co chcesz usprawnić</Button
+                ><Button link="oferta" class="btn-outline px-6"
+                  >Zobacz, czym się zajmuję</Button
+                >
+              </div>
             </div>
-
-            <div class="flex flex-wrap gap-3">
-              <Button link="oferta" class="btn-primary">Zobacz ofertę</Button>
-              <Button link="kontakt" class="btn-ghost btn-outline"
-                >Skontaktuj się</Button
-              >
+            <div class="animate-reveal-delay w-full max-w-[31rem] lg:ml-auto">
+              <div class="portrait-panel">
+                <MyImage
+                  img={heroImg}
+                  alt="Łukasz Miłoś"
+                  loading="eager"
+                  fetchpriority="high"
+                  size="h-full w-full"
+                  aspect="aspect-[4/5]"
+                  rounded="rounded-none"
+                  shadow=""
+                  sizes="(max-width: 550px) 90vw, (max-width: 1023px) 496px, 38vw"
+                  class="h-full w-full object-cover object-[38%_18%]"
+                />
+              </div>
+              <div class="home-hero-note p-5 md:p-6">
+                <p class="text-lg font-medium leading-7">
+                  Zbudowałem własną drukarkę 3D i sterowanie do ostrzarki
+                  narzędzi CNC. Lubię poznawać pracę ludzi, którzy coś
+                  wytwarzają.
+                </p>
+              </div>
             </div>
+          </div>
+        </Container>
+      </section>
 
-            <div
-              class="rounded-2xl overflow-hidden bg-base-200 border border-base-content/8 aspect-video sm:aspect-[21/9] group animate-reveal-delay"
-            >
+      <Section
+        id="oferta"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <p class="mb-4 text-sm font-semibold text-primary">
+            Czym się zajmuję?
+          </p><Heading tag="h2" look="h2"
+            >Porządkuję to, co w firmie dzieje się online i wewnątrz.</Heading
+          ><p class="mt-5 text-lg leading-8 text-base-content/68">
+            Nie musisz wiedzieć, jakiego rozwiązania potrzebujesz. Możesz
+            opowiedzieć, co dziś zajmuje za dużo czasu albo czego brakuje Twojej
+            stronie.
+          </p>
+        </div>
+        <div class="grid gap-5 lg:grid-cols-2">
+          <a
+            href="/oferta/strony-www/"
+            class="service-tile service-tile--feature group overflow-hidden"
+            ><div class="service-illustration">
               <MyImage
-                img={heroImg}
-                alt="Łukasz Miłoś — inżynier IT"
-                loading="eager"
-                size="w-full h-full"
+                img={websiteClarityImg}
+                alt="Ilustracja czytelnej strony internetowej"
+                size="h-full w-full"
+                layout="object-contain"
                 aspect="aspect-auto"
                 rounded="rounded-none"
                 shadow=""
-                class="object-cover object-[20%_20%] grayscale-[15%] group-hover:scale-[1.01] transition-transform duration-700"
+                sizes="(max-width: 1024px) 90vw, 50vw"
+                class="h-full w-full p-6 md:p-8"
               />
-            </div>
-          </div>
-        </Section>
-
-        {/* ── KIM JESTEM ────────────────────────────────────────── */}
-        <Section
-          id="o-mnie"
-          preLabel="O mnie"
-          class="border-t border-base-content/8"
-        >
-          <Heading tag="h2" look="h2" slot="heading"
-            >Inżynier IT, który rozumie warsztat</Heading
-          >
-          <Prose>
-            <p>
-              Skończyłem studia informatyczne z wyróżnieniem, ale
-              <strong>nie jestem tylko typowym informatykiem</strong>.
-            </p>
-            <p>
-              Pracuję też ręcznie — w warsztacie, z narzędziami. Zbudowałem
-              własną drukarkę 3D, zaprojektowałem i stworzyłem sterowanie do
-              ostrzarki narzędzi CNC.
-            </p>
-            <p>
-              To daje mi perspektywę, której brakuje większości osób w branży.
-              Doceniam ludzi, którzy coś wytwarzają (części, maszyny,
-              konstrukcje).
-            </p>
-          </Prose>
-        </Section>
-
-        {/* ── CO ROBIĘ ──────────────────────────────────────────── */}
-        <Section
-          id="zakres"
-          preLabel="Zakres"
-          class="border-t border-base-content/8"
-        >
-          <Heading tag="h2" look="h2" slot="heading">Co robię?</Heading>
-          <div class="flex flex-col gap-8">
-            <ul
-              class="flex flex-col gap-5 text-xl text-base-content/60 font-light leading-relaxed"
-            >
-              <li>
-                <span class="font-semibold text-base-content"
-                  >W świecie cyfrowym:</span
-                >{" "}
-                Usprawniam lub buduję strony internetowe, piszę skrypty, automatyzacje,
-                proste programy CAM, rysunki CAD, przygotowuję instrukcje i proste
-                grafiki.
-              </li>
-              <li>
-                <span class="font-semibold text-base-content"
-                  >W świecie fizycznym:</span
-                >{" "}
-                Naprawiam, tnę, szlifuję, wiercę, gwintuję, skręcam i podpinam przewody.
-              </li>
-            </ul>
-
-            <!-- <div class="border-t border-base-content/8 pt-8">
-              <p
-                class="text-sm font-mono uppercase tracking-[0.2em] text-base-content/40 mb-5"
+            </div><div class="flex h-full flex-col justify-between p-7 lg:p-9">
+              <div>
+                <h3 class="text-h3">
+                  Poprawiam strony, które już działają, i tworzę nowe.
+                </h3><p class="mt-4 max-w-lg leading-7 text-base-content/65">
+                  Chodzi o jasną ofertę, przykłady pracy i łatwy następny krok
+                  dla klienta.
+                </p>
+              </div><span
+                class="mt-9 flex items-center gap-2 font-semibold text-primary"
+                >Strony internetowe <Icon
+                  name="tabler:arrow-up-right"
+                  class="size-5"
+                /></span
               >
-                Przykłady projektów
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <Button link="portfolio" class="btn-outline btn-sm"
-                  >Sterowanie CNC</Button
-                >
-                <Button link="portfolio" class="btn-outline btn-sm"
-                  >Dedykowany kalkulator</Button
-                >
-                <Button link="portfolio" class="btn-outline btn-sm"
-                  >Druk 3D</Button
-                >
-              </div>
-            </div> -->
-          </div>
-        </Section>
-
-        {/* ── OFERTA ────────────────────────────────────────────── */}
-        <Section
-          id="wspolpraca"
-          preLabel="Współpraca"
-          class="border-t border-base-content/8"
-        >
-          <Heading tag="h2" look="h2" slot="heading"
-            >Czy mogę Ci jakoś pomóc?</Heading
+            </div></a
           >
-
-          <p
-            class="text-xl text-base-content/60 font-light leading-relaxed tracking-tight max-w-2xl"
+          <a
+            href="/oferta/systemy-i-automatyzacje/"
+            class="service-tile group overflow-hidden"
+            ><div class="service-illustration service-illustration--blue">
+              <MyImage
+                img={processFlowImg}
+                alt="Ilustracja uporządkowanego przepływu danych"
+                size="h-full w-full"
+                layout="object-contain"
+                aspect="aspect-auto"
+                rounded="rounded-none"
+                shadow=""
+                sizes="(max-width: 1024px) 90vw, 50vw"
+                class="h-full w-full p-6 md:p-8"
+              />
+            </div><div class="flex h-full flex-col justify-between p-7 lg:p-9">
+              <div>
+                <h3 class="text-h3">
+                  Upraszczam powtarzalne zadania za kulisami.
+                </h3><p class="mt-4 leading-7 text-base-content/65">
+                  Gdy ktoś ciągle przygotowuje dokumenty lub treści,
+                  przepisuje dane albo szuka informacji, sprawdzam, czy można
+                  uprościć ten fragment pracy.
+                </p>
+              </div><span
+                class="mt-9 flex items-center gap-2 font-semibold text-primary"
+                >Narzędzia i automatyzacje <Icon
+                  name="tabler:arrow-up-right"
+                  class="size-5"
+                /></span
+              >
+            </div></a
           >
-            Pomagam uporządkować i rozwinąć technologiczną stronę Twojego
-            biznesu. Moje usługi kieruję do małych firm,{" "}
-            <span class="text-base-content font-medium"
-              >ze szczególnym uwzględnieniem branż technicznych i rzemiosła</span
-            >.
+        </div>
+      </Section>
+
+      <Section
+        id="branze"
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2"
+            >Szczególnie interesują mnie firmy, które coś tworzą, wykonują lub
+            naprawiają.</Heading
+          ><p class="mt-5 text-lg leading-8 text-base-content/68">
+            To bliski mi kierunek, ale nie jedyna grupa, z którą pracuję. Każdy
+            projekt zaczyna się od poznania konkretnej pracy i potrzeb.
           </p>
-
-          <ul
-            class="flex flex-col gap-4 text-xl text-base-content/60 font-light leading-relaxed"
-          >
-            <li>
-              <span class="font-semibold text-base-content">Strony WWW</span>{
-                " "
-              }
-              — proste, szybkie, czytelne dla Twoich klientów.
-            </li>
-            <li>
-              <span class="font-semibold text-base-content">Automatyzacje</span
-              >{" "}
-              — uwalnianie czasu z powtarzalnych zadań, wycen i dokumentów.
-            </li>
-          </ul>
-
-          <!-- <div
-            class="bg-base-200 border border-base-content/8 p-8 md:p-10 rounded-2xl flex flex-col gap-5"
-          >
-            <p class="text-base-content text-lg font-light leading-relaxed">
-              <strong
-                >Dla niektórych branż mam specjalne, gotowe rozwiązania!</strong
-              >{" "}
-              Jeśli działasz w obróbce metalu lub robisz ogrodzenia, sprawdź dedykowane
-              systemy wycen, które stworzyłem:
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <Button link="oferta/cnc" class="btn-outline btn-sm"
-                >Zobacz rozwiązania dla CNC</Button
+        </div>
+        <div class="industry-grid">
+          {
+            industries.map((industry, index) => (
+              <article
+                class:list={[
+                  "industry-card",
+                  industry.link && "industry-card--linked",
+                  index === 0 && "industry-card--feature",
+                ]}
               >
-              <Button link="oferta/ogrodzenia" class="btn-outline btn-sm"
-                >Zobacz rozwiązania dla Ogrodzeń</Button
-              >
-            </div>
-          </div> -->
-        </Section>
+                <>
+                  <div class="industry-card-media">
+                    <MyImage
+                      img={industry.image}
+                      alt={industry.alt}
+                      size="h-full w-full"
+                      layout="object-contain"
+                      aspect="aspect-auto"
+                      rounded="rounded-none"
+                      shadow=""
+                      sizes="(max-width: 768px) 90vw, 44vw"
+                      class="h-full w-full p-5"
+                    />
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-h3">{industry.title}</h3>
+                    <p class="mt-3 leading-7 text-base-content/65">
+                      {industry.text}
+                    </p>
+                    {industry.link && (
+                      <a
+                        href={industry.link}
+                        aria-label={`Zobacz ofertę dla branży: ${industry.title}`}
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                      >
+                        Zobacz możliwości{" "}
+                        <Icon name="tabler:arrow-up-right" class="size-4" />
+                      </a>
+                    )}
+                  </div>
+                </>
+              </article>
+            ))
+          }
+        </div>
+      </Section>
 
-        {/* ── JAK PRACUJĘ ───────────────────────────────────────── */}
-        <Section preLabel="Metodologia" class="border-t border-base-content/8">
-          <Heading tag="h2" look="h2" slot="heading">Jak pracuję?</Heading>
-          <ul class="flex flex-col">
-            {
-              [
-                {
-                  title: "Słucham i analizuję",
-                  description:
-                    "Zanim cokolwiek zaproponuję, dokładnie rozumiem Twoją sytuację i potrzeby.",
-                },
-                {
-                  title: "Wybieram najprostsze skuteczne rozwiązanie",
-                  description:
-                    "Nie najdroższe, nie najmodniejsze — po prostu to, które działa i ma sens.",
-                },
-                {
-                  title: "Komunikuję jasno",
-                  description:
-                    "Mówię, co robię, ile to zajmie i co może pójść nie tak.",
-                },
-                {
-                  title: "Nie obiecuję rzeczy, których nie mogę dostarczyć",
-                  description:
-                    "Jeśli czegoś nie da się zrobić w Twoim budżecie lub terminie — powiem wprost.",
-                },
-              ].map((p) => (
-                <li class="flex flex-col gap-1 border-t border-base-content/10 py-5">
-                  <span class="font-semibold text-base-content text-lg">
-                    {p.title}
-                  </span>
-                  <span class="text-base-content/60 font-light leading-relaxed">
-                    {p.description}
-                  </span>
-                </li>
-              ))
-            }
-          </ul>
-        </Section>
-
-        {/* ── OPINIE ────────────────────────────────────────────── */}
-        <Compliments variant="secondary" />
-
-        {/* ── KONTAKT ───────────────────────────────────────────── */}
-        <Section class="border-t border-base-content/8">
-          <div
-            class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6"
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:gap-20"
+      >
+        <div>
+          <Heading tag="h2" look="h2"
+            >Skąd zainteresowanie takimi firmami?</Heading
           >
-            <Heading tag="h2" look="h2">Kontakt</Heading>
-            <p
-              class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg"
+        </div>
+        <div class="max-w-2xl space-y-5 text-lg leading-8 text-base-content/68">
+          <p>
+            Znam ten świat z ciekawości i własnej pracy. Skończyłem studia
+            informatyczne, a poza komputerem zajmuję się prostymi pracami
+            warsztatowymi, a czasami także elektroniką i projektami CNC.
+          </p>
+          <p>
+            Zbudowałem własną drukarkę 3D oraz zaprojektowałem i stworzyłem
+            sterowanie do ostrzarki narzędzi CNC. Doceniam ludzi, którzy
+            wytwarzają części, maszyny i konstrukcje.
+          </p>
+          <p>
+            Nie zakładam, że znam proces Twojej firmy. Chętnie zobaczę, jak
+            naprawdę pracujesz.
+          </p>
+        </div>
+      </Section>
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1.03fr_.97fr] lg:items-center lg:gap-16"
+      >
+        <div class="home-case">
+          <figure>
+            <MyImage
+              img={caseImg}
+              alt="Widok strony firmy Devesol po modernizacji"
+              size="h-full w-full"
+              layout="object-contain"
+              aspect="aspect-auto"
+              rounded="rounded-none"
+              shadow=""
+              sizes="(max-width: 1024px) 90vw, 48vw"
+              class="h-full w-full p-4"
+            />
+          </figure>
+        </div>
+        <div class="max-w-xl">
+          <p class="mb-4 text-sm font-semibold text-primary">
+            Przykład realizacji
+          </p><Heading tag="h2" look="h2"
+            >Strona, która porządkuje ofertę firmy technicznej.</Heading
+          ><p class="mt-5 text-lg leading-8 text-base-content/68">
+            W projekcie Devesol uporządkowałem strukturę i treści istniejącej
+            strony WordPress. To przykład modernizacji bez budowania wszystkiego
+            od nowa.
+          </p><div class="mt-8">
+            <Button
+              link="/portfolio/modernizacja-strony-devesol/"
+              rawLink
+              class="btn-outline px-6">Zobacz case study</Button
             >
-              Jeśli coś w Twojej firmie nie działa, chcesz coś wdrożyć,
-              usprawnić lub po prostu pogadać o projekcie — napisz do mnie.
-            </p>
-            <div>
-              <Button link="kontakt" class="btn-primary rounded-full px-8"
-                >Napisz do mnie</Button
-              >
-            </div>
           </div>
-        </Section>
-      </main>
-      <Footer />
-    </div>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" />
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-16"
+      >
+        <div>
+          <Heading tag="h2" look="h2"
+            >Najczęstsze pytania przed pierwszą rozmową.</Heading
+          >
+        </div>
+        <FAQ items={faqItems} />
+      </Section>
+
+      <Section containerSize="max-w-7xl"
+        ><div
+          class="contact-panel grid gap-8 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end"
+        >
+          <div class="max-w-3xl">
+            <Heading tag="h2" look="h2"
+              >Masz temat, który warto uporządkować?</Heading
+            ><p class="mt-5 text-lg leading-8 text-white/84">
+              Napisz, czym zajmuje się firma i co dziś zabiera zbyt dużo czasu.
+              Sprawdzimy, od czego warto zacząć.
+            </p>
+          </div><Button
+            link="kontakt"
+            class="btn border-0 bg-white px-7 text-primary hover:bg-base-100"
+            >Napisz do mnie</Button
+          >
+        </div></Section
+      >
+    </main>
+    <Footer />
   </div>
 </BaseLayout>

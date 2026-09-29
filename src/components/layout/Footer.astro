@@ -1,143 +1,47 @@
 ---
 import { Icon } from "astro-icon/components";
-
 import { buildSlug } from "~/utils/utils";
 import config from "~/data/consts.json";
-
 import Container from "@components/layout/Container.astro";
+import { industries } from "@data/industries";
 
 const currentYear = new Date().getFullYear();
-
-const footerLinks = [
+const serviceLinks = [
   { text: "Oferta", slug: "oferta" },
-  { text: "Portfolio", slug: "portfolio" },
+  { text: "Strony internetowe", slug: "oferta/strony-www" },
+  { text: "Systemy i automatyzacje", slug: "oferta/systemy-i-automatyzacje" },
+  { text: "Realizacje", slug: "portfolio" },
   { text: "Blog", slug: "blog" },
   { text: "O mnie", slug: "o-mnie" },
-  // { text: "Opinie", slug: "opinie" },
   { text: "Kontakt", slug: "kontakt" },
 ];
 ---
 
-<footer class="bg-neutral text-neutral-content border-t border-base-content/15">
+<footer class="border-t border-white/10 bg-[#101c2e] text-[#edf5ff]">
   <Container size="max-w-7xl">
     <div class="py-12 md:py-16">
-      {/* Główna sekcja - 2 kolumny */}
-      <div class="flex flex-col md:flex-row justify-between gap-8 md:gap-12">
-        {/* LEWA KOLUMNA: Logo, opis i linki */}
-        <div class="my-big-stack max-w-md">
-          {/* Logo i opis */}
-          <div class="my-stack">
-            <a href="/" class="inline-block">
-              <span class="text-2xl font-bold text-secondary">Łukasz Miłoś</span
-              >
-            </a>
-            <p class="text-neutral-content/80 leading-relaxed">
-              Pomagam firmom lepiej korzystać z technologii. Buduję strony
-              internetowe, wdrażam systemy i automatyzacje.
-            </p>
-          </div>
-
-          {/* Linki nawigacyjne */}
-          <div class="my-stack">
-            <p class="font-bold">Nawigacja</p>
-            <ul class="flex flex-col gap-2">
-              {
-                footerLinks.map((link) => (
-                  <li>
-                    <a
-                      href={buildSlug(link.slug)}
-                      class="text-neutral-content/80 hover:text-primary transition-colors"
-                    >
-                      {link.text}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+      <div class="grid gap-10 md:grid-cols-2 xl:grid-cols-[1.2fr_.9fr_.9fr_.85fr_.9fr] xl:gap-10">
+        <div class="max-w-md">
+          <a href="/" class="inline-flex min-h-11 items-center text-2xl font-semibold tracking-tight text-[#76adff]">Łukasz Miłoś</a>
+          <p class="mt-4 leading-7 text-white/70">Tworzę strony internetowe i praktyczne narzędzia cyfrowe dla firm, które chcą działać czytelniej i sprawniej.</p>
         </div>
-
-        {/* PRAWA KOLUMNA: Dane firmowe i kontakt */}
-        <div class="my-big-stack max-w-md">
-          {/* Dane firmowe */}
-          <div class="my-stack">
-            <p class="font-bold text-neutral-content">Dane firmowe</p>
-            <div class="text-neutral-content/80 text-sm flex flex-col gap-1">
-              <p class="font-medium">{config.company.name}</p>
-              <p>{config.company.address}</p>
-              <p>NIP: {config.company.nip}</p>
-              <p>REGON: {config.company.regon}</p>
-            </div>
-          </div>
-
-          {/* Kontakt */}
-          <div class="my-stack">
-            <p class="font-bold text-neutral-content">Kontakt</p>
-            <div class="text-neutral-content/80 text-sm flex flex-col gap-2">
-              {
-                config.company.email.map((email) => (
-                  <a
-                    href={`mailto:${email}`}
-                    class="hover:text-primary transition-colors flex items-center gap-2"
-                  >
-                    <Icon name="tabler:mail" class="size-4" />
-                    {email}
-                  </a>
-                ))
-              }
-
-              <!-- <a
-                href={`tel:${companyInfo.phone}`}
-                class="hover:text-primary transition-colors flex items-center gap-2"
-              >
-                <Icon name="tabler:phone" class="size-4" />
-                {companyInfo.phone}
-              </a> -->
-            </div>
-          </div>
-
-          {/* Social media */}
-          <div class="my-stack">
-            <p class="font-bold text-neutral-content">Social media</p>
-            <div class="flex gap-2">
-              {
-                config.socials.map((social) => (
-                  <a
-                    href={social.href}
-                    aria-label={social.label}
-                    class="btn btn-circle btn-ghost btn-sm hover:bg-primary/10 hover:text-primary transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icon name={social.icon} class="size-5" />
-                  </a>
-                ))
-              }
-            </div>
-          </div>
+        <div>
+          <p class="font-semibold text-white">Usługi</p>
+          <nav class="mt-2 flex flex-col" aria-label="Nawigacja w stopce">
+            {serviceLinks.map((link) => <a href={buildSlug(link.slug)} class="flex min-h-11 items-center text-sm font-medium text-white/70 transition-colors hover:text-white">{link.text}</a>)}
+          </nav>
         </div>
+        <div>
+          <p class="font-semibold text-white">Branże</p>
+          <nav class="mt-2 flex flex-col" aria-label="Branże w stopce">
+            {industries.map((industry) => <a href={industry.link} class="flex min-h-11 items-center text-sm leading-5 text-white/70 transition-colors hover:text-white">{industry.title}</a>)}
+          </nav>
+        </div>
+        <div><p class="font-semibold text-white">Dane firmowe</p><div class="mt-3 flex flex-col gap-1 text-sm leading-6 text-white/65"><p class="font-medium text-white">{config.company.name}</p><p>{config.company.address}</p><p>NIP: {config.company.nip}</p><p>REGON: {config.company.regon}</p></div></div>
+        <div><p class="font-semibold text-white">Kontakt</p><div class="mt-3 flex flex-col gap-3 text-sm text-white/70">{config.company.email.map((email) => <a href={`mailto:${email}`} class="inline-flex min-h-11 items-center transition-colors hover:text-white">{email}</a>)}<div class="flex gap-2">{config.socials.map((social) => <a href={social.href} aria-label={social.label} class="social-link social-link--footer" target="_blank" rel="noopener noreferrer"><Icon name={social.icon} class="size-5" /></a>)}</div></div></div>
       </div>
-
-      {/* Separator */}
-      <div class="divider divider-secondary my-8"></div>
-
-      {/* Dolna sekcja */}
-      <div
-        class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
-      >
-        {/* Copyright */}
-        <p class="text-neutral-content/80 text-center md:text-left">
-          © {currentYear} Łukasz Miłoś. Wszystkie prawa zastrzeżone.
-        </p>
-
-        {/* Polityka prywatności */}
-        <a
-          href={buildSlug("polityka-prywatnosci")}
-          class="text-neutral-content/80 hover:text-primary transition-colors"
-        >
-          Polityka prywatności
-        </a>
-      </div>
+      <div class="my-8 h-px bg-white/12"></div>
+      <div class="flex flex-col items-center justify-between gap-4 text-sm md:flex-row"><p class="text-white/55">© {currentYear} Łukasz Miłoś. Wszystkie prawa zastrzeżone.</p><a href={buildSlug("polityka-prywatnosci")} class="inline-flex min-h-11 items-center text-white/55 transition-colors hover:text-white">Polityka prywatności</a></div>
     </div>
   </Container>
 </footer>

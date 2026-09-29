@@ -1,12 +1,12 @@
 ---
 slug: prosty-system-zamowien
 meta:
-  title: Prosty system zamówień dla producentów
-  description: System ułatwiający proces zbierania i przetwarzania zamówień, np. ciast czy wędlin na święta.
-title: System, dzięki któremu zbieranie i przetwarzanie zamówień jest proste.
+  title: Prototyp prostego systemu zamówień
+  description: Projekt własny pokazujący połączenie formularza i bazy do uporządkowania zamówień. Bez potwierdzonych wyników u klienta.
+title: Prototyp systemu do zbierania i obsługi zamówień.
 problem: Nieustrukturyzowane zbieranie i przetwarzanie zamówień.
 target: Ułatwienie procesu zbierania i przetwarzania zamówień od A do Z.
-result: System dopiero powstał. Rezultaty w drodze
+result: Działający prototyp formularza i widoku danych; nie był jeszcze testowany w firmie klienta.
 image:
   alt: Fragment systemu składania i przetwarzania zamówień
   src: portfolio/zamowienia/zamowienia-3.jpg

@@ -1,0 +1,317 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import CTA from "@components/sections/CTA.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import IndustryOpenProblem from "@components/sections/IndustryOpenProblem.astro";
+import heroImg from "@assets/images/pages/industry-service-v1.png";
+
+const meta = {
+  title: "Strony i narzędzia dla firm ogrodzeniowych",
+  description:
+    "Realizacje, zapytania o ogrodzenie i prostsze ustalenia przed pomiarem oraz montażem.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16"
+      >
+        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">
+            Dla firm ogrodzeniowych
+          </p>
+          <Heading tag="h1" look="h0"
+            >Pokaż realizacje. Zbieraj lepsze zapytania o ogrodzenia.</Heading
+          >
+          <p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Pomagam pokazać, jakie ogrodzenia wykonujesz, gdzie działasz i jak
+            wygląda droga od pierwszej rozmowy do pomiaru. Mogę też uprościć
+            zbieranie informacji potrzebnych do wstępnej wyceny i dalszych
+            ustaleń.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="/kontakt" class="btn-primary px-7"
+              >Opisz swoją firmę</Button
+            >
+            <Button
+              link="/oferta/ogrodzenia/kalkulator/"
+              class="btn-ghost btn-outline px-7"
+              >Zobacz przykład formularza</Button
+            >
+          </div>
+        </div>
+        <div class="animate-reveal-delay hero-illustration">
+          <MyImage
+            img={heroImg}
+            alt="Ilustracja samochodu montażowego przy domu i kalendarza"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2"
+            >Co warto uporządkować od zapytania do montażu?</Heading
+          >
+          <p class="mt-5 leading-7 text-base-content/68">
+            Sposób prezentacji i pytania w formularzu zależą od tego, czy
+            wykonujesz ogrodzenia, bramy, furtki, montaż albo tylko część tych
+            prac.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Oferta i realizacje
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Klient ogląda zdjęcia, ale nie wie, czy wykonujesz podobne prace w
+              jego okolicy.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Na stronie można pokazać typy ogrodzeń, przykłady montaży, zakres
+              prac i obszar działania. Przy realizacji warto dodać krótki opis,
+              a nie tylko zdjęcie.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Zapytanie z kontekstem
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Pierwsza wiadomość nie wystarcza, żeby sensownie odpowiedzieć.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Formularz może zebrać miejscowość, przybliżoną długość i wysokość,
+              rodzaj ogrodzenia, bramę lub furtkę oraz zdjęcia działki. Pytania
+              dopasujemy do Twojej oferty.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Ustalenia przed montażem
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Po pomiarze szczegóły są rozrzucone między telefonem a
+              wiadomościami.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Jeśli to powtarzalny problem, można uporządkować notatki z
+              pomiaru, wybrany wariant, zmiany i termin w jednym prostym
+              miejscu.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-14"
+      >
+        <div class="max-w-xl">
+          <p class="text-sm font-semibold text-primary">Przykład narzędzia</p>
+          <Heading tag="h2" look="h2" class="mt-4"
+            >Pierwsze zapytanie może dać więcej niż numer telefonu.</Heading
+          >
+          <p class="mt-5 leading-7 text-base-content/68">
+            Przygotowałem przykład formularza, który pomaga zebrać podstawy do
+            rozmowy o ogrodzeniu. To punkt wyjścia: liczbę pytań i sposób ich
+            zadawania trzeba dopasować do Twoich realizacji.
+          </p>
+          <Button
+            link="/oferta/ogrodzenia/kalkulator/"
+            class="btn-primary mt-7 px-7">Zobacz przykładowy formularz</Button
+          >
+        </div>
+        <div
+          class="industry-example-card rounded-3xl border border-primary/15 bg-primary/5 p-7 md:p-9"
+        >
+          <p class="text-sm font-semibold text-primary">
+            Od zapytania do pomiaru
+          </p>
+          <div class="mt-6 divide-y divide-base-content/10">
+            <div class="pb-5">
+              <h3 class="font-semibold text-base-content">
+                Co klient już wie?
+              </h3>
+              <p class="mt-2 leading-7 text-base-content/68">
+                Lokalizacja, orientacyjny wymiar, typ ogrodzenia i elementy
+                takie jak brama lub furtka pozwalają lepiej przygotować
+                odpowiedź.
+              </p>
+            </div>
+            <div class="py-5">
+              <h3 class="font-semibold text-base-content">
+                Co warto zobaczyć?
+              </h3>
+              <p class="mt-2 leading-7 text-base-content/68">
+                Zdjęcia działki lub szkic mogą pokazać wjazd, spadek terenu i
+                inne szczegóły, które trudno opisać w krótkiej wiadomości.
+              </p>
+            </div>
+            <div class="pt-5">
+              <h3 class="font-semibold text-base-content">
+                Co wymaga potwierdzenia?
+              </h3>
+              <p class="mt-2 leading-7 text-base-content/68">
+                Ostateczny zakres i cena mogą wymagać potwierdzenia po pomiarze
+                oraz ocenie terenu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <IndustryOpenProblem />
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-9"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak ustalamy pierwszy etap?</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Zaczynamy od Twoich realizacji, kilku prawdziwych zapytań i sposobu
+            umawiania pomiaru. Przed pracą poznasz zakres, cenę, termin i
+            ewentualne koszty utrzymania.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="mt-7 text-h3">Pokaż obecną stronę</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Oglądam stronę, przykładowe realizacje i wiadomości, które teraz
+              dostajesz od klientów.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="mt-7 text-h3">Wybierzmy zakres</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Ustalamy, czy pierwszy krok to lepsza prezentacja oferty,
+              formularz czy uporządkowanie ustaleń po pomiarze.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="mt-7 text-h3">Sprawdźmy to w praktyce</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Testujemy rozwiązanie na typowym zapytaniu i poprawiamy miejsca, w
+              których brakuje ważnych informacji.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania przed rozmową.</Heading>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy formularz poda ostateczną cenę ogrodzenia?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie. Formularz zbiera dane do wstępnej odpowiedzi. Ostateczną
+                cenę potwierdzisz po pomiarze i sprawdzeniu warunków na działce.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy klient musi znać dokładne wymiary?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Do pierwszej rozmowy mogą wystarczyć orientacyjne dane i
+                zdjęcia. Zakres pytań ustalimy tak, by pasował do Twojego
+                sposobu wyceny.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy to rozwiązanie tylko dla jednego rodzaju ogrodzeń?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie. Stronę i formularz dopasujemy do rodzajów ogrodzeń, bram,
+                furtek i usług, które faktycznie oferujesz.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy trzeba budować nową stronę, żeby dodać formularz?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Nie zawsze. Najpierw sprawdzę, czy obecna strona pozwala dodać formularz i czy klient łatwo trafi do niego z opisu oferty.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Co może się dziać ze zgłoszeniem po wysłaniu?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Może trafić na e-mail albo do rejestru zapytań, z którego ustalisz kolejny krok. Powiadomienia i statusy można dodać, jeśli pomagają przy Twojej liczbie spraw.</p></div>
+          </details>
+        </div>
+      </Section>
+
+      <CTA
+        heading="Co dziś utrudnia Ci obsługę zapytań?"
+        paragraph="Pokaż mi kilka wiadomości od klientów albo opisz, jak wygląda droga od zapytania do montażu. Zaproponuję pierwszy krok, jeśli będzie miał sens dla Twojej firmy."
+        button1={{ link: "/kontakt", text: "Opisz swój przypadek" }}
+        variant="primary"
+      />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

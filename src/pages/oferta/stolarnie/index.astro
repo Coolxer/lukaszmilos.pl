@@ -1,0 +1,237 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import CTA from "@components/sections/CTA.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import IndustryOpenProblem from "@components/sections/IndustryOpenProblem.astro";
+import heroImg from "@assets/images/pages/industry-furniture-v2.png";
+
+const meta = {
+  title: "Strona i narzędzia cyfrowe dla stolarni i pracy na wymiar",
+  description:
+    "Strony, realizacje, zapytania i małe narzędzia dla stolarni oraz zakładów rzemieślniczych.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16"
+      >
+        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Dla Twojej branży</p>
+          <Heading tag="h1" look="h0"
+            >Strona i narzędzia dla stolarni i pracy na wymiar</Heading
+          >
+          <p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Pomagam lepiej pokazać wykonane meble i inne prace stolarskie,
+            ułatwić pierwszy kontakt oraz uporządkować ustalenia między rozmową,
+            projektem a wykonaniem.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7"
+              >Opisz, co chcesz uprościć</Button
+            >
+          </div>
+        </div>
+        <div class="animate-reveal-delay hero-illustration">
+          <MyImage
+            img={heroImg}
+            alt="Ilustracja pracy stolarskiej i mebli na wymiar"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2"
+            >Od realizacji po ostatnią wersję projektu.</Heading
+          >
+          <p class="mt-5 leading-7 text-base-content/68">
+            Strona może pokazać wykonane prace, a proste narzędzia pomóc zebrać
+            dane i zachować ustalenia przed wykonaniem.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Strona i realizacje
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Zdjęcia realizacji pozostają w telefonie.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Można pokazać rodzaj zabudów, sposób współpracy i zdjęcia z
+              krótkim opisem: co powstało, z jakich materiałów i w jakim
+              zakresie pracowała firma. Realizacje można łatwiej dodawać z
+              telefonu.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Zapytanie z kontekstem
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Przed rozmową brakuje wymiarów, lokalizacji lub inspiracji.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Typ pracy, miejscowość, orientacyjne wymiary, zdjęcia
+              pomieszczenia i inspiracje w jednym miejscu. Dokładny pomiar i
+              decyzje materiałowe zostają na późniejszy etap.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Ustalenia i powtarzalne warianty
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Zmiany projektu i materiałów gubią się między wiadomościami.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Warto wiedzieć, która wersja projektu, materiały i termin zostały
+              zatwierdzone. Przy podobnych wyrobach można rozważyć szablon
+              danych albo pomocniczy generator po poznaniu sposobu projektowania
+              firmy.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <IndustryOpenProblem />
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-9"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak ustalamy pierwszy etap?</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Zaczynamy od zdjęć realizacji, obecnej strony albo kilku typowych
+            zapytań i ustaleń. Przed pracą poznasz zakres, cenę, termin i
+            ewentualne koszty utrzymania.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="mt-7 text-h3">Pokaż przykłady</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Oglądam kilka rzeczywistych zapytań, zleceń lub fragmentów obecnej
+              strony.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="mt-7 text-h3">Wybierzmy zakres</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Sprawdzam obecne narzędzia i proponuję jeden sensowny krok, koszt
+              oraz termin.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="mt-7 text-h3">Sprawdźmy działanie</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Testujemy rozwiązanie na typowej pracy i poprawiamy to, co wymaga
+              dopracowania.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania przed rozpoczęciem.</Heading>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy formularz zastąpi pomiar i projekt?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie. Pomaga rozpocząć rozmowę i zebrać dostępne informacje.
+                Końcowa wycena może wymagać pomiaru i projektu.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy to dotyczy tylko mebli na wymiar?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie. Podobnie można pokazać inne prace stolarskie i
+                rzemieślnicze, dopasowując pytania do ich rzeczywistego zakresu.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy klient może dołączyć szkic lub zdjęcia?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Pomagają zrozumieć pomysł i przygotować pierwszą rozmowę. Wymiary i warunki montażu trzeba później potwierdzić we właściwy dla danej pracy sposób.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Jak ułatwić dodawanie nowych realizacji na stronę?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Można przygotować prosty sposób dodania zdjęć i krótkiego opisu z telefonu lub komputera. Dobierzemy go do tego, kto będzie aktualizował stronę.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy można zapisywać zmiany uzgodnione z klientem?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Przy zleceniu można przechowywać aktualną wersję ustaleń, zdjęcia i decyzje o zmianach, aby obie strony wiedziały, do czego się odnoszą.</p></div>
+          </details>
+        </div>
+      </Section>
+
+      <CTA
+        heading="Co chcesz uporządkować w pracy stolarni?"
+        paragraph="Opisz, jak dziś pokazujesz realizacje, zbierasz zapytania lub uzgadniasz zmiany. Zaproponuję pierwszy krok, jeśli będzie miał sens."
+        button1={{ link: "/kontakt", text: "Opisz swój przypadek" }}
+        variant="primary"
+      />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

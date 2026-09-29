@@ -69,8 +69,9 @@ All global constants (company info, socials, site domain, themes, pagination siz
 ### URL structure
 
 - `/` — home
-- `/strony-www/` — websites service page
-- `/systemy-i-automatyzacje/` — systems & automation service page
+- `/oferta/` — services overview
+- `/oferta/strony-www/` — websites service page
+- `/oferta/systemy-i-automatyzacje/` — systems & automation service page
 - `/portfolio/` — portfolio archive; `/portfolio/[id]/` — single entry
 - `/blog/` — blog archive; `/blog/[id]/` — single post
 - `/kontakt/` — contact

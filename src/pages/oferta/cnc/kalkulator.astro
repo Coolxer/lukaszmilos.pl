@@ -4,124 +4,207 @@ import Navbar from "@components/layout/Navbar.astro";
 import Footer from "@components/layout/Footer.astro";
 import Banner from "@components/widgets/Banner.astro";
 import Section from "@components/layout/Section.astro";
-import Grid from "@components/layout/Grid.astro";
 import Heading from "@components/ui/Heading.astro";
 import Button from "@components/ui/Button.astro";
-import IconList from "@components/ui/IconList.astro";
-import Card from "@components/ui/Card.astro";
-import Callout from "@components/ui/Callout.astro";
-import Prose from "@components/ui/Prose.astro";
+import FAQ from "@components/ui/FAQ.astro";
 
 const meta = {
-  title: "Kalkulator wyceny CNC — narzędzie dla zakładów obróbki skrawaniem",
+  title: "Formularz zapytania o obróbkę CNC",
   description:
-    "Narzędzie online zbierające parametry detalu (plik DXF, material, ilość, tolerancje) i generujące wstępną wycenę lub kompletne zapytanie ofertowe.",
+    "Interaktywny przykład formularza zapytania o obróbkę CNC. Podgląd działa w przeglądarce i nie wysyła danych.",
 };
-
-const collectedParams = [
-  "Plik DXF, STEP lub PDF z dokumentacją techniczną",
-  "Materiał (rodzaj, gatunek, obróbka cieplna)",
-  "Wymiary gabarytowe i masa orientacyjna",
-  "Wymagane tolerancje i chropowatość powierzchni",
-  "Liczba sztuk i pożądany termin realizacji",
-  "Dodatkowe wymagania (certyfikaty, atesty, odbiór)",
-];
-
-const benefits = [
-  { icon: "tabler:file-check", heading: "Kompletne zapytania od razu", text: "Zamiast 3 rund pytań przez e-mail — klient podaje wszystko w jednym kroku. Ty oceniasz na podstawie pełnych danych." },
-  { icon: "tabler:clock", heading: "Szybsza wstępna wycena", text: "Narzędzie może od razu wyliczyć orientacyjny czas maszynowy i koszt materiału — dla standardowych przypadków." },
-  { icon: "tabler:brand-python", heading: "Integracja z plikami DXF", text: "Skrypt (Python / ezdxf) analizuje przesłany rysunek: odczytuje gabaryty, zlicza otwory, wydziela warstwami operacje obróbcze." },
-  { icon: "tabler:mail-forward", heading: "Automatyczne powiadomienie", text: "Po wypełnieniu formularza przez klienta — dostajesz e-mail z kompletnym zestawieniem danych, gotowym do oceny." },
+const faqItems = [
+  { question: "Czy ten formularz automatycznie wycenia detal?", answer: "Nie. Pokazuje sposób zebrania danych przed oceną zapytania. Dla powtarzalnych prac można później rozważyć orientacyjną kalkulację według ustalonych reguł." },
+  { question: "Czy muszę znać materiał i dokładny termin?", answer: "Nie na tym etapie. Możesz zostawić te pola puste lub wybrać termin do ustalenia. Zakład doprecyzuje brakujące dane przed potwierdzeniem możliwości wykonania." },
+  { question: "Czy wybrane pliki są gdzieś wysyłane?", answer: "Nie. Podgląd działa w przeglądarce i pokazuje tylko nazwy wybranych plików. W gotowym formularzu sposób przyjmowania załączników trzeba ustalić osobno." },
+  { question: "Czy zgłoszenie może trafić do używanego programu?", answer: "Może, jeśli program pozwala przekazać do niego potrzebne dane. Najpierw sprawdzę jego możliwości i sposób pracy zakładu." },
 ];
 ---
 
 <BaseLayout meta={meta}>
   <Banner />
-  <div class="w-full flex justify-center">
-    <div class="flex flex-col min-h-screen justify-between w-full shadow-primary">
-      <Navbar />
-      <main class="w-full block">
-
-        <Section heroSection>
-          <div class="flex flex-col gap-8 animate-reveal">
-            <Heading tag="h1" look="h0">
-              Kalkulator wyceny dla zakładów CNC
-            </Heading>
-            <p class="text-xl md:text-2xl text-base-content/60 font-light leading-relaxed max-w-xl">
-              Narzędzie online, które zbiera od klienta wszystko, czego potrzebujesz do wyceny:
-              plik DXF lub STEP, materiał, ilość, tolerancje — zanim wyślesz pierwszą wiadomość.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <Button link="kontakt" class="btn-primary">Zamów to narzędzie</Button>
-              <Button link="oferta/cnc" class="btn-outline">Wróć do oferty CNC</Button>
-            </div>
-          </div>
-        </Section>
-
-        <Section class="border-t border-base-content/8">
-          <Heading tag="h2" look="h3" slot="heading">Co zbiera formularz od klienta?</Heading>
-          <IconList items={collectedParams} iconName="tabler:check" color="text-primary" />
-        </Section>
-
-        <Section class="border-t border-base-content/8">
-          <Heading tag="h2" look="h3" slot="heading">Jak to działa?</Heading>
-          <Prose>
-            <p>
-              Klient trafia na formularz (na stronie, z OLX lub z wizytówki Google).
-              Wgrywa plik rysunkowy i wypełnia parametry zamówienia. Formularz nie pozwoli
-              mu wysłać zapytania bez wymaganych informacji.
-            </p>
-            <p>
-              Skrypt backendowy (Python / ezdxf) może automatycznie odczytać wymiary z DXF —
-              długość konturów, liczbę otworów, powierzchnię materiału. Na tej podstawie
-              wylicza orientacyjny czas maszynowy i koszt materiału dla wybranych gatunków.
-            </p>
-            <p>
-              Ty dostajesz e-mail z gotowym zestawieniem. Klient widzi ekran potwierdzenia
-              ze słowem „dziękujemy i odezwiemy się w ciągu X godzin".
-            </p>
-          </Prose>
-        </Section>
-
-        <Section class="border-t border-base-content/8">
-          <Heading tag="h2" look="h3" slot="heading">Co zyskujesz?</Heading>
-          <Grid cols={2} gap="normal">
-            {benefits.map((b) => (
-              <Card icon={b.icon} heading={b.heading} variant="bordered">{b.text}</Card>
-            ))}
-          </Grid>
-        </Section>
-
-        <Section class="border-t border-base-content/8">
-          <Heading tag="h2" look="h3" slot="heading">To narzędzie szyte na miarę</Heading>
-          <Callout variant="info" icon="tabler:info-circle">
-            <strong>Kalkulator CNC to rozwiązanie niestandardowe.</strong>
-            {" "}Każdy zakład ma swój park maszynowy, cennik i parametry obróbki.
-            Narzędzie jest budowane pod Twój konkretny proces — po krótkim wywiadzie
-            o tym, jak dziś wygląda przyjmowanie zamówień.
-          </Callout>
-          <p class="text-base-content/70">
-            Czas realizacji: 2–4 tygodnie. Gotowe narzędzie działa niezależnie lub
-            jako część strony zakładu.
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="flex max-w-3xl flex-col items-start gap-7"
+      >
+        <p class="text-sm font-semibold text-primary">Przykład dla CNC</p>
+        <Heading tag="h1" look="h0">Formularz zapytania o obróbkę CNC.</Heading>
+        <p class="text-lg leading-8 text-base-content/68 md:text-xl">
+          Sprawdź, jak klient może zebrać informacje o detalu, liczbie sztuk i
+          wymaganiach w jednym zgłoszeniu. To demonstracja: dane i pliki nie są
+          wysyłane ani zapisywane.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <Button link="#demo" rawLink class="btn-primary px-7"
+            >Wypróbuj formularz</Button
+          ><Button link="/oferta/cnc/" rawLink class="btn-outline px-7"
+            >Wróć do CNC</Button>
+        </div>
+      </Section>
+      <Section
+        id="demo"
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-start lg:gap-16"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Przetestuj przykładowe zgłoszenie.</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Wpisz przykładowe dane i zobacz podsumowanie. Pola odpowiadają
+            prostemu zapytaniu o obróbkę. W docelowej wersji ustalimy je pod
+            usługi Twojego zakładu.
           </p>
-          <Button link="kontakt" class="btn-primary">Porozmawiajmy o szczegółach</Button>
-        </Section>
-
-        <Section class="border-t border-base-content/8">
-          <div class="bg-base-200 border border-base-content/8 rounded-2xl p-8 md:p-12 flex flex-col gap-6">
-            <Heading tag="h2" look="h2">Zainteresowany kalkulatorem dla Twojego zakładu?</Heading>
-            <p class="text-xl text-base-content/60 font-light leading-relaxed max-w-lg">
-              Opisz mi, jak dziś wygląda przyjmowanie zapytań i wycena w Twoim zakładzie.
-              Powiem Ci, czy i jak szybko możemy to usprawnić.
-            </p>
-            <div>
-              <Button link="kontakt" class="btn-primary rounded-full px-8">Napisz do mnie</Button>
+        </div>
+        <div class="contact-form-panel max-w-none">
+          <form id="cnc-demo-form" class="grid gap-6" onsubmit="return false">
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div class="flex flex-col gap-2">
+                <label for="cnc-process" class="font-medium">Rodzaj pracy <span class="text-primary">*</span></label>
+                <select id="cnc-process" name="process" required class="select select-bordered w-full">
+                  <option value="">Wybierz rodzaj pracy</option>
+                  <option>Frezowanie</option>
+                  <option>Toczenie</option>
+                  <option>Cięcie</option>
+                  <option>Inna / do ustalenia</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="cnc-material" class="font-medium">Materiał</label>
+                <input id="cnc-material" name="material" type="text" class="input input-bordered w-full" placeholder="np. aluminium lub do ustalenia" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="cnc-quantity" class="font-medium">Liczba sztuk <span class="text-primary">*</span></label>
+                <input id="cnc-quantity" name="quantity" type="number" min="1" step="1" required class="input input-bordered w-full" placeholder="np. 20" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="cnc-deadline" class="font-medium">Oczekiwany termin</label>
+                <select id="cnc-deadline" name="deadline" class="select select-bordered w-full">
+                  <option value="">Do ustalenia</option>
+                  <option>Jak najszybciej</option>
+                  <option>W ciągu miesiąca</option>
+                  <option>Bez pośpiechu</option>
+                </select>
+              </div>
             </div>
+            <div class="flex flex-col gap-2">
+              <label for="cnc-files" class="font-medium">Rysunek lub inny plik</label>
+              <input id="cnc-files" name="files" type="file" multiple accept=".pdf,.dxf,.dwg,.step,.stp,.iges,.igs,.jpg,.jpeg,.png" class="file-input file-input-bordered w-full" />
+              <p class="text-sm text-base-content/65">Możesz wybrać pliki do podglądu. Ta wersja ich nie przesyła.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="cnc-notes" class="font-medium">Opis detalu i ważne wymagania</label>
+              <textarea id="cnc-notes" name="notes" rows="4" class="textarea textarea-bordered w-full" placeholder="Np. wymiary, tolerancje, wykończenie lub pytania do omówienia"></textarea>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+              <button id="cnc-preview-button" type="button" class="btn btn-primary">Pokaż podsumowanie</button>
+              <button type="reset" class="btn btn-ghost">Wyczyść formularz</button>
+            </div>
+          </form>
+          <div id="cnc-demo-result" class="mt-8 hidden border-t border-base-content/15 pt-7" role="status" aria-live="polite">
+            <p class="text-sm font-semibold text-primary">Podgląd zgłoszenia</p>
+            <h3 class="mt-2 text-h4">Tak mogłyby wyglądać zebrane informacje.</h3>
+            <div class="mt-5 rounded-xl bg-base-200 p-5 leading-7">
+              <p id="cnc-summary-process"></p>
+              <p id="cnc-summary-material"></p>
+              <p id="cnc-summary-quantity"></p>
+              <p id="cnc-summary-deadline"></p>
+              <p id="cnc-summary-files"></p>
+              <p id="cnc-summary-notes"></p>
+            </div>
+            <p class="mt-4 text-sm text-base-content/65">To tylko podgląd. Zgłoszenie nie zostało wysłane, a cena i termin wymagają oceny przez zakład.</p>
           </div>
-        </Section>
-
-      </main>
-      <Footer />
-    </div>
+        </div>
+      </Section>
+      <Section
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-3xl">
+          <Heading tag="h2" look="h2">Formularz może być początkiem procesu.</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Ten podgląd jedynie zbiera dane na ekranie. W gotowym rozwiązaniu
+            ustalimy, jakie pytania zadać i co ma się wydarzyć po wysłaniu.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          <article class="process-card p-7">
+            <h3 class="text-h4">Pola dopasowane do usługi</h3>
+            <p class="mt-4 leading-7 text-base-content/68">Można dodać tolerancje, wykończenie, format plików lub pytania zależne od wybranego procesu. Niepotrzebne pola można usunąć.</p>
+          </article>
+          <article class="process-card p-7">
+            <h3 class="text-h4">Zgłoszenie w Twoim systemie</h3>
+            <p class="mt-4 leading-7 text-base-content/68">Dane i załączniki mogą trafiać do skrzynki, rejestru albo programu używanego w zakładzie. Sposób przekazania zależy od możliwości tego programu.</p>
+          </article>
+          <article class="process-card p-7">
+            <h3 class="text-h4">Dalsze przetwarzanie</h3>
+            <p class="mt-4 leading-7 text-base-content/68">Można sprawdzać kompletność zgłoszenia, przypisywać status, powiadamiać odpowiednią osobę lub przygotowywać szkic odpowiedzi.</p>
+          </article>
+          <article class="process-card p-7">
+            <h3 class="text-h4">Kalkulacja lub wycena</h3>
+            <p class="mt-4 leading-7 text-base-content/68">Przy powtarzalnych pracach można obliczać orientacyjną cenę według ustalonych reguł. Automatyczna wycena ma sens tylko wtedy, gdy dane wejściowe i zasady kalkulacji są wystarczająco przewidywalne.</p>
+          </article>
+        </div>
+      </Section>
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania o formularz.</Heading>
+        <FAQ items={faqItems} />
+      </Section>
+      <Section containerSize="max-w-7xl"
+        ><div
+          class="contact-panel grid gap-8 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-end"
+        >
+          <div class="max-w-3xl">
+            <Heading tag="h2" look="h2"
+              >Masz własny sposób przyjmowania zapytań?</Heading
+            ><p class="mt-5 text-lg leading-8 text-white/84">
+              Pokaż mi kilka przypadków. Ustalimy, jakie dane warto zebrać na
+              początku.
+            </p>
+          </div><Button
+            link="kontakt"
+            class="btn border-0 bg-white px-7 text-primary hover:bg-base-100"
+            >Napisz do mnie</Button>
+        </div></Section
+      >
+    </main>
+    <Footer />
   </div>
 </BaseLayout>
+
+<script>
+  const form = document.getElementById("cnc-demo-form") as HTMLFormElement | null;
+  const previewButton = document.getElementById("cnc-preview-button");
+  const result = document.getElementById("cnc-demo-result");
+
+  const showPreview = () => {
+    if (!form || !result || !form.reportValidity()) return;
+    const data = new FormData(form);
+    const get = (name: string) => String(data.get(name) ?? "").trim();
+    const setLine = (id: string, label: string, value: string) => {
+      const line = document.getElementById(id);
+      if (line) line.textContent = value ? `${label}: ${value}` : "";
+    };
+
+    setLine("cnc-summary-process", "Rodzaj pracy", get("process"));
+    setLine("cnc-summary-material", "Materiał", get("material") || "Do ustalenia");
+    setLine("cnc-summary-quantity", "Liczba sztuk", get("quantity"));
+    setLine("cnc-summary-deadline", "Termin", get("deadline") || "Do ustalenia");
+    const files = (form.elements.namedItem("files") as HTMLInputElement | null)?.files;
+    setLine("cnc-summary-files", "Pliki", files?.length ? Array.from(files, (file) => file.name).join(", ") : "Nie wybrano");
+    setLine("cnc-summary-notes", "Uwagi", get("notes"));
+
+    result.classList.remove("hidden");
+    result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+
+  previewButton?.addEventListener("click", showPreview);
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    showPreview();
+  });
+  form?.addEventListener("reset", () => result?.classList.add("hidden"));
+</script>

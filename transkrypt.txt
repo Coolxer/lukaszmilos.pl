@@ -1,0 +1,311 @@
+0:088 sekundHej, cześć wam. Wielkie brawa. Dzięki, że wytrzymaliście do końca.
+0:1515 sekundJeszcze tylko 30 minut i możemy iść na imprezę.
+0:1919 sekundJa już ledwo żyję. Mam nadzieję, że dam coś z siebie na koniec. Więc zacznijmy może od pytania. Ile osób z was aktualnie zarabia już na wipe kodzie?
+0:3030 sekundOkej. No na razie widzę, że jeszcze niewielu. A ilu z was zarabia abonamenty na wipe kodzie, czyli nie jednorazowy strzał, tylko macie to w abonamencie.
+0:3939 sekundW zasadzie chyba nie widzę nikogo, ale nie mam okularu, więc nie jestem pewny jak tam jest u góry. Więc dzisiaj opowiem wam jak ja zarabiam na
+0:4646 sekundwipecodzie. Zacząłem zarabiać od stron internetowych. teraz to troszkę migruje i zauważyłem, że wszystko to co z działało na sprzedaży stron
+0:5454 sekundyinternetowych teraz działa dokładnie tak samo ze sprzedażą aplikacji. Także możecie wierzyć, że to działa. 15 lat już siedzę w tej branży i i powoli
+1:031 minuta i 3 sekundyprzechodzę prawdopodobnie porzucę zanego Weflow, bo wiem, że dużo ludzi mnie kojarzy z Weflow, ale jeszcze działam Weflow, więc tak.
+1:111 minuta i 11 sekundZacznę od walenia takiego mitu dużego klienta. Powiedzcie mi, kochacie pracować w korporacji? Jest tu ktoś? Chodzi jedna osoba, która to lubi.
+1:201 minuta i 20 sekundJeżeli nie ma, to spoko, bo mogę troszkę brzydko mówić o korporacji. Nie chciałem nikogo urazić, bo nie mam z tym dobrych
+1:271 minuta i 27 sekunddoświadczeń, ale przez wiele lat myślałem, że trzeba gonić tego największego klienta, tego, który dla którego zrobię, nie wiem, najlepszą
+1:351 minuta i 35 sekundstronę, który ma najwięcej ludzi na karku. Będę miał to w portfolio. I parę razy próbowałem i nigdy z tego nic dobrego nie było. I w końcu zdałem sobie
+1:441 minuta i 44 sekundysprawę, że po prostu wcale nie trzeba gonić za tego typu klientami, żeby naprawdę fajnie zarabiać.
+1:511 minuta i 51 sekundJak pracujecie z korporacjami, to wiecie, że większość sukcesów idzie i tak na konto menagżera. Jeżeli teraz wipe kodujemy, to tam jest cała ta
+2:002 minutyfrajda i ona zazwyczaj ginie w mailach czy na spotkaniach, których po prostu trzeba odbyć całą masę, zanim coś możemy wypuścić.
+2:092 minuty i 9 sekundNiby miało być portfolio, większość projektów kończy się NDA i tego portfolio też nie ma, więc też też nie jest plus. Jeżeli chodzi o
+2:162 minuty i 16 sekundbezpieczeństwo, też kiedyś tak myślałem, dopóki nie po prostu wymieni się ktoś nad wami, jakiś menadżer i po prostu nie
+2:232 minuty i 23 sekundywrzuci swojego teamu, także nawet bezpieczeństwa tam też za bardzo nie ma.
+2:282 minuty i 28 sekundI duży klient płaci dużo, to się bardzo często zgadza. Tak, płaci dużo, ale zazwyczaj tylko pierwszą fakturę.
+2:352 minuty i 35 sekundjakiekolwiek abonamenty z korporacją. U mnie to graniczyło z cudem. Nawet jak się udało, to trzeba było robić rozpiskę
+2:422 minuty i 42 sekundygodzinową, co gdzie tam robiłem. Po prostu bezsens. W innych mniejszych firmach tego w ogóle po prostu nie ma.
+2:502 minuty i 50 sekundI ja sobie dzielę rynek na takie trzy grupy. Od razu powiem, że u mnie to działa jak klasyczny programista. Nie wiem czy zadziała u was, ale spróbujcie,
+2:592 minuty i 59 sekundbo wiele ludzi y gdzieś tam ode mnie słyszało wiele rzeczy i nigdy ich nie spróbowało, ale kilka spróbowało i dostałem później taki feedback. Michał,
+3:083 minuty i 8 sekundto było tak proste, że ja się śmiałem, że to może zadziałać, wdrożyłem to i rzeczywiście zadziałało. Powiedziałem klientowi to zdanie, klient odpowiedział
+3:163 minuty i 16 sekundtakie i dobiliśmy za chwilę deala. Także to co za chwilę usłyszycie, jeżeli ktoś coś z tego odważy się spróbować, to dajcie mi znać czy to u was zadziałało.
+3:253 minuty i 25 sekundTo może być nawet za rok, dwa czy pięć, bo takie wiadomości nawet po kilku latach naprawdę jak do mnie docierają od was, to robią mi dany dzień.
+3:353 minuty i 35 sekundWięc tak, jednoosobowa działalność tutaj, żeby mieć, bo pamiętajcie, że będę mówił o abonamentach, bo tym się głównie specjalizuje. Tutaj żeby jakieś
+3:433 minuty i 43 sekundy100 zł dostać nawet miesięcznie od takiej firmy, która jest w pojedynkę, to tak naprawdę graniczy z cudem, ponieważ
+3:503 minuty i 50 sekundja się nawet temu nie dziwię. Ktoś kto ma jednoosobową firmę, żeby zarobić 5, 10 zł, on wszystko robi własnymi rękami, także każdy abonament jaki będzie miał
+3:583 minuty i 58 sekunddo płacenia będzie zawsze dla niego problemem. Dlatego ja ten rynek kompletnie odpuszczam, choć są tutaj wyjątki, jeżeli traficie na dosyć
+4:074 minuty i 7 sekundlukratywną branżę, gdzie nawet osoba w pojedynkę ma świetną marżę. I o tym będzie też moje case study później, bo mówię, nie skreślam tych tych firm, ale
+4:164 minuty i 16 sekundjest to bardzo ciężkie. Plusem jest to, że tych klientów jest najwięcej i prawdopodobnie najwięcej macie tego typu zapytań, czy to o stronę, czy o
+4:244 minuty i 24 sekundycokolwiek. No ale minusem jest ten problem abonamentowy i wiem, że wielu z was nie potrafi sprzedawać tych
+4:324 minuty i 32 sekundyabonamentów, bo to słyszę gdzieś tam u siebie na społeczności, że że nie wierzycie, że ludzie mogą płacić abonamenty. I dzieje się tak dlatego, że prawdopodobnie większość ludzi, którzy
+4:414 minuty i 41 sekunddo was trafia są z tego pierwszego członych abonamentów nie kupują. To jest bardzo ciężkie. Później mamy firmy
+4:474 minuty i 47 sekunddwioosobowe do kilkunastu osób i to jest taki tak naprawdę sweet spot tutaj.
+4:564 minuty i 56 sekundprosta matematyka. Jeżeli firmę stać przynajmniej na jednego pracownika, na ZUSy, to stać ją na kolejny abonament.
+5:025 minut i 2 sekundyTo zawsze idzie w parze, jeżeli oczywiście tylko będzie ta firma widziała wartość. Plusem tych firm jest to, że one prawdopodobnie już zrobiły
+5:105 minut i 10 sekundjedną stronę, dwie, pięć jakieś aplikacje. One już używają pełno różnego rodzaju softu. I wy w tej firmie możecie to wszystko posprzątać, przejąć
+5:195 minut i 19 sekundwiększość tych abonamentów, zwipec kodować dla nich rzeczy i naprawdę no dzisiaj staje się to kosmicznie proste.
+5:265 minut i 26 sekundJa zaczynając te 15 lat temu po prostu łączyłem jakieś frankensteinowe systemy, przesyłałem dane. Teraz no wszystko
+5:355 minut i 35 sekundstaje się znacznie prostsze i pozostali, czyli korporacja, wcześniej już trochę o nich powiedziałem, ale tutaj
+5:435 minut i 43 sekundyjest też ten ogromny, ja sobie to nazywam podatek od spotkań, czyli każde 100 zł, które od nich zarobicie, na pewno będziecie musieli najpierw odbyć
+5:525 minut i 52 sekundyjakąś rozmowę godzinną, dwó lub więcej, która po prostu wysyła wysysa energię, a przy viodzie energia jest ważna, nie?
+6:026 minut i 2 sekundyWięc tak, nazwałem to jak stworzyć klienta, ponieważ ja wyznaję zasady, że klientów się nie szuka, bo jak szukacie
+6:096 minut i 9 sekundklientów, to jesteście na straconej pozycji, bo to bardziej wam zależy niż klientowi. Dlatego ja sobie je tych klientów tak naprawdę tworzę. Porównuję to do wychowania własnego dziecka.
+6:206 minut i 20 sekundJeżeli na początku poświęcę temu klientowi tyle czasu, to jest nadzieja, że to moje dziecko gdzieś na starość mi
+6:266 minut i 26 sekundsię odpłaci dobrze. I tak samo jest z klientami. Jeżeli na początku zadbacie o wszystko, to prawdopodobnie wszystko
+6:346 minut i 34 sekundyfajnie się skończy i nie sprzedajemy w zasadzie żadnej technologii, niczego. Ja zawsze staram się sprzedać po prostu
+6:416 minut i 41 sekundemeryturę i za chwilę powiem wam na takim śmiesznym przykładzie dlaczego sprzedaję spokój. Jestem bardzo często
+6:496 minut i 49 sekundtakim zewnętrznym głosem rozsądku. kiedy klient właśnie już ma pełno tych narzędzi, nie wie co robić, nie wie za co płacić, co przestać, to wtedy wchodzę
+6:566 minut i 56 sekundja i po prostu pokazuję mu co wywalamy, co przerabiamy i bardzo fajnie to działa. I jak sobie przeczytacie na na
+7:047 minut i 4 sekundytym zielonym, mam tutaj takie hasło, ponieważ od tego zaczyna się moje pierwsze case study właśnie na gdzie od zera przeszliśmy do 10 000 zł
+7:137 minut i 13 sekundmiesięcznie i i co wam powiedzieć jak to po prostu doszło, bo historia wydarzyła się 10 lat temu, ale nie martwcie się,
+7:207 minut i 20 sekundże trzeba 10 lat pracować na taki abonament, bo to nie o to chodzi.
+7:257 minut i 25 sekundTo był po prostu mój pierwszy kluczowy klient, na którym tak to się skończyło.
+7:287 minut i 28 sekundMam jeszcze drugie case, jak wystarczy czasu, to wam je opowiem, ale o co chodzi? Spotykam, nazwijmy go Artura.
+7:367 minut i 36 sekundArtur chodzi po linach, po dachach w Edenburgu. Edenburg jest dosyć specyficzny. Ma bardzo dziwnie
+7:437 minut i 43 sekundyskomplikowane dachy, stare budynki, wąskie ulice. Tam się nie da rozstawić rosztowania. Więc on wchodzi na linach, łata te dziury w dachach, przychodzi do
+7:517 minut i 51 sekundmnie i mówi: "Wiesz co, potrzebuję prostą stronę, klasyka. Ja nie potrzebuję klientów. Mam sobie jedno zlecenie na tydzień, ale chcę, żeby coś
+7:597 minut i 59 sekundtam w internecie już było maksymalnie prosto. Nie chcę na to wydać pieniędzy, bo mi to jest tak naprawdę w tym momencie niepotrzebne. A przyszłem do
+8:078 minut i 7 sekundciebie głównie po to, bo mam taką reklamę w lokalnej gazetce i oni mnie tam męczą, żeby tam był jakiś link do mojej strony, bo to mi pomoże, a ja nie
+8:148 minut i 14 sekundmam nawet tego linku. No i sobie myślę, no klasyczny klient, no nic z tego nie będzie. zrobiłem w tą stronę. Okej, ale tak sobie zaczynamy rozmawiać i właśnie
+8:228 minut i 22 sekundydo dowiaduję się, że Artur potrzebuje tak naprawdę jedno zlecenie. On kocha życie w dżungli, w przyrodzie, spać na
+8:308 minut i 30 sekunddrzewach, w namiotach. Także on sobie robi jeden jedną dziurkę sobie załata, że tak powiem, na tydzień i to mu wystarcza. I mówię: "Kurde, no mega
+8:388 minut i 38 sekundpraca sobie pomyślałem. Ja tu siedzę, kurde, 15 godzin przy komputerze dzień w dzień. Chciałbym coś takiego mieć". Ale przez przypadek zobaczyłem jak wyglądają
+8:458 minut i 45 sekundjego ręce i troszkę mnie to przeraziło, bo one były całe uwalone ze smoły i widać, że no ciężko pracował dzisiaj na
+8:528 minut i 52 sekundytym dachu, cokolwiek tam robił. I mimowolnie powiedziałem mu tylko jedno.
+8:578 minut i 57 sekundArtur, myślisz, że jak długo będziesz miał jeszcze siłę, żeby po tych dachach skakać? No ja on się wtedy roześmiał, mówi: "No co ty, ja to kocham, ja mogę
+9:059 minut i 5 sekundtam żyć na tym?" No i okej. No i się rozeszliśmy, strona została zrobiona i dosłownie minęło 2 lata, wraca do mnie Artur i mówi: "Wiesz co, musimy się
+9:139 minut i 13 sekundspotkać ponownie, bo ja teraz chcę zrobić już coś porządniejszego." A ja zdziwiony mówię: "No kurczę, mówiłeś, że to ci wystarcza". Okazuje się, że po
+9:219 minut i 21 sekundprostu Artur potrzebował dwóch lat, żeby zatrudnić pięć osób, że tak powiem, wypuścić Wana w świat, a on już robi tylko wyceny i przychodzi do
+9:309 minut i 30 sekundmnie i mówi: "Michał, ja ci mega dziękuję, bo jakbyś mi wtedy tego nie powiedział, to ja dzisiaj byłbym dokładnie w tym samym miejscu". I ta
+9:379 minut i 37 sekundhistoria z Arturem wraca przez kolejne 10 lat. Za każdym razem jak się spotykamy to Artur mi powtarza to hasło.
+9:449 minut i 44 sekundyW tym momencie Artur ma już najlepszą firmę w Edemburgu.
+9:489 minut i 48 sekundw ogóle już w niej nie pracuje, jeździ sobie po świecie, rzuca te liny i wchodzi gdzie tam chce, ale zawsze powtarza to hasło. I w momencie jak ja zobaczyłem jak to na niego zadziałało, w
+9:579 minut i 57 sekundzasadzie stosuję to teraz z każdym klientem i naprawdę jak zacznie się tak rozmawiać z klientem to tworzy się jakaś
+10:0410 minut i 4 sekundynie wiem kosmiczna relacja. Zupełnie inaczej to wszystko wygląda. Także tak, doszliśmy do takiego abonamentu. On oczywiście nie urośnie, ale to w
+10:1210 minut i 12 sekundzasadzie nie o to chodzi. Chodzi o sposób, jak takiego klienta sobie stworzyć.
+10:1810 minut i 18 sekundI teraz jak sprzedawać dzisiaj? No zrobiłem taki, mam nadzieję, zabawny.
+10:2210 minut i 22 sekundyKiedyś kiedyś mówiliśmy zrobię panu formularz, a dzisiaj robimy systemy, które sprawdzają pogodę. Jeżeli będzie padało, to klienci Artura dostają SMS,
+10:3110 minut i 31 sekundże dzisiaj na ten dach po prostu nikt nie wejdzie, a w międzyczasie jeszcze odpala się reklama automatycznie, bo zaczęło padać, a w Edyburgu jak pada, to
+10:4010 minut i 40 sekundod razu kapie ludziom na dach, bo tam dachy są mega stare, ich się nie da naprawić, je trzeba bez końca łatać, bo to są zabytki, one muszą wyglądać tak,
+10:4910 minut i 49 sekundjak wyglądają. Więc dzisiaj sprzedaż w zasadzie wygląda w ten sposób.
+10:5510 minut i 55 sekundNo i teraz na czym pewnie sobie myślicie, kurczę, te 10 000 co miesiąc, co ten gość tam mu robi za tyle pieniędzy. Więc zaraz wam powiem jak to
+11:0211 minut i 2 sekundywygląda, bo tak naprawdę firma się rozrasta i potrzeby są po prostu cały czas. z miesiąca na miesiąc coś nowego przychodzi i takim flagowym produktem,
+11:1111 minut i 11 sekundktóry tak naprawdę został zrobiony jeszcze na Bublu, Webflow Airtable, tam jest chyba z pięć narzędzi, bo jeszcze wtedy nie było wipecoda, ale powoli tu
+11:1911 minut i 19 sekundmigrujemy, już jest wyceniarka i wydaje wam się, tego już jest pełno na rynku, ale biznes tego klienta jak większość z
+11:2711 minut i 27 sekundwas jest zawsze mega unikalny i takiego produktu jaki został zrobiony po prostu nigdy nie było i prawdopodobnie nie będzie, bo to jest tak dziwny proces, ale on u niego działa.
+11:3711 minut i 37 sekundKonwersja tam jest powyżej 50% na na tej na tych wycenach. W skrócie wam opowiem jak to w ogólnie funkcjonuje, bo zaczyna
+11:4411 minut i 44 sekundysię to od tego, że jedzie pracownik, robi wycenę, pstryka, wchodzi na ten dach, pstryka zdjęcia, co tam, co tam nie gra, to wszystko trafia do CRMA.
+11:5211 minut i 52 sekundyNastępnie klient otrzymuje wycenę i teraz ta wycena to nie jest jakiś tam PDF czy mail, bo to to jest po prostu lipa na w
+12:0012 minutdzisiejszych czasach. To jest wyrenderowana dynamicznie strona na Webflow i ona się renduje renderuje na podstawie tego, co w CRMie wystawi
+12:0912 minut i 9 sekundpracownik, który robi wycenę. No oczywiście wybierze jakieś tam usługi, tam są te zdjęcia, które zrobił wcześniej klient, y, pracownik i klient
+12:1712 minut i 17 sekundwidzi tą wycenę i na tym przez to, że to jest jako strona internetowa, to jest tam oczywiście nagrywarka ekranu, jest
+12:2312 minut i 23 sekundytam oczywiście czat, który wyskakuje po jakimś czasie, są tam choćby głupie tool tippy, co ta usługa w ogóle oznacza. Są tam
+12:3212 minut i 32 sekundytutoriale, wideo, jak taką usługę się wykonuje. Po prostu mega zaawansowana rzecz, która mega konwertuje, bo żadna
+12:3912 minut i 39 sekundinna firma po prostu takiej wyceny nie jest w stanie zarobić w tym momencie.
+12:4412 minut i 44 sekundyNo i co? Ta wycena jest też oczywiście dopasowana. Jeżeli firma robi setki realizacji, to jest nawet pokazane w portfolio gdzieś na dole, że robiliśmy dokładnie taki dach, trzy ulice dalej.
+12:5412 minut i 54 sekundyPóźniej jest sekcja z komentarzami, które potwierdzają dokładnie ten typ usługi, że się udał. Dzięki temu, że to jest wszystko renderowane dynamicznie w
+13:0113 minut i 1 sekundaCRMA, pracownik po prostu klika odpowiednie guziczki i to się pojawia.
+13:0613 minut i 6 sekundByć może za chwilę w ogóle to się zrobi samo. Zobaczymy jak się jak zaczniemy wdrażać wipe cod tutaj. Także na razie
+13:1313 minut i 13 sekundto jest taki pół automat. No i teraz ta firma ma tą wyceniarkę. Ta wyceniarka się cały czas zmienia, bo patrzymy jak
+13:2013 minut i 20 sekundludzie na nią reagują. nagrywamy ekran, patrzymy co tam nie działa. Tą tą wycenę można zaakceptować od razu online i od
+13:2713 minut i 27 sekundrazu pojawia się apsel. Ktoś może go dokupić. Później od razu generuje się payment link do Stripea. Klient jak to
+13:3513 minut i 35 sekundzapłaci to wpłaca sobie depozyt od razu odgeneruje się na podstawie tego kontentu, który był w wycenie. Papier, PDF do niego idzie, żeby widział co
+13:4313 minut i 43 sekundyzaakceptował, bo oczywiście ta kwota znika z sieci. Także totalnie wszystko dzieje się na automacie. I teraz, a to jest dopiero tak naprawdę połowa tego
+13:5213 minut i 52 sekundysystemu, bo później przychodzi zrobienie tej usługi, więc musi muszą te same zdjęcia zostać wysłane do pracownika, te same rzeczy, które on ma zrobić do
+14:0014 minutpracownika. Tam już nie będzie cen, żeby pracownik nie liczył ile jego jeszcze szef zarabia. On ma tylko listyu, co jest do zrobienia. I teraz ten pracownik
+14:0814 minut i 8 sekundodpala tą aplikację, robi rzeczy i klika zdjęcia tego, jak wykonał tą pracę. I to wszystko znowu wpada do systemu i
+14:1614 minut i 16 sekundnastępnie z tego generowane jest potwierdzenie dla klienta, jak została wykonana praca, bo żaden klient nie jest w stanie wejść sobie na dach, a tutaj ma
+14:2414 minut i 24 sekundyczarno na białym, co zostało zrobione. I klient jak dostaje taki serwis, jakikolwiek jego znajomy potrzebuje naprawę dachu, po prostu poleca w ciemno
+14:3314 minut i 33 sekundytą firmę, bo nigdy w życiu po prostu nikt nie otrzymał tego tego rodzaju serwisu, przynajmniej w Edemburgu. Nie ma tam drugiej firmy, która tak wszystko
+14:4214 minut i 42 sekundydokumentuje. A najlepsze jeszcze jest z tego to, że mamy w tym procesie idealny content. Mamy jakieś imię klienta, mamy
+14:5014 minut i 50 sekundjego feedback, mamy jego zdjęcia przed, zdjęcia po, co było zrobione, na jakiej ulicy i z tego generujemy kontent do
+14:5714 minut i 57 sekundsocial media. Także jedna jedna prosta aplikacja, tyle tyle plusów.
+15:0315 minut i 3 sekundyNie będę tu większych rzeczy pewnie nawet nawet wymieniał. Poczytacie sobie, bo to są banały, ale możecie nawet zarabiać na skrzynkach email, bo nie
+15:1215 minut i 12 sekundkażda firma chce płacić 20 licencji na workspaceie. Im to nie jest potrzebne, a ktoś im gdzieś wcześniej to polecił.
+15:1915 minut i 19 sekundWejdź sobie na Googlea, to nie jest firma IT, żeby tam był było jakieś mega obciążenie maila, więc spokojnie możecie nawet hostować, kupić jakąkolwiek
+15:2715 minut i 27 sekundusługę, gdzie odsprzedajecie maile i to wszystko zamiast klient płacić te abonamenty komuś, płaci je wam i wszystko idzie do góry.
+15:3715 minut i 37 sekundJakiś task manager też już y od razu powiem, że nie siedzę wipecodzie od nie wiadomo jak długo. Po prostu dla mnie
+15:4415 minut i 44 sekundyjeszcze nie jest to za bardzo bezpieczne. Ja mam tam swoje poglądy na ten temat.
+15:4915 minut i 49 sekundJak oddaję coś klientowi, to po prostu gwarantuję, że tam się nikt nie włamie.
+15:5215 minut i 52 sekundyAle zacząłem sobie eksplorować z taką z takim narzędziem, które nazywa się Zaje.
+15:5715 minut i 57 sekundW zasadzie nikt dzisiaj o nim nie powiedział, jak pytałem, nikt w zasadzie go nie zna. Jak jest ktoś z was, kto nie chce pracować w terminalu, kto nie do
+16:0516 minut i 5 sekundkońca jest programistą, tak jak ja polecam to narzędzie, bo w tym narzędzie mamy zagwarantowane bezpieczeństwo, mamy dużo rzeczy gotowych, cena jest w miarę
+16:1316 minut i 13 sekundprzystępna, możemy mieć ile chcemy klientów, bardzo fajne narzędzie, ale w tym narzędziu zacząłem budować proste task managery, bo inni moi klienci
+16:2116 minut i 21 sekundkompletnie nawet ich nie mają. wysłać ich do jakiejś aplikacji. To są kolejne abonamenty i zobaczyłem, że nawet komunikacja między nami w tym prostym
+16:2916 minut i 29 sekundTask Managerze znacznie lepiej się spisuje. No a przez to, że jest to zwipekodowane, to nie generuje nikomu żadnych kosztów i wrzucam tam po prostu
+16:3616 minut i 36 sekundwszystkich klientów, nie? A firma jak jej się zaczyna to podobać to już się pyta czy możemy to używać też w naszej firmie pomiędzy naszymi pracownikami. I
+16:4516 minut i 45 sekundto nie jest żaden skomplikowany task manager. Po prostu tam jest są trzy guziki na krzyż i to wszystkim wystarcza. I klienci to uwielbiają, bo
+16:5316 minut i 53 sekundywchodzą i widzą co mają kliknąć. A widzę, że czasy się naprawdę zmieniają.
+16:5716 minut i 57 sekundJak klient ma dwa guziki obok siebie, to on już traci sekundę na zastanowienie się, której kliknąć. Więc nawet jak zrobię mu jeden guzik dwa razy większy,
+17:0517 minut i 5 sekundco wygląda brzydko, ale on wie, że ma tego ten guzik kliknąć. Takie są dzisiaj czasy.
+17:1117 minut i 11 sekundI w momencie jak firma zaczyna przenosić te abonamenty na was, na ten jeden główny, to tak naprawdę mega jest
+17:2017 minut i 20 sekundrelacja do grobowej deski, bo to już wszystko jest tak powiązane, że ciężko później z tego wyjść. Oczywiście, że nie do końca może to jest fair, ale jak
+17:2917 minut i 29 sekundtłumaczycie to klientowi jakich z jakich korzystacie narzędzi, że tak naprawdę każdy może później tam wejść, kto ogarnia te tule i poprowadzić to dalej, to klient jest bardziej spokojny.
+17:4017 minut i 40 sekundDobra, wiem, że macie problem ze sprzedażą abonamentów, bo to słyszę w zasadzie
+17:4617 minut i 46 sekundcodziennie w mojej społeczności. I chcę wam powiedzieć, już wróćmy do tematu właśnie solo
+17:5417 minut i 54 sekundyprzedsiębiorcy. Najczęściej macie jeden problem, bo po prostu to jest zły klient i ja też takiemu klientowi nie sprzedam abonamentu. On nie jest jeszcze na to
+18:0118 minut i 1 sekundagotowy. I jeżeli to nie jest właśnie taki Artur, który ma ogromną marżę, to nie ma szans mu sprzedać abonamentu, ale
+18:0818 minut i 8 sekundjest taki trik, który spowoduje, że nawet taka osoba może wejść w abonament.
+18:1318 minut i 13 sekundI zazwyczaj u mnie to polega na tym, przychodzi ktoś, mówi: "Ja chcę prostą stronę, ale chciałbym, żeby gdzieś tam w jakimś mieście na tą moją usługę gdzieś
+18:2118 minut i 21 sekundtam się pojawiać." I on ma w głowie, że zrobi sobie tą stronę jak najtaniej. Ma to być one page, coś tam powrzuca. No ale oczywiście wiecie, że to nie
+18:2818 minut i 28 sekundzadziała, bo trzeba zrobić pod strony usługowe, trzeba to zoptymalizować pod keywordy. No i klient myśli: "Wezmę prostą stronę, mam na nią, nie wiem,
+18:3718 minut i 37 sekund5000 zł, a wy wiecie, że potrzebujecie przynajmniej 15". No ale jak powiecie 15, no to klient odejdzie, to to się nie uda. Więc tutaj macie już pierwszą drogę
+18:4518 minut i 45 sekunddo abonamentu, bo zamiast wziąć te 5000, bierzecie nawet trzy na start i mówicie: "Hej, przez najbliższe 6 miesięcy czy 12
+18:5318 minut i 53 sekundybędziemy rozbudowywać twoją stronę o dedykowane usługi, zrobimy tam dedykowane portfolio, tak jak się to wszystko powinno robić i klient bardzo chętnie na to wejdzie, bo to są raty.
+19:0319 minut i 3 sekundywszyscy lubimy kupować na raty, a dzięki temu, że on widzi postęp, co miesiąc, dostaje raporty, co zostało zrobione, to bardzo chętnie płaci taką kasę. I jak to
+19:1219 minut i 12 sekundwam się uda zrobić, to po skończeniu tej strony proponujecie mu kolejne usługi i on zostaje na tym abonamencie dalej.
+19:1919 minut i 19 sekundMożecie go nawet obniżyć mu troszkę, żeby go zachęcić. Będzie teraz taniej, ale zrobimy za chwilę jakiś Task Manager, jakieś automatyzacje content. I
+19:2719 minut i 27 sekundtak można też nawet teoretycznie jednoosobową firmę wciągnąć w abonament.
+19:3319 minut i 33 sekundyI oczywiście edukacja tutaj jest kluczowa, albo jak wy nie wytłumaczycie klientowi, że on z takim one pagżem nigdzie nie będzie rankował, no to on
+19:3919 minut i 39 sekundteż też nie zrozumie, dlaczego ma robić większą stronę.
+19:4619 minut i 46 sekundWszystkiego nie będę czytał, także jak ktoś ma ochotę, niech sobie tutaj pozerka, ale ostatnio nie wiem ktoś, ktoś to może to Gary Wis wspomniał, ale
+19:5519 minut i 55 sekundzapadło mi to w pamięć. Jeżeli wasza oferta brzmi dokładnie jak to hasło, czyli potrafię zrobić wszystko, jak mi zapłacisz, to zrobię to dla ciebie, to uwierzcie mi, że macie straszną ofertę.
+20:0620 minut i 6 sekundA niestety większość ofert właśnie tak brzmi.
+20:1020 minut i 10 sekundI teraz co jeszcze? Co jeszcze możecie, jak możecie jeszcze dotrzeć do klientów?
+20:1520 minut i 15 sekundBo wiadomo, że znaleźć nowego klienta jest ultra ciężko i będzie coraz ciężej, bo jest coraz większa konkurencja, ale
+20:2220 minut i 22 sekundyświetnie działa, jeżeli uderzycie do swoich obecnych klientów. I na końcu będę miał dla was małe zadanie.
+20:2920 minut i 29 sekundMoże ktoś, ktoś spróbuje i złapie sobie jakiegoś klienta. I teraz komunikujcie po swojemu, co mam tutaj na
+20:3620 minut i 36 sekundmyśli. Ja jak rozmawiam z klientem, to rozmawiam zawsze tak, żeby on zrozumiał, co ja do niego mówię. I to nie jest proste, bo klienci wiadomo rozumieją
+20:4520 minut i 45 sekundzupełnie inaczej IT, ale właśnie jeżeli nie jesteście typowym programistą, to uwierzcie mi, że klient was zrozumie znacznie szybciej niż tego starego
+20:5420 minut i 54 sekundytypowego programisty, który mówi totalnie skrótami, używa swojego slangu i dlatego tutaj, jeżeli ktoś wchodzi w wipe code i nie ma tego backgroundu,
+21:0321 minut i 3 sekundymyślę, że ma mega przedwagę nad każdym programistą, który próbuje sprzedać, a dzisiaj programiści będą chcieli sprzedawać, no bo ktoś musi to kupować, nie?
+21:1421 minut i 14 sekundI teraz w zasadzie już wyprzedziłem jak sprzedaż każdemu abonament. To jest właśnie z tym, że zaczynamy od prostej strony, ona
+21:2121 minut i 21 sekundsię rozrasta, małe kroki, raty i właśnie ja specjalizuję się w lokalnych firmach i nie raz słyszałem jak to lokalna firma, ona nie ma nie ma pieniędzy.
+21:3121 minut i 31 sekundWłaśnie jest wręcz odwrotnie. No lokalna firma ma swoje przyziemne sprawy. To są proste rzeczy do automatyzowania. tam
+21:3821 minut i 38 sekundnie trzeba nie wiadomo jakiej wiedzy i tak jak z Arturem po prostu szlifujecie sobie tego klienta jak diament.
+21:4521 minut i 45 sekundZaczynacie od drobnych rzeczy, mijają lata, robicie kolejne i w momencie jak klient miał wydać 10 000, on wydał już
+21:5321 minut i 53 sekundydawno 2050 i dalej wydaje. przez to, że jest to właśnie rozłożone w ratach i przez to, że on widzi dokładnie za co
+21:5921 minut i 59 sekundpłaci, bo co miesiąc ma coś nowego i jak sobie porównuje z konkurencją to nawet widzi, o ta konkurencja od dwóch lat nie
+22:0722 minuty i 7 sekunddodali nic do portfolio, a ja dzięki takiemu gościowi, który mi aktualizuje portfolio, mam świeżą stronę i to działa
+22:1522 minuty i 15 sekundpozytywnie na jego firmę, na ich klientów. Dobra, mamy jeszcze czas. Okej, sorry za ten slajd,
+22:2322 minuty i 23 sekundyale nie wiedziałem ile mi to wszystko zajmie. I teraz sprzedać abonament.
+22:2822 minuty i 28 sekundOkej, nie jest to super proste, ale jest to możliwe. Natomiast utrzymać abonament to też nie jest, że tak powiem, takie no
+22:3522 minuty i 35 sekundprosta rzecz. I ja widzę to tak. Jeżeli mój klient ma na mnie polegać, to ja
+22:4322 minuty i 43 sekundyjakby rozmawiam z nim, tak, robię dla niego rzeczy, tak aby on nie miał żadnej pracy domowej. Czyli nie wiem, nawet coś wflu nie działa. Nie każę mu pisać y na
+22:5222 minuty i 52 sekundysupport i się pytać, dlaczego to tam nie działa. Po prostu ja robię to za niego.
+22:5622 minuty i 56 sekundPrzejmuję te wszystkie obowiązki, których on nienawidzi robić. Uwierzcie mi, że klient jak ma dzwonić gdzieś na infolinię w jakiejś sprawie i
+23:0423 minuty i 4 sekundyprzekazywać wam o co chodzi, on tego nienawidzi. A niestety dużo informatyków właśnie tak działa. Hej, napisz na
+23:1223 minuty i 12 sekundsupportinux.pl pl i zobacz dlaczego, nie wiem, atakują nas boty. I ja to widzę codziennie, bo mi to później mówią klienci. Przyszłem do ciebie, mówię:
+23:2023 minuty i 20 sekund"Boże, to to w ogóle zupełnie inna współpraca". Ja wcześniej po jakichś supportach gdzieś pisałem na jakichś czatach i nie rozumiałem, co oni do mnie
+23:2723 minuty i 27 sekundmówią. Przekazywałem to, to była dla mnie katastrofa. Także tak utrzymiecie abonament, jeżeli klient po prostu nie będzie miał żadnej pracy domowej
+23:3423 minuty i 34 sekundyzwiązanej z IT. I co jest też fajne, że jeżeli firma jest wieloosobowa, to tak jak widzicie tam przez to, że was nie ma
+23:4223 minuty i 42 sekundyna Payselpie, to pomagacie też tym innym pracownikom i ci pracownicy jakby uzależniają się bardzo często od
+23:5023 minuty i 50 sekundwaszej pomocy, bo im jest głupio powiedzieć szefowi, że czegoś nie mam zrobić. Oni uderzają do ciebie, wy im pomagacie. To są mega proste rzeczy. I
+23:5823 minuty i 58 sekundpóźniej jak przychodzi jakiś problem w tej firmie, nawet finansowy i szef się pyta czy ten gość jeszcze nam jest potrzebny, czy ten abonament jeszcze
+24:0524 minuty i 5 sekundmusimy płacić, to oni stoją po prostu za wami murem przez to, że oni są też od was uzależnieni i lubią jak im
+24:1224 minuty i 12 sekundpomagacie. I tu mam taki prosty trik, który gdzieś parę lat temu zrobiłem i to działa po prostu niemożliwie.
+24:2124 minuty i 21 sekundZawsze każdego klienta dodaje się jako menadżer do jego profilu Google My Business, bo to jest tylko kwestia czasu jak on dostanie jakieś negatywne komentarze od botów. To jest normalne.
+24:3024 minuty i 30 sekundJa mam ponad 200 profili gdzieś pod sobą i nie ma tygodnia, żeby gdzieś nie były jakieś ataki. I teraz jak wy widzicie te komentarze, klient bardzo często nawet o
+24:3924 minuty i 39 sekundnich nie wie, bo tam jest jakiś mail podany, on go nie sprawdza, bo tam jest jakiś pracownik. I teraz ja te komentarze widzę i oczywiście jak widzę, że są spamowe, to od razu je zgłaszam.
+24:4824 minuty i 48 sekundNo i wiecie, że one zostaną usunięte. To jest kwestia dnia lub trzech, ale przez to, że ja w tym momencie uderzam do klienta i mówię: "Hej, zaatakowała cię
+24:5624 minuty i 56 sekundkonkurencja, zobacz, zobacz jak to wygląda. Ja już się tym zająłem". To on jest w totalnym szoku, bo nie dość, że on nie wie, że to można usunąć, bo jemu
+25:0425 minut i 4 sekundysię wydaje, że jak już jest zła opinia, to już nic z tym nie zrobimy, to jeszcze ja wiem szybciej niż jego pracownik, niż on sam. I on to mega docenia, bo on
+25:1325 minut i 13 sekundwidzi, że ja po prostu czuwam nad jego biznesem. A no dla mnie to jest po prostu szybki telefon, bo widzę widzę mail. To są drobne rzeczy, które
+25:2225 minut i 22 sekundynaprawdę powodują, że ten klient jak myśli czy już przestać płacić czy nie, on ma to w tyle głowy. Kurczę, zrobił
+25:3025 minut i 30 sekundwtedy to, tym się zajął, ja go muszę mieć u siebie.
+25:3525 minut i 35 sekundI właśnie w całych tych abonamentach relacja jest tutaj kluczowa, bo jak ta relacja jest słaba, to i abonament się
+25:4225 minut i 42 sekundyszybko rozsypia. I oczywiście, że są jakieś kłótnie pomiędzy mną klientami. Każdy ma lepszy,
+25:4925 minut i 49 sekundgorszy dzień i to co u mnie działa, to jest po prostu jak czuję, że już jest nerwówka, to zawsze mam do klienta jedno jedno takie zdanie. Przerwijmy to,
+25:5825 minut i 58 sekundpogadamy za pół godziny, za godzinę wrócimy do tematu. Powiem wam, że to jest mega game changer, bo nie będzie nic gorszego, jak będzie się wykłócać z
+26:0626 minut i 6 sekundklientem, bo ten będzie miał swoją rację i ten będzie każdy już jest naminowany.
+26:1026 minut i 10 sekundNie ma sensu. Przerywamy to, wracamy do rozmowy i za chwilę wszystkie problemy da się rozwiązać. A to co gdzieś
+26:1826 minut i 18 sekundostatnio robiłem sobie jakieś szkolenie z komunikacji i było to to jest po prostu mega game changer.
+26:2426 minut i 24 sekundyJeżeli tłumaczycie coś klientowi i on ma nie wiem czy coś do zrobienia czy czy po prostu jakiś plan mu przekazujecie co wy
+26:3226 minut i 32 sekundybędziecie robić to zadajcie mu na koniec takie pytanie jak on was zrozumiał ja to zadałem dopiero trzy razy mówię to jest świeża świeża rzecz którą stosuję za
+26:4126 minut i 41 sekundpierwszym razem mój klient po prostu się roześmiał i nie wiedział o co chodzi to ja poszłem dalej i mówię wiesz co, ja wczoraj sobie zrobiłem szkolenie z
+26:4826 minut i 48 sekundkomunikacji i kazali mi zadać to pytanie i on nagle po prostu wyśpiewał wszystko.
+26:5426 minut i 54 sekundyto co zrozumiał i oczywiście połowa rzeczy była zupełnie inaczej i mówię wow jak to działa i i mówię zobacz teraz mi to wszystko powiedziałeś byśmy w ogóle
+27:0327 minut i 3 sekundyskręcili w złym kierunku ja ci teraz to dotłumaczę i powiem ci dokładnie o co chodzi a ty mi znowu powiesz jak to zrozumiałeś naprawdę zajebista rzecz
+27:1127 minut i 11 sekundtrzy razy już to wypóbowałem trzy razy dokładnie tak samo zadziałało y no i teraz relacja jest ważniejsza niż
+27:1827 minut i 18 sekundkod uwierzcie mi że ja zrobiłem wiele różnych problemów w firmach wiele rzeczy tam nie zadziałało a miało Ale przez to, że relacja była zawsze na
+27:2627 minut i 26 sekundodpowiednim poziomie, to nigdy nie był jakiś problem dla klienta. Nawet jak stracił na tym trochę pieniędzy, bez problemu. Jak macie tą relację, klient wybacza wam wszystko.
+27:4127 minut i 41 sekundJak jeszcze utrzymać relacje? Ja na przykład stosuję coś takiego, że jeżeli klient zrobi coś fajnego, to ja do niego zadzwonię i powiem mu: "Hej, zrobiłeś
+27:4927 minut i 49 sekundnaprawdę fajny projekt, zajebiście to wygląda. Uwierzcie mi, że każdy lubi jakąkolwiek pochwałę. A dzisiaj jest tym ogromny problem. Nawet jak oglądacie coś
+27:5827 minut i 58 sekundna YouTubie i wam się podoba, bardzo ciężko wam to skomentować. Po prostu nikomu się nie chce. A każdy, uwierzcie mi, po drugiej stronie czeka na taki mały impulsik i klient też to uwielbia.
+28:0828 minut i 8 sekundJak go tylko oczywiście chwalcie go wtedy, kiedy rzeczywiście ma to sens, żebyście nie przesadzali z tym, ale też bardzo fajnie to działa.
+28:1728 minut i 17 sekundI teraz właśnie to wyzwanie na koniec.
+28:1928 minut i 19 sekundJeżeli ktoś z was chce, nie wiem, na jutro klienta, bo nie wiem, nawet chciałby go pociągnąć dalej z vibe codingiem, może zrobiliście komuś stronę
+28:2828 minut i 28 sekund5 lat temu, uwierzcie mi, że jak zadzwonicie do, nie wiem, 10 klientów wstecz, zapytacie do zwykła rozmowa, co
+28:3628 minut i 36 sekundu was słychać, co, co, jakie macie plany, może coś potrzebujecie, na bank z tego będzie zlecenie, a szczególnie teraz, bo prawdopodobnie jak zrobiliście
+28:4528 minut i 45 sekundmu kiedyś tam stronę, jeszcze nie było wpodingu, on już o tym słyszy gdzieś tam na socialu. Jak wy do niego zadzwonicie, zapytacie się jego plany, to być może
+28:5328 minut i 53 sekundyjuż będziecie mogli na tym waszym vibe codingu zarobić nawet następnego dnia.
+28:5828 minut i 58 sekundTakże jak ktoś ma ochotę, odezwijcie się do starych klientów.
+29:0329 minut i 3 sekundyDobra, na tyle. Jak ktoś ma ochotę gdzieś tam zbliżyć się do abonamentów i zobaczyć jak to robię, to zapraszam do społeczności.
+29:1029 minut i 10 sekundDzisiaj macie wjazd za połowę ceny do końca dnia. No i myślę, że to wszystko. Jak są jakieś pytania, chętnie.
+29:1829 minut i 18 sekundSuper. Michał, dzięki wielkie. Zrobimy jeszcze Q&A. Okej.
+29:2729 minut i 27 sekundTeraz, teraz sobie ubiorę okulary, żeby was widzieć, bo specjalnie ich nie zakładałem, żeby jakoś to przeżyć.
+29:3629 minut i 36 sekundO, cześć wam.
+29:4129 minut i 41 sekundCześć. Dzięki. Super prelekcja. Chciałem zapytać ciebie o jedną rzecz, która mnie strasznie nurtuje, ale
+29:5029 minut i 50 sekundinaczej pytanie moje jest takie w tej dobie właśnie VPec codingu i tego, że nawet laik może postawić sobie prostą
+29:5729 minut i 57 sekundstronę internetową, czy nie widzisz zagrożenia dla swojej firmy i w ogóle dla firm takich jak ty prowadzisz, że po
+30:0630 minut i 6 sekundprostu dużo osób zacznie samemu to robić i no będzie coraz trudniej. Yyy, czy
+30:1330 minut i 13 sekundpoleciłbyś jeszcze komuś, żeby się tym zajmował, żeby próbował swoich sił, czy yyy, no właśnie to mnie ciekawi, bo ten
+30:2130 minut i 21 sekundtemat jest bardzo szeroki, ale myślę, że wiesz o co mi chodzi, że wiecie o co mi chodzi, więc wiesz co, y, to jest ważne pytanie dla mnie. Ja to
+30:2830 minut i 28 sekundwidzę zupełnie odwrotnie, bo ci klienci, którzy chcą sami zacząć robić, to to jest i tak najgorszy rodzaj klienta, którego ja i tak nie chcę mieć u siebie.
+30:3830 minut i 38 sekundBo uwierz mi, że rynek jest tak duży, że nawet jak połowa ludzi zacznie robić coś po swojemu, to albo do ciebie wróci,
+30:4530 minut i 45 sekundżeby to dokończyć, albo po prostu zrobią to i tyle. I jest mnóstwo firm. Dlatego ja się specjalizuję w firmach lokalnych,
+30:5330 minut i 53 sekundybo one powstają codziennie nowe. Tego jest po prostu bez liku. I ja się kompletnie nie obawiam. Ja się cieszę, że tak się dzieje, bo i moi klienci
+31:0031 minutpotrafią odejść. I jak mam taki temat, że klient mówi: "Ej, dla ciebie to jest, nie wiem, trzy kliknięcia, ja już nie chcę tego abonament płacić. Marże ja i
+31:0931 minut i 9 sekundto się robi samo." To ja zawsze nawet go nie przekonuję. Mówię mu: "Zrób sobie to sam". Sprawdź sobie, jak ci, jak ci się
+31:1631 minut i 16 sekundto spodoba, zaskoczy, to pociągniesz sobie to dalej. A jak stwierdzisz, że kurczę to jednak nie jest takie proste, wróć do mnie i powiem ci, że 9 na 10
+31:2531 minut i 25 sekundzostają. Oczywiście, że któryś tam odejdzie. Także dla mnie to przynajmniej na tą chwilę, jeżeli jeszcze my jesteśmy tutaj potrzebni, bo nie wiadomo co
+31:3331 minut i 33 sekundybędzie za 5 lat, to nie widzę tutaj zagrożenia żadnego.
+31:3831 minut i 38 sekundDzięki bardzo. Okej. Czy mamy jeszcze pytania? Dobra, już zejdę za sekundę.
+31:5431 minut i 54 sekundyCześć. Gdy pracujesz w modelu abonamentowym z klientem, czy jakoś ustalacie, jeśli tak, to w jakiej
+32:0132 minuty i 1 sekundajednostce ustalacie zakres tych prac? No bo na przykład jest miesiąc i ten miesiąc kończy się i czy to się kończy
+32:0832 minuty i 8 sekundjakimś zakresem prac określonym, czy na przykład jest to mocno uznaniowe w przypadku? Wiesz co, tak jak wcześniej
+32:1632 minuty i 16 sekundwspominałem, ja sobie klienta wychowuję i jeżeli mój klient chce jakieś rozpiski, co ja zrobiłem, prawdopodobnie się rozstaniemy bardzo szybko. Ja po
+32:2532 minuty i 25 sekundprostu gwarantuję mu, że mu wszystko działa. Jeżeli on potrzebuje pomocy, mają natychmiast. Są klienci, którzy są gdzieś tam wyżej w rankingu, są klienci,
+32:3332 minuty i 33 sekundyktórzy są niżej i w zależności od abonementu ja mu mówię, że masz nawet pomoc tego samego dnia, jeżeli nie wiem, dzwonisz rano, inny klient ma tą pomoc
+32:4132 minuty i 41 sekundnastępnego dnia. I kiedyś myślałem, że to jest nie do końca fair, dopóki kilku klientów nie powiedziało mi tego
+32:4932 minuty i 49 sekundwprostowe. Michał, nas nie interesuje kwota, jaką my ci płacimy. My wiemy, że jak my mamy problem, to ty nam go
+32:5632 minuty i 56 sekundrozwiązujesz i zdajemy sobie sprawę, że przez sześ miesięcy nie było żadnego requestu. Ale wiemy też, że jak będzie coś wielkiego do zrobienia, to ty nam
+33:0533 minuty i 5 sekundnagle nie powiesz, że trzeba za to 20 koła dopłacić, bo ja tak działam. Ja wtedy po prostu to zrobię, bo wiem, że tyle miesięcy w zasadzie nie robiłem
+33:1333 minuty i 13 sekundnic, coś tam sobie monitorowałem, ale z drugiej strony teraz troszkę się to zmienia, bo jak jest wipe code, to robicie coś dla jednego klienta,
+33:2233 minuty i 22 sekundywidzicie, że jemu to pomaga, to bez bez dodatkowych pieniędzy wdrażacie to dalej. I to klienci kochają. Oni wtedy
+33:3133 minuty i 31 sekundwidzą, wow, zrobił nam coś, co w ogóle nie jest ujęte w abonamencie. I to też powoduje, że właśnie oni nie chcą tych
+33:3833 minuty i 38 sekundrozliczać godzinowo. Ja mam taką zasadę, jak ktoś chce rozliczenia godzinowe, to ja mówię jedną rzecz. Hej, ja pracuję tak szybko, że jak ja bym się rozliczał
+33:4733 minuty i 47 sekundgodzinowo, to zarobię mniej niż ktoś dopiero zaczyna. Ja w takim modelu po prostu nie pracuję. Jeżeli ci to nie pasuje, po prostu się nie dogadamy.
+33:5433 minuty i 54 sekundyCzyli jak umowę podpisujesz, bo bo wychowywanie trochę trwa, ale i to ja jeszcze nie podpisałem żadnej umowy, sorry.
+34:0134 minuty i 1 sekundaNaprawdę, naprawdę podpisuję umowy tylko z korporacjami i zawsze mam ogromny strach, żeby to zrobić.
+34:0834 minuty i 8 sekundLokalne biznesy, tam nie ma umów. Okej, porządku. Dzięki.
+34:1534 minuty i 15 sekundJuż schodzę niżej, bo tam było jeszcze pytania.
+34:2234 minuty i 22 sekundyI to będzie ostatnie pytanie, bo zaraz, zaraz, gdzie to było?
+34:3234 minuty i 32 sekundyOkej. Ja chciałem jeszcze zapytać o model wyceny takich usług, bo to jest takie mocno niejasne jeszcze dla mnie przynajmniej.
+34:4034 minuty i 40 sekundTo od czego zaczynasz? przychodzi klient i mówi: "No hej, to zrób mi tam coś tam potrzebuję, żeby tam nie wiem, system rezerwacyjny mi z Instagrama, z automatu
+34:4834 minuty i 48 sekundtam wysyłał do ludzi zaproszenia i czy coś tam, nie?" Y, bo tam z różnym mogą przyjść tematem. No i teraz trzeba im od czegoś zacząć.
+34:5534 minuty i 55 sekundIle oni będą płacić, nie? Bo to i za i za co i na jakiej zasadzie, nie? Dużo pytań. Wiesz co, ja zawsze biorę, że tak
+35:0335 minut i 3 sekundypowiem, próbuję sobie wyobrazić ile moja pomoc w tej firmie pomoże. Jeżeli to jest ktoś, kto rzeczywiście ma tam dwie, trzy osoby i w jakiejś dziwnej branży,
+35:1135 minut i 11 sekundja wiem, że nawet jak zautomatyzuje im social media, ale to im nie za wiele da, bo tam będzie potrzeba znacznie więcej, to po prostu ten abonent jest niski.
+35:2035 minut i 20 sekundJeżeli widzę, że to na pewno firmie pomoże, bo wiesz, już troszkę tych branż znam i wiem w miarę co gdzie działa.
+35:2735 minut i 27 sekundJeżeli wiem, że to będzie na pewno im pomagało, ten abonament jest automatycznie wyższy. I ja tak naprawdę nawet nie mam cennika. To może się
+35:3435 minut i 34 sekundywydawać śmieszne, ale większość cen po prostu powstaje w danej chwili. I oczywiście, że czasem słyszę nie i są
+35:4135 minut i 41 sekundjakieś tam negocjacje, ale tak naprawdę najważniejsze jest to, czy ta moja pomoc tej firmie rzeczywiście przyniesie jakiś zysk. Bo jeżeli jest firma, nie wiem,
+35:5035 minut i 50 sekundktoś na przykład jest w centrum Londynu i on chce być, nie wiem, pierwszy w Googleu na hydraulika czy w social media, to ja wiem, że to jest
+35:5735 minut i 57 sekundnieosiągalne, bo ten ten rynek jest tak już obstawiony przez spam i ogromne firmy, że tam się nic nie da zrobić, to wtedy taki abonament w takiej firmie to
+36:0636 minut i 6 sekundjest dosłownie 150 funtów na rok. I to jest abonament zamiast ktoś ma płacić, nie wiem, zaflow, zamiast ktoś ma płacić za pocztę, to po prostu ma taki
+36:1436 minut i 14 sekundabonamencik roczny i to jest taki minimum, nie? Natomiast jak wiem, że miesięcznie mogę jakiś zysk tej firmie wypracować, to wtedy są to abonamenty miesięczne, także tak to rozgraniczam.
+36:2536 minut i 25 sekundOkej. A nie nie robisz żadnego podziału między tam wdrożeniem a utrzymaniem?
+36:2936 minut i 29 sekundGeneralnie wiesz co, mój klient to dla niego po prostu liczy się to, co będzie na końcu.
+36:3436 minut i 34 sekundyOn on tego wiesz, ja nie pracuję właśnie z korporacjami. Oni zupełnie inny temat.
+36:3936 minut i 39 sekundJak ja słyszę jak wy tutaj mówicie o różnych rzeczach, to dla mnie to jest w ogóle kosmos. Ja w ogóle tak nie pracuję. U mnie klient to jest po prostu jeden nagłówek, zdjęcie. i to ma mu
+36:4836 minut i 48 sekundprzynosić klienta. On nie potrzebuje jakieś animacji. On nie potrzebuje niczego. Po prostu on chce tylko, żeby to działało i żeby mógł na tym polegać,
+36:5636 minut i 56 sekundżeby mógł mieć tam portfolio, świeże portfolio, bo jak robicie strony, to wiecie, że na początku wszystko jest piękne, a po dwóch latach do tej strony
+37:0437 minut i 4 sekundynie zostało dodane kompletnie nic i ta strona już po prostu się rozsypuje, nie?
+37:0937 minut i 9 sekundA u mnie właśnie jest ten plus, że jak ktoś do mnie wchodzi, ten lokalny biznes, to on ma tą stronę aktualną, bo ona się cały czas rozbudowuje. I to jest
+37:1737 minut i 17 sekunddla takiej firmy ogromny plus, bo są świeże projekty, są świeże opinie klientów, jakieś teksty pomocnicze i to
+37:2437 minut i 24 sekundysię wszystko cał cały czas rozrasta. A ja widzę to w Googleu, że naprawdę te firmy zaczynają gdzieś tam rankować
+37:3137 minut i 31 sekundnawet i wizytówki w Googleu tylko przez to, że te strony po prostu się rozbudowują. Tam nie ma żadnego SEO. Tam po prostu nie ma nic, ale są nowe opinie
+37:4037 minut i 40 sekundklientów, są nowe posty, są nowe zdjęcia na Google My Business i to robione przez 6, 12, 24 miesiące zawsze te firmy
+37:4837 minut i 48 sekunddocierają. One jak ja testuję to nie ma ich na pierwszej pozycji na Google Maps, ale w statystykach widać, że te keywordy
+37:5537 minut i 55 sekundsię zaczynają pojawiać i to naprawdę działa bez żadnego SEO. I jak do mnie przychodzi klient, to ja mu pokazuję innego klienta jak na dłoni. Zobacz,
+38:0438 minut i 4 sekundyzrobiliśmy takie proste rzeczy. Żadna czarna magia. Ale problem w tym, że nie ma komu tego zrobić w twojej firmie.
+38:1138 minut i 11 sekundUwierz mi, że nikt tego kontentu za ciebie nie doda. Ty nie będziesz miał na to czasu. Nie ma szans. Nie, od tego jestem ja. Fajnie działa.
+38:1938 minut i 19 sekundOkej, jeszcze szybko dopytam. Czyli chcesz powiedzieć, że sam z siebie do tego klienta wracasz i tam dorabiasz, dorabiasz coś tam? Czy wiesz, bo można
+38:2838 minut i 28 sekundse pomyśleć, ustawisz mu automatyzację i zapomnisz o tym, chyba że zadzwoni z czymś, nie? I niech płaci. No nie wiesz co? Może ja jestem trochę słaby w
+38:3638 minut i 36 sekundautomatyzacjach, ale ja twierdzę, że nie ma AI automatyzacji no code toola, który nie sypie błędami prędzej czy później.
+38:4638 minut i 46 sekundZawsze się coś zdarzy. Zawsze się coś zdarzy. Szczególnie jeszcze jak mamy systemy rozproszone. Tutaj jakiś API przestaje działać, tu się coś kolejkuje.
+38:5438 minut i 54 sekundyJa akurat pracuję głównie w maju, także tam zawsze jest coś potrzebne, a przede wszystkim klient wie, że może do mnie
+39:0139 minut i 1 sekundazadzwonić i dostaje pomoc. I to tak naprawdę jest chyba tutaj najcenniejsze, bo to są właśnie firmy dwuosobowe i
+39:0839 minut i 8 sekundwięcej. One już przeszły koszmar wcześniej. One juże miały cztery, pięć stron. Wszystko było hakowane. Ci on oni
+39:1539 minut i 15 sekundmają takie doświadczenia, że, że nie wiem, ja musiałem decydować jakie mają być kolory, jakie mam zdjęcie wybrać. U mnie tego w ogóle nie ma. Ja właśnie tak
+39:2439 minut i 24 sekundyjak mówiłem wcześniej, nie daję żadnej pracy domowej klientowi. Jeżeli on przychodzi, ja sobie z nim gadam, to ja mu wysyłam całą gotową ofertę. Ja mu
+39:3239 minut i 32 sekundykażę tylko udostępnić zdjęcia z telefonu. Ja mu te zdjęcia wybieram i wysyłam mu to tylko do zatwierdzenia. I on jak dostaje taki serwis od razu,
+39:4039 minut i 40 sekundnawet ten najtańszy przy tej najprostszej stronie, to już jest w ogóle inna współpraca, bo on ma w tyle głowy to wszystko, co przeszedł wcześniej.
+39:4839 minut i 48 sekundOkej, dzięki wielkie. Proszę. Super. Dziękujemy ci bardzo serdecznie. Wielkie brawa.
+40:2740 minut i 27 sekundYeah.
+

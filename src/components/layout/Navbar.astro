@@ -1,18 +1,19 @@
 ---
-import { buildSlug } from "@utils/utils";
 import Logo from "@assets/icons/logo.svg";
 
 import Container from "@components/layout/Container.astro";
 import Button from "@components/ui/Button.astro";
 
 import config from "@data/consts.json";
+import { industries } from "@data/industries";
 
 import Nav from "@components/core/Nav.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <header
   id="navbar"
-  class="w-full sticky top-0 z-[999] bg-primary text-primary-content border-b border-b-primary/50"
+  class="w-full sticky top-0 z-[999] border-b border-base-content/10 bg-base-100/92 text-base-content backdrop-blur-xl"
 >
   <Container size="max-w-7xl">
     {/* Główny grid */}
@@ -22,17 +23,22 @@ import Nav from "@components/core/Nav.astro";
       {/* Logo */}
       <a
         href="/"
-        class="justify-self-start border-2 rounded-full border-whit dark:border-transparent"
+        class="justify-self-start rounded-full"
         aria-label="Strona główna Łukasz Miłoś"
       >
         <Logo width={48} height={48} fill="currentColor" />
       </a>
 
       {/* Menu nawigacyjne - desktop (środek) */}
-      <nav class="hidden lg:flex lg:items-center lg:justify-center lg:gap-1">
-        <Nav
-          class="px-8 py-2 transition-colors hover:text-primary-content/50 hover:underline"
-        />
+      <nav aria-label="Nawigacja główna" class="hidden lg:flex lg:items-center lg:justify-center lg:gap-1">
+        <Nav class="px-4 py-2 text-sm font-medium transition-colors hover:text-primary" />
+
+        <details class="nav-industries">
+          <summary>Branże <Icon name="tabler:chevron-down" class="size-4" /></summary>
+          <div class="nav-industries-menu">
+            {industries.map((industry) => <a href={industry.link}><Icon name={industry.icon} class="size-6 text-primary" /><span><strong>{industry.title}</strong><small>{industry.menuDescription}</small></span></a>)}
+          </div>
+        </details>
 
         {/* Dropdown */}
         {
@@ -85,12 +91,12 @@ import Nav from "@components/core/Nav.astro";
       </nav>
 
       {/* Kontrolki po prawej */}
-      <div class="flex items-center gap-4 justify-self-end">
+      <div class="flex items-center gap-2 justify-self-end md:gap-4">
         {/* Przycisk - zawsze */}
-        <Button link="kontakt" class="btn-neutral"> Kontakt </Button>
+        <Button link="kontakt" class="btn-primary rounded-full px-5"> Kontakt </Button>
 
         {/* Theme Toggle - ZAWSZE widoczny */}
-        <label class="swap swap-rotate">
+        <label class="theme-toggle swap swap-rotate">
           <span class="sr-only">Zmień motyw (jasny/ciemny)</span>
           <input
             type="checkbox"
@@ -124,16 +130,19 @@ import Nav from "@components/core/Nav.astro";
         <button
           id="hamburger"
           class="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
-          aria-label="Toggle menu"
+          type="button"
+          aria-label="Otwórz menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
         >
           <span
-            class="my-[3px] h-0.5 w-6 bg-neutral-content transition-all duration-300 origin-center [.menu-open_&]:translate-y-2 [.menu-open_&]:rotate-[-45deg]"
+            class="my-[3px] h-0.5 w-6 bg-base-content transition-all duration-300 origin-center [.menu-open_&]:translate-y-2 [.menu-open_&]:rotate-[-45deg]"
           ></span>
           <span
-            class="my-[3px] h-0.5 w-6 bg-neutral-content transition-all duration-200 [.menu-open_&]:opacity-0"
+            class="my-[3px] h-0.5 w-6 bg-base-content transition-all duration-200 [.menu-open_&]:opacity-0"
           ></span>
           <span
-            class="my-[3px] h-0.5 w-6 bg-neutral-content transition-all duration-300 origin-center [.menu-open_&]:-translate-y-2 [.menu-open_&]:rotate-45"
+            class="my-[3px] h-0.5 w-6 bg-base-content transition-all duration-300 origin-center [.menu-open_&]:-translate-y-2 [.menu-open_&]:rotate-45"
           ></span>
         </button>
       </div>
@@ -142,12 +151,15 @@ import Nav from "@components/core/Nav.astro";
     {/* Menu mobilne - poza gridem */}
     <nav
       id="mobileMenu"
-      class="h-0 overflow-hidden text-center transition-all duration-300 ease-in-out [.menu-open_&]:h-auto [.menu-open_&]:py-8 lg:hidden"
+      hidden
+      aria-label="Nawigacja mobilna"
+      class="max-h-[calc(100dvh-4rem)] overflow-y-auto pb-6 pt-4 text-center lg:hidden"
     >
       <div class="flex flex-col items-center gap-6">
         <Nav
-          class="text-xl font-semibold tracking-tight transition-colors hover:text-primary-content/70"
+          class="flex min-h-11 items-center justify-center text-xl font-semibold tracking-tight transition-colors hover:text-primary"
         />
+        <details class="mobile-industries"><summary class="flex min-h-11 items-center justify-center text-xl font-semibold tracking-tight">Branże</summary><div class="mt-4 flex flex-col items-center gap-1">{industries.map((industry) => <a href={industry.link} class="flex min-h-11 items-center justify-center text-base text-base-content/75 hover:text-primary">{industry.title}</a>)}</div></details>
       </div>
     </nav>
   </Container>
@@ -156,67 +168,33 @@ import Nav from "@components/core/Nav.astro";
 <script>
   const navbar = document.getElementById("navbar");
   const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-  // Desktop dropdown
-  const dropdownWrapper = document.getElementById("dropdownWrapper");
+  const setMenuOpen = (open: boolean) => {
+    navbar?.classList.toggle("menu-open", open);
+    if (mobileMenu) mobileMenu.hidden = !open;
+    hamburger?.setAttribute("aria-expanded", String(open));
+    hamburger?.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
+  };
 
-  // Mobile dropdown
-  const dropdownWrapperMobile = document.getElementById(
-    "dropdownWrapperMobile",
-  );
-  const dropdownToggleMobile = document.getElementById("dropdownToggleMobile");
-
-  // Mobile menu toggle
   hamburger?.addEventListener("click", () => {
-    const isOpen = navbar?.classList.toggle("menu-open");
+    setMenuOpen(mobileMenu?.hidden ?? true);
+  });
 
-    if (isOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
-      window.scrollTo(0, 0);
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobileMenu && !mobileMenu.hidden) {
+      setMenuOpen(false);
+      hamburger?.focus();
     }
   });
 
-  // Mobile dropdown toggle
-  dropdownToggleMobile?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdownWrapperMobile?.classList.toggle("dropdown-open");
-  });
-
-  // Desktop dropdown hover
-  dropdownWrapper?.addEventListener("mouseenter", () => {
-    dropdownWrapper.classList.add("dropdown-open");
-  });
-
-  dropdownWrapper?.addEventListener("mouseleave", () => {
-    dropdownWrapper.classList.remove("dropdown-open");
-  });
-
-  // Close mobile dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (
-      dropdownWrapperMobile &&
-      !dropdownWrapperMobile.contains(e.target as Node)
-    ) {
-      dropdownWrapperMobile.classList.remove("dropdown-open");
+  document.addEventListener("click", (event) => {
+    if (navbar && mobileMenu && !mobileMenu.hidden && !navbar.contains(event.target as Node)) {
+      setMenuOpen(false);
     }
   });
 
-  // Handle resize
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 1024) {
-      navbar?.classList.remove("menu-open");
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-    }
+    if (window.innerWidth >= 1024) setMenuOpen(false);
   });
 </script>

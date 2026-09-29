@@ -2,40 +2,37 @@
 import type { CollectionEntry } from "astro:content";
 import { buildSlug } from "@utils/utils";
 import Heading, { type Tag } from "@components/ui/Heading.astro";
+import MyImage from "@components/ui/MyImage.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
   headingTag?: Tag;
+  related?: boolean;
   class?: string;
 }
 
-const { post, headingTag = "h3", class: className } = Astro.props;
-
+const { post, headingTag = "h3", related = false, class: className } = Astro.props;
 const link = buildSlug(`/blog/${post.id}/`);
 ---
 
-<article class:list={["border-t border-base-content/10 py-6", className]}>
-  <a href={link} class="group flex flex-col gap-2">
+<article class:list={["group overflow-hidden border border-base-content/10 bg-base-100 hover:shadow-xl hover:shadow-primary/8", related ? "rounded-[20px] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-primary/35" : "transition-shadow", className]}>
+  <a href={link} class:list={["h-full", related ? "flex flex-col" : "grid md:grid-cols-[.9fr_1.1fr]"]}>
     {
-      post.data.categories && post.data.categories.length > 0 && (
-        <div class="flex flex-wrap gap-3">
-          {post.data.categories.map((cat) => (
-            <span class="font-mono text-xs uppercase tracking-[0.15em] text-base-content/40">
-              {cat}
-            </span>
-          ))}
+      post.data.image && (
+        <div class:list={["overflow-hidden bg-base-200", related ? "aspect-video w-full" : "aspect-[16/10] md:aspect-auto md:min-h-full"]}>
+          <MyImage src={`posts/${post.data.image.src}`} alt={post.data.heading} size="h-full w-full" layout="object-contain" aspect="aspect-auto" rounded="rounded-none" shadow="" widths={[500, 800, 1200, 1600]} sizes={related ? "(max-width: 1023px) 90vw, 45vw" : "(max-width: 767px) 90vw, 45vw"} class:list={["transition-transform duration-500 group-hover:scale-[1.015]", !related && "p-3"]} />
         </div>
       )
     }
-    <Heading tag={headingTag} look="h4" class="group-hover:text-primary transition-colors">
-      {post.data.heading}
-    </Heading>
-    {
-      post.data.subheading && (
-        <p class="text-base-content/60 font-light leading-relaxed line-clamp-2">
-          {post.data.subheading}
-        </p>
-      )
-    }
+    <div class:list={["flex flex-col p-6 md:p-8", related && "flex-1"]}>
+      {
+        post.data.categories && post.data.categories.length > 0 && (
+          <p class="text-sm font-semibold text-primary">{post.data.categories[0]}</p>
+        )
+      }
+      <Heading tag={headingTag} look="h4" class="mt-3 transition-colors group-hover:text-primary">{post.data.heading}</Heading>
+      {post.data.subheading && <p class:list={["mt-4 leading-7 text-base-content/65", related ? "line-clamp-2" : "line-clamp-3"]}>{post.data.subheading}</p>}
+      <span class:list={["text-sm font-semibold text-primary", related ? "mt-auto pt-7" : "mt-7"]}>Czytaj wpis</span>
+    </div>
   </a>
 </article>

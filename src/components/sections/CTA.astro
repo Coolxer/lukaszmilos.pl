@@ -34,8 +34,8 @@ const {
 
 const variantStyles = {
   primary: {
-    inner: "bg-primary text-primary-content shadow-md",
-    text: "[&_p]:text-primary-content/80 [&_p]:text-lg",
+    inner: "cta-panel bg-primary text-primary-content shadow-[0_1.25rem_3.5rem_color-mix(in_oklch,var(--color-primary)_22%,transparent)]",
+    text: "[&_p]:text-primary-content/84 [&_p]:text-lg",
   },
   subtle: {
     inner: "bg-base-200 text-base-content",
@@ -46,11 +46,13 @@ const variantStyles = {
 const styles = variantStyles[variant];
 
 const innerDivAdditionalClasses =
-  "rounded-box p-10 md:p-16 text-center " + styles.inner + additionalClasses;
+  "rounded-[20px] p-8 md:p-12 text-left " + styles.inner + additionalClasses;
 ---
 
 <Section
   id={id}
+  containerSize="max-w-7xl"
+  alwaysLeftContent
   innerDivAdditionalClasses={innerDivAdditionalClasses}
   headingAndParagraphClasses={styles.text}
 >
@@ -62,11 +64,11 @@ const innerDivAdditionalClasses =
 
   {
     (button1 || button2) && (
-      <div class=" flex flex-wrap lg:justify-center items-center gap-4">
+      <div class="flex flex-wrap items-center gap-4">
         {button1 && (
           <Button
             link={button1.link}
-            class="btn-neutral"
+            class={variant === "primary" ? "cta-primary-action btn border-0" : "btn-primary"}
             rawLink={button1.rawLink}
           >
             {button1.text}
@@ -75,7 +77,7 @@ const innerDivAdditionalClasses =
         {button2 && (
           <Button
             link={button2.link}
-            class="btn-outline"
+            class={variant === "primary" ? "cta-secondary-action btn border-2" : "btn-outline"}
             rawLink={button2.rawLink}
           >
             {button2.text}

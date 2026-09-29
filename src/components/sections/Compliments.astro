@@ -1,95 +1,47 @@
 ---
 import Section from "@components/layout/Section.astro";
 import Heading from "@components/ui/Heading.astro";
+import { Icon } from "astro-icon/components";
 
-export interface Props {
-  variant?: "default" | "secondary" | "tetriary";
-  class?: string;
-}
+export interface Props { variant?: "default" | "secondary" | "tetriary"; class?: string; compact?: boolean; }
+const { variant = "default", class: className, compact = false } = Astro.props;
 
-const { variant = "default", class: className, ...attributes } = Astro.props;
+const quotes = [
+  { quote: "Współpraca przebiegła bardzo sprawnie. Dało się odczuć zaangażowanie i terminowość.", author: "Kamil Z. / Devesol" },
+  { quote: "Super, że prace idą tak dynamicznie. Kierunek jest naprawdę dobry.", author: "Krzysztof M." },
+  { quote: "Artykuły wyglądają bardzo dobrze i profesjonalnie — to mi się podoba.", author: "Krzysztof M." },
+  { quote: "Dziękuję za dokładne wyjaśnienie i Twoje zaangażowanie.", author: "Paweł K." },
+  { quote: "Podoba mi się sposób myślenia i podejście do tematu.", author: "Dawid K." },
+  { quote: "Dziękuję za szczerą i obszerną odpowiedź.", author: "Dominik K." },
+  { quote: "Dziękuję za zaangażowanie i sugestie co do rozwoju serwisu.", author: "Fajne Konkursy" },
+  { quote: "Dziękuję za obserwacje — pomagają mi lepiej zobaczyć, co działa, a co warto poprawić.", author: "Dominik C." },
+  { quote: "Dziękuję za konkretne wskazówki i rzeczowe podejście do tematu.", author: "SACADA" },
+];
 ---
 
-<Section variant={variant} class={className}>
-  <Heading tag="h2" slot="heading">
-    Ludzie chwalą mnie nie tylko za pracę, ale za zaangażowanie, szukanie
-    alternatyw i obszerny feedback.
-  </Heading>
-  <div class="my-big-stack">
-    {
-      [
-        {
-          name: "Paweł.K",
-          text: "Dzięki za dokładne wyjaśnienie i Twoje zaangażowanie.",
-        },
-        {
-          name: "SACADA",
-          testimonials: [
-            "Dziękuję za tę inspirację!",
-            "Bardzo dziękuję za tak profesjonalną odpowiedź!",
-          ],
-        },
-        {
-          name: "Krzysztof.M",
-          testimonials: [
-            "Super, że prace idą tak dynamicznie!",
-            "Artykuły wyglądają bardzo dobrze i profesjonalnie – to mi się podoba.",
-            "Generalnie całość wygląda naprawdę dobrze, kierunek jest super.",
-          ],
-        },
-        {
-          name: "Wszystko o biznesie",
-          text: "Witaj, dzięki za treściwego maila i dziękuję za zaangażowanie w nagranie filmu.",
-        },
-        {
-          name: "Kamil.Z - Devesol",
-          testimonials: [
-            "Współpraca z Tobą przy tworzeniu nowej strony devesol.pl według mnie przebiegła bardzo sprawnie.",
-            "Bardzo dało się odczuć Twoje zaangażowanie i terminowość, co jest oczywiście na plus.",
-            "Szczególnie cenię otwartą komunikację i gotowość do wprowadzania poprawek na każdym etapie prac.",
-            "Efekt końcowy przewyższył moje oczekiwania -  dostałem już pozytywne opinie od osób, które były na stronie.",
-            "Próbowałem przypomnieć sobie jakiś moment, podczas którego mógłbym powiedzieć, że nie tak sobie to wyobrażałem, jednak bez skutku.",
-          ],
-        },
-        {
-          name: "Fajne konkursy",
-          text: "Dzień dobry Łukaszu, serdecznie dziękuję za Twoje zaangażowanie i sugestie co do rozwoju serwisu.",
-        },
-        {
-          name: "Dominik.C",
-          text: "Cześć Łukasz, dziękuję bardzo, że dzielisz się obserwacjami, bo nie ukrywam, że sam nie bardzo wiem co robię dobrze, a co źle.",
-        },
-        {
-          name: "Dominik.K",
-          text: "Dziękuję za szczerą i obszerną odpowiedź.",
-        },
-        {
-          name: "Dawid.K",
-          text: "Podoba mi się Pański sposób myślenia i podejście.",
-        },
-      ].map((item) => (
-        <div
-          class:list={[
-            "p-6 border-l-4 border-primary rounded-box shadow-sm",
-            variant === "default"
-              ? "bg-base-200"
-              : variant === "secondary"
-                ? "bg-base-100"
-                : "bg-neutral/70",
-          ]}
-        >
-          <div class="my-stack gap-3">
-            {item.text ? (
-              <p class="text-base-content/90 italic">"{item.text}"</p>
-            ) : (
-              item.testimonials?.map((testimonial) => (
-                <p class="text-base-content/90 italic">"{testimonial}"</p>
-              ))
-            )}
-            <p class="font-semibold text-sm text-primary">— {item.name}</p>
-          </div>
-        </div>
-      ))
-    }
+<Section variant={variant} containerSize="max-w-7xl" class={className} innerDivClasses="flex flex-col gap-10">
+  <div class="max-w-2xl"><Heading tag="h2" look="h2">Opinie po współpracy i rozmowach.</Heading><p class="mt-5 text-lg leading-8 text-base-content/68">Kilka krótkich wiadomości od osób, z którymi miałem okazję pracować.</p></div>
+  <div class="testimonial-carousel" data-testimonial-carousel>
+    <div class:list={["testimonial-grid", compact && "testimonial-grid--compact"]} aria-label="Opinie" data-testimonial-track>
+      {quotes.map((item, index) => <figure class:list={["testimonial-card", index === 0 && "testimonial-card--feature"]}><blockquote>{item.quote}</blockquote><figcaption>{item.author}</figcaption></figure>)}
+    </div>
+    <div class="mt-5 flex items-center justify-between gap-4">
+      <p class="text-sm text-base-content/58">Przewiń, aby zobaczyć więcej opinii.</p>
+      <div class="flex items-center gap-2" aria-label="Sterowanie opiniami">
+        <button type="button" class="testimonial-control" data-testimonial-prev aria-label="Pokaż wcześniejsze opinie"><Icon name="tabler:arrow-left" class="size-5" /></button>
+        <button type="button" class="testimonial-control" data-testimonial-next aria-label="Pokaż kolejne opinie"><Icon name="tabler:arrow-right" class="size-5" /></button>
+      </div>
+    </div>
   </div>
 </Section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-testimonial-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>("[data-testimonial-track]");
+    const prev = carousel.querySelector<HTMLButtonElement>("[data-testimonial-prev]");
+    const next = carousel.querySelector<HTMLButtonElement>("[data-testimonial-next]");
+    const move = (direction: 1 | -1) => track?.scrollBy({ left: direction * Math.min(track.clientWidth * 0.82, 420), behavior: "smooth" });
+    prev?.addEventListener("click", () => move(-1));
+    next?.addEventListener("click", () => move(1));
+  });
+</script>

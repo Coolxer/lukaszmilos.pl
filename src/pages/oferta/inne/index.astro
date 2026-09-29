@@ -1,0 +1,123 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import CTA from "@components/sections/CTA.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import heroImg from "@assets/images/pages/industry-b2b-v1.png";
+
+const meta = {
+  title: "Inne pomysły i działalności",
+  description: "Strony i proste narzędzia także dla osób i firm spoza wymienionych branż.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section heroSection containerSize="max-w-7xl" innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16">
+        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Inne pomysły i działalności</p>
+          <Heading tag="h1" look="h0">Zacznijmy od tego, co chcesz zrobić.</Heading>
+          <p class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl">Pracuję też z osobami i firmami spoza wymienionych branż. Mogę pomóc przygotować czytelną stronę lub uprościć konkretny fragment codziennej pracy.</p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7">Napisz, czego potrzebujesz</Button>
+          </div>
+        </div>
+        <div class="animate-reveal-delay hero-illustration">
+          <MyImage img={heroImg} alt="Ilustracja rozmowy o pomyśle" size="h-full w-full" layout="object-contain" aspect="aspect-square" rounded="rounded-none" shadow="" class="h-full w-full p-3 md:p-5" />
+        </div>
+      </Section>
+
+      <Section variant="secondary" containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-10">
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Strona, pierwszy kontakt, codzienna praca.</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">Możesz przyjść z pomysłem na stronę, ofertą trudną do wyjaśnienia albo zadaniem, które regularnie zabiera czas. Nie musisz samodzielnie wybierać narzędzia.</p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <article class="service-tile industry-scenario-card p-7">
+              <span class="card-number">01</span>
+              <h3 class="industry-scenario-card__title text-h3">Wyjaśnić ofertę</h3>
+              <p class="industry-scenario-card__situation">Ktoś trafia na stronę, ale nie wie, w czym możesz mu pomóc.</p>
+              <p class="industry-scenario-card__detail leading-7 text-base-content/65">Pomogę ułożyć treść tak, by odwiedzający szybko zrozumiał, co oferujesz i jak się z Tobą skontaktować.</p>
+            </article>
+            <article class="service-tile industry-scenario-card p-7">
+              <span class="card-number">02</span>
+              <h3 class="industry-scenario-card__title text-h3">Zebrać informacje</h3>
+              <p class="industry-scenario-card__situation">Pierwsza wiadomość nie zawiera szczegółów potrzebnych do rozmowy.</p>
+              <p class="industry-scenario-card__detail leading-7 text-base-content/65">Prosty formularz może zebrać potrzebne informacje, zostawiając miejsce na opisanie nietypowej sprawy.</p>
+            </article>
+            <article class="service-tile industry-scenario-card p-7">
+              <span class="card-number">03</span>
+              <h3 class="industry-scenario-card__title text-h3">Uprościć zadanie</h3>
+              <p class="industry-scenario-card__situation">Te same dane przepisujesz z wiadomości do kilku miejsc.</p>
+              <p class="industry-scenario-card__detail leading-7 text-base-content/65">Sprawdzimy, czy można ograniczyć ręczne przepisywanie i zebrać dane w jednym miejscu.</p>
+            </article>
+        </div>
+      </Section>
+
+      <Section containerSize="max-w-7xl" innerDivClasses="flex flex-col gap-9">
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak ustalamy pierwszy etap?</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">Zaczynamy od Twojego pomysłu, obecnej strony albo przykładu zadania, które chcesz uprościć. Przed pracą poznasz zakres, cenę, termin i ewentualne koszty utrzymania.</p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <article class="process-card numbered-step-card p-7">
+              <span class="card-number">01</span>
+              <h3 class="mt-7 text-h3">Opowiedz o sytuacji</h3>
+              <p class="mt-4 leading-7 text-base-content/65">Wystarczy obecna strona, kilka wiadomości albo opis tego, co chcesz zrobić.</p>
+            </article>
+            <article class="process-card numbered-step-card p-7">
+              <span class="card-number">02</span>
+              <h3 class="mt-7 text-h3">Wybierzmy zakres</h3>
+              <p class="mt-4 leading-7 text-base-content/65">Na podstawie rozmowy proponuję zakres pierwszego etapu, cenę i termin.</p>
+            </article>
+            <article class="process-card numbered-step-card p-7">
+              <span class="card-number">03</span>
+              <h3 class="mt-7 text-h3">Sprawdźmy działanie</h3>
+              <p class="mt-4 leading-7 text-base-content/65">Sprawdzamy rozwiązanie na przykładowym użyciu i poprawiamy niejasne lub niewygodne miejsca.</p>
+            </article>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania przed rozpoczęciem.</Heading>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy pomysł musi być już dopracowany?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Nie. Opisz, dla kogo ma być strona albo co chcesz zmienić w swojej pracy. Zakres ustalimy po rozmowie.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy można poprawić obecną stronę zamiast tworzyć nową?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak, jeśli pozwala na to jej obecna konstrukcja. Najpierw sprawdzę, co da się wykorzystać i co warto zmienić.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy mogę zgłosić zadanie niezwiązane ze stroną internetową?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Opisz powtarzalną czynność lub sposób pracy, który chcesz uprościć. Sprawdzę, czy ma sens małe narzędzie albo automatyzacja.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy można zacząć od jednej małej poprawy?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Może to być jedna podstrona, formularz lub powtarzalna czynność. Najpierw ustalimy, jaki efekt chcesz uzyskać.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Kiedy poznam zakres i koszt?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Po poznaniu punktu wyjścia i kilku przykładów zaproponuję pierwszy etap. Jego zakres, cenę i termin ustalimy przed rozpoczęciem pracy.</p></div>
+          </details>
+        </div>
+      </Section>
+
+      <CTA heading="Masz pomysł na stronę albo zadanie do uproszczenia?" paragraph="Opisz, co chcesz pokazać na stronie albo co utrudnia Ci codzienną pracę. Zaproponuję pierwszy krok, jeśli będzie miał sens." button1={{ link: "/kontakt", text: "Napisz, czego potrzebujesz" }} variant="primary" />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

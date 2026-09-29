@@ -1,0 +1,229 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
+import Banner from "@components/widgets/Banner.astro";
+import Section from "@components/layout/Section.astro";
+import Heading from "@components/ui/Heading.astro";
+import Button from "@components/ui/Button.astro";
+import MyImage from "@components/ui/MyImage.astro";
+import CTA from "@components/sections/CTA.astro";
+import Compliments from "@components/sections/Compliments.astro";
+import IndustryOpenProblem from "@components/sections/IndustryOpenProblem.astro";
+import heroImg from "@assets/images/pages/industry-technical-v1.png";
+
+const meta = {
+  title: "Strony i praktyczne narzędzia dla firm technicznych",
+  description:
+    "Strony, zapytania i proste narzędzia dla wykonawców, serwisów i innych firm technicznych.",
+};
+---
+
+<BaseLayout meta={meta}>
+  <Banner />
+  <div class="flex min-h-screen w-full flex-col">
+    <Navbar />
+    <main>
+      <Section
+        heroSection
+        containerSize="max-w-7xl"
+        innerDivClasses="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-16"
+      >
+        <div class="animate-reveal flex max-w-3xl flex-col items-start gap-7">
+          <p class="text-sm font-semibold text-primary">Dla Twojej branży</p>
+          <Heading tag="h1" look="h0"
+            >Strony i praktyczne narzędzia dla firm technicznych</Heading
+          >
+          <p
+            class="max-w-2xl text-lg leading-8 text-base-content/68 md:text-xl"
+          >
+            Serwis, wykonawstwo, montaż i produkcja mają różne procesy. Pomagam
+            poprawić to, co klient widzi na stronie, i wybrane zadania
+            wykonywane codziennie przez zespół.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button link="kontakt" class="btn-primary px-7"
+              >Opisz, co chcesz uprościć</Button
+            >
+          </div>
+        </div>
+        <div class="animate-reveal-delay hero-illustration">
+          <MyImage
+            img={heroImg}
+            alt="Ilustracja pracy firmy technicznej"
+            size="h-full w-full"
+            layout="object-contain"
+            aspect="aspect-square"
+            rounded="rounded-none"
+            shadow=""
+            class="h-full w-full p-3 md:p-5"
+          />
+        </div>
+      </Section>
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-10"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2"
+            >Gdzie dziś ginie potrzebna informacja?</Heading
+          >
+          <p class="mt-5 leading-7 text-base-content/68">
+            W zależności od rodzaju pracy można poprawić prezentację oferty,
+            pierwszy kontakt albo obieg danych wewnątrz firmy.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="industry-scenario-card__title text-h3">Na stronie</h3>
+            <p class="industry-scenario-card__situation">
+              Klient nie zna zakresu ani ograniczeń usługi.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Czytelnie przedstawiamy zakres, ograniczenia, sposób pracy oraz
+              przykłady realizacji.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="industry-scenario-card__title text-h3">
+              Przy zapytaniu
+            </h3>
+            <p class="industry-scenario-card__situation">
+              Przy pierwszym kontakcie brakuje lokalizacji, opisu lub zdjęć.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Zbieramy opis zadania, lokalizację, zdjęcia lub pliki potrzebne do
+              wstępnej oceny sprawy.
+            </p>
+          </article>
+          <article class="service-tile industry-scenario-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="industry-scenario-card__title text-h3">W firmie</h3>
+            <p class="industry-scenario-card__situation">
+              Sprawy, części i dokumenty są rozrzucone po kilku miejscach.
+            </p>
+            <p
+              class="industry-scenario-card__detail leading-7 text-base-content/65"
+            >
+              Porządkujemy listę spraw, dane o częściach, podobne dokumenty lub
+              inną powtarzalną czynność. Czasem wystarczy szablon albo lepsze
+              wykorzystanie używanego programu.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <IndustryOpenProblem />
+
+      <Section
+        variant="secondary"
+        containerSize="max-w-7xl"
+        innerDivClasses="flex flex-col gap-9"
+      >
+        <div class="max-w-2xl">
+          <Heading tag="h2" look="h2">Jak ustalamy pierwszy etap?</Heading>
+          <p class="mt-5 leading-7 text-base-content/68">
+            Zaczynamy od obecnej strony, przykładowej wiadomości od klienta albo
+            powtarzalnego zadania zespołu. Przed pracą poznasz zakres, cenę,
+            termin i ewentualne koszty utrzymania.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">01</span>
+            <h3 class="mt-7 text-h3">Pokaż przykłady</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Oglądam kilka rzeczywistych zapytań, zleceń lub fragmentów obecnej
+              pracy.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">02</span>
+            <h3 class="mt-7 text-h3">Wybierzmy zakres</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Sprawdzam obecne narzędzia i proponuję jeden sensowny krok, koszt
+              oraz termin.
+            </p>
+          </article>
+          <article class="process-card numbered-step-card p-7">
+            <span class="card-number">03</span>
+            <h3 class="mt-7 text-h3">Sprawdźmy działanie</h3>
+            <p class="mt-4 leading-7 text-base-content/65">
+              Testujemy rozwiązanie na typowej pracy i poprawiamy to, co wymaga
+              dopracowania.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Compliments variant="secondary" compact />
+
+      <Section containerSize="max-w-5xl" innerDivClasses="flex flex-col gap-8">
+        <Heading tag="h2" look="h2">Pytania przed rozpoczęciem.</Heading>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy mogę się odezwać, jeśli nie ma tu mojej specjalizacji?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Tak. Opisz, czym się zajmujesz i co chcesz poprawić. Sprawdzimy,
+                czy mogę pomóc.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary
+              ><span class="font-semibold"
+                >Czy trzeba zmienić używany program?</span
+              ><Icon
+                name="tabler:plus"
+                class="size-5 shrink-0 text-primary"
+              /></summary
+            >
+            <div class="faq-item-answer">
+              <p class="leading-7 text-base-content/70">
+                Nie zakładam tego. Najpierw sprawdzę, czy obecny program pozwala
+                rozwiązać konkretny problem.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy trzeba budować nową stronę, jeśli obecna działa?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Niekoniecznie. Można zacząć od poprawy opisu usług, formularza lub sposobu dodawania realizacji. Najpierw sprawdzę możliwości obecnej strony.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy można uporządkować pliki otrzymywane od klientów?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Formularz może zebrać pliki razem z opisem sprawy, a dalszy sposób zapisu i dostępu dobierzemy do używanych narzędzi oraz liczby zapytań.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span class="font-semibold">Czy można zacząć od jednego powtarzalnego zadania?</span><Icon name="tabler:plus" class="size-5 shrink-0 text-primary" /></summary>
+            <div class="faq-item-answer"><p class="leading-7 text-base-content/70">Tak. Pokaż dwa lub trzy rzeczywiste przykłady. Na tej podstawie wybierzemy niewielki zakres, który da się sprawdzić w codziennej pracy.</p></div>
+          </details>
+        </div>
+      </Section>
+
+      <CTA
+        heading="Co chcesz poprawić na stronie lub w codziennej pracy?"
+        paragraph="Opisz, czego brakuje klientom przy pierwszym kontakcie albo co utrudnia pracę zespołowi. Zaproponuję pierwszy krok, jeśli będzie miał sens."
+        button1={{ link: "/kontakt", text: "Opisz swój przypadek" }}
+        variant="primary"
+      />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

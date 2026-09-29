@@ -20,8 +20,7 @@ const { meta, schema } = Astro.props;
 
 <html lang={config.site.language || "pl"}>
   <head>
-    <Font cssVariable="--font-space-grotesk" preload />
-    <Font cssVariable="--font-inter" preload />
+    <Font cssVariable="--font-poppins" preload />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -58,13 +57,17 @@ const { meta, schema } = Astro.props;
 
     {/* Theme change - localStorage */}
     <script is:inline define:vars={{ theme: config.site.themes[0] }}>
-      if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", theme);
-      } else
-        document.documentElement.setAttribute(
-          "data-theme",
-          localStorage.getItem("theme"),
-        );
+      document.documentElement.classList.add("js-enabled");
+      let savedTheme;
+      try {
+        savedTheme = localStorage.getItem("theme");
+      } catch {
+        savedTheme = null;
+      }
+      document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme === "dark" || savedTheme === "light" ? savedTheme : theme,
+      );
     </script>
 
     <script>
@@ -80,7 +83,11 @@ const { meta, schema } = Astro.props;
             document.documentElement.getAttribute("data-theme") ?? themes[0];
           const next = current === themes[0] ? themes[1] : themes[0];
           document.documentElement.setAttribute("data-theme", next);
-          localStorage.setItem("theme", next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch {
+            // The toggle still works for this visit when storage is unavailable.
+          }
         });
       });
     </script>
@@ -88,11 +95,17 @@ const { meta, schema } = Astro.props;
   </head>
   <body class="bg-base-100 text-base-content">
     <slot />
-    {/* 100% privacy-first analytics */}
-    <script
-      async
-      src="https://scripts.simpleanalyticscdn.com/latest.js"
-      is:inline></script>
+    {/* Analityka nie konkuruje z renderowaniem pierwszego ekranu. */}
+    <script is:inline>
+      window.addEventListener("load", () => {
+        window.setTimeout(() => {
+          const analytics = document.createElement("script");
+          analytics.async = true;
+          analytics.src = "https://scripts.simpleanalyticscdn.com/latest.js";
+          document.head.appendChild(analytics);
+        }, 3000);
+      });
+    </script>
   </body>
 </html>
 

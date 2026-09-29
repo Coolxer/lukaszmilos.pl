@@ -13,14 +13,13 @@ const { baseSlug, categories, h3 = false, class: className } = Astro.props;
 const allLink = Astro.url.pathname.split("/").filter(Boolean).shift() ?? "/";
 const currentCategory = Astro.url.pathname.split("/").filter(Boolean).pop();
 
-console.log(currentCategory);
 ---
 
 {
   categories.length > 0 && (
     <div
       class:list={[
-        "flex flew-row gap-4 flex-wrap justify-start items-center mb-4",
+        "flex flex-row gap-4 flex-wrap justify-start items-center mb-4",
         className,
       ]}
     >

@@ -21,7 +21,7 @@ const {
   id,
   variant = "default",
   padding = "lg",
-  containerSize = "max-w-3xl",
+  containerSize = "max-w-6xl",
   innerDivClasses = "flex flex-col gap-8 lg:gap-12",
   innerDivAdditionalClasses = "",
   headingAndParagraphClasses = "[&_h2]:text-base-content [&_p]:text-base-content [&_p]:text-lg",
@@ -38,14 +38,14 @@ const variantClasses = {
   secondary: "bg-base-200",
   tetriary: "bg-neutral",
   tinted: "bg-primary/4",
-  dark: "bg-neutral text-neutral-content [&_p]:text-neutral-content/80 [&_h2]:text-neutral-content [&_h3]:text-neutral-content",
+  dark: "bg-base-200 text-base-content [&_p]:text-base-content/68 [&_h2]:text-base-content [&_h3]:text-base-content",
 };
 
 const paddingClasses = {
   none: "",
   sm: "py-6 md:py-8",
   md: "py-8 md:py-10 lg:py-12",
-  lg: "py-16 md:py-20 lg:py-24",
+  lg: "py-12 md:py-16 lg:py-24",
 };
 
 const headingAndParagraphDefaultClases = heroSection
@@ -59,7 +59,7 @@ const headingAndParagraphDefaultClases = heroSection
     "w-full",
     variantClasses[variant],
     heroSection
-      ? "relative pt-24 md:pt-36 lg:pt-44 pb-16 md:pb-24 lg:pb-28"
+      ? "page-hero relative overflow-hidden pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-24 lg:pb-24"
       : paddingClasses[padding],
     className,
   ]}
@@ -91,7 +91,7 @@ const headingAndParagraphDefaultClases = heroSection
               ]}
             >
               {preLabel && (
-                <p class="font-mono text-xs uppercase tracking-[0.2em] text-base-content/40 font-medium -mb-2">
+                <p class="font-mono text-xs uppercase tracking-[0.2em] text-base-content/70 font-medium -mb-2">
                   {preLabel}
                 </p>
               )}
