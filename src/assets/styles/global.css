@@ -24,6 +24,8 @@
   --color-accent-content: #f8fbff;
   --color-neutral: #15243a;
   --color-neutral-content: #eef5ff;
+  --color-error: #b51f43;
+  --color-error-content: #fff;
 }
 
 @plugin "daisyui/theme" {
@@ -41,6 +43,8 @@
   --color-accent-content: #091522;
   --color-neutral: #101c2e;
   --color-neutral-content: #eef5ff;
+  --color-error: #ff738e;
+  --color-error-content: #1c0710;
 }
 
 @theme {
@@ -222,6 +226,7 @@ a.service-tile:hover { border-color: color-mix(in oklch, var(--color-primary) 45
 .detail-reading .prose h2 { margin-top: 4.5rem; font-size: clamp(2rem, 2vw + 1rem, 3rem); line-height: 1.08; letter-spacing: -.05em; }
 .detail-reading .prose h3 { margin-top: 2.75rem; font-size: clamp(1.4rem, 1vw + 1rem, 1.8rem); line-height: 1.15; }
 .detail-reading .prose p, .detail-reading .prose li { color: color-mix(in oklch, var(--color-base-content) 78%, transparent); }
+.detail-reading .prose pre code { color: #e8f1ff; background: transparent; padding: 0; }
 .detail-reading .prose img { border-radius: 20px; box-shadow: 0 1rem 2.5rem color-mix(in oklch, var(--color-primary) 9%, transparent); }
 .detail-tag { display: inline-flex; align-items: center; border: 1px solid color-mix(in oklch, var(--color-base-content) 14%, transparent); border-radius: 999px; padding: .35rem .7rem; color: color-mix(in oklch, var(--color-base-content) 72%, transparent); font-size: .75rem; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
 .detail-tag--accent { border-color: color-mix(in oklch, var(--color-primary) 34%, transparent); background: color-mix(in oklch, var(--color-primary) 9%, transparent); color: var(--color-primary); }

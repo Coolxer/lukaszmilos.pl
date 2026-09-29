@@ -1,0 +1,2326 @@
+[
+  {
+    "width": 390,
+    "route": "/",
+    "theme": "light",
+    "count": 113,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/",
+    "theme": "dark",
+    "count": 113,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/",
+    "theme": "light",
+    "count": 123,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/",
+    "theme": "dark",
+    "count": 123,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/o-mnie/",
+    "theme": "light",
+    "count": 65,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/o-mnie/",
+    "theme": "dark",
+    "count": 65,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/kontakt/",
+    "theme": "light",
+    "count": 58,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/kontakt/",
+    "theme": "dark",
+    "count": 58,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/cnc/",
+    "theme": "light",
+    "count": 96,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/cnc/",
+    "theme": "dark",
+    "count": 96,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/szlifiernie/",
+    "theme": "light",
+    "count": 151,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/szlifiernie/",
+    "theme": "dark",
+    "count": 151,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/ogrodzenia/",
+    "theme": "light",
+    "count": 110,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/ogrodzenia/",
+    "theme": "dark",
+    "count": 110,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/mali-producenci/",
+    "theme": "light",
+    "count": 108,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/mali-producenci/",
+    "theme": "dark",
+    "count": 108,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/modelarnie-druk-3d/",
+    "theme": "light",
+    "count": 98,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/modelarnie-druk-3d/",
+    "theme": "dark",
+    "count": 98,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/stolarnie/",
+    "theme": "light",
+    "count": 98,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/stolarnie/",
+    "theme": "dark",
+    "count": 98,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/firmy-techniczne/",
+    "theme": "light",
+    "count": 98,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/firmy-techniczne/",
+    "theme": "dark",
+    "count": 98,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/inne/",
+    "theme": "light",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/inne/",
+    "theme": "dark",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/strony-www/",
+    "theme": "light",
+    "count": 107,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/strony-www/",
+    "theme": "dark",
+    "count": 107,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/systemy-i-automatyzacje/",
+    "theme": "light",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/systemy-i-automatyzacje/",
+    "theme": "dark",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/system-obslugi-zapytan/",
+    "theme": "light",
+    "count": 102,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/system-obslugi-zapytan/",
+    "theme": "dark",
+    "count": 102,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/cnc/kalkulator/",
+    "theme": "light",
+    "count": 69,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/cnc/kalkulator/",
+    "theme": "dark",
+    "count": 69,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/szlifiernie/kalkulator/",
+    "theme": "light",
+    "count": 77,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/szlifiernie/kalkulator/",
+    "theme": "dark",
+    "count": 77,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/ogrodzenia/kalkulator/",
+    "theme": "light",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/oferta/ogrodzenia/kalkulator/",
+    "theme": "dark",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/",
+    "theme": "light",
+    "count": 129,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/",
+    "theme": "dark",
+    "count": 129,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-research-tematy-rolek/",
+    "theme": "light",
+    "count": 120,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-research-tematy-rolek/",
+    "theme": "dark",
+    "count": 120,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/",
+    "theme": "light",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/",
+    "theme": "dark",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/automatyzacja-planowanie-dat-make-com/",
+    "theme": "light",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/automatyzacja-planowanie-dat-make-com/",
+    "theme": "dark",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/polityka-prywatnosci/",
+    "theme": "light",
+    "count": 162,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/polityka-prywatnosci/",
+    "theme": "dark",
+    "count": 162,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/modernizacja-strony-devesol/",
+    "theme": "light",
+    "count": 148,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/modernizacja-strony-devesol/",
+    "theme": "dark",
+    "count": 148,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/kategoria/automatyzacja/",
+    "theme": "light",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/kategoria/automatyzacja/",
+    "theme": "dark",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/kategoria/www/",
+    "theme": "light",
+    "count": 80,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/kategoria/www/",
+    "theme": "dark",
+    "count": 80,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/kategoria/system/",
+    "theme": "light",
+    "count": 76,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/kategoria/system/",
+    "theme": "dark",
+    "count": 76,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-tworzenia-skryptow-reels-tiktok/",
+    "theme": "light",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-tworzenia-skryptow-reels-tiktok/",
+    "theme": "dark",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-wizualizacji-danych-mapy-python/",
+    "theme": "light",
+    "count": 104,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-wizualizacji-danych-mapy-python/",
+    "theme": "dark",
+    "count": 104,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-tworzenia-wpisow-blog-wordpress/",
+    "theme": "light",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-tworzenia-wpisow-blog-wordpress/",
+    "theme": "dark",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-publikacji-google-business-profile/",
+    "theme": "light",
+    "count": 100,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyzacja-publikacji-google-business-profile/",
+    "theme": "dark",
+    "count": 100,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/prosty-system-zamowien/",
+    "theme": "light",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/prosty-system-zamowien/",
+    "theme": "dark",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyczne-uzyskanie-danych-z-internetu/",
+    "theme": "light",
+    "count": 79,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/automatyczne-uzyskanie-danych-z-internetu/",
+    "theme": "dark",
+    "count": 79,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/system-tworzenia-grafik-promocyjnych/",
+    "theme": "light",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/system-tworzenia-grafik-promocyjnych/",
+    "theme": "dark",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/system-czytelne-menu/",
+    "theme": "light",
+    "count": 107,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/system-czytelne-menu/",
+    "theme": "dark",
+    "count": 107,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/szablonowa-grafika/",
+    "theme": "light",
+    "count": 104,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/szablonowa-grafika/",
+    "theme": "dark",
+    "count": 104,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/moja-poprzednia-strona-www/",
+    "theme": "light",
+    "count": 82,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/moja-poprzednia-strona-www/",
+    "theme": "dark",
+    "count": 82,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/strona-internetowa-miernika/",
+    "theme": "light",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/strona-internetowa-miernika/",
+    "theme": "dark",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/moja-dotychczasowa-strona-www/",
+    "theme": "light",
+    "count": 116,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/moja-dotychczasowa-strona-www/",
+    "theme": "dark",
+    "count": 116,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/symulacja-ramienia-robotycznego/",
+    "theme": "light",
+    "count": 68,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/symulacja-ramienia-robotycznego/",
+    "theme": "dark",
+    "count": 68,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/program-zestawienia-materialowego/",
+    "theme": "light",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/program-zestawienia-materialowego/",
+    "theme": "dark",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/program-planowania-wyswietlacza-segmentowego/",
+    "theme": "light",
+    "count": 70,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/portfolio/program-planowania-wyswietlacza-segmentowego/",
+    "theme": "dark",
+    "count": 70,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/automatyzacja/",
+    "theme": "light",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/automatyzacja/",
+    "theme": "dark",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/www/",
+    "theme": "light",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/www/",
+    "theme": "dark",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/wskazwki/",
+    "theme": "light",
+    "count": 46,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/wskazwki/",
+    "theme": "dark",
+    "count": 46,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/biznes/",
+    "theme": "light",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/biznes/",
+    "theme": "dark",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/cyfryzacja/",
+    "theme": "light",
+    "count": 42,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/cyfryzacja/",
+    "theme": "dark",
+    "count": 42,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/automatyzacja-bledy-make-n8n-rzeczywistosc/",
+    "theme": "light",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/automatyzacja-bledy-make-n8n-rzeczywistosc/",
+    "theme": "dark",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/tally-forms-automatyczny-motyw-jasny-ciemny/",
+    "theme": "light",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/tally-forms-automatyczny-motyw-jasny-ciemny/",
+    "theme": "dark",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/obejsc-ograniczenia-automatyzacja-make-zapier/",
+    "theme": "light",
+    "count": 73,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/obejsc-ograniczenia-automatyzacja-make-zapier/",
+    "theme": "dark",
+    "count": 73,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/zapier-make-n8n-google-business-profile/",
+    "theme": "light",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/zapier-make-n8n-google-business-profile/",
+    "theme": "dark",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/make-sheets-filtry-checkbox/",
+    "theme": "light",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/make-sheets-filtry-checkbox/",
+    "theme": "dark",
+    "count": 81,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-pobierac-i-uzywac-zdjec-z-google-drive-w-makecom/",
+    "theme": "light",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-pobierac-i-uzywac-zdjec-z-google-drive-w-makecom/",
+    "theme": "dark",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/ai-w-tworzeniu-instrukcji-obslugi-test-gemini-claude/",
+    "theme": "light",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/ai-w-tworzeniu-instrukcji-obslugi-test-gemini-claude/",
+    "theme": "dark",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/allegro-jak-znalezc-wszystko-od-jednego-sprzedawcy/",
+    "theme": "light",
+    "count": 77,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/allegro-jak-znalezc-wszystko-od-jednego-sprzedawcy/",
+    "theme": "dark",
+    "count": 77,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/2/",
+    "theme": "light",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/2/",
+    "theme": "dark",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/3/",
+    "theme": "light",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/3/",
+    "theme": "dark",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/4/",
+    "theme": "light",
+    "count": 59,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/4/",
+    "theme": "dark",
+    "count": 59,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/automatyzacja-podsumowan-youtube/",
+    "theme": "light",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/automatyzacja-podsumowan-youtube/",
+    "theme": "dark",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-ai-pomaga-w-nowych-zadaniach/",
+    "theme": "light",
+    "count": 71,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-ai-pomaga-w-nowych-zadaniach/",
+    "theme": "dark",
+    "count": 71,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/automatyzacja/2/",
+    "theme": "light",
+    "count": 42,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/automatyzacja/2/",
+    "theme": "dark",
+    "count": 42,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/greenshift-ciekawe-funkcje-i-przyklady/",
+    "theme": "light",
+    "count": 121,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/greenshift-ciekawe-funkcje-i-przyklady/",
+    "theme": "dark",
+    "count": 121,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-wybrac-technologie-dla-strony-internetowej/",
+    "theme": "light",
+    "count": 124,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-wybrac-technologie-dla-strony-internetowej/",
+    "theme": "dark",
+    "count": 124,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/astro-moduly-i-komponenty/",
+    "theme": "light",
+    "count": 90,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/astro-moduly-i-komponenty/",
+    "theme": "dark",
+    "count": 90,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-relume-pomaga-w-projektowaniu-stron-www/",
+    "theme": "light",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-relume-pomaga-w-projektowaniu-stron-www/",
+    "theme": "dark",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/brak-gwarancji-sukcesu/",
+    "theme": "light",
+    "count": 71,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/brak-gwarancji-sukcesu/",
+    "theme": "dark",
+    "count": 71,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/cena-strony-www/",
+    "theme": "light",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/cena-strony-www/",
+    "theme": "dark",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/dla-kogo-siec/",
+    "theme": "light",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/dla-kogo-siec/",
+    "theme": "dark",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/istota-rozwoju/",
+    "theme": "light",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/istota-rozwoju/",
+    "theme": "dark",
+    "count": 92,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/www/2/",
+    "theme": "light",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/kategoria/www/2/",
+    "theme": "dark",
+    "count": 74,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/product-hunt-najnowsze-narzedzia-aplikacje-saas/",
+    "theme": "light",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/product-hunt-najnowsze-narzedzia-aplikacje-saas/",
+    "theme": "dark",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/thunderbird-zarzadzanie-wieloma-email/",
+    "theme": "light",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/thunderbird-zarzadzanie-wieloma-email/",
+    "theme": "dark",
+    "count": 75,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-dziala-biznes/",
+    "theme": "light",
+    "count": 100,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-dziala-biznes/",
+    "theme": "dark",
+    "count": 100,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-zaczac-w-sieci/",
+    "theme": "light",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/jak-zaczac-w-sieci/",
+    "theme": "dark",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/mozliwosci-dzialania-w-sieci/",
+    "theme": "light",
+    "count": 149,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/mozliwosci-dzialania-w-sieci/",
+    "theme": "dark",
+    "count": 149,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/n8n-na-mikrusie/",
+    "theme": "light",
+    "count": 87,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/n8n-na-mikrusie/",
+    "theme": "dark",
+    "count": 87,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/najczestszy-blad-na-stronie/",
+    "theme": "light",
+    "count": 82,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/najczestszy-blad-na-stronie/",
+    "theme": "dark",
+    "count": 82,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/pozyskiwanie-ruchu-internetowego/",
+    "theme": "light",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/pozyskiwanie-ruchu-internetowego/",
+    "theme": "dark",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/problem-pisania-tekstow/",
+    "theme": "light",
+    "count": 77,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/problem-pisania-tekstow/",
+    "theme": "dark",
+    "count": 77,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/przyczyny-slabych-stron/",
+    "theme": "light",
+    "count": 69,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/przyczyny-slabych-stron/",
+    "theme": "dark",
+    "count": 69,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/samodzielna-strona-dlaczego-nie/",
+    "theme": "light",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/samodzielna-strona-dlaczego-nie/",
+    "theme": "dark",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/tworca-niedoskonaly/",
+    "theme": "light",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/tworca-niedoskonaly/",
+    "theme": "dark",
+    "count": 83,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/ukryte-koszty/",
+    "theme": "light",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 390,
+    "route": "/blog/ukryte-koszty/",
+    "theme": "dark",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/",
+    "theme": "light",
+    "count": 133,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/",
+    "theme": "dark",
+    "count": 133,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/",
+    "theme": "light",
+    "count": 143,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/",
+    "theme": "dark",
+    "count": 143,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/o-mnie/",
+    "theme": "light",
+    "count": 85,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/o-mnie/",
+    "theme": "dark",
+    "count": 85,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/kontakt/",
+    "theme": "light",
+    "count": 78,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/kontakt/",
+    "theme": "dark",
+    "count": 78,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/cnc/",
+    "theme": "light",
+    "count": 116,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/cnc/",
+    "theme": "dark",
+    "count": 116,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/szlifiernie/",
+    "theme": "light",
+    "count": 171,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/szlifiernie/",
+    "theme": "dark",
+    "count": 171,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/ogrodzenia/",
+    "theme": "light",
+    "count": 130,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/ogrodzenia/",
+    "theme": "dark",
+    "count": 130,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/mali-producenci/",
+    "theme": "light",
+    "count": 128,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/mali-producenci/",
+    "theme": "dark",
+    "count": 128,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/modelarnie-druk-3d/",
+    "theme": "light",
+    "count": 118,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/modelarnie-druk-3d/",
+    "theme": "dark",
+    "count": 118,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/stolarnie/",
+    "theme": "light",
+    "count": 118,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/stolarnie/",
+    "theme": "dark",
+    "count": 118,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/firmy-techniczne/",
+    "theme": "light",
+    "count": 118,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/firmy-techniczne/",
+    "theme": "dark",
+    "count": 118,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/inne/",
+    "theme": "light",
+    "count": 115,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/inne/",
+    "theme": "dark",
+    "count": 115,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/strony-www/",
+    "theme": "light",
+    "count": 127,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/strony-www/",
+    "theme": "dark",
+    "count": 127,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/systemy-i-automatyzacje/",
+    "theme": "light",
+    "count": 123,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/systemy-i-automatyzacje/",
+    "theme": "dark",
+    "count": 123,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/system-obslugi-zapytan/",
+    "theme": "light",
+    "count": 122,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/system-obslugi-zapytan/",
+    "theme": "dark",
+    "count": 122,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/cnc/kalkulator/",
+    "theme": "light",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/cnc/kalkulator/",
+    "theme": "dark",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/szlifiernie/kalkulator/",
+    "theme": "light",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/szlifiernie/kalkulator/",
+    "theme": "dark",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/ogrodzenia/kalkulator/",
+    "theme": "light",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/oferta/ogrodzenia/kalkulator/",
+    "theme": "dark",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/",
+    "theme": "light",
+    "count": 149,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/",
+    "theme": "dark",
+    "count": 149,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-research-tematy-rolek/",
+    "theme": "light",
+    "count": 140,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-research-tematy-rolek/",
+    "theme": "dark",
+    "count": 140,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/",
+    "theme": "light",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/",
+    "theme": "dark",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/automatyzacja-planowanie-dat-make-com/",
+    "theme": "light",
+    "count": 86,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/automatyzacja-planowanie-dat-make-com/",
+    "theme": "dark",
+    "count": 86,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/polityka-prywatnosci/",
+    "theme": "light",
+    "count": 182,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/polityka-prywatnosci/",
+    "theme": "dark",
+    "count": 182,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/modernizacja-strony-devesol/",
+    "theme": "light",
+    "count": 168,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/modernizacja-strony-devesol/",
+    "theme": "dark",
+    "count": 168,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/kategoria/automatyzacja/",
+    "theme": "light",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/kategoria/automatyzacja/",
+    "theme": "dark",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/kategoria/www/",
+    "theme": "light",
+    "count": 100,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/kategoria/www/",
+    "theme": "dark",
+    "count": 100,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/kategoria/system/",
+    "theme": "light",
+    "count": 96,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/kategoria/system/",
+    "theme": "dark",
+    "count": 96,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-tworzenia-skryptow-reels-tiktok/",
+    "theme": "light",
+    "count": 117,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-tworzenia-skryptow-reels-tiktok/",
+    "theme": "dark",
+    "count": 117,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-wizualizacji-danych-mapy-python/",
+    "theme": "light",
+    "count": 124,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-wizualizacji-danych-mapy-python/",
+    "theme": "dark",
+    "count": 124,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-tworzenia-wpisow-blog-wordpress/",
+    "theme": "light",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-tworzenia-wpisow-blog-wordpress/",
+    "theme": "dark",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-publikacji-google-business-profile/",
+    "theme": "light",
+    "count": 120,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyzacja-publikacji-google-business-profile/",
+    "theme": "dark",
+    "count": 120,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/prosty-system-zamowien/",
+    "theme": "light",
+    "count": 109,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/prosty-system-zamowien/",
+    "theme": "dark",
+    "count": 109,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyczne-uzyskanie-danych-z-internetu/",
+    "theme": "light",
+    "count": 99,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/automatyczne-uzyskanie-danych-z-internetu/",
+    "theme": "dark",
+    "count": 99,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/system-tworzenia-grafik-promocyjnych/",
+    "theme": "light",
+    "count": 109,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/system-tworzenia-grafik-promocyjnych/",
+    "theme": "dark",
+    "count": 109,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/system-czytelne-menu/",
+    "theme": "light",
+    "count": 127,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/system-czytelne-menu/",
+    "theme": "dark",
+    "count": 127,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/szablonowa-grafika/",
+    "theme": "light",
+    "count": 124,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/szablonowa-grafika/",
+    "theme": "dark",
+    "count": 124,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/moja-poprzednia-strona-www/",
+    "theme": "light",
+    "count": 102,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/moja-poprzednia-strona-www/",
+    "theme": "dark",
+    "count": 102,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/strona-internetowa-miernika/",
+    "theme": "light",
+    "count": 114,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/strona-internetowa-miernika/",
+    "theme": "dark",
+    "count": 114,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/moja-dotychczasowa-strona-www/",
+    "theme": "light",
+    "count": 136,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/moja-dotychczasowa-strona-www/",
+    "theme": "dark",
+    "count": 136,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/symulacja-ramienia-robotycznego/",
+    "theme": "light",
+    "count": 88,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/symulacja-ramienia-robotycznego/",
+    "theme": "dark",
+    "count": 88,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/program-zestawienia-materialowego/",
+    "theme": "light",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/program-zestawienia-materialowego/",
+    "theme": "dark",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/program-planowania-wyswietlacza-segmentowego/",
+    "theme": "light",
+    "count": 90,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/portfolio/program-planowania-wyswietlacza-segmentowego/",
+    "theme": "dark",
+    "count": 90,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/automatyzacja/",
+    "theme": "light",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/automatyzacja/",
+    "theme": "dark",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/www/",
+    "theme": "light",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/www/",
+    "theme": "dark",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/wskazwki/",
+    "theme": "light",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/wskazwki/",
+    "theme": "dark",
+    "count": 66,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/biznes/",
+    "theme": "light",
+    "count": 86,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/biznes/",
+    "theme": "dark",
+    "count": 86,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/cyfryzacja/",
+    "theme": "light",
+    "count": 62,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/cyfryzacja/",
+    "theme": "dark",
+    "count": 62,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/automatyzacja-bledy-make-n8n-rzeczywistosc/",
+    "theme": "light",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/automatyzacja-bledy-make-n8n-rzeczywistosc/",
+    "theme": "dark",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/tally-forms-automatyczny-motyw-jasny-ciemny/",
+    "theme": "light",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/tally-forms-automatyczny-motyw-jasny-ciemny/",
+    "theme": "dark",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/obejsc-ograniczenia-automatyzacja-make-zapier/",
+    "theme": "light",
+    "count": 93,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/obejsc-ograniczenia-automatyzacja-make-zapier/",
+    "theme": "dark",
+    "count": 93,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/zapier-make-n8n-google-business-profile/",
+    "theme": "light",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/zapier-make-n8n-google-business-profile/",
+    "theme": "dark",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/make-sheets-filtry-checkbox/",
+    "theme": "light",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/make-sheets-filtry-checkbox/",
+    "theme": "dark",
+    "count": 101,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-pobierac-i-uzywac-zdjec-z-google-drive-w-makecom/",
+    "theme": "light",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-pobierac-i-uzywac-zdjec-z-google-drive-w-makecom/",
+    "theme": "dark",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/ai-w-tworzeniu-instrukcji-obslugi-test-gemini-claude/",
+    "theme": "light",
+    "count": 111,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/ai-w-tworzeniu-instrukcji-obslugi-test-gemini-claude/",
+    "theme": "dark",
+    "count": 111,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/allegro-jak-znalezc-wszystko-od-jednego-sprzedawcy/",
+    "theme": "light",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/allegro-jak-znalezc-wszystko-od-jednego-sprzedawcy/",
+    "theme": "dark",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/2/",
+    "theme": "light",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/2/",
+    "theme": "dark",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/3/",
+    "theme": "light",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/3/",
+    "theme": "dark",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/4/",
+    "theme": "light",
+    "count": 79,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/4/",
+    "theme": "dark",
+    "count": 79,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/automatyzacja-podsumowan-youtube/",
+    "theme": "light",
+    "count": 115,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/automatyzacja-podsumowan-youtube/",
+    "theme": "dark",
+    "count": 115,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-ai-pomaga-w-nowych-zadaniach/",
+    "theme": "light",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-ai-pomaga-w-nowych-zadaniach/",
+    "theme": "dark",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/automatyzacja/2/",
+    "theme": "light",
+    "count": 62,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/automatyzacja/2/",
+    "theme": "dark",
+    "count": 62,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/greenshift-ciekawe-funkcje-i-przyklady/",
+    "theme": "light",
+    "count": 141,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/greenshift-ciekawe-funkcje-i-przyklady/",
+    "theme": "dark",
+    "count": 141,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-wybrac-technologie-dla-strony-internetowej/",
+    "theme": "light",
+    "count": 144,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-wybrac-technologie-dla-strony-internetowej/",
+    "theme": "dark",
+    "count": 144,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/astro-moduly-i-komponenty/",
+    "theme": "light",
+    "count": 110,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/astro-moduly-i-komponenty/",
+    "theme": "dark",
+    "count": 110,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-relume-pomaga-w-projektowaniu-stron-www/",
+    "theme": "light",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-relume-pomaga-w-projektowaniu-stron-www/",
+    "theme": "dark",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/brak-gwarancji-sukcesu/",
+    "theme": "light",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/brak-gwarancji-sukcesu/",
+    "theme": "dark",
+    "count": 91,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/cena-strony-www/",
+    "theme": "light",
+    "count": 109,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/cena-strony-www/",
+    "theme": "dark",
+    "count": 109,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/dla-kogo-siec/",
+    "theme": "light",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/dla-kogo-siec/",
+    "theme": "dark",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/istota-rozwoju/",
+    "theme": "light",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/istota-rozwoju/",
+    "theme": "dark",
+    "count": 112,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/www/2/",
+    "theme": "light",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/kategoria/www/2/",
+    "theme": "dark",
+    "count": 94,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/product-hunt-najnowsze-narzedzia-aplikacje-saas/",
+    "theme": "light",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/product-hunt-najnowsze-narzedzia-aplikacje-saas/",
+    "theme": "dark",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/thunderbird-zarzadzanie-wieloma-email/",
+    "theme": "light",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/thunderbird-zarzadzanie-wieloma-email/",
+    "theme": "dark",
+    "count": 95,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-dziala-biznes/",
+    "theme": "light",
+    "count": 120,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-dziala-biznes/",
+    "theme": "dark",
+    "count": 120,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-zaczac-w-sieci/",
+    "theme": "light",
+    "count": 114,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/jak-zaczac-w-sieci/",
+    "theme": "dark",
+    "count": 114,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/mozliwosci-dzialania-w-sieci/",
+    "theme": "light",
+    "count": 169,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/mozliwosci-dzialania-w-sieci/",
+    "theme": "dark",
+    "count": 169,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/n8n-na-mikrusie/",
+    "theme": "light",
+    "count": 107,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/n8n-na-mikrusie/",
+    "theme": "dark",
+    "count": 107,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/najczestszy-blad-na-stronie/",
+    "theme": "light",
+    "count": 102,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/najczestszy-blad-na-stronie/",
+    "theme": "dark",
+    "count": 102,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/pozyskiwanie-ruchu-internetowego/",
+    "theme": "light",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/pozyskiwanie-ruchu-internetowego/",
+    "theme": "dark",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/problem-pisania-tekstow/",
+    "theme": "light",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/problem-pisania-tekstow/",
+    "theme": "dark",
+    "count": 97,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/przyczyny-slabych-stron/",
+    "theme": "light",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/przyczyny-slabych-stron/",
+    "theme": "dark",
+    "count": 89,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/samodzielna-strona-dlaczego-nie/",
+    "theme": "light",
+    "count": 111,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/samodzielna-strona-dlaczego-nie/",
+    "theme": "dark",
+    "count": 111,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/tworca-niedoskonaly/",
+    "theme": "light",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/tworca-niedoskonaly/",
+    "theme": "dark",
+    "count": 103,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/ukryte-koszty/",
+    "theme": "light",
+    "count": 86,
+    "failures": []
+  },
+  {
+    "width": 1280,
+    "route": "/blog/ukryte-koszty/",
+    "theme": "dark",
+    "count": 86,
+    "failures": []
+  }
+]
